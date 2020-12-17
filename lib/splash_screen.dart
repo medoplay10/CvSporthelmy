@@ -1,18 +1,34 @@
 import 'package:flutter/material.dart';
+import "package:flutter/src/services/system_chrome.dart";
+import 'package:splashscreen/splashscreen.dart';
 
-class SplashScreen extends StatefulWidget {
+import 'Login_Screen.dart';
+
+class Splash_Screen extends StatefulWidget {
   @override
-  _SplashScreenState createState() => _SplashScreenState();
+  _Splash_ScreenState createState() => _Splash_ScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen> {
+class _Splash_ScreenState extends State<Splash_Screen> {
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(statusBarColor: Color(0xffF4F7FF)));
     return Scaffold(
-      body: Center(
-          child: Image.asset(
-        "assets/images/logo.png",
-      )),
+      backgroundColor: Color(0xffF4F7FF),
+      body: Container(
+        margin: EdgeInsets.only(top: 100),
+        color: Color(0xffF4F7FF),
+        child: SplashScreen(
+            seconds: 2,
+            navigateAfterSeconds: new Login_Screen(),
+            //    title: new Text('Welcome In SplashScreen'),
+            image: new Image.asset("assets/images/IconApp.png"),
+            backgroundColor: Color(0xffF4F7FF),
+            styleTextUnderTheLoader: new TextStyle(),
+            photoSize: 80,
+            loaderColor: Colors.red),
+      ),
     );
   }
 }

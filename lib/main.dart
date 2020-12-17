@@ -18,8 +18,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-        statusBarColor: Colors.white, //or set color with: Color(0xFF0000FF)
+      statusBarColor: Colors.white, //or set color with: Color(0xFF0000FF)
         systemNavigationBarColor: Colors.black,
+        statusBarIconBrightness: Brightness.dark,
         systemNavigationBarDividerColor: Colors.black));
 
     return MaterialApp(
@@ -95,6 +96,7 @@ class MyApp extends StatelessWidget {
         ),
         hintColor: Color(0xFFE0E3EC),
         primaryColor: Color(0xFFFD8C44),
+        //Color(0xFFFD8C44)
         accentColor: Color(0xFFFFFFFF),
         focusColor: Color(0xFF8C98A8),
         backgroundColor: Color(0xFF494861),
@@ -102,7 +104,7 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Tajawal',
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: SplashScreen(),
+      home: Splash_Screen(),
     );
   }
 }
