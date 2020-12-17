@@ -104,7 +104,7 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Tajawal',
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: Splash_Screen(),
+      home: SplashScreen(),
     );
   }
 }

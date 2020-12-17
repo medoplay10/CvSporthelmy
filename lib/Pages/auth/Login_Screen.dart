@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class Login_Screen extends StatelessWidget {
+class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //  print("Hight = "+ (80 /MediaQuery.of(context).size.height  ).toString());

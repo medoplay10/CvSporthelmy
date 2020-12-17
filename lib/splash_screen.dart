@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import "package:flutter/src/services/system_chrome.dart";
-import 'package:splashscreen/splashscreen.dart';
+import 'package:splashscreen/splashscreen.dart' as Splash;
 
-import 'Login_Screen.dart';
+import 'Pages/auth/Login_Screen.dart';
 
-class Splash_Screen extends StatefulWidget {
+class SplashScreen extends StatefulWidget {
   @override
-  _Splash_ScreenState createState() => _Splash_ScreenState();
+  _SplashScreenState createState() => _SplashScreenState();
 }
 
-class _Splash_ScreenState extends State<Splash_Screen> {
+class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(
@@ -19,9 +19,9 @@ class _Splash_ScreenState extends State<Splash_Screen> {
       body: Container(
         margin: EdgeInsets.only(top: 100),
         color: Color(0xffF4F7FF),
-        child: SplashScreen(
+        child: Splash.SplashScreen(
             seconds: 2,
-            navigateAfterSeconds: new Login_Screen(),
+            navigateAfterSeconds: new LoginScreen(),
             //    title: new Text('Welcome In SplashScreen'),
             image: new Image.asset("assets/images/IconApp.png"),
             backgroundColor: Color(0xffF4F7FF),
