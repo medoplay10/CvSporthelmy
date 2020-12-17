@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 class Login_Screen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    //  print("Hight = "+ (80 /MediaQuery.of(context).size.height  ).toString());
+    //  print("Hight = "+ (MediaQuery.of(context).size.width  * .63 ).toString());
+
     return Scaffold(
       body: Column(
         children: [
@@ -18,13 +21,19 @@ class Login_Screen extends StatelessWidget {
                       children: [
                         Image.asset(
                           "assets/images/background_login.png",
-                          height: 500,
+                          height: MediaQuery.of(context).size.height * .62,
                         ),
                         Positioned(
                           right: 0,
-                          bottom: 80,
+                          bottom: MediaQuery
+                              .of(context)
+                              .size
+                              .height * 0.096,
                           child: Container(
-                              width: 250,
+                              width: MediaQuery
+                                  .of(context)
+                                  .size
+                                  .width * .63,
                               alignment: Alignment.centerRight,
                               child: Text(
                                 "تسجيل الدخول باستخدام بريدك الالكترونى وكلمة المرور",
