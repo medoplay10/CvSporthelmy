@@ -31,7 +31,7 @@ dependencies:
   provider: ^4.3.2+3
   shared_preferences: ^0.5.12+4
   pin_code_fields: ^2.4.0
-  flutter_cupertino_localizations: ^1.0.1
+  easy_localization: ^2.3.2
 
 dev_dependencies:
   flutter_test:
@@ -48,6 +48,15 @@ flutter:
   # the material Icons class.
   uses-material-design: true
 
+  assets:
+    - assets/images/
+    - assets/langs/
+
+  fonts:
+    - family: Tajawal
+      fonts:
+        - asset: assets/fonts/DINNextLTArabic-Regular-2.ttf
+        - asset: assets/fonts/Tajawal-Regular.ttf
   # To add assets to your application, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg
