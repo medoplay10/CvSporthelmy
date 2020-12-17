@@ -1,4 +1,7 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+
+import 'SignUp_Screen.dart';
 
 class LoginScreen extends StatelessWidget {
   @override
@@ -46,6 +49,7 @@ class LoginScreen extends StatelessWidget {
                     )),
                 Positioned(
                   top: MediaQuery.of(context).size.height * .53,
+                  bottom: 0,
                   child: SingleChildScrollView(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -111,7 +115,7 @@ class LoginScreen extends StatelessWidget {
                           borderRadius: BorderRadius.circular(10)),
                       color: Color(0xff2C2B53),
                       child: Text(
-                        "تسجيل دخول",
+                        "signin".tr(),
                         style: TextStyle(color: Colors.white),
                       ),
                     ),
@@ -128,14 +132,20 @@ class LoginScreen extends StatelessWidget {
                 width: 5,
               ),
               InkWell(
+                  onTap: () {
+                    Navigator.of(context)
+                        .push(MaterialPageRoute(builder: (context) {
+                      return SignUpScreen();
+                    }));
+                  },
                   child: Text(
-                "سجل؟",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 16,
-                  decoration: TextDecoration.underline,
-                ),
-              ))
+                    "سجل؟",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                      decoration: TextDecoration.underline,
+                    ),
+                  ))
             ],
           )
         ],

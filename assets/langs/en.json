@@ -88,5 +88,9 @@
   "serviceDone": "Service ended",
   "serviceNew": "new Service",
   "serviceinProcess": "in process",
-  "serviceStatus": "Service Status"
+  "serviceStatus": "Service Status",
+  "PasswordEdit": "Enter Your Password",
+  "PasswordEditAgain": "Enter Your Password Again",
+  "SignUpBtn": "SignUp",
+  "HaveAccount": "HaveAccount?"
 }

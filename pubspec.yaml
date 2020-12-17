@@ -33,6 +33,8 @@ dependencies:
   pin_code_fields: ^2.4.0
   easy_localization: ^2.3.2
   splashscreen: ^1.3.5
+  country_code_picker: ^1.6.2
+  intl_phone_number_input: ^0.5.2+2
 dev_dependencies:
   flutter_test:
     sdk: flutter

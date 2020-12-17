@@ -3,8 +3,8 @@
   "selectedLang": "عربي",
   "signin": "تسجيل الدخول",
   "signup": "انشاء حساب",
-  "name": "الاسم",
-  "email": "البريد الالكتروني",
+  "name": "الاسم الكامل",
+  "email": "عنوان البريد الالكتروني",
   "phone": "رقم الهاتف",
   "noAccount": "ليس لديك حساب ؟",
   "signUphere": "سجل هنا",
@@ -14,6 +14,7 @@
   "signoutmsg": "هل تريد حقا تسجيل الخروج",
   "nameError": "لا يمكن للاسم ان يكون فارغ",
   "phoneError": "ادخل رقم صحيح",
+
   "emailError": "البريد الإلكتروني غير صالح",
   "noCategoryError": "اختر وظيفة او نوع خدمة",
   "enterCode": "ادخل الرمز",
@@ -88,5 +89,9 @@
   "serviceDone": "خدمة منتهية",
   "serviceNew": "خدمة جديدة",
   "serviceinProcess": "خدمة قيم التنفيذ",
-  "serviceStatus": "حالة الخدمة"
+  "serviceStatus": "حالة الخدمة",
+  "PasswordEdit": "ادخل رقمك السرى",
+  "PasswordEditAgain": "اعد كتابة كلمة المرور الخاص بك",
+  "SignUpBtn": "تسجيل",
+  "HaveAccount": "لدى حساب؟"
 }
