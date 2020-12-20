@@ -33,10 +33,7 @@ class LoginScreen extends StatelessWidget {
                               .size
                               .height * 0.096,
                           child: Container(
-                              width: MediaQuery
-                                  .of(context)
-                                  .size
-                                  .width * .63,
+                              width: MediaQuery.of(context).size.width * .5,
                               alignment: Alignment.centerRight,
                               child: Text(
                                 "تسجيل الدخول باستخدام بريدك الالكترونى وكلمة المرور",
