@@ -92,5 +92,10 @@
   "PasswordEdit": "Enter Your Password",
   "PasswordEditAgain": "Enter Your Password Again",
   "SignUpBtn": "SignUp",
-  "HaveAccount": "HaveAccount?"
+  "HaveAccount": "HaveAccount?",
+  "Verification": "Verification",
+  "EnterPicCode": "Please enter the code sent to your mobile phone number",
+  "GetPinCode": "I have not received the code! ",
+  "GetPinCodeAgain": "Resend the code",
+  "VerificationBtn": "Check"
 }

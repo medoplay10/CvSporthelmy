@@ -1,6 +1,6 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
+import 'package:pin_code_fields/pin_code_fields.dart';
 
 class SignUpScreen extends StatefulWidget {
   @override
@@ -11,12 +11,21 @@ class _SignUpScreenState extends State<SignUpScreen> {
   String CountryCode = "+20";
   PhoneNumber number = PhoneNumber(isoCode: 'EG');
   final TextEditingController controller = TextEditingController();
+  TextEditingController controllerPinText = TextEditingController();
+
 
   @override
   Widget build(BuildContext context) {
-    var Mediaheight = MediaQuery.of(context).size.height;
-    var Mediawidth = MediaQuery.of(context).size.width;
+    var Mediaheight = MediaQuery
+        .of(context)
+        .size
+        .height;
+    var Mediawidth = MediaQuery
+        .of(context)
+        .size
+        .width;
     return Scaffold(
+
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
@@ -32,21 +41,35 @@ class _SignUpScreenState extends State<SignUpScreen> {
           child: Column(
             children: [
               InputImage(Mediawidth, Mediaheight),
+
               SizeBox_Space(Mediaheight: Mediaheight, SizeWant: 15),
+
               TextFieldLocal(context: context, TextField: "name".tr()),
+
               SizeBox_Space(Mediaheight: Mediaheight, SizeWant: 5),
+
               InputPhone(context),
+
               SizeBox_Space(Mediaheight: Mediaheight, SizeWant: 5),
+
               TextFieldLocal(context: context, TextField: "email".tr()),
+
               SizeBox_Space(Mediaheight: Mediaheight, SizeWant: 5),
+
               TextFieldPassword(
                   context: context, TextField: "PasswordEdit".tr()),
+
               SizeBox_Space(Mediaheight: Mediaheight, SizeWant: 5),
+
               TextFieldPassword(
                   context: context, TextField: "PasswordEditAgain".tr()),
+
               SizeBox_Space(Mediaheight: Mediaheight, SizeWant: 15),
+
               Btn_SignUp(context),
+
               SizeBox_Space(Mediaheight: Mediaheight, SizeWant: 140),
+
               Row_TextHaveAccount(context)
             ],
           ),
@@ -210,7 +233,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
       height: 50,
       margin: EdgeInsets.only(bottom: 10),
       child: RaisedButton(
-        onPressed: () {},
+        onPressed: () => displayBottomSheet(context),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
         color: Color(0xff2C2B53),
         child: Text(
@@ -260,5 +283,115 @@ class _SignUpScreenState extends State<SignUpScreen> {
         ),
       ),
     );
+  }
+
+//============================Widget - displayBottomSheet ==================================
+
+  void displayBottomSheet(BuildContext context) {
+    controllerPinText = TextEditingController();
+    controllerPinText.clear();
+    showModalBottomSheet(
+      //  isDismissible: false,
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(20),
+              topRight: Radius.circular(20),
+            )
+        ),
+        context: context,
+        builder: (ctx) {
+          return Container(
+            height: MediaQuery
+                .of(context)
+                .size
+                .height * 0.5,
+            padding: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+            child: Column(
+              children: [
+                Text("Verification".tr(),
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
+                Text("EnterPicCode".tr(), textAlign: TextAlign.center,),
+                SizedBox(height: 10,),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  child: Directionality(
+                    textDirection: TextDirection.ltr,
+                    child: PinCodeTextField(
+                      appContext: context,
+
+                      length: 4,
+                      obscureText: false,
+                      cursorColor: Colors.white,
+                      animationType: AnimationType.fade,
+                      pinTheme: PinTheme(
+                        shape: PinCodeFieldShape.underline,
+                        borderRadius: BorderRadius.circular(5),
+                        fieldHeight: 50,
+                        fieldWidth: 40,
+                        activeFillColor: Colors.white,
+                      ),
+                      animationDuration: Duration(milliseconds: 300),
+
+                      keyboardType: TextInputType.phone,
+                      controller: controllerPinText,
+                      onCompleted: (v) {
+                        controllerPinText.text = v;
+                      },
+                      onChanged: (value) {
+                        print(value);
+                      },
+
+                    ),
+                  ),
+                ),
+
+                SizedBox(height: 10,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text("GetPinCode".tr()),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    InkWell(
+                        onTap: () {
+                          Navigator.of(context).push(
+                              MaterialPageRoute(builder: (context) {
+                                return SignUpScreen();
+                              }));
+                        },
+                        child: Text(
+                          "GetPinCodeAgain".tr(),
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                            decoration: TextDecoration.underline,
+                          ),
+                        ))
+                  ],
+                ),
+                SizedBox(height: 10,),
+                Container(
+                  width: MediaQuery
+                      .of(context)
+                      .size
+                      .width * 0.80,
+                  height: 50,
+                  margin: EdgeInsets.only(bottom: 10),
+                  child: RaisedButton(
+                    onPressed: () => displayBottomSheet(context),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10)),
+                    color: Color(0xff2C2B53),
+                    child: Text(
+                      "VerificationBtn".tr(),
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                )
+              ],
+            ),
+          );
+        });
   }
 }

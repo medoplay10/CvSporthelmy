@@ -93,5 +93,10 @@
   "PasswordEdit": "ادخل رقمك السرى",
   "PasswordEditAgain": "اعد كتابة كلمة المرور الخاص بك",
   "SignUpBtn": "تسجيل",
-  "HaveAccount": "لدى حساب؟"
+  "HaveAccount": "لدى حساب؟",
+  "Verification": "التحقق",
+  "EnterPicCode": "الرجاء إدخال الرمز المرسل إلى رقم هاتفك المحمول",
+  "GetPinCode": "لم اتلق الرمز! ",
+  "GetPinCodeAgain": "أعد ارسال الرمز",
+  "VerificationBtn": "تحقق"
 }
