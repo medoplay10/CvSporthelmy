@@ -99,6 +99,7 @@ class MyApp extends StatelessWidget {
         //Color(0xFFFD8C44)
         accentColor: Color(0xFFFFFFFF),
         focusColor: Color(0xFF8C98A8),
+
         backgroundColor: Color(0xFF494861),
         canvasColor: Colors.white,
         fontFamily: 'Tajawal',

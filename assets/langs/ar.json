@@ -98,5 +98,12 @@
   "EnterPicCode": "الرجاء إدخال الرمز المرسل إلى رقم هاتفك المحمول",
   "GetPinCode": "لم اتلق الرمز! ",
   "GetPinCodeAgain": "أعد ارسال الرمز",
-  "VerificationBtn": "تحقق"
+  "VerificationBtn": "تحقق",
+  "ComplateProfile": "اكمل الملف الشخصي",
+  "TitalComplateProfile": "قم بتحديث ملفك الشخصي للحصول على إجابة أفضل من الطبيب",
+  "Length": "الطول",
+  "date of Birth": "تاريخ الولادة",
+  "weight": "الوزن",
+  "Male": "الذكر",
+  "Female": "أنثى"
 }

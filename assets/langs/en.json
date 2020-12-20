@@ -97,5 +97,11 @@
   "EnterPicCode": "Please enter the code sent to your mobile phone number",
   "GetPinCode": "I have not received the code! ",
   "GetPinCodeAgain": "Resend the code",
-  "VerificationBtn": "Check"
+  "VerificationBtn": "Check",
+  "ComplateProfile": "Complete the profile",
+  "TitalComplateProfile": "Update your profile to get a better answer from the doctor",
+  "Length": "Length",
+  "date of Birth": "date of Birth",
+  "weight": "weight",
+  "Female": "Female"
 }

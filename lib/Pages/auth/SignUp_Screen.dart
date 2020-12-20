@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
+import 'ComplateProfile_Screen.dart';
+
 class SignUpScreen extends StatefulWidget {
   @override
   _SignUpScreenState createState() => _SignUpScreenState();
@@ -41,29 +43,24 @@ class _SignUpScreenState extends State<SignUpScreen> {
           child: Column(
             children: [
               InputImage(Mediawidth, Mediaheight),
-
               SizeBox_Space(Mediaheight: Mediaheight, SizeWant: 15),
-
-              TextFieldLocal(context: context, TextField: "name".tr()),
-
+              TextFieldLocal(
+                  context: context,
+                  TextField: "name".tr(),
+                  iconSelect: Icons.person),
               SizeBox_Space(Mediaheight: Mediaheight, SizeWant: 5),
-
               InputPhone(context),
-
               SizeBox_Space(Mediaheight: Mediaheight, SizeWant: 5),
-
-              TextFieldLocal(context: context, TextField: "email".tr()),
-
+              TextFieldLocal(
+                  context: context,
+                  TextField: "email".tr(),
+                  iconSelect: Icons.email),
               SizeBox_Space(Mediaheight: Mediaheight, SizeWant: 5),
-
               TextFieldPassword(
                   context: context, TextField: "PasswordEdit".tr()),
-
               SizeBox_Space(Mediaheight: Mediaheight, SizeWant: 5),
-
               TextFieldPassword(
                   context: context, TextField: "PasswordEditAgain".tr()),
-
               SizeBox_Space(Mediaheight: Mediaheight, SizeWant: 15),
 
               Btn_SignUp(context),
@@ -93,8 +90,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 splashColor: Colors.red, // inkwell color
                 child: SizedBox(
                     child: Icon(
-                  Icons.person,
-                  size: 50,
+                      Icons.person,
+                      color: Color(0xff68699C),
+                      size: 50,
                 )),
                 onTap: () {},
               ),
@@ -123,7 +121,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           ),
           Icon(
             Icons.phone,
-            color: Colors.grey,
+            color: Color(0xff68699C),
           ),
           SizedBox(
             width: 15,
@@ -159,34 +157,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               inputBorder: OutlineInputBorder(),
             ),
           ),
-          // Container(
-          //   height: 40,
-          //   width: 2,
-          //   color: Colors.black,
-          // ),
-          //
-          // Flexible(
-          //  flex: 2,
-          //   child: TextFormField(
-          //     keyboardType: TextInputType.phone,
-          //     maxLines: 1,
-          //     style: TextStyle(fontSize: 18, color: Colors.black),
-          //     decoration: InputDecoration(
-          //       filled: true,
-          //       fillColor: Colors.white,
-          //     border: InputBorder.none,
-          //     errorBorder: InputBorder.none,
-          //     focusedBorder: InputBorder.none,
-          //     disabledBorder: InputBorder.none,
-          //     //  labelText: "name".tr(),
-          //       hintText: "ادخل هاتفك",
-          //     //  labelStyle: TextStyle(fontSize: 16, color: Colors.grey.shade700),
-          //     ),
-          //   ),
-          // ),
-          // SizedBox(
-          //   width: 20,
-          // )
+
         ],
       ),
     );
@@ -254,7 +225,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
         decoration: InputDecoration(
           filled: true,
           fillColor: Colors.white,
-          prefixIcon: Icon(Icons.lock),
+          prefixIcon: Icon(Icons.lock, color: Color(0xff68699C)),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(20),
           ),
@@ -266,15 +237,19 @@ class _SignUpScreenState extends State<SignUpScreen> {
   }
 
 //============================Widget - TextFieldLocal ==================================
-  Container TextFieldLocal({BuildContext context, String TextField}) {
+  Container TextFieldLocal(
+      {BuildContext context, String TextField, var iconSelect }) {
     return Container(
-      width: MediaQuery.of(context).size.width * 0.85,
+      width: MediaQuery
+          .of(context)
+          .size
+          .width * 0.85,
       child: TextFormField(
         style: TextStyle(fontSize: 18, color: Colors.black),
         decoration: InputDecoration(
           filled: true,
           fillColor: Colors.white,
-          prefixIcon: Icon(Icons.person),
+          prefixIcon: Icon(iconSelect, color: Color(0xff68699C),),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(20),
           ),
@@ -379,7 +354,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   height: 50,
                   margin: EdgeInsets.only(bottom: 10),
                   child: RaisedButton(
-                    onPressed: () => displayBottomSheet(context),
+                    onPressed: () {
+                      Navigator.of(context)
+                          .push(MaterialPageRoute(builder: (context) {
+                        return ComplateProfileScreen();
+                      }));
+                    },
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10)),
                     color: Color(0xff2C2B53),

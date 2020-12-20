@@ -61,7 +61,8 @@ class LoginScreen extends StatelessWidget {
                             decoration: InputDecoration(
                               filled: true,
                               fillColor: Colors.white,
-                              prefixIcon: Icon(Icons.email),
+                              prefixIcon:
+                                  Icon(Icons.email, color: Color(0xff68699C)),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(20),
                               ),
@@ -80,7 +81,8 @@ class LoginScreen extends StatelessWidget {
                             obscureText: true,
                             style: TextStyle(fontSize: 18, color: Colors.black),
                             decoration: InputDecoration(
-                              prefixIcon: Icon(Icons.lock),
+                              prefixIcon: Icon(
+                                  Icons.lock, color: Color(0xff68699C)),
                               filled: true,
                               fillColor: Colors.white,
                               border: OutlineInputBorder(
