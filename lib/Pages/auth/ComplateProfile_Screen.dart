@@ -1,3 +1,4 @@
+import 'package:cv_sports/Pages/home/MainScreen.dart';
 import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -103,8 +104,9 @@ class _ComplateProfileScreenState extends State<ComplateProfileScreen> {
       margin: EdgeInsets.only(bottom: 10),
       child: RaisedButton(
         onPressed: () {
-          Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-            return ComplateProfileScreen();
+          Navigator.of(context)
+              .pushReplacement(MaterialPageRoute(builder: (context) {
+            return MainScreen();
           }));
         },
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
@@ -203,7 +205,7 @@ class _ComplateProfileScreenState extends State<ComplateProfileScreen> {
                     style: TextStyle(
                         fontSize: 18,
                         color:
-                            (SeclectBtn == true) ? Colors.white : Colors.black),
+                        (SeclectBtn == true) ? Colors.white : Colors.black),
                   ),
                   SizedBox(
                     width: 20,
@@ -211,7 +213,7 @@ class _ComplateProfileScreenState extends State<ComplateProfileScreen> {
                   FaIcon(FontAwesomeIcons.male,
                       size: 40,
                       color:
-                          (SeclectBtn == true) ? Colors.white : Colors.black),
+                      (SeclectBtn == true) ? Colors.white : Colors.black),
                 ],
               ),
               decoration: BoxDecoration(
@@ -220,8 +222,8 @@ class _ComplateProfileScreenState extends State<ComplateProfileScreen> {
                   color: Colors.grey, //                   <--- border color
                 ),
                 borderRadius: BorderRadius.all(Radius.circular(
-                        20.0) //                 <--- border radius here
-                    ),
+                    20.0) //                 <--- border radius here
+                ),
               )),
         ),
         InkWell(
@@ -248,7 +250,7 @@ class _ComplateProfileScreenState extends State<ComplateProfileScreen> {
                   FaIcon(FontAwesomeIcons.male,
                       size: 40,
                       color:
-                          (SeclectBtn == false) ? Colors.white : Colors.black)
+                      (SeclectBtn == false) ? Colors.white : Colors.black)
                 ],
               ),
               decoration: BoxDecoration(
@@ -257,8 +259,8 @@ class _ComplateProfileScreenState extends State<ComplateProfileScreen> {
                   color: Colors.grey, //                   <--- border color
                 ),
                 borderRadius: BorderRadius.all(Radius.circular(
-                        20.0) //                 <--- border radius here
-                    ),
+                    20.0) //                 <--- border radius here
+                ),
               )),
         ),
       ],
@@ -266,8 +268,7 @@ class _ComplateProfileScreenState extends State<ComplateProfileScreen> {
   }
 
 //============================Widget - TextFieldLocal ==================================
-  Container TextFieldLocal(
-      {BuildContext context, String TextField, var iconSelect}) {
+  Container TextFieldLocal({BuildContext context, String TextField, var iconSelect}) {
     return Container(
       width: MediaQuery.of(context).size.width * 0.85,
       child: TextFormField(

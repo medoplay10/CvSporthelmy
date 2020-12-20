@@ -1,3 +1,4 @@
+import 'package:cv_sports/Pages/home/MainScreen.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
@@ -56,7 +57,7 @@ class LoginScreen extends StatelessWidget {
                               filled: true,
                               fillColor: Colors.white,
                               prefixIcon:
-                              Icon(Icons.email, color: Color(0xff68699C)),
+                                  Icon(Icons.email, color: Color(0xff68699C)),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(20),
                               ),
@@ -109,7 +110,12 @@ class LoginScreen extends StatelessWidget {
                     height: 50,
                     margin: EdgeInsets.only(bottom: 10),
                     child: RaisedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context).pushReplacement(
+                            MaterialPageRoute(builder: (context) {
+                              return MainScreen();
+                            }));
+                      },
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10)),
                       color: Color(0xff2C2B53),
