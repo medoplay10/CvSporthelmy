@@ -28,15 +28,12 @@ class LoginScreen extends StatelessWidget {
                         ),
                         Positioned(
                           right: 0,
-                          bottom: MediaQuery
-                              .of(context)
-                              .size
-                              .height * 0.096,
+                          bottom: MediaQuery.of(context).size.height * 0.096,
                           child: Container(
                               width: MediaQuery.of(context).size.width * .5,
                               alignment: Alignment.centerRight,
                               child: Text(
-                                "تسجيل الدخول باستخدام بريدك الالكترونى وكلمة المرور",
+                                "loginWithEmailAndPassword".tr(),
                                 maxLines: 2,
                                 style: TextStyle(
                                     color: Colors.white, fontSize: 13),
@@ -59,11 +56,11 @@ class LoginScreen extends StatelessWidget {
                               filled: true,
                               fillColor: Colors.white,
                               prefixIcon:
-                                  Icon(Icons.email, color: Color(0xff68699C)),
+                              Icon(Icons.email, color: Color(0xff68699C)),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(20),
                               ),
-                              labelText: "ادخل بريدك الالكترونى",
+                              labelText: "email".tr(),
                               labelStyle: TextStyle(
                                   fontSize: 16, color: Colors.grey.shade700),
                             ),
@@ -78,14 +75,14 @@ class LoginScreen extends StatelessWidget {
                             obscureText: true,
                             style: TextStyle(fontSize: 18, color: Colors.black),
                             decoration: InputDecoration(
-                              prefixIcon: Icon(
-                                  Icons.lock, color: Color(0xff68699C)),
+                              prefixIcon:
+                              Icon(Icons.lock, color: Color(0xff68699C)),
                               filled: true,
                               fillColor: Colors.white,
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(20),
                               ),
-                              labelText: "ادخل رقمك السرى",
+                              labelText: "password".tr(),
                               labelStyle: TextStyle(
                                   fontSize: 16, color: Colors.grey.shade700),
                             ),
@@ -97,10 +94,13 @@ class LoginScreen extends StatelessWidget {
                 ),
                 Positioned(
                   left: 20,
-                  top: MediaQuery.of(context).size.height * .73,
+                  top: MediaQuery
+                      .of(context)
+                      .size
+                      .height * .73,
                   child: Container(
                       alignment: Alignment.topCenter,
-                      child: Text("هل نسيت كلمة السر ؟")),
+                      child: Text("forgetPassword".tr())),
                 ),
                 Positioned(
                   top: MediaQuery.of(context).size.height * .78,
@@ -126,7 +126,7 @@ class LoginScreen extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text("ليس لديك حساب؟"),
+              Text("noAccount".tr()),
               SizedBox(
                 width: 5,
               ),
@@ -138,7 +138,7 @@ class LoginScreen extends StatelessWidget {
                     }));
                   },
                   child: Text(
-                    "سجل؟",
+                    "signUpHere".tr(),
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 16,
