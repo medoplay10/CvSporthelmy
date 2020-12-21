@@ -1,12 +1,21 @@
 import 'package:flutter/material.dart';
 
-class NewsCards {
-  Row RowShowNews(
-      {String MainImage,
-      var IconClub,
-      String NameClub,
-      String TitalNews,
-      String ContantNews}) {
+class NewsCard extends StatelessWidget {
+  String mainImage;
+  var iconClub;
+  String nameClub;
+  String titleNews;
+  String contentNews;
+
+  NewsCard(
+      {this.mainImage,
+      this.iconClub,
+      this.nameClub,
+      this.titleNews,
+      this.contentNews});
+
+  @override
+  Widget build(BuildContext context) {
     return Row(
       children: [
         //  SizedBox(width: 20,),
@@ -15,10 +24,9 @@ class NewsCards {
           child: ClipRRect(
               borderRadius: BorderRadius.circular(10.0),
               child: Image.network(
-                MainImage,
+                mainImage,
                 fit: BoxFit.fill,
                 height: 72,
-                // width: 300,
               )),
         ),
         SizedBox(
@@ -27,22 +35,22 @@ class NewsCards {
         Flexible(
           flex: 4,
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
                 children: [
-                  Icon(IconClub),
+                  Icon(iconClub),
                   SizedBox(
                     width: 10,
                   ),
-                  Text(NameClub)
+                  Text(nameClub)
                 ],
               ),
               SizedBox(
                 width: 10,
               ),
               Text(
-                TitalNews,
-                textAlign: TextAlign.center,
+                titleNews,
                 style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
                 overflow: TextOverflow.ellipsis,
               ),
@@ -50,7 +58,7 @@ class NewsCards {
                 height: 5,
               ),
               Text(
-                ContantNews,
+                contentNews,
                 textAlign: TextAlign.right,
                 style: TextStyle(fontSize: 14),
                 maxLines: 2,

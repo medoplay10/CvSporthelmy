@@ -1,5 +1,5 @@
 import 'package:cv_sports/Model/Sports.dart';
-import 'package:cv_sports/Widgets/cards.dart';
+import 'package:cv_sports/Widgets/newsCards.dart';
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -56,7 +56,7 @@ class _MainScreenState extends State<MainScreen> {
     var Mediawidth = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: Color(0xffF4F7FF),
-      appBar: AppBar_MainScreen(Mediawidth, Mediaheight),
+      appBar: AppBarMainScreen(Mediawidth, Mediaheight),
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -71,17 +71,17 @@ class _MainScreenState extends State<MainScreen> {
                   ),
                   borderRadius: BorderRadius.circular(20),
                 ),
-                child: RowSearch(),
+                child: rowSearch(),
               ),
             ),
             SizedBox(
               height: 10,
             ),
-            RowListIcon(Mediawidth, Mediaheight),
+            rowListIcon(Mediawidth, Mediaheight),
             SizedBox(
               height: 10,
             ),
-            CarouselNews(),
+            carouselNews(),
             SizedBox(
               height: 10,
             ),
@@ -110,30 +110,32 @@ class _MainScreenState extends State<MainScreen> {
                     .width * 0.85,
                 padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                 alignment: Alignment.center,
-
                 child: Column(
                   children: [
-                    NewsCards().RowShowNews(
-
-                        MainImage: "https://www.zamalektoday.com/files/pic_news/cb92bdc4e5.jpg",
-                        IconClub: Icons.airplanemode_active_rounded,
-                        NameClub: "Zamalek",
-                        ContantNews: "نادي الزمالك للألعاب الرياضية ‏، أو كما يعرف اختصاراً باسم نادي الزمالك، هو نادٍ رياضي مصري احترافي يلعب في الدوري المصري",
-                        TitalNews: "نادى الزمالك يحصل على اللاعب ميسى"
+                    NewsCard(
+                        mainImage:
+                        "https://www.zamalektoday.com/files/pic_news/cb92bdc4e5.jpg",
+                        iconClub: Icons.airplanemode_active_rounded,
+                        nameClub: "Zamalek",
+                        contentNews:
+                        "نادي الزمالك للألعاب الرياضية ‏، أو كما يعرف اختصاراً باسم نادي الزمالك، هو نادٍ رياضي مصري احترافي يلعب في الدوري المصري",
+                        titleNews: "نادى الزمالك يحصل على اللاعب ميسى"),
+                    Divider(
+                      height: 15,
+                      thickness: 2,
                     ),
-                    Divider(height: 15, thickness: 2,),
-                    NewsCards().RowShowNews(
-
-                        MainImage: "https://upload.wikimedia.org/wikipedia/ar/thumb/f/fc/Al-Nassr_FC_Logo.svg/1200px-Al-Nassr_FC_Logo.svg.png",
-                        IconClub: Icons.camera,
-                        NameClub: "Al Naser",
-                        ContantNews: "نادي النصر السعودي هو فريق كرة قدم سعودي تأسس عام 1955م الموافق 1375هـ، يُلقبْ الفريق من قبل مشجعيه بـالعالمي بسبب مشاركته وتمثيله لقارة آسيا في أول كأس العالم للأندية كرة القدم ",
-                        TitalNews: "نادى النصر يحصل على اللاعب رونالدو"
-                    ),
+                    NewsCard(
+                        mainImage:
+                        "https://upload.wikimedia.org/wikipedia/ar/thumb/f/fc/Al-Nassr_FC_Logo.svg/1200px-Al-Nassr_FC_Logo.svg.png",
+                        iconClub: Icons.camera,
+                        nameClub: "Al Naser",
+                        contentNews:
+                        "نادي النصر السعودي هو فريق كرة قدم سعودي تأسس عام 1955م الموافق 1375هـ، يُلقبْ الفريق من قبل مشجعيه بـالعالمي بسبب مشاركته وتمثيله لقارة آسيا في أول كأس العالم للأندية كرة القدم ",
+                        titleNews: "نادى النصر يحصل على اللاعب رونالدو"),
                     SizedBox(
                       height: 15,
                     ),
-                    btn_ExtraNews(context)
+                    btnExtraNews(context)
                   ],
                 ),
               ),
@@ -166,7 +168,7 @@ class _MainScreenState extends State<MainScreen> {
 
 //=============================== Widget AppBar_MainScreen ===========================
 
-  AppBar AppBar_MainScreen(double Mediawidth, double Mediaheight) {
+  AppBar AppBarMainScreen(double Mediawidth, double Mediaheight) {
     return AppBar(
       backgroundColor: Color(0xffF4F7FF),
       actions: [
@@ -211,7 +213,7 @@ class _MainScreenState extends State<MainScreen> {
 
 //=============================== Widget btn_ExtraNews ===========================
 
-  Container btn_ExtraNews(BuildContext context) {
+  Container btnExtraNews(BuildContext context) {
     return Container(
       width: MediaQuery
           .of(context)
@@ -221,13 +223,12 @@ class _MainScreenState extends State<MainScreen> {
       margin: EdgeInsets.only(bottom: 10),
       child: RaisedButton(
         onPressed: () {
-          Navigator.of(context).pushReplacement(
-              MaterialPageRoute(builder: (context) {
-                return MainScreen();
-              }));
+          Navigator.of(context)
+              .pushReplacement(MaterialPageRoute(builder: (context) {
+            return MainScreen();
+          }));
         },
-        shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(25)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
         color: Color(0xffA5B0CC),
         child: Text(
           "المزيد من الاخبار",
@@ -238,7 +239,6 @@ class _MainScreenState extends State<MainScreen> {
   }
 
 //=============================== Widget RowShowNews ===========================
-
 
 //=============================== Widget Row Videos ===========================
 
@@ -268,17 +268,17 @@ class _MainScreenState extends State<MainScreen> {
 
 //=============================== Widget Carousel News ===========================
 
-  Container CarouselNews() {
+  Container carouselNews() {
     return Container(
         child: Column(
-      children: [
-        CarouselSlider.builder(
-          itemCount: listSport.length,
-          options: CarouselOptions(
-              height: 140,
-              aspectRatio: 16 / 9,
-              viewportFraction: 0.8,
-              enlargeCenterPage: true,
+          children: [
+            CarouselSlider.builder(
+              itemCount: listSport.length,
+              options: CarouselOptions(
+                  height: 140,
+                  aspectRatio: 16 / 9,
+                  viewportFraction: 0.8,
+                  enlargeCenterPage: true,
               autoPlay: true,
               onPageChanged: (index, reason) {
                 setState(() {
@@ -323,7 +323,7 @@ class _MainScreenState extends State<MainScreen> {
 
 //=============================== Widget Row Search ===========================
 
-  Row RowSearch() {
+  Row rowSearch() {
     return Row(
       //    mainAxisAlignment:MainAxisAlignment.center ,
       children: [
@@ -346,7 +346,7 @@ class _MainScreenState extends State<MainScreen> {
   }
 
 //=============================== Widget RowListIcon ===========================
-  SizedBox RowListIcon(double Mediawidth, double Mediaheight) {
+  SizedBox rowListIcon(double Mediawidth, double Mediaheight) {
     return SizedBox(
       width: double.infinity,
       height: 100,
