@@ -1,11 +1,11 @@
-import 'package:cv_sports/Model/Coach.dart';
-import 'package:cv_sports/Model/Players.dart';
-import 'package:cv_sports/Model/Sports.dart';
-import 'package:cv_sports/Widgets/newsCards.dart';
 import 'package:flutter/material.dart';
-import 'package:easy_localization/easy_localization.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:carousel_slider/carousel_slider.dart';
+
+import 'package:flutter_snake_navigationbar/flutter_snake_navigationbar.dart';
+
+import 'CategoryScreen.dart';
+import 'HomeScreen.dart';
+import 'ProfileScreen.dart';
+import 'SettingScreen.dart';
 
 class MainScreen extends StatefulWidget {
   @override
@@ -13,547 +13,73 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  List<Sports> listSport = [
-    Sports(
-        Tital: "كرة قدم",
-        iconData: FontAwesomeIcons.footballBall,
-        UrlImage:
-            "https://sportstalk1260.com/wp-content/uploads/2020/03/football-history.jpg"),
-    Sports(
-        Tital: "تنس",
-        iconData: FontAwesomeIcons.tableTennis,
-        UrlImage:
-            "https://1440sportz.com/wp-content/uploads/2020/07/Nike-Football-3.jpg"),
-    Sports(
-        Tital: "كرة سلة",
-        iconData: FontAwesomeIcons.basketballBall,
-        UrlImage:
-            "https://sportstalk1260.com/wp-content/uploads/2020/03/football-history.jpg"),
-    Sports(
-        Tital: "بيسبول",
-        iconData: FontAwesomeIcons.baseballBall,
-        UrlImage:
-            "https://1440sportz.com/wp-content/uploads/2020/07/Nike-Football-3.jpg"),
-    Sports(
-        Tital: "كرة يد",
-        iconData: FontAwesomeIcons.baseballBall,
-        UrlImage:
-            "https://sportstalk1260.com/wp-content/uploads/2020/03/football-history.jpg"),
-    Sports(
-        Tital: "الكرة الطائرة",
-        iconData: FontAwesomeIcons.volleyballBall,
-        UrlImage:
-            "https://1440sportz.com/wp-content/uploads/2020/07/Nike-Football-3.jpg"),
-    Sports(
-        Tital: "بولو الماء",
-        iconData: FontAwesomeIcons.water,
-        UrlImage:
-            "https://sportstalk1260.com/wp-content/uploads/2020/03/football-history.jpg"),
+  ShapeBorder bottomBarShape = const RoundedRectangleBorder(
+    borderRadius: BorderRadius.all(Radius.circular(25)),
+  );
+  SnakeBarBehaviour snakeBarStyle = SnakeBarBehaviour.floating;
+  EdgeInsets padding = const EdgeInsets.all(5);
+
+  int _selectedItemPosition = 0;
+  SnakeShape snakeShape = SnakeShape.indicator;
+
+  bool showSelectedLabels = false;
+  bool showUnselectedLabels = false;
+
+  Color selectedColor = Color(0xffFFCB4D);
+  Gradient selectedGradient =
+      const LinearGradient(colors: [Colors.red, Colors.amber]);
+
+  Color unselectedColor = Colors.white;
+  Gradient unselectedGradient =
+      const LinearGradient(colors: [Colors.red, Colors.blueGrey]);
+
+  Color containerColor;
+  List<Color> containerColors = [
+    const Color(0xFFFDE1D7),
+    const Color(0xFFE4EDF5),
+    const Color(0xFFE7EEED),
+    const Color(0xFFF4E4CE),
   ];
 
-  List<Players> listPlayer = [
-    Players(
-        UrlImage:
-            "https://specials-images.forbesimg.com/imageserve/5f5bd38ccacfa3fa5118407b/960x0.jpg?fit=scale",
-        name: "Messi",
-        PlayerPlace: "attacker"),
-    Players(
-        UrlImage:
-            "https://specials-images.forbesimg.com/imageserve/5f5bd38ccacfa3fa5118407b/960x0.jpg?fit=scale",
-        name: "Messi",
-        PlayerPlace: "attacker"),
-    Players(
-        UrlImage:
-            "https://specials-images.forbesimg.com/imageserve/5f5bd38ccacfa3fa5118407b/960x0.jpg?fit=scale",
-        name: "Messi",
-        PlayerPlace: "attacker"),
-    Players(
-        UrlImage:
-            "https://specials-images.forbesimg.com/imageserve/5f5bd38ccacfa3fa5118407b/960x0.jpg?fit=scale",
-        name: "Messi",
-        PlayerPlace: "attacker"),
+  var ListScreen = [
+    HomeScreen(),
+    ProfileScreen(),
+    CategoryScreen(),
+    SettingScreen(),
   ];
-  List<Coach> ListCoach = [
-    Coach(
-        name: "دييغو سيميوني",
-        UrlImage:
-            "https://www.skynewsarabia.com/images/v1/2019/09/14/1282832/800/450/1-1282832.jpg",
-        CoachPlace: "atletico madrid"),
-    Coach(
-        name: "دييغو سيميوني",
-        UrlImage:
-            "https://www.skynewsarabia.com/images/v1/2019/09/14/1282832/800/450/1-1282832.jpg",
-        CoachPlace: "atletico madrid"),
-    Coach(
-        name: "دييغو سيميوني",
-        UrlImage:
-            "https://www.skynewsarabia.com/images/v1/2019/09/14/1282832/800/450/1-1282832.jpg",
-        CoachPlace: "atletico madrid"),
-    Coach(
-        name: "دييغو سيميوني",
-        UrlImage:
-            "https://www.skynewsarabia.com/images/v1/2019/09/14/1282832/800/450/1-1282832.jpg",
-        CoachPlace: "atletico madrid"),
-  ];
-
-  int _current = 0;
 
   @override
   Widget build(BuildContext context) {
     var Mediaheight = MediaQuery.of(context).size.height;
     var Mediawidth = MediaQuery.of(context).size.width;
     return Scaffold(
+      bottomNavigationBar: SnakeNavigationBar.color(
+        behaviour: snakeBarStyle,
+        snakeShape: snakeShape,
+        shape: bottomBarShape,
+        padding: padding,
+        backgroundColor: Color(0xff2C2B53),
+        snakeViewColor: selectedColor,
+        selectedItemColor:
+            snakeShape == SnakeShape.indicator ? selectedColor : null,
+        unselectedItemColor: Colors.white,
+        showUnselectedLabels: showUnselectedLabels,
+        showSelectedLabels: showSelectedLabels,
+        currentIndex: _selectedItemPosition,
+        onTap: (index) => setState(() => _selectedItemPosition = index),
+        items: [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'home'),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'tickets'),
+          BottomNavigationBarItem(icon: Icon(Icons.widgets), label: 'calendar'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.settings), label: 'microphone'),
+        ],
+      ),
       backgroundColor: Color(0xffF4F7FF),
       appBar: appBarMainScreen(Mediawidth, Mediaheight),
-      body: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Center(
-              child: Container(
-                width: MediaQuery
-                    .of(context)
-                    .size
-                    .width * 0.85,
-                decoration: BoxDecoration(
-                  color: Color(0xffE7EBF8),
-                  border: Border.all(
-                    color: Colors.grey.shade300,
-                  ),
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: rowSearch(),
-              ),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            rowListIcon(Mediawidth, Mediaheight),
-            SizedBox(
-              height: 10,
-            ),
-            carouselNews(),
-            SizedBox(
-              height: 10,
-            ),
-            Container(
-                margin: EdgeInsets.only(right: 10),
-                alignment: Alignment.centerRight,
-                child: Text(
-                  "عن التطبيق",
-                  style: TextStyle(fontSize: 18),
-                )),
-            SizedBox(
-              height: 10,
-            ),
-            rowVideos(),
-            SizedBox(
-              height: 10,
-            ),
-            Card(
-              elevation: 5,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20)),
-              child: Container(
-                width: MediaQuery
-                    .of(context)
-                    .size
-                    .width * 0.85,
-                padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                alignment: Alignment.center,
-                child: Column(
-                  children: [
-                    NewsCard(
-                        mainImage:
-                        "https://www.zamalektoday.com/files/pic_news/cb92bdc4e5.jpg",
-                        iconClub: Icons.airplanemode_active_rounded,
-                        nameClub: "Zamalek",
-                        contentNews:
-                        "نادي الزمالك للألعاب الرياضية ‏، أو كما يعرف اختصاراً باسم نادي الزمالك، هو نادٍ رياضي مصري احترافي يلعب في الدوري المصري",
-                        titleNews: "نادى الزمالك يحصل على اللاعب ميسى"),
-                    Divider(
-                      height: 15,
-                      thickness: 2,
-                    ),
-                    NewsCard(
-                        mainImage:
-                        "https://upload.wikimedia.org/wikipedia/ar/thumb/f/fc/Al-Nassr_FC_Logo.svg/1200px-Al-Nassr_FC_Logo.svg.png",
-                        iconClub: Icons.camera,
-                        nameClub: "Al Naser",
-                        contentNews:
-                        "نادي النصر السعودي هو فريق كرة قدم سعودي تأسس عام 1955م الموافق 1375هـ، يُلقبْ الفريق من قبل مشجعيه بـالعالمي بسبب مشاركته وتمثيله لقارة آسيا في أول كأس العالم للأندية كرة القدم ",
-                        titleNews: "نادى النصر يحصل على اللاعب رونالدو"),
-                    SizedBox(
-                      height: 15,
-                    ),
-                    btnExtraNews(context)
-                  ],
-                ),
-              ),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            cardMorePlayers(context: context,
-                Mediawidth: Mediawidth,
-                Mediaheight: Mediaheight,
-                listPlayers: listPlayer),
-            SizedBox(
-              height: 10,
-            ),
-            cardMoreCoach(context: context,
-                Mediawidth: Mediawidth,
-                Mediaheight: Mediaheight,
-                listCoach: ListCoach),
-            SizedBox(
-              height: 10,
-            ),
-          ],
-        ),
-      ),
+      body: ListScreen[_selectedItemPosition],
     );
   }
-
-  //=============================== Widget Card More Coach===========================
-
-  Card cardMoreCoach(
-      {BuildContext context, double Mediawidth, double Mediaheight, List<
-          Coach> listCoach}) {
-    return Card(
-      elevation: 5,
-      shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20)),
-      child: Container(
-        width: MediaQuery
-            .of(context)
-            .size
-            .width * 0.85,
-        height: 265,
-        alignment: Alignment.center,
-        child: Row(
-          children: [
-            Expanded(
-              flex: 5,
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Color(0xffE3E7F1),
-                  borderRadius: BorderRadius.only(
-                      topRight: Radius.circular(20),
-                      bottomRight: Radius.circular(20)),
-                  //      color: Color(0xffF4F7FF),
-                ),
-                child: GridView.count(
-                  childAspectRatio: .79,
-                  primary: false,
-                  shrinkWrap: true,
-                  crossAxisSpacing: 2,
-                  mainAxisSpacing: 2,
-                  crossAxisCount: 2,
-                  children: [
-                    Container(
-                      padding: EdgeInsets.only(top: 10),
-                      child: columnMoreCoach(Mediawidth: Mediawidth,
-                          Mediaheight: Mediaheight,
-                          coachData: ListCoach[0]),
-                      decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.only(
-                              topRight: Radius.circular(20))),
-                    ),
-                    Container(
-                      padding: EdgeInsets.only(top: 10),
-                      child: columnMoreCoach(Mediawidth: Mediawidth,
-                          Mediaheight: Mediaheight,
-                          coachData: ListCoach[1]),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                      ),
-                    ),
-                    Container(
-                      padding: EdgeInsets.only(top: 10),
-                      child: columnMoreCoach(Mediawidth: Mediawidth,
-                          Mediaheight: Mediaheight,
-                          coachData: ListCoach[2]),
-                      decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.only(
-                              bottomRight: Radius.circular(20))),
-                    ),
-                    Container(
-                      padding: EdgeInsets.only(top: 10),
-                      child: columnMoreCoach(Mediawidth: Mediawidth,
-                          Mediaheight: Mediaheight,
-                          coachData: ListCoach[3]),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            containarCoach(context)
-          ],
-        ),
-      ),
-    );
-  }
-
-  //=============================== Widget containar Players ===========================
-
-  Expanded containarCoach(BuildContext context) {
-    return Expanded(
-      flex: 3,
-      child: Container(
-          height: 265,
-          padding: EdgeInsets.symmetric(vertical: 20),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(20),
-                bottomLeft: Radius.circular(20)),
-            color: Color(0xffE3E7F1),
-          ),
-          child: Column(
-            children: [
-              Text("المدربين"),
-              Image.asset(
-                "assets/images/CoachImage.png",
-                height: 100,
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Container(
-                width: MediaQuery
-                    .of(context)
-                    .size
-                    .width * 0.20,
-                height: 30,
-                margin: EdgeInsets.only(bottom: 10),
-                child: RaisedButton(
-                  onPressed: () {
-                    Navigator.of(context).pushReplacement(
-                        MaterialPageRoute(builder: (context) {
-                          return MainScreen();
-                        }));
-                  },
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(25)),
-                  color: Color(0xffA5B0CC),
-                  child: Text(
-                    "المزيد",
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ),
-              )
-            ],
-          )),
-    );
-  }
-
-//=============================== Widget containar Players ===========================
-
-  Expanded containarPlayers(BuildContext context) {
-    return Expanded(
-      flex: 3,
-      child: Container(
-          height: 265,
-          padding: EdgeInsets.symmetric(vertical: 20),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(20),
-                bottomLeft: Radius.circular(20)),
-            color: Color(0xffE3E7F1),
-          ),
-          child: Column(
-            children: [
-              Text("اللاعبين"),
-              Image.asset(
-                "assets/images/Player.png",
-                height: 100,
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Container(
-                width: MediaQuery
-                    .of(context)
-                    .size
-                    .width * 0.20,
-                height: 30,
-                margin: EdgeInsets.only(bottom: 10),
-                child: RaisedButton(
-                  onPressed: () {
-                    Navigator.of(context).pushReplacement(
-                        MaterialPageRoute(builder: (context) {
-                          return MainScreen();
-                        }));
-                  },
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(25)),
-                  color: Color(0xffA5B0CC),
-                  child: Text(
-                    "المزيد",
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ),
-              )
-            ],
-          )),
-    );
-  }
-
-//=============================== Widget Card More Players ===========================
-
-  Card cardMorePlayers(
-      {BuildContext context, double Mediawidth, double Mediaheight, List<
-          Players> listPlayers}) {
-    return Card(
-      elevation: 5,
-      shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20)),
-      child: Container(
-        width: MediaQuery
-            .of(context)
-            .size
-            .width * 0.85,
-        height: 265,
-        alignment: Alignment.center,
-        child: Row(
-          children: [
-            Expanded(
-              flex: 5,
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Color(0xffE3E7F1),
-                  borderRadius: BorderRadius.only(
-                      topRight: Radius.circular(20),
-                      bottomRight: Radius.circular(20)),
-                  //      color: Color(0xffF4F7FF),
-                ),
-                child: GridView.count(
-                  childAspectRatio: .79,
-                  primary: false,
-                  shrinkWrap: true,
-                  crossAxisSpacing: 2,
-                  mainAxisSpacing: 2,
-                  crossAxisCount: 2,
-                  children: [
-                    Container(
-                      padding: EdgeInsets.only(top: 10),
-                      child: ColumnMorePlayer(Mediawidth: Mediawidth,
-                          Mediaheight: Mediaheight,
-                          DataPlayer: listPlayers[0]),
-                      decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.only(
-                              topRight: Radius.circular(20))),
-                    ),
-                    Container(
-                      padding: EdgeInsets.only(top: 10),
-                      child: ColumnMorePlayer(Mediawidth: Mediawidth,
-                          Mediaheight: Mediaheight,
-                          DataPlayer: listPlayers[1]),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                      ),
-                    ),
-                    Container(
-                      padding: EdgeInsets.only(top: 10),
-                      child: ColumnMorePlayer(Mediawidth: Mediawidth,
-                          Mediaheight: Mediaheight,
-                          DataPlayer: listPlayers[2]),
-                      decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.only(
-                              bottomRight: Radius.circular(20))),
-                    ),
-                    Container(
-                      padding: EdgeInsets.only(top: 10),
-                      child: ColumnMorePlayer(Mediawidth: Mediawidth,
-                          Mediaheight: Mediaheight,
-                          DataPlayer: listPlayers[3]),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            containarPlayers(context)
-          ],
-        ),
-      ),
-    );
-  }
-
-//=============================== Widget Column More Player ===========================
-
-  Column ColumnMorePlayer(
-      {double Mediawidth, double Mediaheight, Players DataPlayer }) {
-    return Column(
-      children: [
-        Container(
-          //     padding: EdgeInsets.all(5),
-          width: (70 / Mediawidth) * Mediawidth,
-          height: (70 / Mediaheight) * Mediaheight,
-          child: ClipOval(
-            child: Material(
-              color: Color(0xffC7C9EA), // button color
-              child: InkWell(
-                splashColor: Colors.red, // inkwell color
-                child: Image.network(
-                  DataPlayer.UrlImage,
-                  fit: BoxFit.fill,
-                ),
-                onTap: () {},
-              ),
-            ),
-          ),
-        ),
-        SizedBox(
-          height: 5,
-        ),
-        Text(DataPlayer.name, style: TextStyle(fontSize: 11),),
-        Text(DataPlayer.PlayerPlace, style: TextStyle(fontSize: 11),),
-      ],
-    );
-  }
-
-//=============================== Widget Column More Player ===========================
-
-  Column columnMoreCoach(
-      {double Mediawidth, double Mediaheight, Coach coachData}) {
-    return Column(
-      children: [
-        Container(
-          // padding: EdgeInsets.all(2),
-          width: (70 / Mediawidth) * Mediawidth,
-          height: (70 / Mediaheight) * Mediaheight,
-          child: ClipOval(
-            child: Material(
-              color: Color(0xffC7C9EA), // button color
-              child: InkWell(
-                splashColor: Colors.red, // inkwell color
-                child: Image.network(
-                  coachData.UrlImage,
-                  fit: BoxFit.fill,
-                ),
-                onTap: () {},
-              ),
-            ),
-          ),
-        ),
-        SizedBox(
-          height: 5,
-        ),
-        Text(coachData.name, style: TextStyle(fontSize: 11),),
-        Text(coachData.CoachPlace, style: TextStyle(fontSize: 11)),
-      ],
-    );
-  }
-
 //=============================== Widget AppBar_MainScreen ===========================
 
   AppBar appBarMainScreen(double Mediawidth, double Mediaheight) {
@@ -596,184 +122,6 @@ class _MainScreenState extends State<MainScreen> {
         style: TextStyle(fontSize: 18),
       ),
       centerTitle: true,
-    );
-  }
-
-//=============================== Widget btn_ExtraNews ===========================
-
-  Container btnExtraNews(BuildContext context) {
-    return Container(
-      width: MediaQuery
-          .of(context)
-          .size
-          .width * 0.78,
-      height: 50,
-      margin: EdgeInsets.only(bottom: 10),
-      child: RaisedButton(
-        onPressed: () {
-          Navigator.of(context).pushReplacement(
-              MaterialPageRoute(builder: (context) {
-                return MainScreen();
-              }));
-        },
-        shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(25)),
-        color: Color(0xffA5B0CC),
-        child: Text(
-          "المزيد من الاخبار",
-          style: TextStyle(color: Colors.white),
-        ),
-      ),
-    );
-  }
-
-
-//=============================== Widget Row Videos ===========================
-
-  Container rowVideos() {
-    return Container(
-      width: double.infinity,
-      height: 230,
-      color: Color(0xffE3E7F1),
-      padding: EdgeInsets.all(8),
-      child: ListView.builder(
-          itemCount: listSport.length,
-          scrollDirection: Axis.horizontal,
-          itemBuilder: (context, index) {
-            return Container(
-              height: 200,
-              margin: EdgeInsets.only(left: 8, right: 2),
-              // padding: EdgeInsets.all(5),
-              child: ClipRRect(
-                  borderRadius: BorderRadius.circular(10.0),
-                  child: Image.network(
-                      "https://aspergillosis.org/wp-content/uploads/2019/01/video-icon.jpg",
-                      fit: BoxFit.cover)),
-            );
-          }),
-    );
-  }
-
-//=============================== Widget Carousel News ===========================
-
-  Container carouselNews() {
-    return Container(
-        child: Column(
-          children: [
-            CarouselSlider.builder(
-              itemCount: listSport.length,
-              options: CarouselOptions(
-                  height: 140,
-                  aspectRatio: 16 / 9,
-                  viewportFraction: 0.8,
-                  enlargeCenterPage: true,
-                  autoPlay: true,
-                  onPageChanged: (index, reason) {
-                    setState(() {
-                      _current = index;
-                    });
-                  }),
-              itemBuilder: (ctx, index) {
-                return Container(
-                  child: SingleChildScrollView(
-                    child: ClipRRect(
-                        borderRadius: BorderRadius.circular(10.0),
-                        child: Image.network(
-                          listSport[index].UrlImage,
-                          fit: BoxFit.cover,
-                          height: 130,
-                          width: 400,
-                        )),
-                  ),
-                );
-              },
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: listSport.map((url) {
-                int index = listSport.indexOf(url);
-                return Container(
-                  width: 8.0,
-                  height: 8.0,
-                  margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 2.0),
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: _current == index
-                        ? Color.fromRGBO(0, 0, 0, 0.9)
-                        : Color.fromRGBO(0, 0, 0, 0.4),
-                  ),
-                );
-              }).toList(),
-            )
-          ],
-        ));
-  }
-
-//=============================== Widget Row Search ===========================
-
-  Row rowSearch() {
-    return Row(
-      //    mainAxisAlignment:MainAxisAlignment.center ,
-      children: [
-        Icon(Icons.search),
-        Expanded(
-          child: TextFormField(
-            style: TextStyle(fontSize: 16, color: Colors.black),
-            decoration: InputDecoration(
-              filled: true,
-              fillColor: Color(0xffE7EBF8),
-              border: InputBorder.none,
-              hintText: "البحث",
-              hintStyle: TextStyle(fontSize: 16, color: Colors.grey.shade700),
-            ),
-          ),
-        ),
-        IconButton(icon: Icon(Icons.filter_alt), onPressed: null)
-      ],
-    );
-  }
-
-//=============================== Widget RowListIcon ===========================
-  SizedBox rowListIcon(double Mediawidth, double Mediaheight) {
-    return SizedBox(
-      width: double.infinity,
-      height: 100,
-      child: ListView.builder(
-          itemCount: listSport.length,
-          scrollDirection: Axis.horizontal,
-          itemBuilder: (context, index) {
-            return Container(
-              margin: EdgeInsets.only(left: 8, right: 2),
-              child: Column(
-                children: [
-                  Container(
-                    padding: EdgeInsets.all(5),
-                    width: (70 / Mediawidth) * Mediawidth,
-                    height: (70 / Mediaheight) * Mediaheight,
-                    child: ClipOval(
-                      child: Material(
-                        color: Color(0xffC7C9EA), // button color
-                        child: InkWell(
-                          splashColor: Colors.red, // inkwell color
-                          child: SizedBox(
-                              child: Icon(
-                            listSport[index].iconData,
-                            color: Color(0xff68699C),
-                            size: 20,
-                          )),
-                          onTap: () {},
-                        ),
-                      ),
-                    ),
-                  ),
-                  Text(
-                    listSport[index].Tital,
-                    style: TextStyle(fontSize: 14),
-                  )
-                ],
-              ),
-            );
-          }),
     );
   }
 }

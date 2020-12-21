@@ -27,6 +27,7 @@ class NewsCard extends StatelessWidget {
                 mainImage,
                 fit: BoxFit.fill,
                 height: 72,
+                width: 200,
               )),
         ),
         SizedBox(
