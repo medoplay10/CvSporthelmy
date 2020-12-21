@@ -51,7 +51,7 @@ class _MainScreenState extends State<MainScreen> {
             "https://sportstalk1260.com/wp-content/uploads/2020/03/football-history.jpg"),
   ];
 
-  List<Players> ListPlayer = [
+  List<Players> listPlayer = [
     Players(
         UrlImage:
             "https://specials-images.forbesimg.com/imageserve/5f5bd38ccacfa3fa5118407b/960x0.jpg?fit=scale",
@@ -104,14 +104,17 @@ class _MainScreenState extends State<MainScreen> {
     var Mediawidth = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: Color(0xffF4F7FF),
-      appBar: AppBarMainScreen(Mediawidth, Mediaheight),
+      appBar: appBarMainScreen(Mediawidth, Mediaheight),
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Center(
               child: Container(
-                width: MediaQuery.of(context).size.width * 0.85,
+                width: MediaQuery
+                    .of(context)
+                    .size
+                    .width * 0.85,
                 decoration: BoxDecoration(
                   color: Color(0xffE7EBF8),
                   border: Border.all(
@@ -143,7 +146,7 @@ class _MainScreenState extends State<MainScreen> {
             SizedBox(
               height: 10,
             ),
-            RowVideos(),
+            rowVideos(),
             SizedBox(
               height: 10,
             ),
@@ -191,14 +194,14 @@ class _MainScreenState extends State<MainScreen> {
             SizedBox(
               height: 10,
             ),
-            CardMorePlayers(context: context,
+            cardMorePlayers(context: context,
                 Mediawidth: Mediawidth,
                 Mediaheight: Mediaheight,
-                listPlayers: ListPlayer),
+                listPlayers: listPlayer),
             SizedBox(
               height: 10,
             ),
-            CardMoreCoach(context: context,
+            cardMoreCoach(context: context,
                 Mediawidth: Mediawidth,
                 Mediaheight: Mediaheight,
                 listCoach: ListCoach),
@@ -213,7 +216,7 @@ class _MainScreenState extends State<MainScreen> {
 
   //=============================== Widget Card More Coach===========================
 
-  Card CardMoreCoach(
+  Card cardMoreCoach(
       {BuildContext context, double Mediawidth, double Mediaheight, List<
           Coach> listCoach}) {
     return Card(
@@ -249,7 +252,7 @@ class _MainScreenState extends State<MainScreen> {
                   children: [
                     Container(
                       padding: EdgeInsets.only(top: 10),
-                      child: ColumnMoreCoach(Mediawidth: Mediawidth,
+                      child: columnMoreCoach(Mediawidth: Mediawidth,
                           Mediaheight: Mediaheight,
                           coachData: ListCoach[0]),
                       decoration: BoxDecoration(
@@ -259,7 +262,7 @@ class _MainScreenState extends State<MainScreen> {
                     ),
                     Container(
                       padding: EdgeInsets.only(top: 10),
-                      child: ColumnMoreCoach(Mediawidth: Mediawidth,
+                      child: columnMoreCoach(Mediawidth: Mediawidth,
                           Mediaheight: Mediaheight,
                           coachData: ListCoach[1]),
                       decoration: BoxDecoration(
@@ -268,7 +271,7 @@ class _MainScreenState extends State<MainScreen> {
                     ),
                     Container(
                       padding: EdgeInsets.only(top: 10),
-                      child: ColumnMoreCoach(Mediawidth: Mediawidth,
+                      child: columnMoreCoach(Mediawidth: Mediawidth,
                           Mediaheight: Mediaheight,
                           coachData: ListCoach[2]),
                       decoration: BoxDecoration(
@@ -278,7 +281,7 @@ class _MainScreenState extends State<MainScreen> {
                     ),
                     Container(
                       padding: EdgeInsets.only(top: 10),
-                      child: ColumnMoreCoach(Mediawidth: Mediawidth,
+                      child: columnMoreCoach(Mediawidth: Mediawidth,
                           Mediaheight: Mediaheight,
                           coachData: ListCoach[3]),
                       decoration: BoxDecoration(
@@ -402,7 +405,7 @@ class _MainScreenState extends State<MainScreen> {
 
 //=============================== Widget Card More Players ===========================
 
-  Card CardMorePlayers(
+  Card cardMorePlayers(
       {BuildContext context, double Mediawidth, double Mediaheight, List<
           Players> listPlayers}) {
     return Card(
@@ -520,7 +523,7 @@ class _MainScreenState extends State<MainScreen> {
 
 //=============================== Widget Column More Player ===========================
 
-  Column ColumnMoreCoach(
+  Column columnMoreCoach(
       {double Mediawidth, double Mediaheight, Coach coachData}) {
     return Column(
       children: [
@@ -553,7 +556,7 @@ class _MainScreenState extends State<MainScreen> {
 
 //=============================== Widget AppBar_MainScreen ===========================
 
-  AppBar AppBarMainScreen(double Mediawidth, double Mediaheight) {
+  AppBar appBarMainScreen(double Mediawidth, double Mediaheight) {
     return AppBar(
       backgroundColor: Color(0xffF4F7FF),
       actions: [
@@ -625,11 +628,9 @@ class _MainScreenState extends State<MainScreen> {
   }
 
 
-//=============================== Widget RowShowNews ===========================
-
 //=============================== Widget Row Videos ===========================
 
-  Container RowVideos() {
+  Container rowVideos() {
     return Container(
       width: double.infinity,
       height: 230,
@@ -706,54 +707,6 @@ class _MainScreenState extends State<MainScreen> {
             )
           ],
         ));
-          children: [
-            CarouselSlider.builder(
-              itemCount: listSport.length,
-              options: CarouselOptions(
-                  height: 140,
-                  aspectRatio: 16 / 9,
-                  viewportFraction: 0.8,
-                  enlargeCenterPage: true,
-              autoPlay: true,
-              onPageChanged: (index, reason) {
-                setState(() {
-                  _current = index;
-                });
-              }),
-          itemBuilder: (ctx, index) {
-            return Container(
-              child: SingleChildScrollView(
-                child: ClipRRect(
-                    borderRadius: BorderRadius.circular(10.0),
-                    child: Image.network(
-                      listSport[index].UrlImage,
-                      fit: BoxFit.cover,
-                      height: 130,
-                      width: 400,
-                    )),
-              ),
-            );
-          },
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: listSport.map((url) {
-            int index = listSport.indexOf(url);
-            return Container(
-              width: 8.0,
-              height: 8.0,
-              margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 2.0),
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: _current == index
-                    ? Color.fromRGBO(0, 0, 0, 0.9)
-                    : Color.fromRGBO(0, 0, 0, 0.4),
-              ),
-            );
-          }).toList(),
-        )
-      ],
-    ));
   }
 
 //=============================== Widget Row Search ===========================
