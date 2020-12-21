@@ -1,7 +1,7 @@
 import 'package:cv_sports/Model/Coach.dart';
 import 'package:cv_sports/Model/Players.dart';
 import 'package:cv_sports/Model/Sports.dart';
-import 'package:cv_sports/Widgets/cards.dart';
+import 'package:cv_sports/Widgets/newsCards.dart';
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -18,27 +18,27 @@ class _MainScreenState extends State<MainScreen> {
         Tital: "كرة قدم",
         iconData: FontAwesomeIcons.footballBall,
         UrlImage:
-        "https://sportstalk1260.com/wp-content/uploads/2020/03/football-history.jpg"),
+            "https://sportstalk1260.com/wp-content/uploads/2020/03/football-history.jpg"),
     Sports(
         Tital: "تنس",
         iconData: FontAwesomeIcons.tableTennis,
         UrlImage:
-        "https://1440sportz.com/wp-content/uploads/2020/07/Nike-Football-3.jpg"),
+            "https://1440sportz.com/wp-content/uploads/2020/07/Nike-Football-3.jpg"),
     Sports(
         Tital: "كرة سلة",
         iconData: FontAwesomeIcons.basketballBall,
         UrlImage:
-        "https://sportstalk1260.com/wp-content/uploads/2020/03/football-history.jpg"),
+            "https://sportstalk1260.com/wp-content/uploads/2020/03/football-history.jpg"),
     Sports(
         Tital: "بيسبول",
         iconData: FontAwesomeIcons.baseballBall,
         UrlImage:
-        "https://1440sportz.com/wp-content/uploads/2020/07/Nike-Football-3.jpg"),
+            "https://1440sportz.com/wp-content/uploads/2020/07/Nike-Football-3.jpg"),
     Sports(
         Tital: "كرة يد",
         iconData: FontAwesomeIcons.baseballBall,
         UrlImage:
-        "https://sportstalk1260.com/wp-content/uploads/2020/03/football-history.jpg"),
+            "https://sportstalk1260.com/wp-content/uploads/2020/03/football-history.jpg"),
     Sports(
         Tital: "الكرة الطائرة",
         iconData: FontAwesomeIcons.volleyballBall,
@@ -104,7 +104,7 @@ class _MainScreenState extends State<MainScreen> {
     var Mediawidth = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: Color(0xffF4F7FF),
-      appBar: AppBar_MainScreen(Mediawidth, Mediaheight),
+      appBar: AppBarMainScreen(Mediawidth, Mediaheight),
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -119,17 +119,17 @@ class _MainScreenState extends State<MainScreen> {
                   ),
                   borderRadius: BorderRadius.circular(20),
                 ),
-                child: RowSearch(),
+                child: rowSearch(),
               ),
             ),
             SizedBox(
               height: 10,
             ),
-            RowListIcon(Mediawidth, Mediaheight),
+            rowListIcon(Mediawidth, Mediaheight),
             SizedBox(
               height: 10,
             ),
-            CarouselNews(),
+            carouselNews(),
             SizedBox(
               height: 10,
             ),
@@ -160,30 +160,30 @@ class _MainScreenState extends State<MainScreen> {
                 alignment: Alignment.center,
                 child: Column(
                   children: [
-                    NewsCards().RowShowNews(
-                        MainImage:
+                    NewsCard(
+                        mainImage:
                         "https://www.zamalektoday.com/files/pic_news/cb92bdc4e5.jpg",
-                        IconClub: Icons.airplanemode_active_rounded,
-                        NameClub: "Zamalek",
-                        ContantNews:
+                        iconClub: Icons.airplanemode_active_rounded,
+                        nameClub: "Zamalek",
+                        contentNews:
                         "نادي الزمالك للألعاب الرياضية ‏، أو كما يعرف اختصاراً باسم نادي الزمالك، هو نادٍ رياضي مصري احترافي يلعب في الدوري المصري",
-                        TitalNews: "نادى الزمالك يحصل على اللاعب ميسى"),
+                        titleNews: "نادى الزمالك يحصل على اللاعب ميسى"),
                     Divider(
                       height: 15,
                       thickness: 2,
                     ),
-                    NewsCards().RowShowNews(
-                        MainImage:
+                    NewsCard(
+                        mainImage:
                         "https://upload.wikimedia.org/wikipedia/ar/thumb/f/fc/Al-Nassr_FC_Logo.svg/1200px-Al-Nassr_FC_Logo.svg.png",
-                        IconClub: Icons.camera,
-                        NameClub: "Al Naser",
-                        ContantNews:
+                        iconClub: Icons.camera,
+                        nameClub: "Al Naser",
+                        contentNews:
                         "نادي النصر السعودي هو فريق كرة قدم سعودي تأسس عام 1955م الموافق 1375هـ، يُلقبْ الفريق من قبل مشجعيه بـالعالمي بسبب مشاركته وتمثيله لقارة آسيا في أول كأس العالم للأندية كرة القدم ",
-                        TitalNews: "نادى النصر يحصل على اللاعب رونالدو"),
+                        titleNews: "نادى النصر يحصل على اللاعب رونالدو"),
                     SizedBox(
                       height: 15,
                     ),
-                    btn_ExtraNews(context)
+                    btnExtraNews(context)
                   ],
                 ),
               ),
@@ -553,7 +553,7 @@ class _MainScreenState extends State<MainScreen> {
 
 //=============================== Widget AppBar_MainScreen ===========================
 
-  AppBar AppBar_MainScreen(double Mediawidth, double Mediaheight) {
+  AppBar AppBarMainScreen(double Mediawidth, double Mediaheight) {
     return AppBar(
       backgroundColor: Color(0xffF4F7FF),
       actions: [
@@ -598,7 +598,7 @@ class _MainScreenState extends State<MainScreen> {
 
 //=============================== Widget btn_ExtraNews ===========================
 
-  Container btn_ExtraNews(BuildContext context) {
+  Container btnExtraNews(BuildContext context) {
     return Container(
       width: MediaQuery
           .of(context)
@@ -608,12 +608,13 @@ class _MainScreenState extends State<MainScreen> {
       margin: EdgeInsets.only(bottom: 10),
       child: RaisedButton(
         onPressed: () {
-          Navigator.of(context)
-              .pushReplacement(MaterialPageRoute(builder: (context) {
-            return MainScreen();
-          }));
+          Navigator.of(context).pushReplacement(
+              MaterialPageRoute(builder: (context) {
+                return MainScreen();
+              }));
         },
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(25)),
         color: Color(0xffA5B0CC),
         child: Text(
           "المزيد من الاخبار",
@@ -623,6 +624,8 @@ class _MainScreenState extends State<MainScreen> {
     );
   }
 
+
+//=============================== Widget RowShowNews ===========================
 
 //=============================== Widget Row Videos ===========================
 
@@ -652,7 +655,7 @@ class _MainScreenState extends State<MainScreen> {
 
 //=============================== Widget Carousel News ===========================
 
-  Container CarouselNews() {
+  Container carouselNews() {
     return Container(
         child: Column(
           children: [
@@ -703,11 +706,59 @@ class _MainScreenState extends State<MainScreen> {
             )
           ],
         ));
+          children: [
+            CarouselSlider.builder(
+              itemCount: listSport.length,
+              options: CarouselOptions(
+                  height: 140,
+                  aspectRatio: 16 / 9,
+                  viewportFraction: 0.8,
+                  enlargeCenterPage: true,
+              autoPlay: true,
+              onPageChanged: (index, reason) {
+                setState(() {
+                  _current = index;
+                });
+              }),
+          itemBuilder: (ctx, index) {
+            return Container(
+              child: SingleChildScrollView(
+                child: ClipRRect(
+                    borderRadius: BorderRadius.circular(10.0),
+                    child: Image.network(
+                      listSport[index].UrlImage,
+                      fit: BoxFit.cover,
+                      height: 130,
+                      width: 400,
+                    )),
+              ),
+            );
+          },
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: listSport.map((url) {
+            int index = listSport.indexOf(url);
+            return Container(
+              width: 8.0,
+              height: 8.0,
+              margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 2.0),
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: _current == index
+                    ? Color.fromRGBO(0, 0, 0, 0.9)
+                    : Color.fromRGBO(0, 0, 0, 0.4),
+              ),
+            );
+          }).toList(),
+        )
+      ],
+    ));
   }
 
 //=============================== Widget Row Search ===========================
 
-  Row RowSearch() {
+  Row rowSearch() {
     return Row(
       //    mainAxisAlignment:MainAxisAlignment.center ,
       children: [
@@ -730,7 +781,7 @@ class _MainScreenState extends State<MainScreen> {
   }
 
 //=============================== Widget RowListIcon ===========================
-  SizedBox RowListIcon(double Mediawidth, double Mediaheight) {
+  SizedBox rowListIcon(double Mediawidth, double Mediaheight) {
     return SizedBox(
       width: double.infinity,
       height: 100,
@@ -753,10 +804,10 @@ class _MainScreenState extends State<MainScreen> {
                           splashColor: Colors.red, // inkwell color
                           child: SizedBox(
                               child: Icon(
-                                listSport[index].iconData,
-                                color: Color(0xff68699C),
-                                size: 20,
-                              )),
+                            listSport[index].iconData,
+                            color: Color(0xff68699C),
+                            size: 20,
+                          )),
                           onTap: () {},
                         ),
                       ),
