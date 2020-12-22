@@ -76,7 +76,9 @@ class _MainScreenState extends State<MainScreen> {
         ],
       ),
       backgroundColor: Color(0xffF4F7FF),
-      appBar: appBarMainScreen(Mediawidth, Mediaheight),
+      appBar: _selectedItemPosition == 1
+          ? null
+          : appBarMainScreen(Mediawidth, Mediaheight),
       body: ListScreen[_selectedItemPosition],
     );
   }
@@ -85,6 +87,7 @@ class _MainScreenState extends State<MainScreen> {
   AppBar appBarMainScreen(double Mediawidth, double Mediaheight) {
     return AppBar(
       backgroundColor: Color(0xffF4F7FF),
+
       actions: [
         Padding(
           padding: const EdgeInsets.all(5),

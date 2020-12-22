@@ -1,3 +1,4 @@
+import 'package:cv_sports/Pages/News/AllNewsScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:cv_sports/Model/Coach.dart';
 import 'package:cv_sports/Model/Players.dart';
@@ -20,58 +21,58 @@ class _HomeScreenState extends State<HomeScreen> {
         Tital: "كرة قدم",
         iconData: FontAwesomeIcons.footballBall,
         UrlImage:
-            "https://sportstalk1260.com/wp-content/uploads/2020/03/football-history.jpg"),
+        "https://sportstalk1260.com/wp-content/uploads/2020/03/football-history.jpg"),
     Sports(
         Tital: "تنس",
         iconData: FontAwesomeIcons.tableTennis,
         UrlImage:
-            "https://1440sportz.com/wp-content/uploads/2020/07/Nike-Football-3.jpg"),
+        "https://1440sportz.com/wp-content/uploads/2020/07/Nike-Football-3.jpg"),
     Sports(
         Tital: "كرة سلة",
         iconData: FontAwesomeIcons.basketballBall,
         UrlImage:
-            "https://sportstalk1260.com/wp-content/uploads/2020/03/football-history.jpg"),
+        "https://sportstalk1260.com/wp-content/uploads/2020/03/football-history.jpg"),
     Sports(
         Tital: "بيسبول",
         iconData: FontAwesomeIcons.baseballBall,
         UrlImage:
-            "https://1440sportz.com/wp-content/uploads/2020/07/Nike-Football-3.jpg"),
+        "https://1440sportz.com/wp-content/uploads/2020/07/Nike-Football-3.jpg"),
     Sports(
         Tital: "كرة يد",
         iconData: FontAwesomeIcons.baseballBall,
         UrlImage:
-            "https://sportstalk1260.com/wp-content/uploads/2020/03/football-history.jpg"),
+        "https://sportstalk1260.com/wp-content/uploads/2020/03/football-history.jpg"),
     Sports(
         Tital: "الكرة الطائرة",
         iconData: FontAwesomeIcons.volleyballBall,
         UrlImage:
-            "https://1440sportz.com/wp-content/uploads/2020/07/Nike-Football-3.jpg"),
+        "https://1440sportz.com/wp-content/uploads/2020/07/Nike-Football-3.jpg"),
     Sports(
         Tital: "بولو الماء",
         iconData: FontAwesomeIcons.water,
         UrlImage:
-            "https://sportstalk1260.com/wp-content/uploads/2020/03/football-history.jpg"),
+        "https://sportstalk1260.com/wp-content/uploads/2020/03/football-history.jpg"),
   ];
 
   List<Players> listPlayer = [
     Players(
         UrlImage:
-            "https://specials-images.forbesimg.com/imageserve/5f5bd38ccacfa3fa5118407b/960x0.jpg?fit=scale",
+        "https://specials-images.forbesimg.com/imageserve/5f5bd38ccacfa3fa5118407b/960x0.jpg?fit=scale",
         name: "Messi",
         PlayerPlace: "attacker"),
     Players(
         UrlImage:
-            "https://specials-images.forbesimg.com/imageserve/5f5bd38ccacfa3fa5118407b/960x0.jpg?fit=scale",
+        "https://specials-images.forbesimg.com/imageserve/5f5bd38ccacfa3fa5118407b/960x0.jpg?fit=scale",
         name: "Messi",
         PlayerPlace: "attacker"),
     Players(
         UrlImage:
-            "https://specials-images.forbesimg.com/imageserve/5f5bd38ccacfa3fa5118407b/960x0.jpg?fit=scale",
+        "https://specials-images.forbesimg.com/imageserve/5f5bd38ccacfa3fa5118407b/960x0.jpg?fit=scale",
         name: "Messi",
         PlayerPlace: "attacker"),
     Players(
         UrlImage:
-            "https://specials-images.forbesimg.com/imageserve/5f5bd38ccacfa3fa5118407b/960x0.jpg?fit=scale",
+        "https://specials-images.forbesimg.com/imageserve/5f5bd38ccacfa3fa5118407b/960x0.jpg?fit=scale",
         name: "Messi",
         PlayerPlace: "attacker"),
   ];
@@ -79,22 +80,22 @@ class _HomeScreenState extends State<HomeScreen> {
     Coach(
         name: "دييغو سيميوني",
         UrlImage:
-            "https://www.skynewsarabia.com/images/v1/2019/09/14/1282832/800/450/1-1282832.jpg",
+        "https://www.skynewsarabia.com/images/v1/2019/09/14/1282832/800/450/1-1282832.jpg",
         CoachPlace: "atletico madrid"),
     Coach(
         name: "دييغو سيميوني",
         UrlImage:
-            "https://www.skynewsarabia.com/images/v1/2019/09/14/1282832/800/450/1-1282832.jpg",
+        "https://www.skynewsarabia.com/images/v1/2019/09/14/1282832/800/450/1-1282832.jpg",
         CoachPlace: "atletico madrid"),
     Coach(
         name: "دييغو سيميوني",
         UrlImage:
-            "https://www.skynewsarabia.com/images/v1/2019/09/14/1282832/800/450/1-1282832.jpg",
+        "https://www.skynewsarabia.com/images/v1/2019/09/14/1282832/800/450/1-1282832.jpg",
         CoachPlace: "atletico madrid"),
     Coach(
         name: "دييغو سيميوني",
         UrlImage:
-            "https://www.skynewsarabia.com/images/v1/2019/09/14/1282832/800/450/1-1282832.jpg",
+        "https://www.skynewsarabia.com/images/v1/2019/09/14/1282832/800/450/1-1282832.jpg",
         CoachPlace: "atletico madrid"),
   ];
 
@@ -146,44 +147,7 @@ class _HomeScreenState extends State<HomeScreen> {
           SizedBox(
             height: 10,
           ),
-          Card(
-            elevation: 5,
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-            child: Container(
-              width: MediaQuery.of(context).size.width * 0.85,
-              padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-              alignment: Alignment.center,
-              child: Column(
-                children: [
-                  NewsCard(
-                      mainImage:
-                          "https://www.zamalektoday.com/files/pic_news/cb92bdc4e5.jpg",
-                      iconClub: Icons.airplanemode_active_rounded,
-                      nameClub: "Zamalek",
-                      contentNews:
-                          "نادي الزمالك للألعاب الرياضية ‏، أو كما يعرف اختصاراً باسم نادي الزمالك، هو نادٍ رياضي مصري احترافي يلعب في الدوري المصري",
-                      titleNews: "نادى الزمالك يحصل على اللاعب ميسى"),
-                  Divider(
-                    height: 15,
-                    thickness: 2,
-                  ),
-                  NewsCard(
-                      mainImage:
-                          "https://upload.wikimedia.org/wikipedia/ar/thumb/f/fc/Al-Nassr_FC_Logo.svg/1200px-Al-Nassr_FC_Logo.svg.png",
-                      iconClub: Icons.camera,
-                      nameClub: "Al Naser",
-                      contentNews:
-                          "نادي النصر السعودي هو فريق كرة قدم سعودي تأسس عام 1955م الموافق 1375هـ، يُلقبْ الفريق من قبل مشجعيه بـالعالمي بسبب مشاركته وتمثيله لقارة آسيا في أول كأس العالم للأندية كرة القدم ",
-                      titleNews: "نادى النصر يحصل على اللاعب رونالدو"),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  btnExtraNews(context)
-                ],
-              ),
-            ),
-          ),
+          RowCardNews(context),
           SizedBox(
             height: 10,
           ),
@@ -204,6 +168,46 @@ class _HomeScreenState extends State<HomeScreen> {
             height: 10,
           ),
         ],
+      ),
+    );
+  }
+
+  Card RowCardNews(BuildContext context) {
+    return Card(
+      elevation: 5,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+      child: Container(
+        width: MediaQuery.of(context).size.width * 0.85,
+        padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+        alignment: Alignment.center,
+        child: Column(
+          children: [
+            NewsCard(
+                mainImage:
+                    "https://www.zamalektoday.com/files/pic_news/cb92bdc4e5.jpg",
+                iconClub: Icons.airplanemode_active_rounded,
+                nameClub: "Zamalek",
+                contentNews:
+                    "نادي الزمالك للألعاب الرياضية ‏، أو كما يعرف اختصاراً باسم نادي الزمالك، هو نادٍ رياضي مصري احترافي يلعب في الدوري المصري",
+                titleNews: "نادى الزمالك يحصل على اللاعب ميسى"),
+            Divider(
+              height: 15,
+              thickness: 2,
+            ),
+            NewsCard(
+                mainImage:
+                    "https://upload.wikimedia.org/wikipedia/ar/thumb/f/fc/Al-Nassr_FC_Logo.svg/1200px-Al-Nassr_FC_Logo.svg.png",
+                iconClub: Icons.camera,
+                nameClub: "Al Naser",
+                contentNews:
+                    "نادي النصر السعودي هو فريق كرة قدم سعودي تأسس عام 1955م الموافق 1375هـ، يُلقبْ الفريق من قبل مشجعيه بـالعالمي بسبب مشاركته وتمثيله لقارة آسيا في أول كأس العالم للأندية كرة القدم ",
+                titleNews: "نادى النصر يحصل على اللاعب رونالدو"),
+            SizedBox(
+              height: 15,
+            ),
+            btnExtraNews(context)
+          ],
+        ),
       ),
     );
   }
@@ -251,7 +255,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius:
-                              BorderRadius.only(topRight: Radius.circular(20))),
+                          BorderRadius.only(topRight: Radius.circular(20))),
                     ),
                     Container(
                       padding: EdgeInsets.only(top: 10),
@@ -393,11 +397,10 @@ class _HomeScreenState extends State<HomeScreen> {
 
 //=============================== Widget Card More Players ===========================
 
-  Card cardMorePlayers(
-      {BuildContext context,
-      double Mediawidth,
-      double Mediaheight,
-      List<Players> listPlayers}) {
+  Card cardMorePlayers({BuildContext context,
+    double Mediawidth,
+    double Mediaheight,
+    List<Players> listPlayers}) {
     return Card(
       elevation: 5,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
@@ -434,7 +437,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius:
-                              BorderRadius.only(topRight: Radius.circular(20))),
+                          BorderRadius.only(topRight: Radius.circular(20))),
                     ),
                     Container(
                       padding: EdgeInsets.only(top: 10),
@@ -480,8 +483,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
 //=============================== Widget Column More Player ===========================
 
-  Column ColumnMorePlayer(
-      {double Mediawidth, double Mediaheight, Players DataPlayer}) {
+  Column ColumnMorePlayer({double Mediawidth, double Mediaheight, Players DataPlayer}) {
     return Column(
       children: [
         Container(
@@ -519,8 +521,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
 //=============================== Widget Column More Player ===========================
 
-  Column columnMoreCoach(
-      {double Mediawidth, double Mediaheight, Coach coachData}) {
+  Column columnMoreCoach({double Mediawidth, double Mediaheight, Coach coachData}) {
     return Column(
       children: [
         Container(
@@ -580,10 +581,10 @@ class _HomeScreenState extends State<HomeScreen> {
               splashColor: Colors.red, // inkwell color
               child: SizedBox(
                   child: Icon(
-                Icons.person,
-                color: Color(0xff68699C),
-                size: 20,
-              )),
+                    Icons.person,
+                    color: Color(0xff68699C),
+                    size: 20,
+                  )),
               onTap: () {},
             ),
           ),
@@ -608,8 +609,8 @@ class _HomeScreenState extends State<HomeScreen> {
       child: RaisedButton(
         onPressed: () {
           Navigator.of(context)
-              .pushReplacement(MaterialPageRoute(builder: (context) {
-            return MainScreen();
+              .push(MaterialPageRoute(builder: (context) {
+            return AllNewsScreen();
           }));
         },
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
@@ -653,54 +654,54 @@ class _HomeScreenState extends State<HomeScreen> {
   Container carouselNews() {
     return Container(
         child: Column(
-      children: [
-        CarouselSlider.builder(
-          itemCount: listSport.length,
-          options: CarouselOptions(
-              height: 140,
-              aspectRatio: 16 / 9,
-              viewportFraction: 0.8,
-              enlargeCenterPage: true,
-              autoPlay: true,
-              onPageChanged: (index, reason) {
-                setState(() {
-                  _current = index;
-                });
-              }),
-          itemBuilder: (ctx, index) {
-            return Container(
-              child: SingleChildScrollView(
-                child: ClipRRect(
-                    borderRadius: BorderRadius.circular(10.0),
-                    child: Image.network(
-                      listSport[index].UrlImage,
-                      fit: BoxFit.cover,
-                      height: 130,
-                      width: 400,
-                    )),
-              ),
-            );
-          },
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: listSport.map((url) {
-            int index = listSport.indexOf(url);
-            return Container(
-              width: 8.0,
-              height: 8.0,
-              margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 2.0),
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: _current == index
-                    ? Color.fromRGBO(0, 0, 0, 0.9)
-                    : Color.fromRGBO(0, 0, 0, 0.4),
-              ),
-            );
-          }).toList(),
-        )
-      ],
-    ));
+          children: [
+            CarouselSlider.builder(
+              itemCount: listSport.length,
+              options: CarouselOptions(
+                  height: 140,
+                  aspectRatio: 16 / 9,
+                  viewportFraction: 0.8,
+                  enlargeCenterPage: true,
+                  autoPlay: true,
+                  onPageChanged: (index, reason) {
+                    setState(() {
+                      _current = index;
+                    });
+                  }),
+              itemBuilder: (ctx, index) {
+                return Container(
+                  child: SingleChildScrollView(
+                    child: ClipRRect(
+                        borderRadius: BorderRadius.circular(10.0),
+                        child: Image.network(
+                          listSport[index].UrlImage,
+                          fit: BoxFit.cover,
+                          height: 130,
+                          width: 400,
+                        )),
+                  ),
+                );
+              },
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: listSport.map((url) {
+                int index = listSport.indexOf(url);
+                return Container(
+                  width: 8.0,
+                  height: 8.0,
+                  margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 2.0),
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: _current == index
+                        ? Color.fromRGBO(0, 0, 0, 0.9)
+                        : Color.fromRGBO(0, 0, 0, 0.4),
+                  ),
+                );
+              }).toList(),
+            )
+          ],
+        ));
   }
 
 //=============================== Widget Row Search ===========================
@@ -751,10 +752,10 @@ class _HomeScreenState extends State<HomeScreen> {
                           splashColor: Colors.red, // inkwell color
                           child: SizedBox(
                               child: Icon(
-                            listSport[index].iconData,
-                            color: Color(0xff68699C),
-                            size: 20,
-                          )),
+                                listSport[index].iconData,
+                                color: Color(0xff68699C),
+                                size: 20,
+                              )),
                           onTap: () {},
                         ),
                       ),
