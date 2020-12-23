@@ -1,3 +1,4 @@
+import 'package:cv_sports/Widgets/SizeBoxHeight.dart';
 import 'package:flutter/material.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
@@ -44,30 +45,27 @@ class _SignUpScreenState extends State<SignUpScreen> {
           child: Column(
             children: [
               InputImage(Mediawidth, Mediaheight),
-              SizeBox_Space(Mediaheight: Mediaheight, SizeWant: 15),
+              SizeBoxHeight(Mediaheight: Mediaheight, SizeWant: 15),
               TextFieldLocal(
                   context: context,
                   TextField: "name".tr(),
                   iconSelect: Icons.person),
-              SizeBox_Space(Mediaheight: Mediaheight, SizeWant: 5),
+              SizeBoxHeight(Mediaheight: Mediaheight, SizeWant: 5),
               InputPhone(context),
-              SizeBox_Space(Mediaheight: Mediaheight, SizeWant: 5),
+              SizeBoxHeight(Mediaheight: Mediaheight, SizeWant: 5),
               TextFieldLocal(
                   context: context,
                   TextField: "email".tr(),
                   iconSelect: Icons.email),
-              SizeBox_Space(Mediaheight: Mediaheight, SizeWant: 5),
+              SizeBoxHeight(Mediaheight: Mediaheight, SizeWant: 5),
               TextFieldPassword(
                   context: context, TextField: "PasswordEdit".tr()),
-              SizeBox_Space(Mediaheight: Mediaheight, SizeWant: 5),
+              SizeBoxHeight(Mediaheight: Mediaheight, SizeWant: 5),
               TextFieldPassword(
                   context: context, TextField: "PasswordEditAgain".tr()),
-              SizeBox_Space(Mediaheight: Mediaheight, SizeWant: 15),
-
+              SizeBoxHeight(Mediaheight: Mediaheight, SizeWant: 15),
               Btn_SignUp(context),
-
-              SizeBox_Space(Mediaheight: Mediaheight, SizeWant: 140),
-
+              SizeBoxHeight(Mediaheight: Mediaheight, SizeWant: 140),
               Row_TextHaveAccount(context)
             ],
           ),
@@ -94,7 +92,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       Icons.person,
                       color: Color(0xff68699C),
                       size: 50,
-                )),
+                    )),
                 onTap: () {},
               ),
             ),
@@ -107,8 +105,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
 //============================Widget - InputPhone ==================================
   Container InputPhone(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width * 0.85,
-      height: 60,
+      width: MediaQuery
+          .of(context)
+          .size
+          .width * 0.85,
+      height: (60 / MediaQuery
+          .of(context)
+          .size
+          .height) * MediaQuery
+          .of(context)
+          .size
+          .height,
       decoration: BoxDecoration(
         border: Border.all(
           color: Colors.grey.shade300,
@@ -161,13 +168,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
         ],
       ),
-    );
-  }
-
-  //============================Widget - SizeBox_Space ==================================
-  SizedBox SizeBox_Space({double Mediaheight, double SizeWant}) {
-    return SizedBox(
-      height: (SizeWant / Mediaheight) * Mediaheight,
     );
   }
 
@@ -238,8 +238,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   }
 
 //============================Widget - TextFieldLocal ==================================
-  Container TextFieldLocal(
-      {BuildContext context, String TextField, var iconSelect }) {
+  Container TextFieldLocal({BuildContext context, String TextField, var iconSelect }) {
     return Container(
       width: MediaQuery
           .of(context)
@@ -352,7 +351,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       .of(context)
                       .size
                       .width * 0.80,
-                  height: 50,
+                  height: (50 / MediaQuery
+                      .of(context)
+                      .size
+                      .height) * MediaQuery
+                      .of(context)
+                      .size
+                      .height,
                   margin: EdgeInsets.only(bottom: 10),
                   child: RaisedButton(
                     onPressed: () {

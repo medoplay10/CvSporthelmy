@@ -31,7 +31,8 @@ class MyDataProfileScreen extends StatelessWidget {
               child: Text("صورى")),
           CardMyImages(context),
           SizedBox(
-            height: 10,
+            height: (10 / MediaQuery.of(context).size.height) *
+                MediaQuery.of(context).size.height,
           )
         ],
       ),
@@ -122,7 +123,13 @@ class MyDataProfileScreen extends StatelessWidget {
                       ],
                     ),
                     SizedBox(
-                      width: 20,
+                      width: (20 / MediaQuery
+                          .of(context)
+                          .size
+                          .width) * MediaQuery
+                          .of(context)
+                          .size
+                          .width,
                     ),
                     Column(
                       children: [
@@ -182,7 +189,13 @@ class MyDataProfileScreen extends StatelessWidget {
                       ],
                     ),
                     SizedBox(
-                      width: 20,
+                      width: (20 / MediaQuery
+                          .of(context)
+                          .size
+                          .width) * MediaQuery
+                          .of(context)
+                          .size
+                          .width,
                     ),
                     Column(
                       children: [
@@ -239,20 +252,38 @@ class MyDataProfileScreen extends StatelessWidget {
                         borderRadius: BorderRadius.circular(12.0),
                         child: Image.network(
                           "https://ronaldo.com/wp-content/uploads/2020/03/GettyImages-1201273079-1208205794-1209769370.jpg",
-                          height: 200,
+                          height: (200 / MediaQuery
+                              .of(context)
+                              .size
+                              .height) * MediaQuery
+                              .of(context)
+                              .size
+                              .height,
                           fit: BoxFit.fill,
                         ),
                       ),
                     ),
                     SizedBox(
-                      width: 20,
+                      width: (20 / MediaQuery
+                          .of(context)
+                          .size
+                          .width) * MediaQuery
+                          .of(context)
+                          .size
+                          .width,
                     ),
                     Flexible(
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(12.0),
                         child: Image.network(
                           "https://ronaldo.com/wp-content/uploads/2020/03/GettyImages-1201273079-1208205794-1209769370.jpg",
-                          height: 200,
+                          height: (200 / MediaQuery
+                              .of(context)
+                              .size
+                              .height) * MediaQuery
+                              .of(context)
+                              .size
+                              .height,
                           fit: BoxFit.fill,
                         ),
                       ),

@@ -29,15 +29,28 @@ class MyPostsProfileScreen extends StatelessWidget {
         children: [
           RowPostsCards(context),
           SizedBox(
-            height: 10,
+            height: (10 / MediaQuery.of(context).size.height) *
+                MediaQuery.of(context).size.height,
           ),
           RowImagesCards(context),
           SizedBox(
-            height: 10,
+            height: (10 / MediaQuery
+                .of(context)
+                .size
+                .height) * MediaQuery
+                .of(context)
+                .size
+                .height,
           ),
           RowVideosCards(context),
           SizedBox(
-            height: 10,
+            height: (10 / MediaQuery
+                .of(context)
+                .size
+                .height) * MediaQuery
+                .of(context)
+                .size
+                .height,
           ),
         ],
       ),
@@ -110,7 +123,13 @@ class MyPostsProfileScreen extends StatelessWidget {
                       ],
                     ),
                     SizedBox(
-                      width: 30,
+                      width: (30 / MediaQuery
+                          .of(context)
+                          .size
+                          .width) * MediaQuery
+                          .of(context)
+                          .size
+                          .width,
                     ),
                     Row(
                       children: [
@@ -186,7 +205,13 @@ class MyPostsProfileScreen extends StatelessWidget {
                                     Images[index],
                                     fit: BoxFit.fill,
                                     // height: 72,
-                                    width: 160,
+                                    width: (160 / MediaQuery
+                                        .of(context)
+                                        .size
+                                        .width) * MediaQuery
+                                        .of(context)
+                                        .size
+                                        .width,
                                   )),
                             );
                           }),
@@ -224,7 +249,13 @@ class MyPostsProfileScreen extends StatelessWidget {
                       ],
                     ),
                     SizedBox(
-                      width: 30,
+                      width: (30 / MediaQuery
+                          .of(context)
+                          .size
+                          .width) * MediaQuery
+                          .of(context)
+                          .size
+                          .width,
                     ),
                     Row(
                       children: [
@@ -300,7 +331,13 @@ class MyPostsProfileScreen extends StatelessWidget {
                                     Videos[index],
                                     fit: BoxFit.fill,
                                     // height: 72,
-                                    width: 160,
+                                    width: (160 / MediaQuery
+                                        .of(context)
+                                        .size
+                                        .width) * MediaQuery
+                                        .of(context)
+                                        .size
+                                        .width,
                                   )),
                             );
                           }),
@@ -338,7 +375,13 @@ class MyPostsProfileScreen extends StatelessWidget {
                       ],
                     ),
                     SizedBox(
-                      width: 30,
+                      width: (30 / MediaQuery
+                          .of(context)
+                          .size
+                          .width) * MediaQuery
+                          .of(context)
+                          .size
+                          .width,
                     ),
                     Row(
                       children: [

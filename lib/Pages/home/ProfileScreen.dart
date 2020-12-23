@@ -3,7 +3,6 @@ import 'package:cv_sports/Pages/PagesProfileScreen/MyConversationProfileScreen.d
 import 'package:cv_sports/Pages/PagesProfileScreen/MyDataProfileScreen.dart';
 import 'package:cv_sports/Pages/PagesProfileScreen/MyPostsProfileScreen.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 
 import '../../ProviderAll.dart';
@@ -85,8 +84,10 @@ class _ProfileScreenState extends State<ProfileScreen>
       child: Column(
         children: [
           Container(
-            height: 70,
-            width: 70,
+            height: (70 / MediaQuery.of(context).size.height) *
+                MediaQuery.of(context).size.height,
+            width: (70 / MediaQuery.of(context).size.width) *
+                MediaQuery.of(context).size.width,
             child: CircleAvatar(
                 radius: 20,
                 backgroundImage:

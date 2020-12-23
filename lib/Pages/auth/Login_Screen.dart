@@ -1,4 +1,5 @@
 import 'package:cv_sports/Pages/home/MainScreen.dart';
+import 'package:cv_sports/Widgets/SizeBoxHeight.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
@@ -9,6 +10,8 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     //  print("Hight = "+ (80 /MediaQuery.of(context).size.height  ).toString());
     //  print("Hight = "+ (MediaQuery.of(context).size.width  * .63 ).toString());
+    var Mediaheight = MediaQuery.of(context).size.height;
+    var Mediawidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
       body: Column(
@@ -57,7 +60,7 @@ class LoginScreen extends StatelessWidget {
                               filled: true,
                               fillColor: Colors.white,
                               prefixIcon:
-                                  Icon(Icons.email, color: Color(0xff68699C)),
+                              Icon(Icons.email, color: Color(0xff68699C)),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(20),
                               ),
@@ -67,11 +70,12 @@ class LoginScreen extends StatelessWidget {
                             ),
                           ),
                         ),
-                        SizedBox(
-                          height: 20,
-                        ),
+                        SizeBoxHeight(Mediaheight: Mediaheight, SizeWant: 20),
                         Container(
-                          width: MediaQuery.of(context).size.width * 0.80,
+                          width: MediaQuery
+                              .of(context)
+                              .size
+                              .width * 0.80,
                           child: TextFormField(
                             obscureText: true,
                             style: TextStyle(fontSize: 18, color: Colors.black),
@@ -106,8 +110,17 @@ class LoginScreen extends StatelessWidget {
                 Positioned(
                   top: MediaQuery.of(context).size.height * .78,
                   child: Container(
-                    width: MediaQuery.of(context).size.width * 0.80,
-                    height: 50,
+                    width: MediaQuery
+                        .of(context)
+                        .size
+                        .width * 0.80,
+                    height: (50 / MediaQuery
+                        .of(context)
+                        .size
+                        .height) * MediaQuery
+                        .of(context)
+                        .size
+                        .height,
                     margin: EdgeInsets.only(bottom: 10),
                     child: RaisedButton(
                       onPressed: () {

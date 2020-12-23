@@ -1,4 +1,5 @@
 import 'package:cv_sports/Pages/home/MainScreen.dart';
+import 'package:cv_sports/Widgets/SizeBoxWidth.dart';
 import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -100,7 +101,8 @@ class _ComplateProfileScreenState extends State<ComplateProfileScreen> {
   Container BtnGoMainScreen(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width * 0.80,
-      height: 50,
+      height: (50 / MediaQuery.of(context).size.height) *
+          MediaQuery.of(context).size.height,
       margin: EdgeInsets.only(bottom: 10),
       child: RaisedButton(
         onPressed: () {
@@ -207,9 +209,10 @@ class _ComplateProfileScreenState extends State<ComplateProfileScreen> {
                         color:
                         (SeclectBtn == true) ? Colors.white : Colors.black),
                   ),
-                  SizedBox(
-                    width: 20,
-                  ),
+                  SizeBoxWidth(Mediawidth: MediaQuery
+                      .of(context)
+                      .size
+                      .width, SizeWant: 20,),
                   FaIcon(FontAwesomeIcons.male,
                       size: 40,
                       color:
@@ -244,9 +247,11 @@ class _ComplateProfileScreenState extends State<ComplateProfileScreen> {
                             ? Colors.white
                             : Colors.black),
                   ),
-                  SizedBox(
-                    width: 20,
-                  ),
+                  SizeBoxWidth(
+                    Mediawidth: MediaQuery
+                        .of(context)
+                        .size
+                        .width, SizeWant: 20,),
                   FaIcon(FontAwesomeIcons.male,
                       size: 40,
                       color:

@@ -34,12 +34,20 @@ class MyConversationProfileScreen extends StatelessWidget {
                       child: Image.network(
                         "https://www.zamalektoday.com/files/pic_news/cb92bdc4e5.jpg",
                         fit: BoxFit.fill,
-                        height: 72,
-                        width: 200,
+                        height: (72 / MediaQuery.of(context).size.height) *
+                            MediaQuery.of(context).size.height,
+                        width: (200 / MediaQuery.of(context).size.width) *
+                            MediaQuery.of(context).size.width,
                       )),
                 ),
                 SizedBox(
-                  width: 10,
+                  width: (10 / MediaQuery
+                      .of(context)
+                      .size
+                      .width) * MediaQuery
+                      .of(context)
+                      .size
+                      .width,
                 ),
                 Flexible(
                   flex: 4,
@@ -56,7 +64,13 @@ class MyConversationProfileScreen extends StatelessWidget {
                         ],
                       ),
                       SizedBox(
-                        width: 10,
+                        width: (10 / MediaQuery
+                            .of(context)
+                            .size
+                            .width) * MediaQuery
+                            .of(context)
+                            .size
+                            .width,
                       ),
                       Row(
                         children: [
@@ -70,7 +84,13 @@ class MyConversationProfileScreen extends StatelessWidget {
                         ],
                       ),
                       SizedBox(
-                        height: 5,
+                        height: (5 / MediaQuery
+                            .of(context)
+                            .size
+                            .height) * MediaQuery
+                            .of(context)
+                            .size
+                            .height,
                       ),
                       Text(
                         "نود التحدث مع وكيل اعمالك للتعاقد معك",

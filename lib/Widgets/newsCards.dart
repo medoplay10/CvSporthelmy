@@ -27,7 +27,8 @@ class NewsCard extends StatelessWidget {
                 mainImage,
                 fit: BoxFit.fill,
                 height: 72,
-                width: 200,
+                width: (200 / MediaQuery.of(context).size.width) *
+                    MediaQuery.of(context).size.width,
               )),
         ),
         SizedBox(

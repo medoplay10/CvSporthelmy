@@ -88,7 +88,8 @@ class _OneNewsScreenState extends State<OneNewsScreen> {
                               color: Colors.grey.shade600, fontSize: 16),
                         )),
                     SizedBox(
-                      height: 20,
+                      height: (20 / MediaQuery.of(context).size.height) *
+                          MediaQuery.of(context).size.height,
                     ),
                     Container(
                         alignment: Alignment.centerRight,
@@ -118,7 +119,13 @@ class _OneNewsScreenState extends State<OneNewsScreen> {
         CarouselSlider.builder(
           itemCount: listSport.length,
           options: CarouselOptions(
-              height: 160,
+              height: (160 / MediaQuery
+                  .of(context)
+                  .size
+                  .height) * MediaQuery
+                  .of(context)
+                  .size
+                  .height,
               aspectRatio: 16 / 9,
               viewportFraction: 0.9,
               enlargeCenterPage: true,
@@ -136,8 +143,20 @@ class _OneNewsScreenState extends State<OneNewsScreen> {
                     child: Image.network(
                       listSport[index].UrlImage,
                       fit: BoxFit.cover,
-                      height: 150,
-                      width: 400,
+                      height: (150 / MediaQuery
+                          .of(context)
+                          .size
+                          .height) * MediaQuery
+                          .of(context)
+                          .size
+                          .height,
+                      width: (400 / MediaQuery
+                          .of(context)
+                          .size
+                          .width) * MediaQuery
+                          .of(context)
+                          .size
+                          .width,
                     )),
               ),
             );

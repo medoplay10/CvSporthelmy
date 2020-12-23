@@ -1,5 +1,6 @@
 import 'package:cv_sports/Model/Sports.dart';
 import 'package:cv_sports/Pages/Category/OneCategory.dart';
+import 'package:cv_sports/Widgets/SizeBoxHeight.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -163,12 +164,14 @@ class CategoryScreen extends StatelessWidget {
                   child: rowSearch(),
                 ),
               ),
-              SizedBox(
-                height: 10,
+              SizeBoxHeight(
+                SizeWant: 10,
+                Mediaheight: Mediaheight,
               ),
-              rowListIcon(Mediawidth, Mediaheight),
-              SizedBox(
-                height: 10,
+              rowListIcon(Mediawidth, Mediaheight, context),
+              SizeBoxHeight(
+                SizeWant: 10,
+                Mediaheight: Mediaheight,
               ),
               Container(
                 color: Colors.transparent,
@@ -245,10 +248,17 @@ class CategoryScreen extends StatelessWidget {
   }
 
 //=============================== Widget RowListIcon ===========================
-  SizedBox rowListIcon(double Mediawidth, double Mediaheight) {
+  SizedBox rowListIcon(double Mediawidth, double Mediaheight,
+      BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      height: 100,
+      height: (100 / MediaQuery
+          .of(context)
+          .size
+          .height) * MediaQuery
+          .of(context)
+          .size
+          .height,
       child: ListView.builder(
           itemCount: listSport.length,
           scrollDirection: Axis.horizontal,

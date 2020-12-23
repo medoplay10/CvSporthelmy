@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_snake_navigationbar/flutter_snake_navigationbar.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'CategoryScreen.dart';
 import 'HomeScreen.dart';
@@ -71,13 +72,18 @@ class _MainScreenState extends State<MainScreen> {
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'home'),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: 'tickets'),
-          BottomNavigationBarItem(icon: Icon(Icons.widgets), label: 'calendar'),
+          BottomNavigationBarItem(
+              icon: FaIcon(
+                FontAwesomeIcons.thLarge,
+              ),
+              label: 'calendar'),
           BottomNavigationBarItem(
               icon: Icon(Icons.settings), label: 'microphone'),
         ],
       ),
       backgroundColor: Color(0xffF4F7FF),
-      appBar: (_selectedItemPosition == 1 || _selectedItemPosition == 2)
+      appBar: (_selectedItemPosition == 1 || _selectedItemPosition == 2 ||
+          _selectedItemPosition == 3)
           ? null
           : appBarMainScreen(Mediawidth, Mediaheight),
       body: ListScreen[_selectedItemPosition],

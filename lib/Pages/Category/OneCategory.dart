@@ -135,7 +135,8 @@ class OneCategory extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 10,
+                height: (10 / MediaQuery.of(context).size.height) *
+                    MediaQuery.of(context).size.height,
               ),
               Container(
                 color: Colors.transparent,
@@ -162,6 +163,7 @@ class OneCategory extends StatelessWidget {
                               border: Border.all(width: 0, color: Colors.white),
                               borderRadius: BorderRadius.circular(20)),
                           child: columnMoreData(
+                              context: context,
                               Mediaheight: Mediaheight,
                               Mediawidth: Mediawidth,
                               SportData: listSport[index])),
@@ -204,7 +206,7 @@ class OneCategory extends StatelessWidget {
   //=============================== Widget Column More Player ===========================
 
   Column columnMoreData(
-      {double Mediawidth, double Mediaheight, Sports SportData}) {
+      {double Mediawidth, double Mediaheight, Sports SportData, BuildContext context}) {
     return Column(
       children: [
         Container(
@@ -226,7 +228,13 @@ class OneCategory extends StatelessWidget {
           ),
         ),
         SizedBox(
-          height: 5,
+          height: (5 / MediaQuery
+              .of(context)
+              .size
+              .height) * MediaQuery
+              .of(context)
+              .size
+              .height,
         ),
         Text(
           SportData.Tital,

@@ -1,4 +1,5 @@
 import 'package:cv_sports/Pages/News/AllNewsScreen.dart';
+import 'package:cv_sports/Widgets/SizeBoxHeight.dart';
 import 'package:flutter/material.dart';
 import 'package:cv_sports/Model/Coach.dart';
 import 'package:cv_sports/Model/Players.dart';
@@ -122,16 +123,19 @@ class _HomeScreenState extends State<HomeScreen> {
               child: rowSearch(),
             ),
           ),
-          SizedBox(
-            height: 10,
+          SizeBoxHeight(
+            SizeWant: 10,
+            Mediaheight: Mediaheight,
           ),
           rowListIcon(Mediawidth, Mediaheight),
-          SizedBox(
-            height: 10,
+          SizeBoxHeight(
+            SizeWant: 10,
+            Mediaheight: Mediaheight,
           ),
           carouselNews(),
-          SizedBox(
-            height: 10,
+          SizeBoxHeight(
+            SizeWant: 10,
+            Mediaheight: Mediaheight,
           ),
           Container(
               margin: EdgeInsets.only(right: 10),
@@ -140,32 +144,37 @@ class _HomeScreenState extends State<HomeScreen> {
                 "عن التطبيق",
                 style: TextStyle(fontSize: 18),
               )),
-          SizedBox(
-            height: 10,
+          SizeBoxHeight(
+            SizeWant: 10,
+            Mediaheight: Mediaheight,
           ),
           rowVideos(),
-          SizedBox(
-            height: 10,
+          SizeBoxHeight(
+            SizeWant: 10,
+            Mediaheight: Mediaheight,
           ),
           RowCardNews(context),
-          SizedBox(
-            height: 10,
+          SizeBoxHeight(
+            SizeWant: 10,
+            Mediaheight: Mediaheight,
           ),
           cardMorePlayers(
               context: context,
               Mediawidth: Mediawidth,
               Mediaheight: Mediaheight,
               listPlayers: listPlayer),
-          SizedBox(
-            height: 10,
+          SizeBoxHeight(
+            SizeWant: 10,
+            Mediaheight: Mediaheight,
           ),
           cardMoreCoach(
               context: context,
               Mediawidth: Mediawidth,
               Mediaheight: Mediaheight,
               listCoach: ListCoach),
-          SizedBox(
-            height: 10,
+          SizeBoxHeight(
+            SizeWant: 10,
+            Mediaheight: Mediaheight,
           ),
         ],
       ),
@@ -677,7 +686,13 @@ class _HomeScreenState extends State<HomeScreen> {
                           listSport[index].UrlImage,
                           fit: BoxFit.cover,
                           height: 130,
-                          width: 400,
+                          width: (400 / MediaQuery
+                              .of(context)
+                              .size
+                              .width) * MediaQuery
+                              .of(context)
+                              .size
+                              .width,
                         )),
                   ),
                 );
