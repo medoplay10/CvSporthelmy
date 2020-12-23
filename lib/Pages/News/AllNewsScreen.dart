@@ -2,6 +2,8 @@ import 'package:cv_sports/Model/News.dart';
 import 'package:cv_sports/Widgets/newsCards.dart';
 import 'package:flutter/material.dart';
 
+import 'OneNewsScreen.dart';
+
 class AllNewsScreen extends StatelessWidget {
   List<News> ListNews = [
     News(
@@ -122,21 +124,32 @@ class AllNewsScreen extends StatelessWidget {
           itemCount: ListNews.length,
           shrinkWrap: true,
           itemBuilder: (context, index) {
-            return Card(
-              margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-              elevation: 1,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20)),
-              child: Container(
-                width: MediaQuery.of(context).size.width * 0.82,
-                padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                alignment: Alignment.center,
-                child: NewsCard(
-                  contentNews: ListNews[index].contentNews,
-                  iconClub: ListNews[index].IconClub,
-                  mainImage: ListNews[index].ImageUrl,
-                  nameClub: ListNews[index].NameClub,
-                  titleNews: ListNews[index].titleNews,
+            return InkWell(
+              onTap: () {
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) {
+                      return OneNewsScreen();
+                    }));
+              },
+              child: Card(
+                margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                elevation: 1,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20)),
+                child: Container(
+                  width: MediaQuery
+                      .of(context)
+                      .size
+                      .width * 0.82,
+                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                  alignment: Alignment.center,
+                  child: NewsCard(
+                    contentNews: ListNews[index].contentNews,
+                    iconClub: ListNews[index].IconClub,
+                    mainImage: ListNews[index].ImageUrl,
+                    nameClub: ListNews[index].NameClub,
+                    titleNews: ListNews[index].titleNews,
+                  ),
                 ),
               ),
             );

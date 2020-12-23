@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:provider/provider.dart';
 
 import '../../ProviderAll.dart';
 
 class MyDataProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    //Provider.of<ProviderConstants>(context,listen: false).ChangeIndexTap(Value: 0) ;
-    //    print("tabController = "+ tabController.index.toString());
+    ;
     return SingleChildScrollView(
       child: Column(
         children: [
@@ -39,6 +37,8 @@ class MyDataProfileScreen extends StatelessWidget {
       ),
     );
   }
+
+  //======================= Widget Row Social Media Cards ==============================
 
   Container RowSocialMediaCards(BuildContext context) {
     return Container(
@@ -91,6 +91,8 @@ class MyDataProfileScreen extends StatelessWidget {
       ),
     );
   }
+
+  //======================= Widget Card Awards ==============================
 
   Container CardAwards(BuildContext context) {
     return Container(
@@ -150,6 +152,8 @@ class MyDataProfileScreen extends StatelessWidget {
     );
   }
 
+  //======================= Widget Card Medals ==============================
+
   Container CardMedals(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width * 0.85,
@@ -207,6 +211,8 @@ class MyDataProfileScreen extends StatelessWidget {
       ),
     );
   }
+
+  //======================= Widget Card MyImages ==============================
 
   Container CardMyImages(BuildContext context) {
     return Container(

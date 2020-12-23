@@ -4,6 +4,7 @@ import 'package:flutter_snake_navigationbar/flutter_snake_navigationbar.dart';
 
 import 'CategoryScreen.dart';
 import 'HomeScreen.dart';
+import 'NotificationScreen.dart';
 import 'ProfileScreen.dart';
 import 'SettingScreen.dart';
 
@@ -76,7 +77,7 @@ class _MainScreenState extends State<MainScreen> {
         ],
       ),
       backgroundColor: Color(0xffF4F7FF),
-      appBar: _selectedItemPosition == 1
+      appBar: (_selectedItemPosition == 1 || _selectedItemPosition == 2)
           ? null
           : appBarMainScreen(Mediawidth, Mediaheight),
       body: ListScreen[_selectedItemPosition],
@@ -96,7 +97,12 @@ class _MainScreenState extends State<MainScreen> {
                 Icons.notifications,
                 size: 30,
               ),
-              onPressed: () {}),
+              onPressed: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) {
+                  return NotificationScreen();
+                }));
+              }),
         )
       ],
       leading: Container(

@@ -1,13 +1,92 @@
+import 'package:cv_sports/Widgets/newsCards.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-
-import '../../ProviderAll.dart';
 
 class MyConversationProfileScreen extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
-    //  Provider.of<ProviderConstants>(context,listen: false).ChangeIndexTap(Value: 2) ;
+    return RowChatsCards(context);
+  }
 
-    return Container();
+  //=============================== Widget Card More Coach===========================
+
+  Column RowChatsCards(BuildContext context) {
+    return Column(
+      children: [
+        Card(
+          elevation: 5,
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20)),
+          child: Container(
+            width: MediaQuery
+                .of(context)
+                .size
+                .width * 0.85,
+            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+            alignment: Alignment.center,
+            child: Row(
+              children: [
+                //  SizedBox(width: 20,),
+                Flexible(
+                  flex: 2,
+                  child: ClipRRect(
+                      borderRadius: BorderRadius.circular(10.0),
+                      child: Image.network(
+                        "https://www.zamalektoday.com/files/pic_news/cb92bdc4e5.jpg",
+                        fit: BoxFit.fill,
+                        height: 72,
+                        width: 200,
+                      )),
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                Flexible(
+                  flex: 4,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        children: [
+                          Text("الاهلي المصري", style: TextStyle(
+                              fontSize: 13),),
+                          Spacer(),
+                          Text("04:22AM", style: TextStyle(fontSize: 13),),
+
+                        ],
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Row(
+                        children: [
+                          Icon(Icons.home),
+                          Text(
+                            "نادي",
+                            style: TextStyle(fontSize: 10,
+                                fontWeight: FontWeight.bold),
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 5,
+                      ),
+                      Text(
+                        "نود التحدث مع وكيل اعمالك للتعاقد معك",
+                        textAlign: TextAlign.right,
+                        style: TextStyle(fontSize: 12),
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                      )
+                    ],
+                  ),
+                )
+              ],
+            ),
+          ),
+        ),
+      ],
+    );
   }
 }

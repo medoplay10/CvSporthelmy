@@ -1,8 +1,9 @@
 import 'package:cv_sports/Model/Sports.dart';
+import 'package:cv_sports/Pages/home/NotificationScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class AllCategory extends StatelessWidget {
+class OneCategory extends StatelessWidget {
   List<Sports> listSport = [
     Sports(
         Tital: "كرة قدم",
@@ -96,71 +97,81 @@ class AllCategory extends StatelessWidget {
                   Icons.notifications,
                   size: 30,
                 ),
-                onPressed: () {}),
+                onPressed: () {
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) {
+                        return NotificationScreen();
+                      }));
+                }),
           )
         ],
         automaticallyImplyLeading: false,
         elevation: 0,
         title: Text(
-          "الرئيسة",
+          "كرة القدم",
           style: TextStyle(fontSize: 18),
         ),
         centerTitle: true,
       ),
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Center(
-              child: Container(
-                width: MediaQuery.of(context).size.width * 0.85,
-                decoration: BoxDecoration(
-                  color: Color(0xffE7EBF8),
-                  border: Border.all(
-                    color: Colors.grey.shade300,
-                  ),
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: rowSearch(),
-              ),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            Container(
-              color: Colors.transparent,
-              padding: EdgeInsets.all(10),
-              child: GridView.builder(
-                itemCount: listSport.length,
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 3,
-                    crossAxisSpacing: 15.0,
-                    mainAxisSpacing: 15.0),
-                primary: false,
-                shrinkWrap: true,
-                itemBuilder: (context, index) {
-                  return Material(
-                    elevation: 5,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20.0),
+        child: Container(
+          color: Color(0xffF9FAFF),
+          child: Column(
+            children: [
+              Center(
+                child: Container(
+                  width: MediaQuery
+                      .of(context)
+                      .size
+                      .width * 0.85,
+                  decoration: BoxDecoration(
+                    color: Color(0xffE7EBF8),
+                    border: Border.all(
+                      color: Colors.grey.shade300,
                     ),
-                    child: Container(
-                        padding: EdgeInsets.only(top: 15),
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            border: Border.all(width: 0, color: Colors.white),
-                            borderRadius: BorderRadius.circular(20)),
-                        child: columnMoreData(
-                            Mediaheight: Mediaheight,
-                            Mediawidth: Mediawidth,
-                            SportData: listSport[index])),
-                  );
-                },
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: rowSearch(),
+                ),
               ),
-            ),
-            SizedBox(
-              height: 30,
-            ),
-          ],
+              SizedBox(
+                height: 10,
+              ),
+              Container(
+                color: Colors.transparent,
+                //     padding: EdgeInsets.all(5),
+                child: GridView.builder(
+                  itemCount: listSport.length,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 3,
+                      crossAxisSpacing: 15.0,
+                      mainAxisSpacing: 15.0),
+                  primary: false,
+                  shrinkWrap: true,
+                  itemBuilder: (context, index) {
+                    return Material(
+                      color: Color(0xffE7EBF8),
+                      elevation: 2,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20.0),
+                      ),
+                      child: Container(
+                          padding: EdgeInsets.only(top: 15),
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              border: Border.all(width: 0, color: Colors.white),
+                              borderRadius: BorderRadius.circular(20)),
+                          child: columnMoreData(
+                              Mediaheight: Mediaheight,
+                              Mediawidth: Mediawidth,
+                              SportData: listSport[index])),
+                    );
+                  },
+                ),
+              ),
+
+            ],
+          ),
         ),
       ),
     );

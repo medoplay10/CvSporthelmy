@@ -13,7 +13,8 @@ class ProfileScreen extends StatefulWidget {
   _ProfileScreenState createState() => _ProfileScreenState();
 }
 
-class _ProfileScreenState extends State<ProfileScreen> {
+class _ProfileScreenState extends State<ProfileScreen>
+    with TickerProviderStateMixin {
   Color BackgroundColor;
   int Index1 = 0;
   int Index2 = 1;
@@ -23,50 +24,62 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Color TextColor;
   TabController tabController;
 
+  void _setActiveTabIndex() {
+    Provider.of<ProviderConstants>(context, listen: false)
+        .ChangeIndexTap(Value: tabController.index);
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    tabController = new TabController(length: 3, vsync: this, initialIndex: 0);
+    tabController.addListener(_setActiveTabIndex);
+  }
+
   @override
   Widget build(BuildContext context) {
     // IndexTap=   Allvarible.IndexViewPage ;
     print("here");
 
-    return DefaultTabController(
-      initialIndex: IndexNow,
-      length: 3,
-      child: Scaffold(
-          backgroundColor: Color(0xffF9FAFF),
-          appBar: AppBar(
-            bottom: PreferredSize(
-              preferredSize: Size.fromHeight(180.0),
-              child: Column(
-                children: [
-                  ImageAndTextProfile(),
-                  TabsBarCard(context),
-                ],
-              ),
+    return Scaffold(
+        backgroundColor: Color(0xffF9FAFF),
+        appBar: AppBar(
+          bottom: PreferredSize(
+            preferredSize: Size.fromHeight(180.0),
+            child: Column(
+              children: [
+                ImageAndTextProfile(),
+                TabsBarCard(context),
+              ],
             ),
-            elevation: 0,
-            backgroundColor: Color(0xffF9FAFF),
-            actions: [
-              Padding(
-                padding: const EdgeInsets.all(15.0),
-                child: IconButton(
-                    iconSize: 26,
-                    icon: Icon(Icons.add_circle),
-                    color: Color(0xff5E5D8F),
-                    onPressed: () {}),
-              )
-            ],
           ),
-          body: TabBarView(
-            controller: tabController,
-            children: [
-              MyDataProfileScreen(),
-              MyPostsProfileScreen(),
-              MyConversationProfileScreen(),
-            ], //01019334359
-          )),
-    );
+          elevation: 0,
+          backgroundColor: Color(0xffF9FAFF),
+          actions: [
+            InkWell(
+              onTap: () => displayBottomSheet(context),
+              child: Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: Icon(
+                  Icons.add_circle,
+                  size: 26,
+                  color: Color(0xff5E5D8F),
+                ),
+              ),
+            )
+          ],
+        ),
+        body: TabBarView(
+          controller: tabController,
+          children: [
+            MyDataProfileScreen(),
+            MyPostsProfileScreen(),
+            MyConversationProfileScreen(),
+          ], //01019334359
+        ));
   }
 
+  //======================= Widget Image And Text Profile ==============================
   Center ImageAndTextProfile() {
     return Center(
       child: Column(
@@ -92,6 +105,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
     );
   }
 
+  //======================= Widget Tabs Bar Card ==============================
+
   Card TabsBarCard(BuildContext context) {
     return Card(
       elevation: 2,
@@ -102,12 +117,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
             borderRadius: BorderRadius.circular(20),
             border: Border.all(color: Colors.white)),
         child: TabBar(
+          controller: tabController,
           labelPadding: EdgeInsets.all(0),
           labelColor: Colors.red,
           indicatorWeight: 0.1,
           unselectedLabelColor: Colors.black,
-          // unselectedLabelStyle:TextStyle(
-          //     fontWeight: FontWeight.bold, color: Colors.black, fontSize: 14),
           isScrollable: true,
 
           onTap: (int i) {
@@ -118,14 +132,19 @@ class _ProfileScreenState extends State<ProfileScreen> {
           },
 
           tabs: [
-            ItemTapBar(context: context, Tital: "بياناتي ", indexItem: 0),
-            ItemTapBar(context: context, Tital: "منشوراتي ", indexItem: 1),
-            ItemTapBar(context: context, Tital: "محادثات ", indexItem: 2),
+            Tab(child: ItemTapBar(
+                context: context, Tital: "بياناتي ", indexItem: 0)),
+            Tab(child: ItemTapBar(
+                context: context, Tital: "منشوراتي ", indexItem: 1)),
+            Tab(child: ItemTapBar(
+                context: context, Tital: "محادثات ", indexItem: 2)),
           ],
         ),
       ),
     );
   }
+
+  //======================= Widget Item Tap Bar ==============================
 
   Container ItemTapBar({BuildContext context, String Tital, int indexItem}) {
     BackgroundColor =
@@ -142,7 +161,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
           color: BackgroundColor,
           borderRadius: BorderRadius.circular(20),
           border: Border.all(color: Colors.white)),
-      width: MediaQuery.of(context).size.width * 0.28,
+      width: MediaQuery
+          .of(context)
+          .size
+          .width * 0.28,
       alignment: Alignment.center,
       child: Text(
         Tital,
@@ -150,5 +172,107 @@ class _ProfileScreenState extends State<ProfileScreen> {
             fontWeight: FontWeight.bold, color: TextColor, fontSize: 14),
       ),
     );
+  }
+
+  //============================Widget - displayBottomSheet ==================================
+
+  void displayBottomSheet(BuildContext context) {
+    showModalBottomSheet(
+      //  isDismissible: false,
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(20),
+              topRight: Radius.circular(20),
+            )
+        ),
+        context: context,
+        builder: (ctx) {
+          return Container(
+            height: MediaQuery
+                .of(context)
+                .size
+                .height * 0.6,
+            padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  InkWell(
+                    onTap: () {},
+                    child: ListTile(
+                      trailing: Icon(Icons.arrow_back_outlined),
+                      title: Text("اضافة او تعديل السيرة الذاتية",
+                        style: TextStyle(
+                            fontSize: 14, color: Colors.grey.shade700),),
+                      leading: Image.asset(
+                        "assets/images/profile.png", height: 26.42,
+                        width: 27.55,),
+                    ),
+                  ),
+                  Divider(thickness: 2,),
+                  InkWell(
+                    onTap: () {},
+                    child: ListTile(
+                      trailing: Icon(Icons.arrow_back_outlined),
+                      title: Text("اضافة او تعديل جوائز", style: TextStyle(
+                          fontSize: 14, color: Colors.grey.shade700),),
+                      leading: Image.asset(
+                        "assets/images/trophy.png", height: 26.42,
+                        width: 27.55,),
+                    ),
+                  ),
+                  Divider(thickness: 2,),
+                  InkWell(
+                    onTap: () {},
+                    child: ListTile(
+                      trailing: Icon(Icons.arrow_back_outlined),
+                      title: Text("اضافة او تعديل ميداليات", style: TextStyle(
+                          fontSize: 14, color: Colors.grey.shade700),),
+                      leading: Image.asset(
+                        "assets/images/medal.png", height: 26.42,
+                        width: 27.55,),
+                    ),
+                  ),
+                  Divider(thickness: 2,),
+                  InkWell(
+                    onTap: () {},
+                    child: ListTile(
+                      trailing: Icon(Icons.arrow_back_outlined),
+                      title: Text("اضافة او تعديل وسائل التواصل",
+                        style: TextStyle(
+                            fontSize: 14, color: Colors.grey.shade700),),
+                      leading: Image.asset(
+                        "assets/images/slack.png", height: 26.42,
+                        width: 27.55,),
+                    ),
+                  ),
+                  Divider(thickness: 2,),
+                  InkWell(
+                    onTap: () {},
+                    child: ListTile(
+                      trailing: Icon(Icons.arrow_back_outlined),
+                      title: Text("اضافة او تعديل صور", style: TextStyle(
+                          fontSize: 14, color: Colors.grey.shade700),),
+                      leading: Image.asset(
+                        "assets/images/image.png", height: 26.42,
+                        width: 27.55,),
+                    ),
+                  ),
+                  Divider(thickness: 2,),
+                  InkWell(
+                    onTap: () {},
+                    child: ListTile(
+                      trailing: Icon(Icons.arrow_back_outlined),
+                      title: Text("اضافة منشور", style: TextStyle(
+                          fontSize: 14, color: Colors.grey.shade700),),
+                      leading: Image.asset(
+                        "assets/images/chat.png", height: 26.42, width: 27.55,),
+                    ),
+                  ),
+
+                ],
+              ),
+            ),
+          );
+        });
   }
 }
