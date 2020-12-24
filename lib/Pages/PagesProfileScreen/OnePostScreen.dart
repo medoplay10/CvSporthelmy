@@ -11,7 +11,7 @@ class OnePostScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         bottom: PreferredSize(
-          preferredSize: Size.fromHeight(65.0),
+          preferredSize: Size.fromHeight(75.0),
           child: Column(
             children: [
               ImageAndTextProfile(context),
@@ -25,15 +25,14 @@ class OnePostScreen extends StatelessWidget {
             onTap: () => displayBottomSheet(context),
             child: Padding(
               padding: const EdgeInsets.all(15.0),
-              child: Icon(
-                Icons.menu,
-                size: 26,
+              child: FaIcon(
+                FontAwesomeIcons.ellipsisV,
                 color: Color(0xff5E5D8F),
               ),
             ),
           )
         ],
-      ),
+      ), // color: Color(0xff5E5D8F),
       body: Column(
         children: [
           MainPostCard(context),
@@ -293,10 +292,6 @@ class OnePostScreen extends StatelessWidget {
         context: context,
         builder: (ctx) {
           return Container(
-            // height: MediaQuery
-            //     .of(context)
-            //     .size
-            //     .height * 0.6,
             padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
             child: SingleChildScrollView(
               child: Column(

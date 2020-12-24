@@ -142,16 +142,19 @@ class MyDataProfileScreen extends StatelessWidget {
                 ),
               ),
             ),
-            Container(
-              alignment: Alignment.center,
-              margin: EdgeInsets.symmetric(vertical: 2),
-              decoration: BoxDecoration(
-                  color: Color(0xffE7EBF8),
-                  borderRadius: BorderRadius.circular(20),
-                  border: Border.all(color: Colors.white)),
-              //         height: MediaQuery.of(context).size.height * 0.40,
-              width: MediaQuery.of(context).size.width * 0.15,
-              child: Text("+10"),
+            InkWell(
+              onTap: () => displayBottomSheet(context),
+              child: Container(
+                alignment: Alignment.center,
+                margin: EdgeInsets.symmetric(vertical: 2),
+                decoration: BoxDecoration(
+                    color: Color(0xffE7EBF8),
+                    borderRadius: BorderRadius.circular(20),
+                    border: Border.all(color: Colors.white)),
+                //         height: MediaQuery.of(context).size.height * 0.40,
+                width: MediaQuery.of(context).size.width * 0.15,
+                child: Text("+10"),
+              ),
             )
           ],
         ),
@@ -300,12 +303,145 @@ class MyDataProfileScreen extends StatelessWidget {
                   borderRadius: BorderRadius.circular(20),
                   border: Border.all(color: Colors.white)),
               //         height: MediaQuery.of(context).size.height * 0.40,
-              width: MediaQuery.of(context).size.width * 0.15,
+              width: MediaQuery
+                  .of(context)
+                  .size
+                  .width * 0.15,
               child: Text("+2"),
             )
           ],
         ),
       ),
     );
+  }
+
+  //============================Widget - displayBottomSheet ==================================
+
+  void displayBottomSheet(BuildContext context) {
+    showModalBottomSheet(
+      //  isDismissible: false,
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(20),
+              topRight: Radius.circular(20),
+            )),
+        context: context,
+        builder: (ctx) {
+          return Container(
+            // height: MediaQuery
+            //     .of(context)
+            //     .size
+            //     .height * 0.6,
+            padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  Text("الجوائز", style: TextStyle(fontSize: 18),),
+                  InkWell(
+                    onTap: () {},
+                    child: ListTile(
+                      trailing: Text("3"),
+                      title: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "توفيق حسين",
+                                // textAlign:TextAlign.left ,
+                                style: TextStyle(
+                                    fontSize: 14, color: Colors.grey.shade700),
+                              ),
+                              Text(
+                                "اعلامي",
+
+                                style: TextStyle(
+                                    fontSize: 12, color: Colors.grey.shade500),
+                              ),
+                            ],
+                          ),
+
+
+                        ],
+                      ),
+                      leading: Image.asset("assets/images/trophy.png"),
+                    ),
+                  ),
+                  Divider(
+                    thickness: 2,
+                  ),
+                  InkWell(
+                    onTap: () {},
+                    child: ListTile(
+                      trailing: Text("3"),
+
+                      title: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "توفيق حسين",
+                                // textAlign:TextAlign.left ,
+                                style: TextStyle(
+                                    fontSize: 14, color: Colors.grey.shade700),
+                              ),
+                              Text(
+                                "اعلامي",
+
+                                style: TextStyle(
+                                    fontSize: 12, color: Colors.grey.shade500),
+                              ),
+                            ],
+                          ),
+
+
+                        ],
+                      ),
+                      leading: Image.asset("assets/images/trophy.png"),
+                    ),
+                  ),
+                  Divider(
+                    thickness: 2,
+                  ),
+                  InkWell(
+                    onTap: () {},
+                    child: ListTile(
+                      trailing: Text("3"),
+
+                      title: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "توفيق حسين",
+                                // textAlign:TextAlign.left ,
+                                style: TextStyle(
+                                    fontSize: 14, color: Colors.grey.shade700),
+                              ),
+                              Text(
+                                "اعلامي",
+
+                                style: TextStyle(
+                                    fontSize: 12, color: Colors.grey.shade500),
+                              ),
+                            ],
+                          ),
+
+
+                        ],
+                      ),
+                      leading: Image.asset("assets/images/trophy.png"),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          );
+        });
   }
 }
