@@ -22,7 +22,7 @@ class OnePostScreen extends StatelessWidget {
         backgroundColor: Color(0xffFFFFFF),
         actions: [
           InkWell(
-            onTap: () {},
+            onTap: () => displayBottomSheet(context),
             child: Padding(
               padding: const EdgeInsets.all(15.0),
               child: Icon(
@@ -278,5 +278,84 @@ class OnePostScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  //============================Widget - displayBottomSheet ==================================
+
+  void displayBottomSheet(BuildContext context) {
+    showModalBottomSheet(
+        //  isDismissible: false,
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(20),
+          topRight: Radius.circular(20),
+        )),
+        context: context,
+        builder: (ctx) {
+          return Container(
+            // height: MediaQuery
+            //     .of(context)
+            //     .size
+            //     .height * 0.6,
+            padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  InkWell(
+                    onTap: () {},
+                    child: ListTile(
+                      trailing: Icon(Icons.arrow_back_outlined),
+                      title: Text(
+                        "غلق التعليقات",
+                        style: TextStyle(
+                            fontSize: 14, color: Colors.grey.shade700),
+                      ),
+                      leading: FaIcon(
+                        FontAwesomeIcons.checkSquare,
+                        color: Color(0xffC1C0D3),
+                      ),
+                    ),
+                  ),
+                  Divider(
+                    thickness: 2,
+                  ),
+                  InkWell(
+                    onTap: () {},
+                    child: ListTile(
+                      trailing: Icon(Icons.arrow_back_outlined),
+                      title: Text(
+                        "تعديل المنشور",
+                        style: TextStyle(
+                            fontSize: 14, color: Colors.grey.shade700),
+                      ),
+                      leading: FaIcon(
+                        FontAwesomeIcons.edit,
+                        color: Color(0xffC1C0D3),
+                      ),
+                    ),
+                  ),
+                  Divider(
+                    thickness: 2,
+                  ),
+                  InkWell(
+                    onTap: () {},
+                    child: ListTile(
+                      trailing: Icon(Icons.arrow_back_outlined),
+                      title: Text(
+                        "حذف المنشور",
+                        style: TextStyle(
+                            fontSize: 14, color: Colors.grey.shade700),
+                      ),
+                      leading: FaIcon(
+                        FontAwesomeIcons.trashAlt,
+                        color: Color(0xff6EC9F1),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          );
+        });
   }
 }
