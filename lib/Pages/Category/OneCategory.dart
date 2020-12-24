@@ -105,7 +105,6 @@ class OneCategory extends StatelessWidget {
                 }),
           )
         ],
-        automaticallyImplyLeading: false,
         elevation: 0,
         title: Text(
           "كرة القدم",

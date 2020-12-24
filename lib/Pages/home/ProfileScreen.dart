@@ -1,7 +1,6 @@
-import 'package:cv_sports/Constants/Contans.dart';
-import 'package:cv_sports/Pages/PagesProfileScreen/MyConversationProfileScreen.dart';
-import 'package:cv_sports/Pages/PagesProfileScreen/MyDataProfileScreen.dart';
-import 'package:cv_sports/Pages/PagesProfileScreen/MyPostsProfileScreen.dart';
+import 'package:cv_sports/Pages/TapsProfileScreen/MyConversationProfileScreen.dart';
+import 'package:cv_sports/Pages/TapsProfileScreen/MyDataProfileScreen.dart';
+import 'package:cv_sports/Pages/TapsProfileScreen/MyPostsProfileScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -44,7 +43,7 @@ class _ProfileScreenState extends State<ProfileScreen>
         backgroundColor: Color(0xffF9FAFF),
         appBar: AppBar(
           bottom: PreferredSize(
-            preferredSize: Size.fromHeight(180.0),
+            preferredSize: Size.fromHeight(185.0),
             child: Column(
               children: [
                 ImageAndTextProfile(),

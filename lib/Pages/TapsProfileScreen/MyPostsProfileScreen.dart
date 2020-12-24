@@ -1,3 +1,4 @@
+import 'package:cv_sports/Pages/PagesProfileScreen/OnePostScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -27,18 +28,22 @@ class MyPostsProfileScreen extends StatelessWidget {
     return SingleChildScrollView(
       child: Column(
         children: [
-          RowPostsCards(context),
+          InkWell(
+              onTap: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) {
+                  return OnePostScreen();
+                }));
+              },
+              child: RowPostsCards(context)),
           SizedBox(
             height: (10 / MediaQuery.of(context).size.height) *
                 MediaQuery.of(context).size.height,
           ),
           RowImagesCards(context),
           SizedBox(
-            height: (10 / MediaQuery
-                .of(context)
-                .size
-                .height) * MediaQuery
-                .of(context)
+            height: (10 / MediaQuery.of(context).size.height) *
+                MediaQuery.of(context)
                 .size
                 .height,
           ),
@@ -65,7 +70,7 @@ class MyPostsProfileScreen extends StatelessWidget {
         Card(
           elevation: 5,
           shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+          RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
           child: Container(
             width: MediaQuery.of(context).size.width * 0.85,
             padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
@@ -161,7 +166,7 @@ class MyPostsProfileScreen extends StatelessWidget {
         Card(
           elevation: 5,
           shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+          RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
           child: Container(
             width: MediaQuery.of(context).size.width * 0.85,
             padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
@@ -287,7 +292,7 @@ class MyPostsProfileScreen extends StatelessWidget {
         Card(
           elevation: 5,
           shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+          RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
           child: Container(
             width: MediaQuery.of(context).size.width * 0.85,
             padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
