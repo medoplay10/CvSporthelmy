@@ -116,28 +116,33 @@ class MyDataProfileScreen extends StatelessWidget {
                 margin: EdgeInsets.symmetric(horizontal: 10, vertical: 18),
                 child: Row(
                   children: [
-                    Column(
-                      children: [
-                        Image.asset("assets/images/trophy.png"),
-                        Text("الدوري السعودي"),
-                        Text("8")
-                      ],
+                    SingleChildScrollView(
+                      child: Column(
+                        children: [
+                          Image.asset(
+                            "assets/images/trophy.png",
+                            height: MediaQuery.of(context).size.height * 0.05,
+                          ),
+                          Text("الدوري السعودي"),
+                          Text("8")
+                        ],
+                      ),
                     ),
                     SizedBox(
-                      width: (20 / MediaQuery
-                          .of(context)
-                          .size
-                          .width) * MediaQuery
-                          .of(context)
-                          .size
-                          .width,
+                      width: (20 / MediaQuery.of(context).size.width) *
+                          MediaQuery.of(context).size.width,
                     ),
-                    Column(
-                      children: [
-                        Image.asset("assets/images/trophy.png"),
-                        Text("الدوري السعودي"),
-                        Text("8")
-                      ],
+                    SingleChildScrollView(
+                      child: Column(
+                        children: [
+                          Image.asset(
+                            "assets/images/trophy.png",
+                            height: MediaQuery.of(context).size.height * 0.05,
+                          ),
+                          Text("الدوري السعودي"),
+                          Text("8")
+                        ],
+                      ),
                     ),
                   ],
                 ),
@@ -185,12 +190,18 @@ class MyDataProfileScreen extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Column(
-                      children: [
-                        Image.asset("assets/images/medal.png"),
-                        Text("افضل لاعب"),
-                        Text("8")
-                      ],
+                    SingleChildScrollView(
+                      child: Column(
+                        children: [
+                          Image.asset(
+                            "assets/images/medal.png", height: MediaQuery
+                              .of(context)
+                              .size
+                              .height * 0.05,),
+                          Text("افضل لاعب"),
+                          Text("8")
+                        ],
+                      ),
                     ),
                     SizedBox(
                       width: (20 / MediaQuery
@@ -201,12 +212,18 @@ class MyDataProfileScreen extends StatelessWidget {
                           .size
                           .width,
                     ),
-                    Column(
-                      children: [
-                        Image.asset("assets/images/medal.png"),
-                        Text("افضل صانع لعب"),
-                        Text("8")
-                      ],
+                    SingleChildScrollView(
+                      child: Column(
+                        children: [
+                          Image.asset(
+                            "assets/images/medal.png", height: MediaQuery
+                              .of(context)
+                              .size
+                              .height * 0.05,),
+                          Text("افضل صانع لعب"),
+                          Text("8")
+                        ],
+                      ),
                     ),
                   ],
                 ),

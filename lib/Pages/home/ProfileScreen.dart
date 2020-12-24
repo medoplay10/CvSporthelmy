@@ -1,3 +1,7 @@
+import 'package:cv_sports/Pages/PagesProfileScreen/AddMedal.dart';
+import 'package:cv_sports/Pages/PagesProfileScreen/AddPost.dart';
+import 'package:cv_sports/Pages/PagesProfileScreen/AddPrizes.dart';
+import 'package:cv_sports/Pages/PagesProfileScreen/AddSocialMedia.dart';
 import 'package:cv_sports/Pages/TapsProfileScreen/MyConversationProfileScreen.dart';
 import 'package:cv_sports/Pages/TapsProfileScreen/MyDataProfileScreen.dart';
 import 'package:cv_sports/Pages/TapsProfileScreen/MyPostsProfileScreen.dart';
@@ -90,7 +94,7 @@ class _ProfileScreenState extends State<ProfileScreen>
             child: CircleAvatar(
                 radius: 20,
                 backgroundImage:
-                    NetworkImage("https://i.stack.imgur.com/l60Hf.png")),
+                NetworkImage("https://i.stack.imgur.com/l60Hf.png")),
           ),
           Text(
             "خالد عمر",
@@ -148,9 +152,9 @@ class _ProfileScreenState extends State<ProfileScreen>
 
   Container ItemTapBar({BuildContext context, String Tital, int indexItem}) {
     BackgroundColor =
-        indexItem == Provider.of<ProviderConstants>(context).IndexTap
-            ? Color(0xff5E5D8F)
-            : Colors.white;
+    indexItem == Provider.of<ProviderConstants>(context).IndexTap
+        ? Color(0xff5E5D8F)
+        : Colors.white;
     TextColor = indexItem == Provider.of<ProviderConstants>(context).IndexTap
         ? Colors.white
         : Colors.black;
@@ -197,20 +201,34 @@ class _ProfileScreenState extends State<ProfileScreen>
               child: Column(
                 children: [
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.of(context)
+                          .push(MaterialPageRoute(builder: (context) {
+                        return AddPost();
+                      }));
+                    },
                     child: ListTile(
                       trailing: Icon(Icons.arrow_back_outlined),
-                      title: Text("اضافة او تعديل السيرة الذاتية",
+                      title: Text(
+                        "اضافة او تعديل السيرة الذاتية",
                         style: TextStyle(
-                            fontSize: 14, color: Colors.grey.shade700),),
+                            fontSize: 14, color: Colors.grey.shade700),
+                      ),
                       leading: Image.asset(
-                        "assets/images/profile.png", height: 26.42,
-                        width: 27.55,),
+                        "assets/images/profile.png",
+                        height: 26.42,
+                        width: 27.55,
+                      ),
                     ),
                   ),
                   Divider(thickness: 2,),
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.of(context).push(
+                          MaterialPageRoute(builder: (context) {
+                            return AddPrize();
+                          }));
+                    },
                     child: ListTile(
                       trailing: Icon(Icons.arrow_back_outlined),
                       title: Text("اضافة او تعديل جوائز", style: TextStyle(
@@ -221,8 +239,13 @@ class _ProfileScreenState extends State<ProfileScreen>
                     ),
                   ),
                   Divider(thickness: 2,),
-                  InkWell(
-                    onTap: () {},
+                  InkWell( //AddMedal
+                    onTap: () {
+                      Navigator.of(context).push(
+                          MaterialPageRoute(builder: (context) {
+                            return AddMedal();
+                          }));
+                    },
                     child: ListTile(
                       trailing: Icon(Icons.arrow_back_outlined),
                       title: Text("اضافة او تعديل ميداليات", style: TextStyle(
@@ -234,7 +257,12 @@ class _ProfileScreenState extends State<ProfileScreen>
                   ),
                   Divider(thickness: 2,),
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.of(context).push(
+                          MaterialPageRoute(builder: (context) {
+                            return AddSocialMedia();
+                          }));
+                    },
                     child: ListTile(
                       trailing: Icon(Icons.arrow_back_outlined),
                       title: Text("اضافة او تعديل وسائل التواصل",

@@ -1,5 +1,8 @@
+import 'package:cv_sports/Pages/auth/Login_Screen.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+import 'MainScreen.dart';
 
 class SettingScreen extends StatefulWidget {
   @override
@@ -80,17 +83,20 @@ class _SettingScreenState extends State<SettingScreen> {
                             thickness: 2,
                           ),
                         ),
-                        ListTile(
-                          trailing: Icon(Icons.arrow_back_outlined,
-                              color: Color(0xffFB9800)),
-                          title: Text(
-                            "تسجيل خروج",
-                            style: TextStyle(
-                                fontSize: 14, color: Colors.grey.shade700),
-                          ),
-                          leading: FaIcon(
-                            FontAwesomeIcons.signOutAlt,
-                            color: Color(0xffFB9800),
+                        InkWell(
+                          onTap: () => showExitAuthDialog(),
+                          child: ListTile(
+                            trailing: Icon(Icons.arrow_back_outlined,
+                                color: Color(0xffFB9800)),
+                            title: Text(
+                              "تسجيل خروج",
+                              style: TextStyle(
+                                  fontSize: 14, color: Colors.grey.shade700),
+                            ),
+                            leading: FaIcon(
+                              FontAwesomeIcons.signOutAlt,
+                              color: Color(0xffFB9800),
+                            ),
                           ),
                         ),
                       ],
@@ -237,5 +243,82 @@ class _SettingScreenState extends State<SettingScreen> {
         ),
       ),
     );
+  }
+
+  showExitAuthDialog() {
+    showDialog(
+        barrierDismissible: false,
+        context: context,
+        builder: (_) => new AlertDialog(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20)),
+              title: new Text(
+                "تسجيل خروج",
+                style: TextStyle(),
+                textAlign: TextAlign.center,
+              ),
+              content: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  new Text(
+                    " هل أنت متأكد من تسجيل خروجك بالتطبيق",
+                    style: TextStyle(color: Color(0xff8E93A2), fontSize: 14),
+                    textAlign: TextAlign.center,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      InkWell(
+                        onTap: () {
+                          Navigator.of(context).pushReplacement(
+                              MaterialPageRoute(builder: (context) {
+                            return LoginScreen();
+                          }));
+                        },
+                        child: Container(
+                          padding: const EdgeInsets.only(bottom: 10, top: 10),
+                          margin: const EdgeInsets.only(right: 2, left: 2),
+                          decoration: BoxDecoration(
+                              color: Color(0xff222B45),
+                              borderRadius: BorderRadius.circular(20),
+                              border: Border.all(color: Colors.white)),
+                          width: MediaQuery.of(context).size.width * 0.28,
+                          alignment: Alignment.center,
+                          child: Text(
+                            "خروج",
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                                fontSize: 14),
+                          ),
+                        ),
+                      ),
+                      InkWell(
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                        child: Container(
+                          padding: const EdgeInsets.only(bottom: 10, top: 10),
+                          margin: const EdgeInsets.only(right: 2, left: 2),
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(20),
+                              border: Border.all(color: Colors.grey)),
+                          width: MediaQuery.of(context).size.width * 0.28,
+                          alignment: Alignment.center,
+                          child: Text(
+                            "تراجع",
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Colors.grey,
+                                fontSize: 14),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ));
   }
 }
