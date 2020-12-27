@@ -1,7 +1,9 @@
 import 'package:cv_sports/Pages/PagesProfileScreen/AddMedal.dart';
-import 'package:cv_sports/Pages/PagesProfileScreen/AddPost.dart';
+import 'package:cv_sports/Pages/PagesProfileScreen/AddPost_Image_video.dart';
+import 'package:cv_sports/Pages/PagesProfileScreen/addSummaryProfile.dart';
 import 'package:cv_sports/Pages/PagesProfileScreen/AddPrizes.dart';
 import 'package:cv_sports/Pages/PagesProfileScreen/AddSocialMedia.dart';
+import 'package:cv_sports/Pages/PagesProfileScreen/editImageProfile.dart';
 import 'package:cv_sports/Pages/TapsProfileScreen/MyConversationProfileScreen.dart';
 import 'package:cv_sports/Pages/TapsProfileScreen/MyDataProfileScreen.dart';
 import 'package:cv_sports/Pages/TapsProfileScreen/MyPostsProfileScreen.dart';
@@ -204,7 +206,7 @@ class _ProfileScreenState extends State<ProfileScreen>
                     onTap: () {
                       Navigator.of(context)
                           .push(MaterialPageRoute(builder: (context) {
-                        return AddPost();
+                        return addSummaryProfile();
                       }));
                     },
                     child: ListTile(
@@ -265,29 +267,50 @@ class _ProfileScreenState extends State<ProfileScreen>
                     },
                     child: ListTile(
                       trailing: Icon(Icons.arrow_back_outlined),
-                      title: Text("اضافة او تعديل وسائل التواصل",
+                      title: Text(
+                        "اضافة او تعديل وسائل التواصل",
                         style: TextStyle(
-                            fontSize: 14, color: Colors.grey.shade700),),
+                            fontSize: 14, color: Colors.grey.shade700),
+                      ),
                       leading: Image.asset(
-                        "assets/images/slack.png", height: 26.42,
-                        width: 27.55,),
+                        "assets/images/slack.png",
+                        height: 26.42,
+                        width: 27.55,
+                      ),
                     ),
                   ),
-                  Divider(thickness: 2,),
+                  Divider(
+                    thickness: 2,
+                  ), //editImageProfile
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.of(context)
+                          .push(MaterialPageRoute(builder: (context) {
+                        return editImageProfile();
+                      }));
+                    },
                     child: ListTile(
                       trailing: Icon(Icons.arrow_back_outlined),
-                      title: Text("اضافة او تعديل صور", style: TextStyle(
-                          fontSize: 14, color: Colors.grey.shade700),),
+                      title: Text(
+                        "اضافة او تعديل صور",
+                        style: TextStyle(
+                            fontSize: 14, color: Colors.grey.shade700),
+                      ),
                       leading: Image.asset(
-                        "assets/images/image.png", height: 26.42,
-                        width: 27.55,),
+                        "assets/images/image.png",
+                        height: 26.42,
+                        width: 27.55,
+                      ),
                     ),
                   ),
                   Divider(thickness: 2,),
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.of(context)
+                          .push(MaterialPageRoute(builder: (context) {
+                        return AddPost_Image_video();
+                      }));
+                    },
                     child: ListTile(
                       trailing: Icon(Icons.arrow_back_outlined),
                       title: Text("اضافة منشور", style: TextStyle(

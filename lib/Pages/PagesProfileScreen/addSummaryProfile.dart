@@ -1,12 +1,12 @@
 import 'package:cv_sports/Widgets/SentDataButtom.dart';
 import 'package:flutter/material.dart';
 
-class AddPost extends StatefulWidget {
+class addSummaryProfile extends StatefulWidget {
   @override
-  _AddPostState createState() => _AddPostState();
+  _addSummaryProfileState createState() => _addSummaryProfileState();
 }
 
-class _AddPostState extends State<AddPost> {
+class _addSummaryProfileState extends State<addSummaryProfile> {
   TextEditingController textEditingController = TextEditingController();
 
   int maxLengthEnd = 255;
