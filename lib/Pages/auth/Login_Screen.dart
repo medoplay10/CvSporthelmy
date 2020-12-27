@@ -31,7 +31,7 @@ class LoginScreen extends StatelessWidget {
                           height: MediaQuery.of(context).size.height * .62,
                         ),
                         Positioned(
-                          right: 0,
+                          right: 5,
                           bottom: MediaQuery.of(context).size.height * 0.096,
                           child: Container(
                               width: MediaQuery.of(context).size.width * .5,
@@ -53,7 +53,16 @@ class LoginScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Container(
-                          width: MediaQuery.of(context).size.width * 0.80,
+                          height: (58 / MediaQuery
+                              .of(context)
+                              .size
+                              .height) * MediaQuery
+                              .of(context)
+                              .size
+                              .height, width: MediaQuery
+                            .of(context)
+                            .size
+                            .width * 0.80,
                           child: TextFormField(
                             style: TextStyle(fontSize: 18, color: Colors.black),
                             decoration: InputDecoration(
@@ -72,6 +81,13 @@ class LoginScreen extends StatelessWidget {
                         ),
                         SizeBoxHeight(Mediaheight: Mediaheight, SizeWant: 20),
                         Container(
+                          height: (58 / MediaQuery
+                              .of(context)
+                              .size
+                              .height) * MediaQuery
+                              .of(context)
+                              .size
+                              .height,
                           width: MediaQuery
                               .of(context)
                               .size
@@ -108,64 +124,77 @@ class LoginScreen extends StatelessWidget {
                       child: Text("forgetPassword".tr())),
                 ),
                 Positioned(
-                  top: MediaQuery.of(context).size.height * .78,
-                  child: Container(
-                    width: MediaQuery
-                        .of(context)
-                        .size
-                        .width * 0.80,
-                    height: (50 / MediaQuery
-                        .of(context)
-                        .size
-                        .height) * MediaQuery
-                        .of(context)
-                        .size
-                        .height,
-                    margin: EdgeInsets.only(bottom: 10),
-                    child: RaisedButton(
-                      onPressed: () {
-                        Navigator.of(context).pushReplacement(
-                            MaterialPageRoute(builder: (context) {
-                              return MainScreen();
-                            }));
-                      },
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10)),
-                      color: Color(0xff2C2B53),
-                      child: Text(
-                        "signin".tr(),
-                        style: TextStyle(color: Colors.white),
+                  top: MediaQuery
+                      .of(context)
+                      .size
+                      .height * .78,
+
+                  child: Column(
+                    children: [
+                      Container(
+                        width: MediaQuery
+                            .of(context)
+                            .size
+                            .width * 0.80,
+                        height: (50 / MediaQuery
+                            .of(context)
+                            .size
+                            .height) * MediaQuery
+                            .of(context)
+                            .size
+                            .height,
+                        margin: EdgeInsets.only(bottom: 10),
+                        child: RaisedButton(
+                          onPressed: () {
+                            Navigator.of(context).pushReplacement(
+                                MaterialPageRoute(builder: (context) {
+                                  return MainScreen();
+                                }));
+                          },
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10)),
+                          color: Color(0xff2C2B53),
+                          child: Text(
+                            "signin".tr(),
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ),
                       ),
-                    ),
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 15),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text("noAccount".tr()),
+                            SizedBox(
+                              width: 5,
+                            ),
+                            InkWell(
+                                onTap: () {
+                                  Navigator.of(context)
+                                      .push(
+                                      MaterialPageRoute(builder: (context) {
+                                        return SignUpScreen();
+                                      }));
+                                },
+                                child: Text(
+                                  "signUpHere".tr(),
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 16,
+                                    decoration: TextDecoration.underline,
+                                  ),
+                                ))
+                          ],
+                        ),
+                      )
+                    ],
                   ),
                 )
               ],
             ),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text("noAccount".tr()),
-              SizedBox(
-                width: 5,
-              ),
-              InkWell(
-                  onTap: () {
-                    Navigator.of(context)
-                        .push(MaterialPageRoute(builder: (context) {
-                      return SignUpScreen();
-                    }));
-                  },
-                  child: Text(
-                    "signUpHere".tr(),
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16,
-                      decoration: TextDecoration.underline,
-                    ),
-                  ))
-            ],
-          )
+
         ],
       ),
     );
