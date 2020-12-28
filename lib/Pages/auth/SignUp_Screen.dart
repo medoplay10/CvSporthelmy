@@ -5,6 +5,7 @@ import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:easy_localization/easy_localization.dart' as easy;
 
 import 'ComplateProfile_Screen.dart';
+import 'Login_Screen.dart';
 
 class SignUpScreen extends StatefulWidget {
   @override
@@ -183,7 +184,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
         InkWell(
             onTap: () {
               Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-                return SignUpScreen();
+                return LoginScreen();
               }));
             },
             child: Text(
