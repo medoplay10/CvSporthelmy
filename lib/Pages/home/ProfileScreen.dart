@@ -8,6 +8,7 @@ import 'package:cv_sports/Pages/TapsProfileScreen/MyConversationProfileScreen.da
 import 'package:cv_sports/Pages/TapsProfileScreen/MyDataProfileScreen.dart';
 import 'package:cv_sports/Pages/TapsProfileScreen/MyPostsProfileScreen.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 
 import '../../ProviderAll.dart';
@@ -48,6 +49,7 @@ class _ProfileScreenState extends State<ProfileScreen>
     return Scaffold(
         backgroundColor: Color(0xffF9FAFF),
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           bottom: PreferredSize(
             preferredSize: Size.fromHeight(185.0),
             child: Column(
@@ -63,11 +65,12 @@ class _ProfileScreenState extends State<ProfileScreen>
             InkWell(
               onTap: () => displayBottomSheet(context),
               child: Padding(
-                padding: const EdgeInsets.all(15.0),
-                child: Icon(
-                  Icons.add_circle,
-                  size: 26,
+                padding: const EdgeInsets.all(15.0), //   size: 26,
+                //      color: Color(0xff5E5D8F),
+                child: FaIcon(
+                  FontAwesomeIcons.ellipsisV,
                   color: Color(0xff5E5D8F),
+                  size: 26,
                 ),
               ),
             )

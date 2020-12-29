@@ -58,22 +58,22 @@ class _HomeScreenState extends State<HomeScreen> {
   List<Players> listPlayer = [
     Players(
         UrlImage:
-        "https://specials-images.forbesimg.com/imageserve/5f5bd38ccacfa3fa5118407b/960x0.jpg?fit=scale",
+            "https://imgresizer.eurosport.com/unsafe/1200x0/filters:format(jpeg):focal(1297x339:1299x337)/origin-imgresizer.eurosport.com/2020/11/03/2927687-60147708-2560-1440.jpg",
         name: "Messi",
         PlayerPlace: "attacker"),
     Players(
         UrlImage:
-        "https://specials-images.forbesimg.com/imageserve/5f5bd38ccacfa3fa5118407b/960x0.jpg?fit=scale",
+        "https://imgresizer.eurosport.com/unsafe/1200x0/filters:format(jpeg):focal(1297x339:1299x337)/origin-imgresizer.eurosport.com/2020/11/03/2927687-60147708-2560-1440.jpg",
         name: "Messi",
         PlayerPlace: "attacker"),
     Players(
         UrlImage:
-        "https://specials-images.forbesimg.com/imageserve/5f5bd38ccacfa3fa5118407b/960x0.jpg?fit=scale",
+        "https://imgresizer.eurosport.com/unsafe/1200x0/filters:format(jpeg):focal(1297x339:1299x337)/origin-imgresizer.eurosport.com/2020/11/03/2927687-60147708-2560-1440.jpg",
         name: "Messi",
         PlayerPlace: "attacker"),
     Players(
         UrlImage:
-        "https://specials-images.forbesimg.com/imageserve/5f5bd38ccacfa3fa5118407b/960x0.jpg?fit=scale",
+        "https://imgresizer.eurosport.com/unsafe/1200x0/filters:format(jpeg):focal(1297x339:1299x337)/origin-imgresizer.eurosport.com/2020/11/03/2927687-60147708-2560-1440.jpg",
         name: "Messi",
         PlayerPlace: "attacker"),
   ];
@@ -738,7 +738,9 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
         ),
-        IconButton(icon: Icon(Icons.filter_alt), onPressed: null)
+        IconButton(icon: FaIcon(
+          FontAwesomeIcons.slidersH,
+        ), onPressed: null)
       ],
     );
   }

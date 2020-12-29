@@ -17,6 +17,7 @@ class _SettingScreenState extends State<SettingScreen> {
     return Scaffold(
       backgroundColor: Color(0xffF9FAFF),
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: Color(0xffF9FAFF),
         elevation: 0,
         title: Text(
@@ -124,7 +125,7 @@ class _SettingScreenState extends State<SettingScreen> {
                           trailing: Icon(Icons.arrow_back_outlined,
                               color: Color(0xffFB9800)),
                           title: Text(
-                            "تعديل الملف الشخصي",
+                            "اللغة",
                             style: TextStyle(
                                 fontSize: 14, color: Colors.grey.shade700),
                           ),

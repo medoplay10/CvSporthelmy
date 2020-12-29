@@ -30,7 +30,9 @@ class OneChatScreen extends StatelessWidget {
                           FontAwesomeIcons.longArrowAltLeft,
                           color: Color(0xff8C8C8C),
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
                       ),
                       title: Row(
                         mainAxisAlignment: MainAxisAlignment.end,

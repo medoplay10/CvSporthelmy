@@ -97,8 +97,8 @@ class CategoryScreen extends StatelessWidget {
         .width;
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: Color(0xffF4F7FF),
-
         actions: [
           Padding(
             padding: const EdgeInsets.all(5),
@@ -242,7 +242,9 @@ class CategoryScreen extends StatelessWidget {
             ),
           ),
         ),
-        IconButton(icon: Icon(Icons.filter_alt), onPressed: null)
+        IconButton(icon: FaIcon(
+          FontAwesomeIcons.slidersH,
+        ), onPressed: null)
       ],
     );
   }

@@ -74,7 +74,7 @@ class _MainScreenState extends State<MainScreen> {
           BottomNavigationBarItem(icon: Icon(Icons.person), label: 'tickets'),
           BottomNavigationBarItem(
               icon: FaIcon(
-                FontAwesomeIcons.thLarge,
+                FontAwesomeIcons.users,
               ),
               label: 'calendar'),
           BottomNavigationBarItem(
