@@ -22,12 +22,12 @@ class _MainScreenState extends State<MainScreen> {
   EdgeInsets padding = const EdgeInsets.all(5);
 
   int _selectedItemPosition = 0;
-  SnakeShape snakeShape = SnakeShape.indicator;
+  SnakeShape snakeShape = SnakeShape.circle;
 
   bool showSelectedLabels = false;
   bool showUnselectedLabels = false;
 
-  Color selectedColor = Color(0xffFFCB4D);
+  Color selectedColor = Colors.blueGrey;
   Gradient selectedGradient =
       const LinearGradient(colors: [Colors.red, Colors.amber]);
 

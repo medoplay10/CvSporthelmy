@@ -56,6 +56,7 @@ class _SettingScreenState extends State<SettingScreen> {
                           ),
                           leading: FaIcon(
                             FontAwesomeIcons.userAlt,
+                            size: 18,
                             color: Color(0xffFB9800),
                           ),
                         ),
@@ -75,6 +76,7 @@ class _SettingScreenState extends State<SettingScreen> {
                           ),
                           leading: FaIcon(
                             FontAwesomeIcons.lock,
+                            size: 18,
                             color: Color(0xffFB9800),
                           ),
                         ),
@@ -96,6 +98,7 @@ class _SettingScreenState extends State<SettingScreen> {
                             ),
                             leading: FaIcon(
                               FontAwesomeIcons.signOutAlt,
+                              size: 18,
                               color: Color(0xffFB9800),
                             ),
                           ),
@@ -131,6 +134,7 @@ class _SettingScreenState extends State<SettingScreen> {
                           ),
                           leading: FaIcon(
                             FontAwesomeIcons.globe,
+                            size: 18,
                             color: Color(0xffFB9800),
                           ),
                         ),
@@ -157,6 +161,7 @@ class _SettingScreenState extends State<SettingScreen> {
                           ),
                           leading: FaIcon(
                             FontAwesomeIcons.bell,
+                            size: 18,
                             color: Color(0xffFB9800),
                           ),
                         ),
@@ -176,6 +181,7 @@ class _SettingScreenState extends State<SettingScreen> {
                           ),
                           leading: FaIcon(
                             FontAwesomeIcons.phone,
+                            size: 18,
                             color: Color(0xffFB9800),
                           ),
                         ),
@@ -195,6 +201,7 @@ class _SettingScreenState extends State<SettingScreen> {
                           ),
                           leading: FaIcon(
                             FontAwesomeIcons.info,
+                            size: 18,
                             color: Color(0xffFB9800),
                           ),
                         ),
@@ -214,6 +221,7 @@ class _SettingScreenState extends State<SettingScreen> {
                           ),
                           leading: FaIcon(
                             FontAwesomeIcons.shareAlt,
+                            size: 18,
                             color: Color(0xffFB9800),
                           ),
                         ),
@@ -233,6 +241,7 @@ class _SettingScreenState extends State<SettingScreen> {
                           ),
                           leading: FaIcon(
                             FontAwesomeIcons.scroll,
+                            size: 18,
                             color: Color(0xffFB9800),
                           ),
                         ),

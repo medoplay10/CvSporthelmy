@@ -8,8 +8,6 @@ import 'SignUp_Screen.dart';
 class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    //  print("Hight = "+ (80 /MediaQuery.of(context).size.height  ).toString());
-    //  print("Hight = "+ (MediaQuery.of(context).size.width  * .63 ).toString());
     var Mediaheight = MediaQuery.of(context).size.height;
     var Mediawidth = MediaQuery.of(context).size.width;
     print(Mediaheight.toString());
@@ -38,10 +36,8 @@ class LoginScreen extends StatelessWidget {
                               .size
                               .height * 0.096,
                           child: Container(
-                              width: MediaQuery
-                                  .of(context)
-                                  .size
-                                  .width * .5,
+                              padding: EdgeInsets.only(right: 5),
+                              width: MediaQuery.of(context).size.width * .5,
                               alignment: Alignment.centerRight,
                               child: Text(
                                 "loginWithEmailAndPassword".tr(),
@@ -63,17 +59,14 @@ class LoginScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Container(
-                          width: MediaQuery
-                              .of(context)
-                              .size
-                              .width * 0.80,
+                          width: MediaQuery.of(context).size.width * 0.75,
                           child: TextFormField(
                             style: TextStyle(fontSize: 18, color: Colors.black),
                             decoration: InputDecoration(
                               filled: true,
                               fillColor: Colors.white,
                               prefixIcon:
-                              Icon(Icons.email, color: Color(0xff68699C)),
+                                  Icon(Icons.email, color: Color(0xff68699C)),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(20),
                               ),
@@ -85,16 +78,13 @@ class LoginScreen extends StatelessWidget {
                         ),
                         SizeBoxHeight(Mediaheight: Mediaheight, SizeWant: 20),
                         Container(
-                          width: MediaQuery
-                              .of(context)
-                              .size
-                              .width * 0.80,
+                          width: MediaQuery.of(context).size.width * 0.75,
                           child: TextFormField(
                             obscureText: true,
                             style: TextStyle(fontSize: 18, color: Colors.black),
                             decoration: InputDecoration(
                               prefixIcon:
-                              Icon(Icons.lock, color: Color(0xff68699C)),
+                                  Icon(Icons.lock, color: Color(0xff68699C)),
                               filled: true,
                               fillColor: Colors.white,
                               border: OutlineInputBorder(
@@ -111,78 +101,67 @@ class LoginScreen extends StatelessWidget {
                   ),
                 ),
                 Positioned(
-                  left: 20,
-                  top: MediaQuery
-                      .of(context)
-                      .size
-                      .height * .73,
+                  left: MediaQuery.of(context).size.width * .08,
+                  top: MediaQuery.of(context).size.height * .76,
                   child: Container(
                       alignment: Alignment.topCenter,
                       child: Text("forgetPassword".tr())),
                 ),
                 Positioned(
-                  top: MediaQuery
-                      .of(context)
-                      .size
-                      .height * .78,
-                  child: Container(
-                    width: MediaQuery
-                        .of(context)
-                        .size
-                        .width * 0.80,
-                    height: (50 / MediaQuery
-                        .of(context)
-                        .size
-                        .height) * MediaQuery
-                        .of(context)
-                        .size
-                        .height,
-                    margin: EdgeInsets.only(bottom: 10),
-                    child: RaisedButton(
-                      onPressed: () {
-                        Navigator.of(context).pushReplacement(
-                            MaterialPageRoute(builder: (context) {
+                  top: MediaQuery.of(context).size.height * .80,
+                  child: Column(
+                    children: [
+                      Container(
+                        width: MediaQuery.of(context).size.width * 0.75,
+                        height: (50 / MediaQuery.of(context).size.height) *
+                            MediaQuery.of(context).size.height,
+                        margin: EdgeInsets.only(bottom: 10),
+                        child: RaisedButton(
+                          onPressed: () {
+                            Navigator.of(context).pushReplacement(
+                                MaterialPageRoute(builder: (context) {
                               return MainScreen();
                             }));
-                      },
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10)),
-                      color: Color(0xff2C2B53),
-                      child: Text(
-                        "signin".tr(),
-                        style: TextStyle(color: Colors.white),
+                          },
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10)),
+                          color: Color(0xff2C2B53),
+                          child: Text(
+                            "signin".tr(),
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ),
                       ),
-                    ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text("noAccount".tr()),
+                          SizedBox(
+                            width: 5,
+                          ),
+                          InkWell(
+                              onTap: () {
+                                Navigator.of(context)
+                                    .push(MaterialPageRoute(builder: (context) {
+                                  return SignUpScreen();
+                                }));
+                              },
+                              child: Text(
+                                "signUpHere".tr(),
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16,
+                                  decoration: TextDecoration.underline,
+                                ),
+                              ))
+                        ],
+                      )
+                    ],
                   ),
                 )
               ],
             ),
           ),
-
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text("noAccount".tr()),
-              SizedBox(
-                width: 5,
-              ),
-              InkWell(
-                  onTap: () {
-                    Navigator.of(context)
-                        .push(MaterialPageRoute(builder: (context) {
-                      return SignUpScreen();
-                    }));
-                  },
-                  child: Text(
-                    "signUpHere".tr(),
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16,
-                      decoration: TextDecoration.underline,
-                    ),
-                  ))
-            ],
-          )
         ],
       ),
     );

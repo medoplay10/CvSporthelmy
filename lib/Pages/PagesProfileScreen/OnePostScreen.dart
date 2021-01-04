@@ -196,35 +196,35 @@ class OnePostScreen extends StatelessWidget {
                         Text("33")
                       ],
                     ),
-                    Spacer(),
-                    Row(
-                      children: [
-                        Text("33"),
-                        SizedBox(
-                          width: 5,
-                        ),
-                        FaIcon(
-                          FontAwesomeIcons.solidThumbsDown,
-                          color: Color(0xffC1C0D3),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      width: (30 / MediaQuery.of(context).size.width) *
-                          MediaQuery.of(context).size.width,
-                    ),
-                    Row(
-                      children: [
-                        Text("33"),
-                        SizedBox(
-                          width: 5,
-                        ),
-                        FaIcon(
-                          FontAwesomeIcons.solidThumbsUp,
-                          color: Color(0xffC1C0D3),
-                        ),
-                      ],
-                    )
+                    // Spacer(),
+                    // Row(
+                    //   children: [
+                    //     Text("33"),
+                    //     SizedBox(
+                    //       width: 5,
+                    //     ),
+                    //     FaIcon(
+                    //       FontAwesomeIcons.solidThumbsDown,
+                    //       color: Color(0xffC1C0D3),
+                    //     ),
+                    //   ],
+                    // ),
+                    // SizedBox(
+                    //   width: (30 / MediaQuery.of(context).size.width) *
+                    //       MediaQuery.of(context).size.width,
+                    // ),
+                    // Row(
+                    //   children: [
+                    //     Text("33"),
+                    //     SizedBox(
+                    //       width: 5,
+                    //     ),
+                    //     FaIcon(
+                    //       FontAwesomeIcons.solidThumbsUp,
+                    //       color: Color(0xffC1C0D3),
+                    //     ),
+                    //   ],
+                    // )
                   ],
                 )
               ],

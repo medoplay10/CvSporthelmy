@@ -110,15 +110,20 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          SizeBoxHeight(
+            SizeWant: 10,
+            Mediaheight: Mediaheight,
+          ),
           Center(
             child: Container(
-              width: MediaQuery.of(context).size.width * 0.85,
+              height: MediaQuery.of(context).size.height * 0.07,
+              width: MediaQuery.of(context).size.width * 0.82,
               decoration: BoxDecoration(
                 color: Color(0xffE7EBF8),
                 border: Border.all(
                   color: Colors.grey.shade300,
                 ),
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: BorderRadius.circular(25),
               ),
               child: rowSearch(),
             ),
@@ -134,7 +139,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           carouselNews(),
           SizeBoxHeight(
-            SizeWant: 10,
+            SizeWant: 5,
             Mediaheight: Mediaheight,
           ),
           Container(
@@ -233,7 +238,7 @@ class _HomeScreenState extends State<HomeScreen> {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       child: Container(
         width: MediaQuery.of(context).size.width * 0.85,
-        height: 265,
+        height: MediaQuery.of(context).size.height * 0.32,
         alignment: Alignment.center,
         child: Row(
           children: [
@@ -314,7 +319,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Expanded(
       flex: 3,
       child: Container(
-          height: 265,
+          height: MediaQuery.of(context).size.height * 0.32,
           padding: EdgeInsets.symmetric(vertical: 20),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.only(
@@ -326,14 +331,14 @@ class _HomeScreenState extends State<HomeScreen> {
               Text("المدربين"),
               Image.asset(
                 "assets/images/CoachImage.png",
-                height: 100,
+                height: MediaQuery.of(context).size.height * 0.12,
               ),
               SizedBox(
                 height: 10,
               ),
               Container(
                 width: MediaQuery.of(context).size.width * 0.20,
-                height: 30,
+                height: MediaQuery.of(context).size.height * 0.04,
                 margin: EdgeInsets.only(bottom: 10),
                 child: RaisedButton(
                   onPressed: () {
@@ -362,7 +367,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Expanded(
       flex: 3,
       child: Container(
-          height: 265,
+          height: MediaQuery.of(context).size.height * 0.32,
           padding: EdgeInsets.symmetric(vertical: 20),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.only(
@@ -374,7 +379,7 @@ class _HomeScreenState extends State<HomeScreen> {
               Text("اللاعبين"),
               Image.asset(
                 "assets/images/Player.png",
-                height: 100,
+                height: MediaQuery.of(context).size.height * 0.12,
               ),
               SizedBox(
                 height: 10,
@@ -415,7 +420,7 @@ class _HomeScreenState extends State<HomeScreen> {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       child: Container(
         width: MediaQuery.of(context).size.width * 0.85,
-        height: 265,
+        height: MediaQuery.of(context).size.height * 0.32,
         alignment: Alignment.center,
         child: Row(
           children: [
@@ -581,8 +586,8 @@ class _HomeScreenState extends State<HomeScreen> {
       ],
       leading: Container(
         padding: EdgeInsets.all(5),
-        width: (25 / Mediawidth) * Mediawidth,
-        height: (25 / Mediaheight) * Mediaheight,
+        width: MediaQuery.of(context).size.width * .06,
+        height: MediaQuery.of(context).size.height * .03,
         child: ClipOval(
           child: Material(
             color: Color(0xffC7C9EA), // button color
@@ -590,10 +595,10 @@ class _HomeScreenState extends State<HomeScreen> {
               splashColor: Colors.red, // inkwell color
               child: SizedBox(
                   child: Icon(
-                    Icons.person,
-                    color: Color(0xff68699C),
-                    size: 20,
-                  )),
+                Icons.person,
+                color: Color(0xff68699C),
+                size: 20,
+              )),
               onTap: () {},
             ),
           ),
@@ -613,12 +618,11 @@ class _HomeScreenState extends State<HomeScreen> {
   Container btnExtraNews(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width * 0.78,
-      height: 50,
+      height: MediaQuery.of(context).size.height * .06,
       margin: EdgeInsets.only(bottom: 10),
       child: RaisedButton(
         onPressed: () {
-          Navigator.of(context)
-              .push(MaterialPageRoute(builder: (context) {
+          Navigator.of(context).push(MaterialPageRoute(builder: (context) {
             return AllNewsScreen();
           }));
         },
@@ -637,7 +641,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Container rowVideos() {
     return Container(
       width: double.infinity,
-      height: 230,
+      height: MediaQuery.of(context).size.height * .28,
       color: Color(0xffE3E7F1),
       padding: EdgeInsets.all(8),
       child: ListView.builder(
@@ -645,7 +649,7 @@ class _HomeScreenState extends State<HomeScreen> {
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index) {
             return Container(
-              height: 200,
+              height: MediaQuery.of(context).size.height * .25,
               margin: EdgeInsets.only(left: 8, right: 2),
               // padding: EdgeInsets.all(5),
               child: ClipRRect(
@@ -667,16 +671,16 @@ class _HomeScreenState extends State<HomeScreen> {
             CarouselSlider.builder(
               itemCount: listSport.length,
               options: CarouselOptions(
-                  height: 140,
-                  aspectRatio: 16 / 9,
-                  viewportFraction: 0.8,
-                  enlargeCenterPage: true,
-                  autoPlay: true,
-                  onPageChanged: (index, reason) {
-                    setState(() {
-                      _current = index;
-                    });
-                  }),
+              height: MediaQuery.of(context).size.height * .25,
+              aspectRatio: 16 / 9,
+              viewportFraction: .95,
+              enlargeCenterPage: true,
+              autoPlay: true,
+              onPageChanged: (index, reason) {
+                setState(() {
+                  _current = index;
+                });
+              }),
               itemBuilder: (ctx, index) {
                 return Container(
                   child: SingleChildScrollView(
@@ -684,16 +688,10 @@ class _HomeScreenState extends State<HomeScreen> {
                         borderRadius: BorderRadius.circular(10.0),
                         child: Image.network(
                           listSport[index].UrlImage,
-                          fit: BoxFit.cover,
-                          height: 130,
-                          width: (400 / MediaQuery
-                              .of(context)
-                              .size
-                              .width) * MediaQuery
-                              .of(context)
-                              .size
-                              .width,
-                        )),
+                      fit: BoxFit.cover,
+                      height: MediaQuery.of(context).size.height * .24,
+                      width: MediaQuery.of(context).size.width,
+                    )),
                   ),
                 );
               },
@@ -723,9 +721,13 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Row rowSearch() {
     return Row(
-      //    mainAxisAlignment:MainAxisAlignment.center ,
+      //   mainAxisAlignment:MainAxisAlignment.center ,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Icon(Icons.search),
+        Padding(
+          padding: const EdgeInsets.only(right: 8),
+          child: Icon(Icons.search),
+        ),
         Expanded(
           child: TextFormField(
             style: TextStyle(fontSize: 16, color: Colors.black),
@@ -749,7 +751,7 @@ class _HomeScreenState extends State<HomeScreen> {
   SizedBox rowListIcon(double Mediawidth, double Mediaheight) {
     return SizedBox(
       width: double.infinity,
-      height: 100,
+      height: MediaQuery.of(context).size.height * .15,
       child: ListView.builder(
           itemCount: listSport.length,
           scrollDirection: Axis.horizontal,
