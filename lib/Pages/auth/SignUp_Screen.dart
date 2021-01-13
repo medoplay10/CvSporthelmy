@@ -51,22 +51,23 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   context: context,
                   TextField: "name".tr(),
                   iconSelect: Icons.person),
-              SizeBoxHeight(Mediaheight: Mediaheight, SizeWant: 5),
+              SizeBoxHeight(Mediaheight: Mediaheight, SizeWant: 10),
               InputPhone(context),
-              SizeBoxHeight(Mediaheight: Mediaheight, SizeWant: 5),
+              SizeBoxHeight(Mediaheight: Mediaheight, SizeWant: 10),
               TextFieldLocal(
                   context: context,
                   TextField: "email".tr(),
                   iconSelect: Icons.email),
-              SizeBoxHeight(Mediaheight: Mediaheight, SizeWant: 5),
-              TextFieldPassword(
-                  context: context, TextField: "PasswordEdit".tr()),
-              SizeBoxHeight(Mediaheight: Mediaheight, SizeWant: 5),
-              TextFieldPassword(
-                  context: context, TextField: "PasswordEditAgain".tr()),
-              SizeBoxHeight(Mediaheight: Mediaheight, SizeWant: 15),
-              Btn_SignUp(context),
+              // SizeBoxHeight(Mediaheight: Mediaheight, SizeWant: 5),
+              // TextFieldPassword(
+              //     context: context, TextField: "PasswordEdit".tr()),
+              // SizeBoxHeight(Mediaheight: Mediaheight, SizeWant: 5),
+              // TextFieldPassword(
+              //     context: context, TextField: "PasswordEditAgain".tr()),
+              // SizeBoxHeight(Mediaheight: Mediaheight, SizeWant: 15),
+
               SizeBoxHeight(Mediaheight: Mediaheight, SizeWant: 140),
+              Btn_SignUp(context),
               Row_TextHaveAccount(context)
             ],
           ),

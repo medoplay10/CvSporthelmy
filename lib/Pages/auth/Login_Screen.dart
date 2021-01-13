@@ -49,10 +49,8 @@ class LoginScreen extends StatelessWidget {
                       ],
                     )),
                 Container(
-                  margin: EdgeInsets.only(top: MediaQuery
-                      .of(context)
-                      .size
-                      .height * .29),
+                  margin: EdgeInsets.only(
+                      top: MediaQuery.of(context).size.height * .38),
                   alignment: Alignment.center,
                   child: SingleChildScrollView(
                     child: Column(
@@ -62,51 +60,61 @@ class LoginScreen extends StatelessWidget {
                           width: MediaQuery.of(context).size.width * 0.75,
                           child: TextFormField(
                             style: TextStyle(fontSize: 18, color: Colors.black),
+                            keyboardType: TextInputType.phone,
+                            validator: (input) {
+                              if (input.trim().length == 0) {
+                                return "من فضلك ضع رقمك";
+                              } else if (input.trim().length < 9) {
+                                return "من فضلك ضع 9 ارقام";
+                              }
+                              return null;
+                            },
+                            maxLength: 9,
                             decoration: InputDecoration(
                               filled: true,
                               fillColor: Colors.white,
-                              prefixIcon:
-                                  Icon(Icons.email, color: Color(0xff68699C)),
+                              prefixIcon: Icon(Icons.phone_android,
+                                  color: Color(0xff68699C)),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(20),
                               ),
-                              labelText: "email".tr(),
+                              labelText: "ادخل هاتفك",
                               labelStyle: TextStyle(
                                   fontSize: 16, color: Colors.grey.shade700),
                             ),
                           ),
                         ),
                         SizeBoxHeight(Mediaheight: Mediaheight, SizeWant: 20),
-                        Container(
-                          width: MediaQuery.of(context).size.width * 0.75,
-                          child: TextFormField(
-                            obscureText: true,
-                            style: TextStyle(fontSize: 18, color: Colors.black),
-                            decoration: InputDecoration(
-                              prefixIcon:
-                                  Icon(Icons.lock, color: Color(0xff68699C)),
-                              filled: true,
-                              fillColor: Colors.white,
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(20),
-                              ),
-                              labelText: "password".tr(),
-                              labelStyle: TextStyle(
-                                  fontSize: 16, color: Colors.grey.shade700),
-                            ),
-                          ),
-                        ),
+                        // Container(
+                        //   width: MediaQuery.of(context).size.width * 0.75,
+                        //   child: TextFormField(
+                        //     obscureText: true,
+                        //     style: TextStyle(fontSize: 18, color: Colors.black),
+                        //     decoration: InputDecoration(
+                        //       prefixIcon:
+                        //           Icon(Icons.lock, color: Color(0xff68699C)),
+                        //       filled: true,
+                        //       fillColor: Colors.white,
+                        //       border: OutlineInputBorder(
+                        //         borderRadius: BorderRadius.circular(20),
+                        //       ),
+                        //       labelText: "password".tr(),
+                        //       labelStyle: TextStyle(
+                        //           fontSize: 16, color: Colors.grey.shade700),
+                        //     ),
+                        //   ),
+                        // ),
                       ],
                     ),
                   ),
                 ),
-                Positioned(
-                  left: MediaQuery.of(context).size.width * .08,
-                  top: MediaQuery.of(context).size.height * .76,
-                  child: Container(
-                      alignment: Alignment.topCenter,
-                      child: Text("forgetPassword".tr())),
-                ),
+                // Positioned(
+                //   left: MediaQuery.of(context).size.width * .08,
+                //   top: MediaQuery.of(context).size.height * .76,
+                //   child: Container(
+                //       alignment: Alignment.topCenter,
+                //       child: Text("forgetPassword".tr())),
+                // ),
                 Positioned(
                   top: MediaQuery.of(context).size.height * .80,
                   child: Column(
