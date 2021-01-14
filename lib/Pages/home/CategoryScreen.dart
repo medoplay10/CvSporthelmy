@@ -148,18 +148,20 @@ class CategoryScreen extends StatelessWidget {
           color: Color(0xffF9FAFF),
           child: Column(
             children: [
+              SizeBoxHeight(
+                SizeWant: 10,
+                Mediaheight: Mediaheight,
+              ),
               Center(
                 child: Container(
-                  width: MediaQuery
-                      .of(context)
-                      .size
-                      .width * 0.85,
+                  height: MediaQuery.of(context).size.height * 0.07,
+                  width: MediaQuery.of(context).size.width * 0.82,
                   decoration: BoxDecoration(
-                    color: Color(0xffE7EBF8),
+                    color: Colors.white,
                     border: Border.all(
                       color: Colors.grey.shade300,
                     ),
-                    borderRadius: BorderRadius.circular(20),
+                    borderRadius: BorderRadius.circular(25),
                   ),
                   child: rowSearch(),
                 ),
@@ -227,24 +229,31 @@ class CategoryScreen extends StatelessWidget {
 
   Row rowSearch() {
     return Row(
-      //    mainAxisAlignment:MainAxisAlignment.center ,
+      //   mainAxisAlignment:MainAxisAlignment.center ,
+      crossAxisAlignment: CrossAxisAlignment.center,
+
       children: [
-        Icon(Icons.search),
+        Padding(
+          padding: const EdgeInsets.only(right: 8),
+          child: Icon(Icons.search),
+        ),
         Expanded(
           child: TextFormField(
             style: TextStyle(fontSize: 16, color: Colors.black),
             decoration: InputDecoration(
               filled: true,
-              fillColor: Color(0xffE7EBF8),
+              fillColor: Colors.white,
               border: InputBorder.none,
               hintText: "البحث",
               hintStyle: TextStyle(fontSize: 16, color: Colors.grey.shade700),
             ),
           ),
         ),
-        IconButton(icon: FaIcon(
-          FontAwesomeIcons.slidersH,
-        ), onPressed: null)
+        IconButton(
+            icon: FaIcon(
+              FontAwesomeIcons.slidersH,
+            ),
+            onPressed: () {})
       ],
     );
   }

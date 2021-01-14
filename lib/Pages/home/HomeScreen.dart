@@ -114,19 +114,17 @@ class _HomeScreenState extends State<HomeScreen> {
             SizeWant: 10,
             Mediaheight: Mediaheight,
           ),
-          Center(
-            child: Container(
-              height: MediaQuery.of(context).size.height * 0.07,
-              width: MediaQuery.of(context).size.width * 0.82,
-              decoration: BoxDecoration(
-                color: Color(0xffE7EBF8),
-                border: Border.all(
-                  color: Colors.grey.shade300,
-                ),
-                borderRadius: BorderRadius.circular(25),
+          Container(
+            height: MediaQuery.of(context).size.height * 0.07,
+            width: MediaQuery.of(context).size.width * 0.82,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              border: Border.all(
+                color: Colors.grey.shade300,
               ),
-              child: rowSearch(),
+              borderRadius: BorderRadius.circular(25),
             ),
+            child: rowSearch(),
           ),
           SizeBoxHeight(
             SizeWant: 10,
@@ -723,6 +721,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Row(
       //   mainAxisAlignment:MainAxisAlignment.center ,
       crossAxisAlignment: CrossAxisAlignment.center,
+
       children: [
         Padding(
           padding: const EdgeInsets.only(right: 8),
@@ -733,16 +732,18 @@ class _HomeScreenState extends State<HomeScreen> {
             style: TextStyle(fontSize: 16, color: Colors.black),
             decoration: InputDecoration(
               filled: true,
-              fillColor: Color(0xffE7EBF8),
+              fillColor: Colors.white,
               border: InputBorder.none,
               hintText: "البحث",
               hintStyle: TextStyle(fontSize: 16, color: Colors.grey.shade700),
             ),
           ),
         ),
-        IconButton(icon: FaIcon(
-          FontAwesomeIcons.slidersH,
-        ), onPressed: null)
+        IconButton(
+            icon: FaIcon(
+              FontAwesomeIcons.slidersH,
+            ),
+            onPressed: () {})
       ],
     );
   }

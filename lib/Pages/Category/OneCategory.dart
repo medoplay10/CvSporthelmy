@@ -1,6 +1,9 @@
 import 'package:cv_sports/Model/Sports.dart';
+import 'package:cv_sports/Pages/home/NotificationScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+import 'AddNewItemInCategoryScreen.dart';
 
 class OneCategory extends StatelessWidget {
   List<Sports> listSport = [
@@ -8,7 +11,7 @@ class OneCategory extends StatelessWidget {
         Tital: "كرة قدم",
         iconData: FontAwesomeIcons.footballBall,
         UrlImage:
-        "https://sportstalk1260.com/wp-content/uploads/2020/03/football-history.jpg"),
+            "https://sportstalk1260.com/wp-content/uploads/2020/03/football-history.jpg"),
     Sports(
         Tital: "كرة قدم",
         iconData: FontAwesomeIcons.footballBall,
@@ -148,21 +151,31 @@ class OneCategory extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-
-                Icon(
-                  Icons.notifications_active_rounded, color: Color(0xff5E5D8F),
-                  size: 30,),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.of(context)
+                        .push(MaterialPageRoute(builder: (context) {
+                      return AddNewItemInCategoryScreen();
+                    }));
+                  },
+                  child: Icon(
+                    Icons.add_circle,
+                    color: Color(0xff5E5D8F),
+                    size: 30,
+                  ),
+                ),
                 Container(
                   alignment: Alignment.center,
                   child: Column(
                     children: [
-                      Text("كرة القدم", style: TextStyle(fontSize: 16),),
+                      Text(
+                        "كرة القدم",
+                        style: TextStyle(fontSize: 16),
+                      ),
                       Text("اللاعبين"),
                     ],
                   ),
-                  width: (300 / MediaQuery
-                      .of(context)
-                      .size
+                  width: (300 / MediaQuery.of(context).size
                       .width) * MediaQuery
                       .of(context)
                       .size
@@ -175,16 +188,14 @@ class OneCategory extends StatelessWidget {
                 }, iconSize: 30,)
               ],),
             Container(
-              width: MediaQuery
-                  .of(context)
-                  .size
-                  .width * 0.85,
+              height: MediaQuery.of(context).size.height * 0.07,
+              width: MediaQuery.of(context).size.width * 0.82,
               decoration: BoxDecoration(
-                color: Color(0xffE7EBF8),
+                color: Colors.white,
                 border: Border.all(
                   color: Colors.grey.shade300,
                 ),
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: BorderRadius.circular(25),
               ),
               child: rowSearch(),
             ),
@@ -231,22 +242,31 @@ class OneCategory extends StatelessWidget {
 
   Row rowSearch() {
     return Row(
-      //    mainAxisAlignment:MainAxisAlignment.center ,
+      //   mainAxisAlignment:MainAxisAlignment.center ,
+      crossAxisAlignment: CrossAxisAlignment.center,
+
       children: [
-        Icon(Icons.search),
+        Padding(
+          padding: const EdgeInsets.only(right: 8),
+          child: Icon(Icons.search),
+        ),
         Expanded(
           child: TextFormField(
             style: TextStyle(fontSize: 16, color: Colors.black),
             decoration: InputDecoration(
               filled: true,
-              fillColor: Color(0xffE7EBF8),
+              fillColor: Colors.white,
               border: InputBorder.none,
               hintText: "البحث",
               hintStyle: TextStyle(fontSize: 16, color: Colors.grey.shade700),
             ),
           ),
         ),
-        IconButton(icon: Icon(Icons.filter_alt), onPressed: null)
+        IconButton(
+            icon: FaIcon(
+              FontAwesomeIcons.slidersH,
+            ),
+            onPressed: () {})
       ],
     );
   }

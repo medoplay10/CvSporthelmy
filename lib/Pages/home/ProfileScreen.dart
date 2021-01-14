@@ -197,11 +197,8 @@ class _ProfileScreenState extends State<ProfileScreen>
         context: context,
         builder: (ctx) {
           return Container(
-            height: MediaQuery
-                .of(context)
-                .size
-                .height * 0.6,
-            padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+            height: MediaQuery.of(context).size.height * 0.6,
+            padding: EdgeInsets.symmetric(vertical: 2, horizontal: 20),
             child: SingleChildScrollView(
               child: Column(
                 children: [

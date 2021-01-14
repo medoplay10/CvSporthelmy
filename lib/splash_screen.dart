@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import "package:flutter/src/services/system_chrome.dart";
+import 'package:flutter/services.dart';
 import 'dart:async';
 import 'Pages/auth/Login_Screen.dart';
 
@@ -12,7 +12,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     Timer(
-      Duration(seconds: 15),
+      Duration(seconds: 4),
       () {
         Navigator.of(context).pushReplacement(MaterialPageRoute(
           builder: (context) => LoginScreen(),
@@ -25,7 +25,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     // SystemChrome.setSystemUIOverlayStyle(
-    //     SystemUiOverlayStyle(statusBarColor: Color(0xffF4F7FF)));
+    //     SystemUiOverlayStyle(statusBarColor: Colors.transparent));
     return Scaffold(
       body: Container(
           // alignment: Alignment.center,

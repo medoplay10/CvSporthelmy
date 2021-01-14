@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'package:flutter_snake_navigationbar/flutter_snake_navigationbar.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -54,6 +55,8 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     var Mediaheight = MediaQuery.of(context).size.height;
     var Mediawidth = MediaQuery.of(context).size.width;
+    // SystemChrome.setSystemUIOverlayStyle(
+    //     SystemUiOverlayStyle(statusBarColor: Color(0xffF4F7FF)));
     return Scaffold(
       bottomNavigationBar: SnakeNavigationBar.color(
         behaviour: snakeBarStyle,

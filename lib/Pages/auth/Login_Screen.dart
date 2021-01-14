@@ -2,12 +2,15 @@ import 'package:cv_sports/Pages/home/MainScreen.dart';
 import 'package:cv_sports/Widgets/SizeBoxHeight.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'SignUp_Screen.dart';
 
 class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    // SystemChrome.setSystemUIOverlayStyle(
+    //     SystemUiOverlayStyle(statusBarColor: Color(0xffF4F7FF)));
     var Mediaheight = MediaQuery.of(context).size.height;
     var Mediawidth = MediaQuery.of(context).size.width;
     print(Mediaheight.toString());
