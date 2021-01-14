@@ -4,8 +4,15 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'AddNewItemInCategoryScreen.dart';
+import 'MakeNewClubScreen.dart';
 
 class OneCategory extends StatelessWidget {
+  bool isClub;
+
+  Sports itemSport;
+
+  OneCategory({this.isClub = false, @required this.itemSport});
+
   List<Sports> listSport = [
     Sports(
         Tital: "كرة قدم",
@@ -153,10 +160,18 @@ class OneCategory extends StatelessWidget {
               children: [
                 GestureDetector(
                   onTap: () {
-                    Navigator.of(context)
-                        .push(MaterialPageRoute(builder: (context) {
-                      return AddNewItemInCategoryScreen();
-                    }));
+                    if (isClub == false) {
+                      Navigator.of(context)
+                          .push(MaterialPageRoute(builder: (context) {
+                        return AddNewItemInCategoryScreen();
+                      }));
+                    } else {
+                      //MakeNewClubScreen
+                      Navigator.of(context)
+                          .push(MaterialPageRoute(builder: (context) {
+                        return MakeNewClubScreen();
+                      }));
+                    }
                   },
                   child: Icon(
                     Icons.add_circle,
@@ -172,7 +187,7 @@ class OneCategory extends StatelessWidget {
                         "كرة القدم",
                         style: TextStyle(fontSize: 16),
                       ),
-                      Text("اللاعبين"),
+                      Text(itemSport.Tital),
                     ],
                   ),
                   width: (300 / MediaQuery.of(context).size
@@ -273,8 +288,7 @@ class OneCategory extends StatelessWidget {
 
   //=============================== Widget Column More Player ===========================
 
-  Column columnMoreData(
-      {double Mediawidth, double Mediaheight, Sports SportData, BuildContext context}) {
+  Column columnMoreData({double Mediawidth, double Mediaheight, Sports SportData, BuildContext context}) {
     return Column(
       children: [
         Container(

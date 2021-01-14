@@ -1,9 +1,7 @@
 import 'package:fa_stepper/fa_stepper.dart';
 import 'package:flutter/material.dart';
 import 'package:cv_sports/Pages/home/MainScreen.dart';
-import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'FirstScreenComplate.dart';
 import 'SecondScreenComplate.dart';

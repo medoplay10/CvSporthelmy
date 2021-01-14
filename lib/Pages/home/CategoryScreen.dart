@@ -9,45 +9,27 @@ import 'NotificationScreen.dart';
 class CategoryScreen extends StatelessWidget {
   List<Sports> listSport = [
     Sports(
-        Tital: "كرة قدم",
+        Tital: "اللاعبين",
         iconData: FontAwesomeIcons.footballBall,
         UrlImage:
             "https://sportstalk1260.com/wp-content/uploads/2020/03/football-history.jpg"),
     Sports(
-        Tital: "كرة قدم",
+        Tital: "اندية",
         iconData: FontAwesomeIcons.footballBall,
         UrlImage:
             "https://sportstalk1260.com/wp-content/uploads/2020/03/football-history.jpg"),
     Sports(
-        Tital: "كرة قدم",
+        Tital: "مراكز التدريب",
         iconData: FontAwesomeIcons.footballBall,
         UrlImage:
             "https://sportstalk1260.com/wp-content/uploads/2020/03/football-history.jpg"),
     Sports(
-        Tital: "تنس",
+        Tital: "اكاديميات",
         iconData: FontAwesomeIcons.tableTennis,
         UrlImage:
             "https://1440sportz.com/wp-content/uploads/2020/07/Nike-Football-3.jpg"),
-    Sports(
-        Tital: "كرة سلة",
-        iconData: FontAwesomeIcons.basketballBall,
-        UrlImage:
-            "https://sportstalk1260.com/wp-content/uploads/2020/03/football-history.jpg"),
-    Sports(
-        Tital: "بيسبول",
-        iconData: FontAwesomeIcons.baseballBall,
-        UrlImage:
-            "https://1440sportz.com/wp-content/uploads/2020/07/Nike-Football-3.jpg"),
-    Sports(
-        Tital: "كرة قدم",
-        iconData: FontAwesomeIcons.footballBall,
-        UrlImage:
-            "https://sportstalk1260.com/wp-content/uploads/2020/03/football-history.jpg"),
-    Sports(
-        Tital: "كرة قدم",
-        iconData: FontAwesomeIcons.footballBall,
-        UrlImage:
-            "https://sportstalk1260.com/wp-content/uploads/2020/03/football-history.jpg"),
+  ];
+  List<Sports> listCategory = [
     Sports(
         Tital: "كرة قدم",
         iconData: FontAwesomeIcons.footballBall,
@@ -87,14 +69,8 @@ class CategoryScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var Mediaheight = MediaQuery
-        .of(context)
-        .size
-        .height;
-    var Mediawidth = MediaQuery
-        .of(context)
-        .size
-        .width;
+    var Mediaheight = MediaQuery.of(context).size.height;
+    var Mediawidth = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -142,40 +118,39 @@ class CategoryScreen extends StatelessWidget {
         ),
         centerTitle: true,
       ),
-      body: SingleChildScrollView(
-
-        child: Container(
-          color: Color(0xffF9FAFF),
-          child: Column(
-            children: [
-              SizeBoxHeight(
-                SizeWant: 10,
-                Mediaheight: Mediaheight,
-              ),
-              Center(
-                child: Container(
-                  height: MediaQuery.of(context).size.height * 0.07,
-                  width: MediaQuery.of(context).size.width * 0.82,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    border: Border.all(
-                      color: Colors.grey.shade300,
-                    ),
-                    borderRadius: BorderRadius.circular(25),
+      body: Container(
+        color: Color(0xffF9FAFF),
+        child: Column(
+          children: [
+            SizeBoxHeight(
+              SizeWant: 10,
+              Mediaheight: Mediaheight,
+            ),
+            Center(
+              child: Container(
+                height: MediaQuery.of(context).size.height * 0.07,
+                width: MediaQuery.of(context).size.width * 0.82,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  border: Border.all(
+                    color: Colors.grey.shade300,
                   ),
-                  child: rowSearch(),
+                  borderRadius: BorderRadius.circular(25),
                 ),
+                child: rowSearch(),
               ),
-              SizeBoxHeight(
-                SizeWant: 10,
-                Mediaheight: Mediaheight,
-              ),
-              rowListIcon(Mediawidth, Mediaheight, context),
-              SizeBoxHeight(
-                SizeWant: 10,
-                Mediaheight: Mediaheight,
-              ),
-              Container(
+            ),
+            SizeBoxHeight(
+              SizeWant: 10,
+              Mediaheight: Mediaheight,
+            ),
+            rowListIcon(Mediawidth, Mediaheight, context),
+            SizeBoxHeight(
+              SizeWant: 10,
+              Mediaheight: Mediaheight,
+            ),
+            Expanded(
+              child: Container(
                 color: Colors.transparent,
                 padding: EdgeInsets.symmetric(vertical: 5, horizontal: 5),
                 child: GridView.builder(
@@ -185,14 +160,25 @@ class CategoryScreen extends StatelessWidget {
                       crossAxisSpacing: 15.0,
                       mainAxisSpacing: 8.0),
                   primary: false,
-                  shrinkWrap: true,
+                  // shrinkWrap: true,
                   itemBuilder: (context, index) {
                     return InkWell(
                       onTap: () {
-                        Navigator.of(context)
-                            .push(MaterialPageRoute(builder: (context) {
-                          return OneCategory();
-                        }));
+                        if (index == 1) {
+                          Navigator.of(context)
+                              .push(MaterialPageRoute(builder: (context) {
+                            return OneCategory(
+                              isClub: true,
+                              itemSport: listSport[index],
+                            );
+                          }));
+                        } else {
+                          Navigator.of(context)
+                              .push(MaterialPageRoute(builder: (context) {
+                            return OneCategory(
+                                isClub: false, itemSport: listSport[index]);
+                          }));
+                        }
                       },
                       child: Material(
                         elevation: 2,
@@ -215,11 +201,11 @@ class CategoryScreen extends StatelessWidget {
                   },
                 ),
               ),
-              // SizedBox(
-              //   height: 10,
-              // ),
-            ],
-          ),
+            ),
+            // SizedBox(
+            //   height: 10,
+            // ),
+          ],
         ),
       ),
     );
@@ -271,7 +257,7 @@ class CategoryScreen extends StatelessWidget {
           .size
           .height,
       child: ListView.builder(
-          itemCount: listSport.length,
+          itemCount: listCategory.length,
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index) {
             return Container(
@@ -289,7 +275,7 @@ class CategoryScreen extends StatelessWidget {
                           splashColor: Colors.red, // inkwell color
                           child: SizedBox(
                               child: Icon(
-                            listSport[index].iconData,
+                                listCategory[index].iconData,
                             color: Color(0xff68699C),
                             size: 20,
                           )),
@@ -299,7 +285,7 @@ class CategoryScreen extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    listSport[index].Tital,
+                    listCategory[index].Tital,
                     style: TextStyle(fontSize: 14),
                   )
                 ],
@@ -319,15 +305,13 @@ class CategoryScreen extends StatelessWidget {
           // padding: EdgeInsets.all(2),
           width: (70 / Mediawidth) * Mediawidth,
           height: (70 / Mediaheight) * Mediaheight,
-          child: ClipOval(
-            child: Material(
-              color: Color(0xffC7C9EA), // button color
-              child: InkWell(
-                splashColor: Colors.red, // inkwell color
-                child: Image.network(
-                  SportData.UrlImage,
-                  fit: BoxFit.fill,
-                ),
+          child: Material(
+            color: Color(0xffC7C9EA), // button color
+            child: InkWell(
+              splashColor: Colors.red, // inkwell color
+              child: Image.network(
+                SportData.UrlImage,
+                fit: BoxFit.fill,
               ),
             ),
           ),
