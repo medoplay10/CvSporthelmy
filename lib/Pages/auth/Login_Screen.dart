@@ -119,7 +119,7 @@ class LoginScreen extends StatelessWidget {
                 //       child: Text("forgetPassword".tr())),
                 // ),
                 Positioned(
-                  top: MediaQuery.of(context).size.height * .80,
+                  top: MediaQuery.of(context).size.height * .75,
                   child: Column(
                     children: [
                       Container(
@@ -143,6 +143,27 @@ class LoginScreen extends StatelessWidget {
                           ),
                         ),
                       ),
+                      // Container(
+                      //   width: MediaQuery.of(context).size.width * 0.75,
+                      //   height: (50 / MediaQuery.of(context).size.height) *
+                      //       MediaQuery.of(context).size.height,
+                      //   margin: EdgeInsets.only(bottom: 10),
+                      //   child: RaisedButton(
+                      //     onPressed: () {
+                      //       Navigator.of(context).pushReplacement(
+                      //           MaterialPageRoute(builder: (context) {
+                      //             return MainScreen();
+                      //           }));
+                      //     },
+                      //     shape: RoundedRectangleBorder(
+                      //         borderRadius: BorderRadius.circular(10)),
+                      //     color: Color(0xff2C2B53),
+                      //     child: Text(
+                      //       "الدخول كنادى",
+                      //       style: TextStyle(color: Colors.white),
+                      //     ),
+                      //   ),
+                      // ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [

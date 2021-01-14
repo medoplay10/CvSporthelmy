@@ -7,10 +7,10 @@ import '../../ProviderAll.dart';
 class MyDataProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    ;
     return SingleChildScrollView(
       child: Column(
         children: [
+          CardInformation(context),
           Container(
               margin: EdgeInsets.only(right: 20, top: 20),
               alignment: Alignment.centerRight,
@@ -40,6 +40,91 @@ class MyDataProfileScreen extends StatelessWidget {
     );
   }
 
+  Container CardInformation(BuildContext context) {
+    return Container(
+      width: MediaQuery.of(context).size.width * 0.85,
+      // height: MediaQuery.of(context).size.height * 0.18,
+      decoration: BoxDecoration(
+          //   color: BackgroundColor,
+          borderRadius: BorderRadius.circular(20),
+          border: Border.all(color: Colors.white)),
+      child: Card(
+        margin: EdgeInsets.only(top: 10),
+        elevation: 2,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        child: Container(
+          padding: EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+          child: Column(
+            children: [
+              RowInformation(
+                  title: "تاريخ الولادة",
+                  content: "24/10/1985",
+                  iconTitle: Icons.calendar_today),
+              RowInformation(
+                  title: "الجنسية", content: "سعودي", iconTitle: Icons.flag),
+              RowInformation(
+                  title: "المدينة",
+                  content: "الرياض",
+                  iconTitle: Icons.location_on_rounded),
+              RowInformation(
+                  title: "الطول", content: "184", iconTitle: Icons.height),
+              RowInformation(
+                  title: "الوزن", content: "76", iconTitle: Icons.anchor),
+              RowInformation(
+                  title: "النادي",
+                  content: "اتحاد جدة",
+                  iconTitle: Icons.person),
+              RowInformation(
+                  title: "ممارسة اللعبة",
+                  content: "يمين",
+                  iconTitle: Icons.sports),
+              RowInformation(
+                  title: "بداية العقد",
+                  content: "24/10/1985",
+                  iconTitle: Icons.calendar_today),
+              RowInformation(
+                  title: "نهاية العقد",
+                  content: "24/10/1985",
+                  iconTitle: Icons.calendar_today),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Column RowInformation({String title, var iconTitle, String content}) {
+    return Column(
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Row(
+              children: [
+                Icon(
+                  iconTitle,
+                  color: Color(0xff68699C),
+                ),
+                SizedBox(
+                  width: 5,
+                ),
+                Text(title, style: TextStyle(fontSize: 16)),
+              ],
+            ),
+            Text(
+              content,
+              style: TextStyle(fontSize: 16, color: Color(0xff929292)),
+            ),
+          ],
+        ),
+        Divider(
+          height: 10,
+          color: Colors.grey,
+        )
+      ],
+    );
+  }
+
   //======================= Widget Row Social Media Cards ==============================
 
   Container RowSocialMediaCards(BuildContext context) {
@@ -48,7 +133,7 @@ class MyDataProfileScreen extends StatelessWidget {
       height: MediaQuery.of(context).size.height * 0.09,
       margin: EdgeInsets.only(bottom: 8),
       decoration: BoxDecoration(
-        //    color: BackgroundColor,
+          //    color: BackgroundColor,
           borderRadius: BorderRadius.circular(20),
           border: Border.all(color: Colors.white)),
       child: Card(
@@ -113,8 +198,9 @@ class MyDataProfileScreen extends StatelessWidget {
           children: [
             Expanded(
               child: Container(
-                margin: EdgeInsets.symmetric(horizontal: 10, vertical: 18),
+                margin: EdgeInsets.symmetric(horizontal: 15, vertical: 18),
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     SingleChildScrollView(
                       child: Column(
@@ -194,32 +280,25 @@ class MyDataProfileScreen extends StatelessWidget {
                       child: Column(
                         children: [
                           Image.asset(
-                            "assets/images/medal.png", height: MediaQuery
-                              .of(context)
-                              .size
-                              .height * 0.05,),
+                            "assets/images/medal.png",
+                            height: MediaQuery.of(context).size.height * 0.05,
+                          ),
                           Text("افضل لاعب"),
                           Text("8")
                         ],
                       ),
                     ),
                     SizedBox(
-                      width: (20 / MediaQuery
-                          .of(context)
-                          .size
-                          .width) * MediaQuery
-                          .of(context)
-                          .size
-                          .width,
+                      width: (20 / MediaQuery.of(context).size.width) *
+                          MediaQuery.of(context).size.width,
                     ),
                     SingleChildScrollView(
                       child: Column(
                         children: [
                           Image.asset(
-                            "assets/images/medal.png", height: MediaQuery
-                              .of(context)
-                              .size
-                              .height * 0.05,),
+                            "assets/images/medal.png",
+                            height: MediaQuery.of(context).size.height * 0.05,
+                          ),
                           Text("افضل صانع لعب"),
                           Text("8")
                         ],
@@ -273,36 +352,23 @@ class MyDataProfileScreen extends StatelessWidget {
                         borderRadius: BorderRadius.circular(12.0),
                         child: Image.network(
                           "https://ronaldo.com/wp-content/uploads/2020/03/GettyImages-1201273079-1208205794-1209769370.jpg",
-                          height: (200 / MediaQuery
-                              .of(context)
-                              .size
-                              .height) * MediaQuery
-                              .of(context)
-                              .size
-                              .height,
+                          height: (200 / MediaQuery.of(context).size.height) *
+                              MediaQuery.of(context).size.height,
                           fit: BoxFit.fill,
                         ),
                       ),
                     ),
                     SizedBox(
-                      width: (20 / MediaQuery
-                          .of(context)
-                          .size
-                          .width) * MediaQuery
-                          .of(context)
-                          .size
-                          .width,
+                      width: (20 / MediaQuery.of(context).size.width) *
+                          MediaQuery.of(context).size.width,
                     ),
                     Flexible(
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(12.0),
                         child: Image.network(
                           "https://ronaldo.com/wp-content/uploads/2020/03/GettyImages-1201273079-1208205794-1209769370.jpg",
-                          height: (200 / MediaQuery
-                              .of(context)
-                              .size
-                              .height) * MediaQuery
-                              .of(context).size.height,
+                          height: (200 / MediaQuery.of(context).size.height) *
+                              MediaQuery.of(context).size.height,
                           fit: BoxFit.fill,
                         ),
                       ),
@@ -343,9 +409,9 @@ class MyDataProfileScreen extends StatelessWidget {
       //  isDismissible: false,
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(20),
-              topRight: Radius.circular(20),
-            )),
+          topLeft: Radius.circular(20),
+          topRight: Radius.circular(20),
+        )),
         context: context,
         builder: (ctx) {
           return Container(
@@ -357,7 +423,10 @@ class MyDataProfileScreen extends StatelessWidget {
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  Text("الجوائز", style: TextStyle(fontSize: 18),),
+                  Text(
+                    "الجوائز",
+                    style: TextStyle(fontSize: 18),
+                  ),
                   InkWell(
                     onTap: () {},
                     child: ListTile(
@@ -376,14 +445,11 @@ class MyDataProfileScreen extends StatelessWidget {
                               ),
                               Text(
                                 "اعلامي",
-
                                 style: TextStyle(
                                     fontSize: 12, color: Colors.grey.shade500),
                               ),
                             ],
                           ),
-
-
                         ],
                       ),
                       leading: Image.asset("assets/images/trophy.png"),
@@ -396,7 +462,6 @@ class MyDataProfileScreen extends StatelessWidget {
                     onTap: () {},
                     child: ListTile(
                       trailing: Text("3"),
-
                       title: Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
@@ -411,14 +476,11 @@ class MyDataProfileScreen extends StatelessWidget {
                               ),
                               Text(
                                 "اعلامي",
-
                                 style: TextStyle(
                                     fontSize: 12, color: Colors.grey.shade500),
                               ),
                             ],
                           ),
-
-
                         ],
                       ),
                       leading: Image.asset("assets/images/trophy.png"),
@@ -431,7 +493,6 @@ class MyDataProfileScreen extends StatelessWidget {
                     onTap: () {},
                     child: ListTile(
                       trailing: Text("3"),
-
                       title: Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
@@ -446,14 +507,11 @@ class MyDataProfileScreen extends StatelessWidget {
                               ),
                               Text(
                                 "اعلامي",
-
                                 style: TextStyle(
                                     fontSize: 12, color: Colors.grey.shade500),
                               ),
                             ],
                           ),
-
-
                         ],
                       ),
                       leading: Image.asset("assets/images/trophy.png"),
