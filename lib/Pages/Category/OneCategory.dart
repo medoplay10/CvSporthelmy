@@ -5,6 +5,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'AddNewItemInCategoryScreen.dart';
 import 'MakeNewClubScreen.dart';
+import 'PlayerInfomation.dart';
 
 class OneCategory extends StatelessWidget {
   bool isClub;
@@ -288,41 +289,43 @@ class OneCategory extends StatelessWidget {
 
   //=============================== Widget Column More Player ===========================
 
-  Column columnMoreData({double Mediawidth, double Mediaheight, Sports SportData, BuildContext context}) {
-    return Column(
-      children: [
-        Container(
-          // padding: EdgeInsets.all(2),
-          width: (70 / Mediawidth) * Mediawidth,
-          height: (70 / Mediaheight) * Mediaheight,
-          child: ClipOval(
-            child: Material(
-              color: Color(0xffC7C9EA), // button color
-              child: InkWell(
-                splashColor: Colors.red, // inkwell color
+  GestureDetector columnMoreData(
+      {double Mediawidth,
+      double Mediaheight,
+      Sports SportData,
+      BuildContext context}) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+          return PlayerInformation();
+        }));
+      },
+      child: Column(
+        children: [
+          Container(
+            // padding: EdgeInsets.all(2),
+            width: (70 / Mediawidth) * Mediawidth,
+            height: (70 / Mediaheight) * Mediaheight,
+            child: ClipOval(
+              child: Material(
+                color: Color(0xffC7C9EA), // button color
                 child: Image.network(
                   SportData.UrlImage,
                   fit: BoxFit.fill,
                 ),
-                onTap: () {},
               ),
             ),
           ),
-        ),
-        SizedBox(
-          height: (5 / MediaQuery
-              .of(context)
-              .size
-              .height) * MediaQuery
-              .of(context)
-              .size
-              .height,
-        ),
-        Text(
-          SportData.Tital,
-          style: TextStyle(fontSize: 11),
-        ),
-      ],
+          SizedBox(
+            height: (5 / MediaQuery.of(context).size.height) *
+                MediaQuery.of(context).size.height,
+          ),
+          Text(
+            SportData.Tital,
+            style: TextStyle(fontSize: 11),
+          ),
+        ],
+      ),
     );
   }
 }
