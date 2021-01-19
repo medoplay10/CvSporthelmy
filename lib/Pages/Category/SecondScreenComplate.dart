@@ -46,7 +46,7 @@ class _SecondScreenComplateState extends State<SecondScreenComplate> {
                 Icon(
                   Icons.sports_volleyball,
                   //   Icons.flag_outlined,
-                  color: Color(0xff68699C),
+                  color: Color(0xff2C2B53),
                   size: 28,
                 ),
                 SizedBox(
@@ -65,7 +65,7 @@ class _SecondScreenComplateState extends State<SecondScreenComplate> {
                       icon: Icon(
                         Icons.arrow_drop_down_rounded,
                         size: 40,
-                        color: Color(0xff68699C),
+                        color: Color(0xff2C2B53),
                       ),
                       iconSize: 24,
                       elevation: 16,
@@ -104,7 +104,7 @@ class _SecondScreenComplateState extends State<SecondScreenComplate> {
                 Icon(
                   Icons.sports,
                   //   Icons.flag_outlined,
-                  color: Color(0xff68699C),
+                  color: Color(0xff2C2B53),
                   size: 28,
                 ),
                 SizedBox(
@@ -218,7 +218,7 @@ class _SecondScreenComplateState extends State<SecondScreenComplate> {
           Icon(
             iconSelect,
             //   Icons.flag_outlined,
-            color: Color(0xff68699C),
+            color: Color(0xff2C2B53),
             size: 28,
           ),
           SizedBox(
@@ -298,7 +298,7 @@ class _SecondScreenComplateState extends State<SecondScreenComplate> {
               decoration: InputDecoration(
                 filled: true,
                 fillColor: Colors.white,
-                prefixIcon: Icon(Icons.date_range, color: Color(0xff68699C)),
+                prefixIcon: Icon(Icons.date_range, color: Color(0xff2C2B53)),
                 border: InputBorder.none,
                 hintText: title,
 
@@ -311,7 +311,7 @@ class _SecondScreenComplateState extends State<SecondScreenComplate> {
           Icon(
             Icons.arrow_drop_down_rounded,
             size: 40,
-            color: Color(0xff68699C),
+            color: Color(0xff2C2B53),
           ),
           SizedBox(
             width: 8,
@@ -332,7 +332,7 @@ class _SecondScreenComplateState extends State<SecondScreenComplate> {
         decoration: InputDecoration(
           filled: true,
           fillColor: Colors.white,
-          prefixIcon: Icon(iconSelect, color: Color(0xff68699C)),
+          prefixIcon: Icon(iconSelect, color: Color(0xff2C2B53)),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(20),
           ),

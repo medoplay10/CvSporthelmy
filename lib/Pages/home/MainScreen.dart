@@ -7,8 +7,10 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'CategoryScreen.dart';
 import 'HomeScreen.dart';
 import 'NotificationScreen.dart';
+import 'PostsScreen.dart';
 import 'ProfileScreen.dart';
 import 'SettingScreen.dart';
+import 'VoteScreen.dart';
 
 class MainScreen extends StatefulWidget {
   @override
@@ -48,7 +50,8 @@ class _MainScreenState extends State<MainScreen> {
     HomeScreen(),
     ProfileScreen(),
     CategoryScreen(),
-    SettingScreen(),
+    VoteScreen(),
+    PostsScreen(),
   ];
 
   @override
@@ -73,20 +76,31 @@ class _MainScreenState extends State<MainScreen> {
         currentIndex: _selectedItemPosition,
         onTap: (index) => setState(() => _selectedItemPosition = index),
         items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'home'),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'tickets'),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+          ),
           BottomNavigationBarItem(
               icon: FaIcon(
                 FontAwesomeIcons.users,
               ),
               label: 'calendar'),
           BottomNavigationBarItem(
-              icon: Icon(Icons.settings), label: 'microphone'),
+              icon: FaIcon(
+            FontAwesomeIcons.voteYea,
+          )),
+          BottomNavigationBarItem(
+              icon: FaIcon(
+            FontAwesomeIcons.comment,
+          )),
         ],
       ),
-      backgroundColor: Color(0xffF4F7FF),
-      appBar: (_selectedItemPosition == 1 || _selectedItemPosition == 2 ||
-          _selectedItemPosition == 3)
+      backgroundColor: Color(0xffF9FAFF),
+      appBar: (_selectedItemPosition == 1 ||
+              _selectedItemPosition == 3 ||
+              _selectedItemPosition == 4)
           ? null
           : appBarMainScreen(Mediawidth, Mediaheight),
       body: ListScreen[_selectedItemPosition],
@@ -96,14 +110,13 @@ class _MainScreenState extends State<MainScreen> {
 
   AppBar appBarMainScreen(double Mediawidth, double Mediaheight) {
     return AppBar(
-      backgroundColor: Color(0xffF4F7FF),
-
+      backgroundColor: Color(0xffF9FAFF),
       actions: [
         Padding(
           padding: const EdgeInsets.all(5),
           child: IconButton(
               icon: Icon(
-                Icons.notifications,
+                Icons.notifications_none,
                 size: 30,
               ),
               onPressed: () {
@@ -115,29 +128,72 @@ class _MainScreenState extends State<MainScreen> {
         )
       ],
       leading: Container(
-        padding: EdgeInsets.all(5),
-        width: (25 / Mediawidth) * Mediawidth,
-        height: (25 / Mediaheight) * Mediaheight,
-        child: ClipOval(
-          child: Material(
-            color: Color(0xffC7C9EA), // button color
-            child: InkWell(
-              splashColor: Colors.red, // inkwell color
-              child: SizedBox(
-                  child: Icon(
-                    Icons.person,
-                    color: Color(0xff68699C),
-                    size: 20,
-                  )),
-              onTap: () {},
-            ),
-          ),
-        ),
+        margin: EdgeInsets.all(8),
+        //   height: .04 * MediaQuery.of(context).size.height,
+        //   width: .13 * MediaQuery.of(context).size.width,
+        child: ClipRRect(
+            borderRadius: BorderRadius.circular(50.0),
+            child: Image.asset(
+              "assets/images/messiRonaldo.jpg",
+              fit: BoxFit.fill,
+            )),
       ),
       elevation: 0,
-      title: Text(
-        "الرئيسة",
-        style: TextStyle(fontSize: 18),
+      automaticallyImplyLeading: false,
+      title: Container(
+        height: MediaQuery.of(context).size.height * 0.05,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(25),
+          color: Color(0xffEEF1FC),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(25),
+                color: Color(0xffEEF1FC),
+              ),
+              //    color: Color(0xffE7EBF8),
+              child: Padding(
+                padding: const EdgeInsets.only(right: 8),
+                child: Icon(
+                  Icons.search,
+                ),
+              ),
+            ),
+            Expanded(
+              child: TextFormField(
+                style: TextStyle(
+                  fontSize: 14,
+                  color: Colors.black,
+                ),
+                decoration: InputDecoration(
+                  contentPadding: EdgeInsets.only(top: 10, right: 10),
+                  filled: true,
+                  fillColor: Color(0xffEEF1FC),
+
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20),
+                    borderSide:
+                        const BorderSide(color: Colors.white, width: 0.0),
+                  ),
+                  border: OutlineInputBorder(
+                    borderSide:
+                        const BorderSide(color: Colors.white, width: 0.0),
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  //         border: InputBorder.none,
+                  hintText: "البحث",
+
+                  hintStyle:
+                      TextStyle(fontSize: 14, color: Colors.grey.shade700),
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
       centerTitle: true,
     );

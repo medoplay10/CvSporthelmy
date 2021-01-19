@@ -113,7 +113,7 @@ class ShowInormationScreen extends StatelessWidget {
             ),
             Text(
               content,
-              style: TextStyle(fontSize: 16, color: Color(0xff929292)),
+              style: TextStyle(fontSize: 16, color: Color(0xff2C2B53)),
             ),
           ],
         ),

@@ -33,21 +33,24 @@ class OnePostScreen extends StatelessWidget {
           )
         ],
       ), // color: Color(0xff5E5D8F),
-      body: Column(
-        children: [
-          MainPostCard(context),
-          Expanded(
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  OneComment(),
-                  OneComment(),
-                ],
+      body: Container(
+        color: Color(0xffF9FAFF),
+        child: Column(
+          children: [
+            MainPostCard(context),
+            Expanded(
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    OneComment(),
+                    OneComment(),
+                  ],
+                ),
               ),
             ),
-          ),
-          RowEditNewComment(context)
-        ],
+            RowEditNewComment(context)
+          ],
+        ),
       ),
     );
   }
@@ -118,7 +121,8 @@ class OnePostScreen extends StatelessWidget {
   }
 
   //======================= Widget Image And Text Profile ==============================
-  Center ImageAndTextProfile(BuildContext context) {
+  //======================= Widget Image And Text Profile ==============================
+  Center ImageAndTextProfile(context) {
     return Center(
       child: Column(
         children: [
@@ -129,8 +133,7 @@ class OnePostScreen extends StatelessWidget {
                 MediaQuery.of(context).size.width,
             child: CircleAvatar(
                 radius: 20,
-                backgroundImage:
-                    NetworkImage("https://i.stack.imgur.com/l60Hf.png")),
+                backgroundImage: AssetImage("assets/images/messiRonaldo.jpg")),
           ),
           Text(
             "خالد عمر",
@@ -246,7 +249,7 @@ class OnePostScreen extends StatelessWidget {
           border: Border.all(color: Colors.white)),
       child: Card(
         margin: EdgeInsets.all(0),
-        elevation: 2,
+        elevation: 5,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         child: Container(
           padding: EdgeInsets.symmetric(horizontal: 10),

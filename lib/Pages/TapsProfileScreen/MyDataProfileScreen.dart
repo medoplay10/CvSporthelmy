@@ -103,7 +103,7 @@ class MyDataProfileScreen extends StatelessWidget {
               children: [
                 Icon(
                   iconTitle,
-                  color: Color(0xff68699C),
+                  color: Color(0xff2C2B53),
                 ),
                 SizedBox(
                   width: 5,

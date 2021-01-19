@@ -6,102 +6,27 @@ class MyImagesDataProfile extends StatelessWidget {
   List<Sports> listSport = [
     Sports(
         Tital: "كرة قدم",
-        iconData: FontAwesomeIcons.footballBall,
-        UrlImage:
-            "https://sportstalk1260.com/wp-content/uploads/2020/03/football-history.jpg"),
-    Sports(
-        Tital: "كرة قدم",
-        iconData: FontAwesomeIcons.footballBall,
-        UrlImage:
-            "https://sportstalk1260.com/wp-content/uploads/2020/03/football-history.jpg"),
-    Sports(
-        Tital: "كرة قدم",
-        iconData: FontAwesomeIcons.footballBall,
+        iconData: "assets/images/1.png",
         UrlImage:
             "https://sportstalk1260.com/wp-content/uploads/2020/03/football-history.jpg"),
     Sports(
         Tital: "تنس",
-        iconData: FontAwesomeIcons.tableTennis,
+        iconData: "assets/images/2.png",
         UrlImage:
             "https://1440sportz.com/wp-content/uploads/2020/07/Nike-Football-3.jpg"),
     Sports(
         Tital: "كرة سلة",
-        iconData: FontAwesomeIcons.basketballBall,
+        iconData: "assets/images/3.png",
         UrlImage:
             "https://sportstalk1260.com/wp-content/uploads/2020/03/football-history.jpg"),
     Sports(
         Tital: "بيسبول",
-        iconData: FontAwesomeIcons.baseballBall,
-        UrlImage:
-            "https://1440sportz.com/wp-content/uploads/2020/07/Nike-Football-3.jpg"),
-    Sports(
-        Tital: "كرة قدم",
-        iconData: FontAwesomeIcons.footballBall,
-        UrlImage:
-            "https://sportstalk1260.com/wp-content/uploads/2020/03/football-history.jpg"),
-    Sports(
-        Tital: "كرة قدم",
-        iconData: FontAwesomeIcons.footballBall,
-        UrlImage:
-            "https://sportstalk1260.com/wp-content/uploads/2020/03/football-history.jpg"),
-    Sports(
-        Tital: "كرة قدم",
-        iconData: FontAwesomeIcons.footballBall,
-        UrlImage:
-            "https://sportstalk1260.com/wp-content/uploads/2020/03/football-history.jpg"),
-    Sports(
-        Tital: "تنس",
-        iconData: FontAwesomeIcons.tableTennis,
-        UrlImage:
-            "https://1440sportz.com/wp-content/uploads/2020/07/Nike-Football-3.jpg"),
-    Sports(
-        Tital: "كرة سلة",
-        iconData: FontAwesomeIcons.basketballBall,
-        UrlImage:
-            "https://sportstalk1260.com/wp-content/uploads/2020/03/football-history.jpg"),
-    Sports(
-        Tital: "بيسبول",
-        iconData: FontAwesomeIcons.baseballBall,
+        iconData: "assets/images/4.png",
         UrlImage:
             "https://1440sportz.com/wp-content/uploads/2020/07/Nike-Football-3.jpg"),
     Sports(
         Tital: "كرة يد",
-        iconData: FontAwesomeIcons.baseballBall,
-        UrlImage:
-            "https://sportstalk1260.com/wp-content/uploads/2020/03/football-history.jpg"),
-    Sports(
-        Tital: "الكرة الطائرة",
-        iconData: FontAwesomeIcons.volleyballBall,
-        UrlImage:
-            "https://1440sportz.com/wp-content/uploads/2020/07/Nike-Football-3.jpg"),
-    Sports(
-        Tital: "بولو الماء",
-        iconData: FontAwesomeIcons.water,
-        UrlImage:
-            "https://sportstalk1260.com/wp-content/uploads/2020/03/football-history.jpg"),
-    Sports(
-        Tital: "كرة سلة",
-        iconData: FontAwesomeIcons.basketballBall,
-        UrlImage:
-            "https://sportstalk1260.com/wp-content/uploads/2020/03/football-history.jpg"),
-    Sports(
-        Tital: "بيسبول",
-        iconData: FontAwesomeIcons.baseballBall,
-        UrlImage:
-            "https://1440sportz.com/wp-content/uploads/2020/07/Nike-Football-3.jpg"),
-    Sports(
-        Tital: "كرة يد",
-        iconData: FontAwesomeIcons.baseballBall,
-        UrlImage:
-            "https://sportstalk1260.com/wp-content/uploads/2020/03/football-history.jpg"),
-    Sports(
-        Tital: "الكرة الطائرة",
-        iconData: FontAwesomeIcons.volleyballBall,
-        UrlImage:
-            "https://1440sportz.com/wp-content/uploads/2020/07/Nike-Football-3.jpg"),
-    Sports(
-        Tital: "بولو الماء",
-        iconData: FontAwesomeIcons.water,
+        iconData: "assets/images/5.png",
         UrlImage:
             "https://sportstalk1260.com/wp-content/uploads/2020/03/football-history.jpg"),
   ];

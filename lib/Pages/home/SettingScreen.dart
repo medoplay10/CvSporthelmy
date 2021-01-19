@@ -1,7 +1,9 @@
 import 'package:cv_sports/Pages/auth/Login_Screen.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:provider/provider.dart';
 
+import '../../ProviderAll.dart';
 import 'MainScreen.dart';
 
 class SettingScreen extends StatefulWidget {
@@ -11,6 +13,13 @@ class SettingScreen extends StatefulWidget {
 
 class _SettingScreenState extends State<SettingScreen> {
   bool SwitchValue = false;
+
+  @override
+  void initState() {
+    Provider.of<ProviderConstants>(context, listen: false)
+        .ChangeIndexTap(Value: 0);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {

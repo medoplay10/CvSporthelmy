@@ -15,186 +15,115 @@ class LoginScreen extends StatelessWidget {
     var Mediawidth = MediaQuery.of(context).size.width;
     print(Mediaheight.toString());
     return Scaffold(
-      body: Column(
-        children: [
-          Expanded(
-            child: Stack(
-              alignment: Alignment.center,
-              children: [
-                Container(
-                    width: double.infinity,
-                    alignment: Alignment.topRight,
-                    child: Stack(
-                      alignment: Alignment.bottomCenter,
-                      children: [
-                        Image.asset(
-                          "assets/images/background_login.png",
-                          height: MediaQuery.of(context).size.height * .62,
-                          //  width:   MediaQuery.of(context).size.width,
-                        ),
-                        Positioned(
-                          right: 0,
-                          bottom: MediaQuery
-                              .of(context)
-                              .size
-                              .height * 0.096,
-                          child: Container(
-                              padding: EdgeInsets.only(right: 5),
-                              width: MediaQuery.of(context).size.width * .5,
-                              alignment: Alignment.centerRight,
-                              child: Text(
-                                "loginWithEmailAndPassword".tr(),
-                                maxLines: 2,
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 13),
-                              )),
-                        ),
-                      ],
-                    )),
-                Container(
-                  margin: EdgeInsets.only(
-                      top: MediaQuery.of(context).size.height * .38),
-                  alignment: Alignment.center,
-                  child: SingleChildScrollView(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                          width: MediaQuery.of(context).size.width * 0.75,
-                          child: TextFormField(
-                            style: TextStyle(fontSize: 18, color: Colors.black),
-                            keyboardType: TextInputType.phone,
-                            validator: (input) {
-                              if (input.trim().length == 0) {
-                                return "من فضلك ضع رقمك";
-                              } else if (input.trim().length < 9) {
-                                return "من فضلك ضع 9 ارقام";
-                              }
-                              return null;
-                            },
-                            maxLength: 9,
-                            decoration: InputDecoration(
-                              filled: true,
-                              fillColor: Colors.white,
-                              prefixIcon: Icon(Icons.phone_android,
-                                  color: Color(0xff68699C)),
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(20),
-                              ),
-                              labelText: "ادخل هاتفك",
-                              labelStyle: TextStyle(
-                                  fontSize: 16, color: Colors.grey.shade700),
-                            ),
-                          ),
-                        ),
-                        SizeBoxHeight(Mediaheight: Mediaheight, SizeWant: 20),
-                        // Container(
-                        //   width: MediaQuery.of(context).size.width * 0.75,
-                        //   child: TextFormField(
-                        //     obscureText: true,
-                        //     style: TextStyle(fontSize: 18, color: Colors.black),
-                        //     decoration: InputDecoration(
-                        //       prefixIcon:
-                        //           Icon(Icons.lock, color: Color(0xff68699C)),
-                        //       filled: true,
-                        //       fillColor: Colors.white,
-                        //       border: OutlineInputBorder(
-                        //         borderRadius: BorderRadius.circular(20),
-                        //       ),
-                        //       labelText: "password".tr(),
-                        //       labelStyle: TextStyle(
-                        //           fontSize: 16, color: Colors.grey.shade700),
-                        //     ),
-                        //   ),
-                        // ),
-                      ],
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            alignment: Alignment.topRight,
+            image: AssetImage(
+              "assets/images/login.png",
+            ),
+            //fit: BoxFit.fitWidth,
+          ),
+          //     shape: BoxShape.circle,
+        ),
+        child: Container(
+          margin:
+              EdgeInsets.only(bottom: MediaQuery.of(context).size.height * .10),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Container(
+                // margin: EdgeInsets.only(
+                //     top: MediaQuery.of(context).size.height * .40),
+                alignment: Alignment.center,
+                child: Container(
+                  width: MediaQuery.of(context).size.width * 0.75,
+                  child: TextFormField(
+                    style: TextStyle(fontSize: 18, color: Colors.black),
+                    keyboardType: TextInputType.phone,
+                    validator: (input) {
+                      if (input.trim().length == 0) {
+                        return "من فضلك ضع رقمك";
+                      } else if (input.trim().length < 9) {
+                        return "من فضلك ضع 9 ارقام";
+                      }
+                      return null;
+                    },
+                    maxLength: 9,
+                    decoration: InputDecoration(
+                      filled: true,
+                      fillColor: Colors.white,
+                      prefixIcon:
+                          Icon(Icons.phone_android, color: Color(0xff68699C)),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      labelText: "ادخل هاتفك",
+                      labelStyle:
+                          TextStyle(fontSize: 16, color: Colors.grey.shade700),
                     ),
                   ),
                 ),
-                // Positioned(
-                //   left: MediaQuery.of(context).size.width * .08,
-                //   top: MediaQuery.of(context).size.height * .76,
-                //   child: Container(
-                //       alignment: Alignment.topCenter,
-                //       child: Text("forgetPassword".tr())),
-                // ),
-                Positioned(
-                  top: MediaQuery.of(context).size.height * .75,
-                  child: Column(
-                    children: [
-                      Container(
-                        width: MediaQuery.of(context).size.width * 0.75,
-                        height: (50 / MediaQuery.of(context).size.height) *
-                            MediaQuery.of(context).size.height,
-                        margin: EdgeInsets.only(bottom: 10),
-                        child: RaisedButton(
-                          onPressed: () {
-                            Navigator.of(context).pushReplacement(
-                                MaterialPageRoute(builder: (context) {
-                              return MainScreen();
-                            }));
-                          },
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10)),
-                          color: Color(0xff2C2B53),
-                          child: Text(
-                            "signin".tr(),
-                            style: TextStyle(color: Colors.white),
-                          ),
-                        ),
+              ),
+              SizedBox(
+                height: 8,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    width: MediaQuery.of(context).size.width * 0.75,
+                    height: (50 / MediaQuery.of(context).size.height) *
+                        MediaQuery.of(context).size.height,
+                    margin: EdgeInsets.only(bottom: 10),
+                    child: RaisedButton(
+                      onPressed: () {
+                        Navigator.of(context).pushReplacement(
+                            MaterialPageRoute(builder: (context) {
+                          return MainScreen();
+                        }));
+                      },
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10)),
+                      color: Color(0xff2C2B53),
+                      child: Text(
+                        "signin".tr(),
+                        style: TextStyle(color: Colors.white),
                       ),
-                      // Container(
-                      //   width: MediaQuery.of(context).size.width * 0.75,
-                      //   height: (50 / MediaQuery.of(context).size.height) *
-                      //       MediaQuery.of(context).size.height,
-                      //   margin: EdgeInsets.only(bottom: 10),
-                      //   child: RaisedButton(
-                      //     onPressed: () {
-                      //       Navigator.of(context).pushReplacement(
-                      //           MaterialPageRoute(builder: (context) {
-                      //             return MainScreen();
-                      //           }));
-                      //     },
-                      //     shape: RoundedRectangleBorder(
-                      //         borderRadius: BorderRadius.circular(10)),
-                      //     color: Color(0xff2C2B53),
-                      //     child: Text(
-                      //       "الدخول كنادى",
-                      //       style: TextStyle(color: Colors.white),
-                      //     ),
-                      //   ),
-                      // ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text("noAccount".tr()),
-                          SizedBox(
-                            width: 5,
-                          ),
-                          InkWell(
-                              onTap: () {
-                                Navigator.of(context)
-                                    .push(MaterialPageRoute(builder: (context) {
-                                  return SignUpScreen();
-                                }));
-                              },
-                              child: Text(
-                                "signUpHere".tr(),
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 16,
-                                  decoration: TextDecoration.underline,
-                                ),
-                              ))
-                        ],
-                      )
-                    ],
+                    ),
                   ),
-                )
-              ],
-            ),
+                ],
+              ),
+              SizedBox(
+                height: 8,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text("noAccount".tr()),
+                  SizedBox(
+                    width: 5,
+                  ),
+                  InkWell(
+                      onTap: () {
+                        Navigator.of(context)
+                            .push(MaterialPageRoute(builder: (context) {
+                          return SignUpScreen();
+                        }));
+                      },
+                      child: Text(
+                        "signUpHere".tr(),
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                          decoration: TextDecoration.underline,
+                        ),
+                      ))
+                ],
+              ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }

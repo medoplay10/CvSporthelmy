@@ -40,6 +40,8 @@ class _PlayerInformationState extends State<PlayerInformation>
   @override
   void initState() {
     super.initState();
+    Provider.of<ProviderConstants>(context, listen: false)
+        .ChangeIndexTap(Value: 0);
     tabController = new TabController(length: 2, vsync: this, initialIndex: 0);
     tabController.addListener(_setActiveTabIndex);
   }
@@ -57,7 +59,7 @@ class _PlayerInformationState extends State<PlayerInformation>
             //  color:  Colors.transparent,
 
             image: AssetImage("assets/images/informationProfile.png"),
-            //   fit: BoxFit.cover,
+            //   fit: BoxFit.fill,
           ),
           bottom: PreferredSize(
             preferredSize: Size.fromHeight(185.0),
@@ -93,8 +95,7 @@ class _PlayerInformationState extends State<PlayerInformation>
                 MediaQuery.of(context).size.width,
             child: CircleAvatar(
                 radius: 20,
-                backgroundImage:
-                    NetworkImage("https://i.stack.imgur.com/l60Hf.png")),
+                backgroundImage: AssetImage("assets/images/messiRonaldo.jpg")),
           ),
           Text(
             "خالد عمر",
@@ -150,8 +151,8 @@ class _PlayerInformationState extends State<PlayerInformation>
 
   Container ItemTapBar({BuildContext context, String Tital, int indexItem}) {
     BackgroundColor =
-        indexItem == Provider.of<ProviderConstants>(context).IndexTap
-            ? Color(0xff5E5D8F)
+    indexItem == Provider.of<ProviderConstants>(context).IndexTap
+            ? Color(0xff2C2B53)
             : Colors.white;
     TextColor = indexItem == Provider.of<ProviderConstants>(context).IndexTap
         ? Colors.white

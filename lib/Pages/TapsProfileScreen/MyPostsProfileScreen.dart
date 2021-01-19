@@ -43,19 +43,12 @@ class MyPostsProfileScreen extends StatelessWidget {
           RowImagesCards(context),
           SizedBox(
             height: (10 / MediaQuery.of(context).size.height) *
-                MediaQuery.of(context)
-                .size
-                .height,
+                MediaQuery.of(context).size.height,
           ),
           RowVideosCards(context),
           SizedBox(
-            height: (10 / MediaQuery
-                .of(context)
-                .size
-                .height) * MediaQuery
-                .of(context)
-                .size
-                .height,
+            height: (10 / MediaQuery.of(context).size.height) *
+                MediaQuery.of(context).size.height,
           ),
         ],
       ),
@@ -70,7 +63,7 @@ class MyPostsProfileScreen extends StatelessWidget {
         Card(
           elevation: 5,
           shape:
-          RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
           child: Container(
             width: MediaQuery.of(context).size.width * 0.85,
             padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
@@ -114,7 +107,7 @@ class MyPostsProfileScreen extends StatelessWidget {
                         Text("33")
                       ],
                     ),
-                    // Spacer(),
+                    Spacer(),
                     // Row(
                     //   children: [
                     //     Text("33"),
@@ -136,18 +129,18 @@ class MyPostsProfileScreen extends StatelessWidget {
                     //       .size
                     //       .width,
                     // ),
-                    // Row(
-                    //   children: [
-                    //     Text("33"),
-                    //     SizedBox(
-                    //       width: 5,
-                    //     ),
-                    //     FaIcon(
-                    //       FontAwesomeIcons.solidThumbsUp,
-                    //       color: Color(0xffC1C0D3),
-                    //     ),
-                    //   ],
-                    // )
+                    Row(
+                      children: [
+                        Text("33"),
+                        SizedBox(
+                          width: 5,
+                        ),
+                        FaIcon(
+                          FontAwesomeIcons.solidHeart,
+                          color: Color(0xffC1C0D3),
+                        ),
+                      ],
+                    )
                   ],
                 )
               ],
@@ -166,7 +159,7 @@ class MyPostsProfileScreen extends StatelessWidget {
         Card(
           elevation: 5,
           shape:
-          RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
           child: Container(
             width: MediaQuery.of(context).size.width * 0.85,
             padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
@@ -210,13 +203,9 @@ class MyPostsProfileScreen extends StatelessWidget {
                                     Images[index],
                                     fit: BoxFit.fill,
                                     // height: 72,
-                                    width: (160 / MediaQuery
-                                        .of(context)
-                                        .size
-                                        .width) * MediaQuery
-                                        .of(context)
-                                        .size
-                                        .width,
+                                    width: (160 /
+                                            MediaQuery.of(context).size.width) *
+                                        MediaQuery.of(context).size.width,
                                   )),
                             );
                           }),
@@ -248,28 +237,7 @@ class MyPostsProfileScreen extends StatelessWidget {
                           width: 5,
                         ),
                         FaIcon(
-                          FontAwesomeIcons.solidThumbsDown,
-                          color: Color(0xffC1C0D3),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      width: (30 / MediaQuery
-                          .of(context)
-                          .size
-                          .width) * MediaQuery
-                          .of(context)
-                          .size
-                          .width,
-                    ),
-                    Row(
-                      children: [
-                        Text("33"),
-                        SizedBox(
-                          width: 5,
-                        ),
-                        FaIcon(
-                          FontAwesomeIcons.solidThumbsUp,
+                          FontAwesomeIcons.solidHeart,
                           color: Color(0xffC1C0D3),
                         ),
                       ],
@@ -292,7 +260,7 @@ class MyPostsProfileScreen extends StatelessWidget {
         Card(
           elevation: 5,
           shape:
-          RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
           child: Container(
             width: MediaQuery.of(context).size.width * 0.85,
             padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
@@ -336,13 +304,9 @@ class MyPostsProfileScreen extends StatelessWidget {
                                     Videos[index],
                                     fit: BoxFit.fill,
                                     // height: 72,
-                                    width: (160 / MediaQuery
-                                        .of(context)
-                                        .size
-                                        .width) * MediaQuery
-                                        .of(context)
-                                        .size
-                                        .width,
+                                    width: (160 /
+                                            MediaQuery.of(context).size.width) *
+                                        MediaQuery.of(context).size.width,
                                   )),
                             );
                           }),
@@ -374,28 +338,7 @@ class MyPostsProfileScreen extends StatelessWidget {
                           width: 5,
                         ),
                         FaIcon(
-                          FontAwesomeIcons.solidThumbsDown,
-                          color: Color(0xffC1C0D3),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      width: (30 / MediaQuery
-                          .of(context)
-                          .size
-                          .width) * MediaQuery
-                          .of(context)
-                          .size
-                          .width,
-                    ),
-                    Row(
-                      children: [
-                        Text("33"),
-                        SizedBox(
-                          width: 5,
-                        ),
-                        FaIcon(
-                          FontAwesomeIcons.solidThumbsUp,
+                          FontAwesomeIcons.solidHeart,
                           color: Color(0xffC1C0D3),
                         ),
                       ],

@@ -58,7 +58,7 @@ class _FirstScreenComplateState extends State<FirstScreenComplate> {
         children: [
           Icon(
             Icons.flag_outlined,
-            color: Color(0xff68699C),
+            color: Color(0xff2C2B53),
             size: 28,
           ),
           SizedBox(
@@ -76,7 +76,7 @@ class _FirstScreenComplateState extends State<FirstScreenComplate> {
                 icon: Icon(
                   Icons.arrow_drop_down_rounded,
                   size: 40,
-                  color: Color(0xff68699C),
+                  color: Color(0xff2C2B53),
                 ),
                 iconSize: 24,
                 elevation: 16,
@@ -136,7 +136,7 @@ class _FirstScreenComplateState extends State<FirstScreenComplate> {
               decoration: InputDecoration(
                 filled: true,
                 fillColor: Colors.white,
-                prefixIcon: Icon(Icons.date_range, color: Color(0xff68699C)),
+                prefixIcon: Icon(Icons.date_range, color: Color(0xff2C2B53)),
                 border: InputBorder.none,
                 hintText: "date of Birth".tr(),
                 hintStyle: TextStyle(fontSize: 16, color: Colors.grey),
@@ -148,7 +148,7 @@ class _FirstScreenComplateState extends State<FirstScreenComplate> {
           Icon(
             Icons.arrow_drop_down_rounded,
             size: 40,
-            color: Color(0xff68699C),
+            color: Color(0xff2C2B53),
           ),
           SizedBox(
             width: 8,
@@ -211,7 +211,7 @@ class _FirstScreenComplateState extends State<FirstScreenComplate> {
                   border: Border.all(color: Colors.grey.shade300)),
               child: DropdownButton(
                 value: dropdownValue,
-                icon: Icon(Icons.arrow_drop_down, color: Color(0xff68699C)),
+                icon: Icon(Icons.arrow_drop_down, color: Color(0xff2C2B53)),
                 iconSize: 24,
                 elevation: 16,
                 //      style: TextStyle(color: Colors.deepPurple),
@@ -279,7 +279,7 @@ class _FirstScreenComplateState extends State<FirstScreenComplate> {
                 ),
                 decoration: BoxDecoration(
                   color:
-                      (SeclectBtn == true) ? Color(0xff68699C) : Colors.white,
+                      (SeclectBtn == true) ? Color(0xff2C2B53) : Colors.white,
                   border: Border.all(
                     color: Colors.grey, //                   <--- border color
                   ),
@@ -317,7 +317,7 @@ class _FirstScreenComplateState extends State<FirstScreenComplate> {
                 ),
                 decoration: BoxDecoration(
                   color:
-                      (SeclectBtn == false) ? Color(0xff68699C) : Colors.white,
+                      (SeclectBtn == false) ? Color(0xff2C2B53) : Colors.white,
                   border: Border.all(
                     color: Colors.grey, //                   <--- border color
                   ),
@@ -343,7 +343,7 @@ class _FirstScreenComplateState extends State<FirstScreenComplate> {
         decoration: InputDecoration(
           filled: true,
           fillColor: Colors.white,
-          prefixIcon: Icon(iconSelect, color: Color(0xff68699C)),
+          prefixIcon: Icon(iconSelect, color: Color(0xff2C2B53)),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(20),
           ),

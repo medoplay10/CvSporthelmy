@@ -8,7 +8,9 @@ import 'package:cv_sports/Widgets/newsCards.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:provider/provider.dart';
 
+import '../../ProviderAll.dart';
 import 'MainScreen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -19,40 +21,30 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   List<Sports> listSport = [
     Sports(
-        Tital: "كرة قدم",
-        iconData: FontAwesomeIcons.footballBall,
-        UrlImage:
-        "https://sportstalk1260.com/wp-content/uploads/2020/03/football-history.jpg"),
+        Tital: "اللاعبين",
+        IconAssets: FontAwesomeIcons.running,
+        iconData: "assets/images/11.png",
+        UrlImage: "assets/images/slider.png"),
     Sports(
-        Tital: "تنس",
-        iconData: FontAwesomeIcons.tableTennis,
-        UrlImage:
-        "https://1440sportz.com/wp-content/uploads/2020/07/Nike-Football-3.jpg"),
+        Tital: "اندية",
+        IconAssets: FontAwesomeIcons.shieldAlt,
+        iconData: "assets/images/22.png",
+        UrlImage: "assets/images/slider.png"),
     Sports(
-        Tital: "كرة سلة",
-        iconData: FontAwesomeIcons.basketballBall,
-        UrlImage:
-        "https://sportstalk1260.com/wp-content/uploads/2020/03/football-history.jpg"),
+        Tital: "مراكز التدريب",
+        IconAssets: FontAwesomeIcons.dumbbell,
+        iconData: "assets/images/33.png",
+        UrlImage: "assets/images/slider.png"),
     Sports(
-        Tital: "بيسبول",
-        iconData: FontAwesomeIcons.baseballBall,
-        UrlImage:
-        "https://1440sportz.com/wp-content/uploads/2020/07/Nike-Football-3.jpg"),
+        Tital: "اكادميات",
+        IconAssets: FontAwesomeIcons.warehouse,
+        iconData: "assets/images/44.png",
+        UrlImage: "assets/images/slider.png"),
     Sports(
-        Tital: "كرة يد",
-        iconData: FontAwesomeIcons.baseballBall,
-        UrlImage:
-        "https://sportstalk1260.com/wp-content/uploads/2020/03/football-history.jpg"),
-    Sports(
-        Tital: "الكرة الطائرة",
-        iconData: FontAwesomeIcons.volleyballBall,
-        UrlImage:
-        "https://1440sportz.com/wp-content/uploads/2020/07/Nike-Football-3.jpg"),
-    Sports(
-        Tital: "بولو الماء",
-        iconData: FontAwesomeIcons.water,
-        UrlImage:
-        "https://sportstalk1260.com/wp-content/uploads/2020/03/football-history.jpg"),
+        Tital: "المدربين",
+        IconAssets: FontAwesomeIcons.userTie,
+        iconData: "assets/images/55.png",
+        UrlImage: "assets/images/slider.png"),
   ];
 
   List<Players> listPlayer = [
@@ -63,17 +55,17 @@ class _HomeScreenState extends State<HomeScreen> {
         PlayerPlace: "attacker"),
     Players(
         UrlImage:
-        "https://imgresizer.eurosport.com/unsafe/1200x0/filters:format(jpeg):focal(1297x339:1299x337)/origin-imgresizer.eurosport.com/2020/11/03/2927687-60147708-2560-1440.jpg",
+            "https://imgresizer.eurosport.com/unsafe/1200x0/filters:format(jpeg):focal(1297x339:1299x337)/origin-imgresizer.eurosport.com/2020/11/03/2927687-60147708-2560-1440.jpg",
         name: "Messi",
         PlayerPlace: "attacker"),
     Players(
         UrlImage:
-        "https://imgresizer.eurosport.com/unsafe/1200x0/filters:format(jpeg):focal(1297x339:1299x337)/origin-imgresizer.eurosport.com/2020/11/03/2927687-60147708-2560-1440.jpg",
+            "https://imgresizer.eurosport.com/unsafe/1200x0/filters:format(jpeg):focal(1297x339:1299x337)/origin-imgresizer.eurosport.com/2020/11/03/2927687-60147708-2560-1440.jpg",
         name: "Messi",
         PlayerPlace: "attacker"),
     Players(
         UrlImage:
-        "https://imgresizer.eurosport.com/unsafe/1200x0/filters:format(jpeg):focal(1297x339:1299x337)/origin-imgresizer.eurosport.com/2020/11/03/2927687-60147708-2560-1440.jpg",
+            "https://imgresizer.eurosport.com/unsafe/1200x0/filters:format(jpeg):focal(1297x339:1299x337)/origin-imgresizer.eurosport.com/2020/11/03/2927687-60147708-2560-1440.jpg",
         name: "Messi",
         PlayerPlace: "attacker"),
   ];
@@ -81,26 +73,33 @@ class _HomeScreenState extends State<HomeScreen> {
     Coach(
         name: "دييغو سيميوني",
         UrlImage:
-        "https://www.skynewsarabia.com/images/v1/2019/09/14/1282832/800/450/1-1282832.jpg",
+            "https://www.skynewsarabia.com/images/v1/2019/09/14/1282832/800/450/1-1282832.jpg",
         CoachPlace: "atletico madrid"),
     Coach(
         name: "دييغو سيميوني",
         UrlImage:
-        "https://www.skynewsarabia.com/images/v1/2019/09/14/1282832/800/450/1-1282832.jpg",
+            "https://www.skynewsarabia.com/images/v1/2019/09/14/1282832/800/450/1-1282832.jpg",
         CoachPlace: "atletico madrid"),
     Coach(
         name: "دييغو سيميوني",
         UrlImage:
-        "https://www.skynewsarabia.com/images/v1/2019/09/14/1282832/800/450/1-1282832.jpg",
+            "https://www.skynewsarabia.com/images/v1/2019/09/14/1282832/800/450/1-1282832.jpg",
         CoachPlace: "atletico madrid"),
     Coach(
         name: "دييغو سيميوني",
         UrlImage:
-        "https://www.skynewsarabia.com/images/v1/2019/09/14/1282832/800/450/1-1282832.jpg",
+            "https://www.skynewsarabia.com/images/v1/2019/09/14/1282832/800/450/1-1282832.jpg",
         CoachPlace: "atletico madrid"),
   ];
 
   int _current = 0;
+
+  @override
+  void initState() {
+    Provider.of<ProviderConstants>(context, listen: false)
+        .ChangeIndexTap(Value: 0);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -110,47 +109,38 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SizeBoxHeight(
-            SizeWant: 10,
-            Mediaheight: Mediaheight,
-          ),
-          Container(
-            height: MediaQuery.of(context).size.height * 0.07,
-            width: MediaQuery.of(context).size.width * 0.82,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              border: Border.all(
-                color: Colors.grey.shade300,
-              ),
-              borderRadius: BorderRadius.circular(25),
-            ),
-            child: rowSearch(),
-          ),
+          // SizeBoxHeight(
+          //   SizeWant: 10,
+          //   Mediaheight: Mediaheight,
+          // ),
+          // Container(
+          //   height: MediaQuery.of(context).size.height * 0.07,
+          //   width: MediaQuery.of(context).size.width * 0.82,
+          //   decoration: BoxDecoration(
+          //     color: Colors.white,
+          //     border: Border.all(
+          //       color: Colors.grey.shade300,
+          //     ),
+          //     borderRadius: BorderRadius.circular(25),
+          //   ),
+          //   child: rowSearch(),
+          // ),
           SizeBoxHeight(
             SizeWant: 10,
             Mediaheight: Mediaheight,
           ),
           rowListIcon(Mediawidth, Mediaheight),
-          SizeBoxHeight(
-            SizeWant: 10,
-            Mediaheight: Mediaheight,
-          ),
-          carouselNews(),
-          SizeBoxHeight(
-            SizeWant: 5,
-            Mediaheight: Mediaheight,
-          ),
+
+          Card(elevation: 5, child: carouselNews()),
+
           Container(
               margin: EdgeInsets.only(right: 10),
               alignment: Alignment.centerRight,
               child: Text(
-                "عن التطبيق",
+                "شاهد",
                 style: TextStyle(fontSize: 18),
               )),
-          SizeBoxHeight(
-            SizeWant: 10,
-            Mediaheight: Mediaheight,
-          ),
+
           rowVideos(),
           SizeBoxHeight(
             SizeWant: 10,
@@ -170,11 +160,11 @@ class _HomeScreenState extends State<HomeScreen> {
             SizeWant: 10,
             Mediaheight: Mediaheight,
           ),
-          cardMoreCoach(
-              context: context,
-              Mediawidth: Mediawidth,
-              Mediaheight: Mediaheight,
-              listCoach: ListCoach),
+          // cardMoreCoach(
+          //     context: context,
+          //     Mediawidth: Mediawidth,
+          //     Mediaheight: Mediaheight,
+          //     listCoach: ListCoach),
           SizeBoxHeight(
             SizeWant: 10,
             Mediaheight: Mediaheight,
@@ -251,7 +241,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   //      color: Color(0xffF4F7FF),
                 ),
                 child: GridView.count(
-                  childAspectRatio: .79,
+                  childAspectRatio: .81,
                   primary: false,
                   shrinkWrap: true,
                   crossAxisSpacing: 2,
@@ -259,7 +249,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   crossAxisCount: 2,
                   children: [
                     Container(
-                      padding: EdgeInsets.only(top: 10),
+                      padding: EdgeInsets.only(top: 5),
                       child: columnMoreCoach(
                           Mediawidth: Mediawidth,
                           Mediaheight: Mediaheight,
@@ -267,10 +257,10 @@ class _HomeScreenState extends State<HomeScreen> {
                       decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius:
-                          BorderRadius.only(topRight: Radius.circular(20))),
+                              BorderRadius.only(topRight: Radius.circular(20))),
                     ),
                     Container(
-                      padding: EdgeInsets.only(top: 10),
+                      padding: EdgeInsets.only(top: 5),
                       child: columnMoreCoach(
                           Mediawidth: Mediawidth,
                           Mediaheight: Mediaheight,
@@ -280,7 +270,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                     Container(
-                      padding: EdgeInsets.only(top: 10),
+                      padding: EdgeInsets.only(top: 5),
                       child: columnMoreCoach(
                           Mediawidth: Mediawidth,
                           Mediaheight: Mediaheight,
@@ -291,7 +281,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               bottomRight: Radius.circular(20))),
                     ),
                     Container(
-                      padding: EdgeInsets.only(top: 10),
+                      padding: EdgeInsets.only(top: 5),
                       child: columnMoreCoach(
                           Mediawidth: Mediawidth,
                           Mediaheight: Mediaheight,
@@ -337,7 +327,9 @@ class _HomeScreenState extends State<HomeScreen> {
               Container(
                 width: MediaQuery.of(context).size.width * 0.20,
                 height: MediaQuery.of(context).size.height * 0.04,
-                margin: EdgeInsets.only(bottom: 10),
+                alignment: Alignment.center,
+                //       margin: EdgeInsets.only(bottom: 10),
+                //     padding: EdgeInsets.only(bottom: 10),
                 child: RaisedButton(
                   onPressed: () {
                     Navigator.of(context)
@@ -347,10 +339,17 @@ class _HomeScreenState extends State<HomeScreen> {
                   },
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(25)),
-                  color: Color(0xffA5B0CC),
-                  child: Text(
-                    "المزيد",
-                    style: TextStyle(color: Colors.white),
+                  color: Color(0xff2C2B53),
+                  child: Column(
+                    children: [
+                      Text(
+                        "المزيد",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               )
@@ -384,7 +383,8 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               Container(
                 width: MediaQuery.of(context).size.width * 0.20,
-                height: 30,
+                height: MediaQuery.of(context).size.height * 0.04,
+                alignment: Alignment.center,
                 margin: EdgeInsets.only(bottom: 10),
                 child: RaisedButton(
                   onPressed: () {
@@ -395,10 +395,14 @@ class _HomeScreenState extends State<HomeScreen> {
                   },
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(25)),
-                  color: Color(0xffA5B0CC),
-                  child: Text(
-                    "المزيد",
-                    style: TextStyle(color: Colors.white),
+                  color: Color(0xff2C2B53),
+                  child: Column(
+                    children: [
+                      Text(
+                        "المزيد",
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ],
                   ),
                 ),
               )
@@ -409,10 +413,11 @@ class _HomeScreenState extends State<HomeScreen> {
 
 //=============================== Widget Card More Players ===========================
 
-  Card cardMorePlayers({BuildContext context,
-    double Mediawidth,
-    double Mediaheight,
-    List<Players> listPlayers}) {
+  Card cardMorePlayers(
+      {BuildContext context,
+      double Mediawidth,
+      double Mediaheight,
+      List<Players> listPlayers}) {
     return Card(
       elevation: 5,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
@@ -433,7 +438,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   //      color: Color(0xffF4F7FF),
                 ),
                 child: GridView.count(
-                  childAspectRatio: .79,
+                  childAspectRatio: .81,
                   primary: false,
                   shrinkWrap: true,
                   crossAxisSpacing: 2,
@@ -441,7 +446,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   crossAxisCount: 2,
                   children: [
                     Container(
-                      padding: EdgeInsets.only(top: 10),
+                      padding: EdgeInsets.only(top: 5),
                       child: ColumnMorePlayer(
                           Mediawidth: Mediawidth,
                           Mediaheight: Mediaheight,
@@ -449,10 +454,10 @@ class _HomeScreenState extends State<HomeScreen> {
                       decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius:
-                          BorderRadius.only(topRight: Radius.circular(20))),
+                              BorderRadius.only(topRight: Radius.circular(20))),
                     ),
                     Container(
-                      padding: EdgeInsets.only(top: 10),
+                      padding: EdgeInsets.only(top: 5),
                       child: ColumnMorePlayer(
                           Mediawidth: Mediawidth,
                           Mediaheight: Mediaheight,
@@ -462,7 +467,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                     Container(
-                      padding: EdgeInsets.only(top: 10),
+                      padding: EdgeInsets.only(top: 5),
                       child: ColumnMorePlayer(
                           Mediawidth: Mediawidth,
                           Mediaheight: Mediaheight,
@@ -473,7 +478,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               bottomRight: Radius.circular(20))),
                     ),
                     Container(
-                      padding: EdgeInsets.only(top: 10),
+                      padding: EdgeInsets.only(top: 5),
                       child: ColumnMorePlayer(
                           Mediawidth: Mediawidth,
                           Mediaheight: Mediaheight,
@@ -495,13 +500,14 @@ class _HomeScreenState extends State<HomeScreen> {
 
 //=============================== Widget Column More Player ===========================
 
-  Column ColumnMorePlayer({double Mediawidth, double Mediaheight, Players DataPlayer}) {
+  Column ColumnMorePlayer(
+      {double Mediawidth, double Mediaheight, Players DataPlayer}) {
     return Column(
       children: [
         Container(
           //     padding: EdgeInsets.all(5),
-          width: (70 / Mediawidth) * Mediawidth,
-          height: (70 / Mediaheight) * Mediaheight,
+          width: MediaQuery.of(context).size.width * .19,
+          height: MediaQuery.of(context).size.height * .09,
           child: ClipOval(
             child: Material(
               color: Color(0xffC7C9EA), // button color
@@ -533,13 +539,14 @@ class _HomeScreenState extends State<HomeScreen> {
 
 //=============================== Widget Column More Player ===========================
 
-  Column columnMoreCoach({double Mediawidth, double Mediaheight, Coach coachData}) {
+  Column columnMoreCoach(
+      {double Mediawidth, double Mediaheight, Coach coachData}) {
     return Column(
       children: [
         Container(
           // padding: EdgeInsets.all(2),
-          width: (70 / Mediawidth) * Mediawidth,
-          height: (70 / Mediaheight) * Mediaheight,
+          width: MediaQuery.of(context).size.width * .19,
+          height: MediaQuery.of(context).size.height * .09,
           child: ClipOval(
             child: Material(
               color: Color(0xffC7C9EA), // button color
@@ -625,7 +632,7 @@ class _HomeScreenState extends State<HomeScreen> {
           }));
         },
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
-        color: Color(0xffA5B0CC),
+        color: Color(0xff2C2B53),
         child: Text(
           "المزيد من الاخبار",
           style: TextStyle(color: Colors.white),
@@ -639,22 +646,31 @@ class _HomeScreenState extends State<HomeScreen> {
   Container rowVideos() {
     return Container(
       width: double.infinity,
-      height: MediaQuery.of(context).size.height * .28,
-      color: Color(0xffE3E7F1),
+      height: MediaQuery.of(context).size.height * .25,
+      //    color: Color(0xffE3E7F1),
       padding: EdgeInsets.all(8),
       child: ListView.builder(
           itemCount: listSport.length,
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index) {
             return Container(
-              height: MediaQuery.of(context).size.height * .25,
+              height: MediaQuery.of(context).size.height * .22,
+              width: 250,
               margin: EdgeInsets.only(left: 8, right: 2),
               // padding: EdgeInsets.all(5),
-              child: ClipRRect(
-                  borderRadius: BorderRadius.circular(10.0),
-                  child: Image.network(
-                      "https://aspergillosis.org/wp-content/uploads/2019/01/video-icon.jpg",
-                      fit: BoxFit.cover)),
+              child: Column(
+                children: [
+                  Expanded(
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(10.0),
+                      child: Image.network(
+                          "https://korabest.com/wp-content/uploads/2020/02/pizap.com15811498361372.jpg",
+                          fit: BoxFit.fill),
+                    ),
+                  ),
+                  Text("هدف ريال مدريد اليوم")
+                ],
+              ),
             );
           }),
     );
@@ -662,89 +678,107 @@ class _HomeScreenState extends State<HomeScreen> {
 
 //=============================== Widget Carousel News ===========================
 
-  Container carouselNews() {
-    return Container(
-        child: Column(
-          children: [
-            CarouselSlider.builder(
-              itemCount: listSport.length,
-              options: CarouselOptions(
-              height: MediaQuery.of(context).size.height * .25,
-              aspectRatio: 16 / 9,
-              viewportFraction: .95,
-              enlargeCenterPage: true,
-              autoPlay: true,
-              onPageChanged: (index, reason) {
-                setState(() {
-                  _current = index;
-                });
-              }),
-              itemBuilder: (ctx, index) {
-                return Container(
-                  child: SingleChildScrollView(
-                    child: ClipRRect(
-                        borderRadius: BorderRadius.circular(10.0),
-                        child: Image.network(
-                          listSport[index].UrlImage,
-                      fit: BoxFit.cover,
-                      height: MediaQuery.of(context).size.height * .24,
-                      width: MediaQuery.of(context).size.width,
-                    )),
-                  ),
-                );
-              },
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: listSport.map((url) {
-                int index = listSport.indexOf(url);
-                return Container(
-                  width: 8.0,
-                  height: 8.0,
-                  margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 2.0),
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: _current == index
-                        ? Color.fromRGBO(0, 0, 0, 0.9)
-                        : Color.fromRGBO(0, 0, 0, 0.4),
-                  ),
-                );
-              }).toList(),
-            )
-          ],
-        ));
+  Stack carouselNews() {
+    return Stack(
+      alignment: AlignmentDirectional.bottomCenter,
+      children: [
+        Container(
+          margin: EdgeInsets.only(top: 8.0, right: 5),
+          child: CarouselSlider.builder(
+            itemCount: listSport.length,
+            options: CarouselOptions(
+                height: MediaQuery.of(context).size.height * .25,
+                aspectRatio: 16 / 9,
+                viewportFraction: .95,
+                enlargeCenterPage: true,
+                autoPlay: true,
+                onPageChanged: (index, reason) {
+                  setState(() {
+                    _current = index;
+                  });
+                }),
+            itemBuilder: (ctx, index) {
+              return Container(
+                child: SingleChildScrollView(
+                  child: ClipRRect(
+                      borderRadius: BorderRadius.circular(10.0),
+                      child: Column(
+                        children: [
+                          Image.asset(
+                            listSport[index].UrlImage,
+                            fit: BoxFit.fill,
+                            height: MediaQuery.of(context).size.height * .24,
+                            width: MediaQuery.of(context).size.width,
+                          ),
+                        ],
+                      )),
+                ),
+              );
+            },
+          ),
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: listSport.map((url) {
+            int index = listSport.indexOf(url);
+            return Container(
+              width: 8.0,
+              height: 8.0,
+              margin: EdgeInsets.only(bottom: 25.0, right: 5),
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: _current == index
+                    ? Color.fromRGBO(0, 0, 0, 0.9)
+                    : Color.fromRGBO(0, 0, 0, 0.4),
+              ),
+            );
+          }).toList(),
+        )
+      ],
+    );
   }
 
 //=============================== Widget Row Search ===========================
 
-  Row rowSearch() {
-    return Row(
-      //   mainAxisAlignment:MainAxisAlignment.center ,
-      crossAxisAlignment: CrossAxisAlignment.center,
+  Container rowSearch() {
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(25),
+        color: Color(0xffE7EBF8),
+      ),
+      child: Row(
+        //   mainAxisAlignment:MainAxisAlignment.center ,
+        crossAxisAlignment: CrossAxisAlignment.center,
 
-      children: [
-        Padding(
-          padding: const EdgeInsets.only(right: 8),
-          child: Icon(Icons.search),
-        ),
-        Expanded(
-          child: TextFormField(
-            style: TextStyle(fontSize: 16, color: Colors.black),
-            decoration: InputDecoration(
-              filled: true,
-              fillColor: Colors.white,
-              border: InputBorder.none,
-              hintText: "البحث",
-              hintStyle: TextStyle(fontSize: 16, color: Colors.grey.shade700),
+        children: [
+          Container(
+            color: Color(0xffE7EBF8),
+            child: Padding(
+              padding: const EdgeInsets.only(right: 8),
+              child: Icon(
+                Icons.search,
+              ),
             ),
           ),
-        ),
-        IconButton(
-            icon: FaIcon(
-              FontAwesomeIcons.slidersH,
+          Expanded(
+            child: TextFormField(
+              style: TextStyle(fontSize: 16, color: Colors.black),
+              decoration: InputDecoration(
+                filled: true,
+                fillColor: Color(0xffE7EBF8),
+                border: InputBorder.none,
+                hintText: "البحث",
+                hintStyle: TextStyle(fontSize: 16, color: Colors.grey.shade700),
+              ),
             ),
-            onPressed: () {})
-      ],
+          ),
+          IconButton(
+              icon: FaIcon(
+                FontAwesomeIcons.slidersH,
+              ),
+              onPressed: () {})
+        ],
+      ),
     );
   }
 
@@ -762,22 +796,22 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Column(
                 children: [
                   Container(
+                    //   alignment: Alignment.center,
                     padding: EdgeInsets.all(5),
                     width: (70 / Mediawidth) * Mediawidth,
                     height: (70 / Mediaheight) * Mediaheight,
                     child: ClipOval(
                       child: Material(
-                        color: Color(0xffC7C9EA), // button color
+                        color: Color(0xff2C2B53), // button color
                         child: InkWell(
-                          splashColor: Colors.red, // inkwell color
-                          child: SizedBox(
-                              child: Icon(
-                                listSport[index].iconData,
-                                color: Color(0xff68699C),
-                                size: 20,
-                              )),
-                          onTap: () {},
-                        ),
+                            splashColor: Colors.red, // inkwell color
+                            child: Center(
+                              child: FaIcon(
+                                listSport[index].IconAssets,
+                                color: Colors.white,
+                                size: 25,
+                              ),
+                            )),
                       ),
                     ),
                   ),

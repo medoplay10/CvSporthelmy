@@ -12,7 +12,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     Timer(
-      Duration(seconds: 4),
+      Duration(seconds: 2),
       () {
         Navigator.of(context).pushReplacement(MaterialPageRoute(
           builder: (context) => LoginScreen(),

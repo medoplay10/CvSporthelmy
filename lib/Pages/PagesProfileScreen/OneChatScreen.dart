@@ -26,10 +26,8 @@ class OneChatScreen extends StatelessWidget {
                   children: [
                     ListTile(
                       trailing: IconButton(
-                        icon: FaIcon(
-                          FontAwesomeIcons.longArrowAltLeft,
-                          color: Color(0xff8C8C8C),
-                        ),
+                        icon: FaIcon(FontAwesomeIcons.arrowLeft,
+                            color: Color(0xff2C2B53)),
                         onPressed: () {
                           Navigator.pop(context);
                         },
@@ -65,8 +63,7 @@ class OneChatScreen extends StatelessWidget {
                       ),
                       leading: FaIcon(
                         FontAwesomeIcons.ellipsisV,
-                        color: Color(0xff8C8C8C),
-                      ),
+                          color: Color(0xff2C2B53)),
                     )
                   ],
                 ),
@@ -128,6 +125,7 @@ class OneChatScreen extends StatelessWidget {
           borderRadius: BorderRadius.circular(20),
           border: Border.all(color: Colors.white)),
       child: Card(
+        // color: Colors.white,
         margin: EdgeInsets.all(0),
         elevation: 2,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
@@ -147,14 +145,12 @@ class OneChatScreen extends StatelessWidget {
                   },
                   decoration: InputDecoration(
                     border: InputBorder.none,
-                    hintStyle: TextStyle(fontSize: 14),
+                    hintStyle: TextStyle(fontSize: 14, color: Colors.black),
                     hintText: "اكتب رسالتك هنا",
                   ),
                 ),
               ),
-              Icon(
-                Icons.arrow_forward,
-              )
+              FaIcon(FontAwesomeIcons.arrowLeft, color: Color(0xff2C2B53))
             ],
           ),
         ),

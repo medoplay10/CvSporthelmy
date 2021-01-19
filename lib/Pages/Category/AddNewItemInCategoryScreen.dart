@@ -178,7 +178,7 @@ class _AddNewItemInCategoryScreenState
 
       type: FAStepperType.horizontal,
       titleIconArrange: FAStepperTitleIconArrange.column,
-      stepNumberColor: Color(0xff68699C),
+      stepNumberColor: Color(0xff2C2B53),
       onStepTapped: (step) {
         setState(() {
           currentStep = step;

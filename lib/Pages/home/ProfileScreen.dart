@@ -12,6 +12,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 
 import '../../ProviderAll.dart';
+import 'SettingScreen.dart';
 
 class ProfileScreen extends StatefulWidget {
   @override
@@ -21,10 +22,6 @@ class ProfileScreen extends StatefulWidget {
 class _ProfileScreenState extends State<ProfileScreen>
     with TickerProviderStateMixin {
   Color BackgroundColor;
-  int Index1 = 0;
-  int Index2 = 1;
-  int Index3 = 2;
-  int IndexNow = 0;
 
   Color TextColor;
   TabController tabController;
@@ -69,12 +66,28 @@ class _ProfileScreenState extends State<ProfileScreen>
                 //      color: Color(0xff5E5D8F),
                 child: FaIcon(
                   FontAwesomeIcons.ellipsisV,
-                  color: Color(0xff5E5D8F),
+                  color: Color(0xff2C2B53),
                   size: 26,
                 ),
               ),
             )
           ],
+          leading: InkWell(
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                return SettingScreen();
+              }));
+            },
+            child: Padding(
+              padding: const EdgeInsets.all(15.0), //   size: 26,
+              //      color: Color(0xff5E5D8F),
+              child: FaIcon(
+                FontAwesomeIcons.cog,
+                color: Color(0xff2C2B53),
+                size: 26,
+              ),
+            ),
+          ),
         ),
         body: TabBarView(
           controller: tabController,
@@ -98,8 +111,7 @@ class _ProfileScreenState extends State<ProfileScreen>
                 MediaQuery.of(context).size.width,
             child: CircleAvatar(
                 radius: 20,
-                backgroundImage:
-                NetworkImage("https://i.stack.imgur.com/l60Hf.png")),
+                backgroundImage: AssetImage("assets/images/messiRonaldo.jpg")),
           ),
           Text(
             "خالد عمر",
@@ -158,8 +170,8 @@ class _ProfileScreenState extends State<ProfileScreen>
   Container ItemTapBar({BuildContext context, String Tital, int indexItem}) {
     BackgroundColor =
     indexItem == Provider.of<ProviderConstants>(context).IndexTap
-        ? Color(0xff5E5D8F)
-        : Colors.white;
+            ? Color(0xff2C2B53)
+            : Colors.white;
     TextColor = indexItem == Provider.of<ProviderConstants>(context).IndexTap
         ? Colors.white
         : Colors.black;
