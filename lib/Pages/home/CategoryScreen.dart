@@ -19,68 +19,68 @@ class _CategoryScreenState extends State<CategoryScreen> {
         Tital: "اللاعبين",
         IconAssets: FontAwesomeIcons.running,
         iconData: "assets/images/1.png",
-        UrlImage: "assets/images/11.png"),
+        UrlImage: "assets/images/91.png"),
     Sports(
         Tital: "اندية",
         IconAssets: FontAwesomeIcons.shieldAlt,
         iconData: "assets/images/2.png",
-        UrlImage: "assets/images/22.png"),
+        UrlImage: "assets/images/92.png"),
     Sports(
         Tital: "مراكز التدريب",
         IconAssets: FontAwesomeIcons.dumbbell,
         iconData: "assets/images/3.png",
-        UrlImage: "assets/images/33.png"),
+        UrlImage: "assets/images/93.png"),
     Sports(
         Tital: "اكادميات",
         IconAssets: FontAwesomeIcons.warehouse,
         iconData: "assets/images/4.png",
-        UrlImage: "assets/images/44.png"),
+        UrlImage: "assets/images/94.png"),
     Sports(
         Tital: "المدربين",
         IconAssets: FontAwesomeIcons.userTie,
         iconData: "assets/images/5.png",
-        UrlImage: "assets/images/55.png"),
+        UrlImage: "assets/images/95.png"),
     Sports(
         Tital: "حكام",
         IconAssets: FontAwesomeIcons.headset,
         iconData: "assets/images/2.png",
-        UrlImage: "assets/images/22.png"),
+        UrlImage: "assets/images/96.png"),
     Sports(
         Tital: "وسطاء",
         IconAssets: FontAwesomeIcons.handshake,
         iconData: "assets/images/3.png",
-        UrlImage: "assets/images/33.png"),
+        UrlImage: "assets/images/97.png"),
     Sports(
         Tital: "اعلامين",
         IconAssets: FontAwesomeIcons.photoVideo,
         iconData: "assets/images/4.png",
-        UrlImage: "assets/images/44.png"),
+        UrlImage: "assets/images/98.png"),
     Sports(
         Tital: "مصورين",
         IconAssets: FontAwesomeIcons.camera,
         iconData: "assets/images/4.png",
-        UrlImage: "assets/images/44.png"),
+        UrlImage: "assets/images/99.png"),
     Sports(
         Tital: "مترجمين",
         IconAssets: FontAwesomeIcons.language,
         iconData: "assets/images/4.png",
-        UrlImage: "assets/images/44.png"),
+        UrlImage: "assets/images/991.png"),
     Sports(
         Tital: "أطباء",
         IconAssets: FontAwesomeIcons.stethoscope,
         iconData: "assets/images/4.png",
-        UrlImage: "assets/images/44.png"),
+        UrlImage: "assets/images/992.png"),
     Sports(
         Tital: "إداريين",
         IconAssets: FontAwesomeIcons.userTag,
         iconData: "assets/images/4.png",
-        UrlImage: "assets/images/44.png"),
+        UrlImage: "assets/images/993.png"),
   ];
 
   List<Sports> listCategory = [
     Sports(
         Tital: "كرة قدم",
-        iconData: "assets/images/1.png",
+        iconData: "assets/images/3.png",
         UrlImage:
             "https://sportstalk1260.com/wp-content/uploads/2020/03/football-history.jpg"),
     Sports(
@@ -90,7 +90,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
             "https://1440sportz.com/wp-content/uploads/2020/07/Nike-Football-3.jpg"),
     Sports(
         Tital: "كرة سلة",
-        iconData: "assets/images/3.png",
+        iconData: "assets/images/1.png",
         UrlImage:
             "https://sportstalk1260.com/wp-content/uploads/2020/03/football-history.jpg"),
     Sports(
@@ -285,7 +285,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                         child: InkWell(
                           splashColor: Colors.red, // inkwell color
                           child: Image.asset(
-                            listSport[index].iconData,
+                            listCategory[index].iconData,
                             //fit: BoxFit.fill,
                           ),
                           onTap: () {},
@@ -321,10 +321,11 @@ class _CategoryScreenState extends State<CategoryScreen> {
               child: InkWell(
                 splashColor: Colors.red, // inkwell color
                 child: Center(
-                  child: FaIcon(
-                    SportData.IconAssets,
+                  child: Image.asset(
+                    SportData.UrlImage,
+
                     color: Color(0xffC3CBE0),
-                    size: 50,
+                    //scale:6,
                   ),
                 ),
               ),

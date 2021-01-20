@@ -1,44 +1,114 @@
 import 'package:cv_sports/Pages/SubScreen/MyImagesDataProfile.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
+import 'package:sphere_bottom_navigation_bar/sphere_bottom_navigation_bar.dart';
 import '../../ProviderAll.dart';
 
-class ShowInormationScreen extends StatelessWidget {
+class ShowInormationScreen extends StatefulWidget {
+  @override
+  _ShowInormationScreenState createState() => _ShowInormationScreenState();
+}
+
+class _ShowInormationScreenState extends State<ShowInormationScreen> {
+  int _selectedIndex = 0;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          CardInformation(context),
-          Container(
-              margin: EdgeInsets.only(right: 20, top: 20),
-              alignment: Alignment.centerRight,
-              child: Text("الجوائز")),
-          CardAwards(context),
-          Container(
-              margin: EdgeInsets.only(right: 20, top: 20),
-              alignment: Alignment.centerRight,
-              child: Text("الميداليات")),
-          CardMedals(context),
-          Container(
-              margin: EdgeInsets.only(right: 20, top: 20),
-              alignment: Alignment.centerRight,
-              child: Text("وسائل التواصل")),
-          RowSocialMediaCards(context),
-          Container(
-              margin: EdgeInsets.only(right: 20, top: 10),
-              alignment: Alignment.centerRight,
-              child: Text("صورى")),
-          CardMyImages(context),
-          SizedBox(
-            height: (10 / MediaQuery.of(context).size.height) *
-                MediaQuery.of(context).size.height,
-          )
-        ],
+    return Scaffold(
+      backgroundColor: Color(0xffF9FAFF),
+      bottomSheet: ClipRRect(
+        child: Container(
+          color: Color(0xffF9FAFF),
+          child: Container(
+            decoration: BoxDecoration(
+              color: Colors.white,
+              border: Border.all(color: Colors.black12),
+
+              borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(50), topRight: Radius.circular(50)),
+
+              //  border: Border.all(color: Colors.white)
+            ),
+            height: MediaQuery.of(context).size.height * 0.10,
+            padding: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                GestureDetector(
+                  onTap: () {},
+                  child: Row(
+                    children: [
+                      FaIcon(
+                        FontAwesomeIcons.comments,
+                        color: Color(0xff2C2B53),
+                      ),
+                      SizedBox(
+                        width: 8,
+                      ),
+                      Text("محادثة اللاعب")
+                    ],
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () {},
+                  child: Row(
+                    children: [
+                      FaIcon(
+                        FontAwesomeIcons.solidStar,
+                        color: Color(0xff68699C),
+                      ),
+                      SizedBox(
+                        width: 8,
+                      ),
+                      Text("وضع بالمفضلة")
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            CardInformation(context),
+            Container(
+                margin: EdgeInsets.only(right: 20, top: 20),
+                alignment: Alignment.centerRight,
+                child: Text("الجوائز")),
+            CardAwards(context),
+            Container(
+                margin: EdgeInsets.only(right: 20, top: 20),
+                alignment: Alignment.centerRight,
+                child: Text("الميداليات")),
+            CardMedals(context),
+            Container(
+                margin: EdgeInsets.only(right: 20, top: 20),
+                alignment: Alignment.centerRight,
+                child: Text("وسائل التواصل")),
+            RowSocialMediaCards(context),
+            Container(
+                margin: EdgeInsets.only(right: 20, top: 10),
+                alignment: Alignment.centerRight,
+                child: Text("صورى")),
+            CardMyImages(context),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.12,
+            )
+          ],
+        ),
       ),
     );
   }
+
+//========================== Card Information ==========================
 
   Container CardInformation(BuildContext context) {
     return Container(
@@ -93,6 +163,8 @@ class ShowInormationScreen extends StatelessWidget {
     );
   }
 
+//========================== Row Information ==========================
+
   Column RowInformation({String title, var iconTitle, String content}) {
     return Column(
       children: [
@@ -125,7 +197,7 @@ class ShowInormationScreen extends StatelessWidget {
     );
   }
 
-  //======================= Widget Row Social Media Cards ==============================
+//========================== Row Social Media Cards ==========================
 
   Container RowSocialMediaCards(BuildContext context) {
     return Container(
@@ -179,8 +251,7 @@ class ShowInormationScreen extends StatelessWidget {
     );
   }
 
-  //======================= Widget Card Awards ==============================
-
+//========================== Card Awards ==========================
   Container CardAwards(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width * 0.85,
@@ -254,7 +325,7 @@ class ShowInormationScreen extends StatelessWidget {
     );
   }
 
-  //======================= Widget Card Medals ==============================
+//========================== Card Medals ==========================
 
   Container CardMedals(BuildContext context) {
     return Container(
@@ -325,7 +396,7 @@ class ShowInormationScreen extends StatelessWidget {
     );
   }
 
-  //======================= Widget Card MyImages ==============================
+//========================== Card My Images==========================
 
   Container CardMyImages(BuildContext context) {
     return Container(
@@ -402,7 +473,7 @@ class ShowInormationScreen extends StatelessWidget {
     );
   }
 
-  //============================Widget - displayBottomSheet ==================================
+//========================== display Bottom Sheet==========================
 
   void displayBottomSheet(BuildContext context) {
     showModalBottomSheet(

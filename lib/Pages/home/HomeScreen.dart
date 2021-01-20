@@ -23,27 +23,27 @@ class _HomeScreenState extends State<HomeScreen> {
     Sports(
         Tital: "اللاعبين",
         IconAssets: FontAwesomeIcons.running,
-        iconData: "assets/images/11.png",
+        iconData: "assets/images/91.png",
         UrlImage: "assets/images/slider.png"),
     Sports(
         Tital: "اندية",
         IconAssets: FontAwesomeIcons.shieldAlt,
-        iconData: "assets/images/22.png",
+        iconData: "assets/images/92.png",
         UrlImage: "assets/images/slider.png"),
     Sports(
         Tital: "مراكز التدريب",
         IconAssets: FontAwesomeIcons.dumbbell,
-        iconData: "assets/images/33.png",
+        iconData: "assets/images/93.png",
         UrlImage: "assets/images/slider.png"),
     Sports(
         Tital: "اكادميات",
         IconAssets: FontAwesomeIcons.warehouse,
-        iconData: "assets/images/44.png",
+        iconData: "assets/images/95.png",
         UrlImage: "assets/images/slider.png"),
     Sports(
         Tital: "المدربين",
         IconAssets: FontAwesomeIcons.userTie,
-        iconData: "assets/images/55.png",
+        iconData: "assets/images/96.png",
         UrlImage: "assets/images/slider.png"),
   ];
 
@@ -806,10 +806,11 @@ class _HomeScreenState extends State<HomeScreen> {
                         child: InkWell(
                             splashColor: Colors.red, // inkwell color
                             child: Center(
-                              child: FaIcon(
-                                listSport[index].IconAssets,
+                              child: Image.asset(
+                                listSport[index].iconData,
+                                scale: 3,
                                 color: Colors.white,
-                                size: 25,
+                                //    size: 25,
                               ),
                             )),
                       ),

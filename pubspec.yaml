@@ -42,6 +42,7 @@ dependencies:
   flutter_number_picker: ^0.0.8
   flutter_snake_navigationbar: ^0.4.2
   fa_stepper: ^0.0.2
+  sphere_bottom_navigation_bar: ^1.0.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
