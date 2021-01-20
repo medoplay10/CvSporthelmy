@@ -25,14 +25,14 @@ class NewsCard extends StatelessWidget {
               borderRadius: BorderRadius.circular(10.0),
               child: Image.network(
                 mainImage,
-                fit: BoxFit.fill,
-                height: 72,
-                width: (200 / MediaQuery.of(context).size.width) *
+                fit: BoxFit.cover,
+                height: 110,
+                width: (165 / MediaQuery.of(context).size.width) *
                     MediaQuery.of(context).size.width,
               )),
         ),
         SizedBox(
-          width: 10,
+          width: 5,
         ),
         Flexible(
           flex: 4,
@@ -41,23 +41,18 @@ class NewsCard extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  Icon(iconClub),
+                  Image.network(iconClub,
+                      fit: BoxFit.fill, height: 30, width: 30),
                   SizedBox(
-                    width: 10,
+                    width: 5,
                   ),
                   Text(nameClub)
                 ],
-              ),
-              SizedBox(
-                width: 10,
               ),
               Text(
                 titleNews,
                 style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
                 overflow: TextOverflow.ellipsis,
-              ),
-              SizedBox(
-                height: 5,
               ),
               Text(
                 contentNews,

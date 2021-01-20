@@ -12,22 +12,22 @@ class MyDataProfileScreen extends StatelessWidget {
         children: [
           CardInformation(context),
           Container(
-              margin: EdgeInsets.only(right: 20, top: 20),
+              margin: EdgeInsets.only(right: 20, top: 5),
               alignment: Alignment.centerRight,
               child: Text("الجوائز")),
           CardAwards(context),
           Container(
-              margin: EdgeInsets.only(right: 20, top: 20),
+              margin: EdgeInsets.only(right: 20, top: 5),
               alignment: Alignment.centerRight,
               child: Text("الميداليات")),
           CardMedals(context),
           Container(
-              margin: EdgeInsets.only(right: 20, top: 20),
+              margin: EdgeInsets.only(right: 20, top: 0),
               alignment: Alignment.centerRight,
               child: Text("وسائل التواصل")),
           RowSocialMediaCards(context),
           Container(
-              margin: EdgeInsets.only(right: 20, top: 10),
+              margin: EdgeInsets.only(right: 20, top: 5),
               alignment: Alignment.centerRight,
               child: Text("صورى")),
           CardMyImages(context),
@@ -131,7 +131,7 @@ class MyDataProfileScreen extends StatelessWidget {
     return Container(
       width: MediaQuery.of(context).size.width * 0.85,
       height: MediaQuery.of(context).size.height * 0.09,
-      margin: EdgeInsets.only(bottom: 8),
+      margin: EdgeInsets.only(bottom: 0),
       decoration: BoxDecoration(
           //    color: BackgroundColor,
           borderRadius: BorderRadius.circular(20),
@@ -198,7 +198,7 @@ class MyDataProfileScreen extends StatelessWidget {
           children: [
             Expanded(
               child: Container(
-                margin: EdgeInsets.symmetric(horizontal: 15, vertical: 18),
+                margin: EdgeInsets.symmetric(horizontal: 20, vertical: 18),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
@@ -272,7 +272,7 @@ class MyDataProfileScreen extends StatelessWidget {
           children: [
             Expanded(
               child: Container(
-                margin: EdgeInsets.symmetric(horizontal: 10, vertical: 18),
+                margin: EdgeInsets.symmetric(horizontal: 5, vertical: 18),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
@@ -354,7 +354,7 @@ class MyDataProfileScreen extends StatelessWidget {
                           "https://ronaldo.com/wp-content/uploads/2020/03/GettyImages-1201273079-1208205794-1209769370.jpg",
                           height: (200 / MediaQuery.of(context).size.height) *
                               MediaQuery.of(context).size.height,
-                          fit: BoxFit.fill,
+                          fit: BoxFit.cover,
                         ),
                       ),
                     ),
@@ -369,7 +369,7 @@ class MyDataProfileScreen extends StatelessWidget {
                           "https://ronaldo.com/wp-content/uploads/2020/03/GettyImages-1201273079-1208205794-1209769370.jpg",
                           height: (200 / MediaQuery.of(context).size.height) *
                               MediaQuery.of(context).size.height,
-                          fit: BoxFit.fill,
+                          fit: BoxFit.cover,
                         ),
                       ),
                     ),

@@ -269,7 +269,7 @@ class _ShowInormationScreenState extends State<ShowInormationScreen> {
           children: [
             Expanded(
               child: Container(
-                margin: EdgeInsets.symmetric(horizontal: 15, vertical: 18),
+                margin: EdgeInsets.symmetric(horizontal: 20, vertical: 18),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
@@ -343,7 +343,7 @@ class _ShowInormationScreenState extends State<ShowInormationScreen> {
           children: [
             Expanded(
               child: Container(
-                margin: EdgeInsets.symmetric(horizontal: 10, vertical: 18),
+                margin: EdgeInsets.symmetric(horizontal: 3, vertical: 18),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [

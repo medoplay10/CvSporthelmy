@@ -111,89 +111,136 @@ class _MainScreenState extends State<MainScreen> {
   AppBar appBarMainScreen(double Mediawidth, double Mediaheight) {
     return AppBar(
       backgroundColor: Color(0xffF9FAFF),
-      actions: [
-        Padding(
-          padding: const EdgeInsets.all(5),
-          child: IconButton(
-              icon: Icon(
-                Icons.notifications_none,
-                size: 30,
-              ),
-              onPressed: () {
-                Navigator.of(context)
-                    .push(MaterialPageRoute(builder: (context) {
-                  return NotificationScreen();
-                }));
-              }),
-        )
-      ],
-      leading: Container(
-        margin: EdgeInsets.all(8),
-        //   height: .04 * MediaQuery.of(context).size.height,
-        //   width: .13 * MediaQuery.of(context).size.width,
-        child: ClipRRect(
-            borderRadius: BorderRadius.circular(50.0),
-            child: Image.asset(
-              "assets/images/messiRonaldo.jpg",
-              fit: BoxFit.fill,
-            )),
-      ),
+      // actions: [
+      //   Padding(
+      //     padding: const EdgeInsets.all(5),
+      //     child: IconButton(
+      //         icon: Icon(
+      //           Icons.notifications_none,
+      //           size: 30,
+      //         ),
+      //         onPressed: () {
+      //           Navigator.of(context)
+      //               .push(MaterialPageRoute(builder: (context) {
+      //             return NotificationScreen();
+      //           }));
+      //         }),
+      //   )
+      // ],
+      // leading: Container(
+      //   margin: EdgeInsets.all(8),
+      //   //   height: .04 * MediaQuery.of(context).size.height,
+      //   //   width: .13 * MediaQuery.of(context).size.width,
+      //   child: ClipRRect(
+      //       borderRadius: BorderRadius.circular(50.0),
+      //       child: Image.asset(
+      //         "assets/images/imageprofile.png",
+      //         fit: BoxFit.fill,
+      //       )),
+      // ),
       elevation: 0,
+
       automaticallyImplyLeading: false,
-      title: Container(
-        height: MediaQuery.of(context).size.height * 0.05,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(25),
-          color: Color(0xffEEF1FC),
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Container(
+      title: Row(
+        //   mainAxisAlignment: MainAxisAlignment.start,
+        //     crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Container(
+            margin: EdgeInsets.only(left: 3),
+            height: .042 * MediaQuery.of(context).size.height,
+            width: .09 * MediaQuery.of(context).size.width,
+            child: ClipRRect(
+                borderRadius: BorderRadius.circular(50.0),
+                child: Image.asset(
+                  "assets/images/imageprofile.png",
+                  //"assets/images/imageprofile.png"
+                  fit: BoxFit.fill,
+                )),
+          ),
+          Expanded(
+            child: Container(
+              height: MediaQuery.of(context).size.height * 0.04,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(25),
                 color: Color(0xffEEF1FC),
               ),
-              //    color: Color(0xffE7EBF8),
-              child: Padding(
-                padding: const EdgeInsets.only(right: 8),
-                child: Icon(
-                  Icons.search,
-                ),
+              child: Row(
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(25),
+                      color: Color(0xffEEF1FC),
+                    ),
+                    //    color: Color(0xffE7EBF8),
+                    child: Padding(
+                      padding: const EdgeInsets.only(right: 8),
+                      child: Icon(
+                        Icons.search,
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: TextFormField(
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: Colors.black,
+                      ),
+                      decoration: InputDecoration(
+                        contentPadding: EdgeInsets.only(top: 0, right: 10),
+                        filled: true,
+                        fillColor: Color(0xffEEF1FC),
+
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20),
+                          borderSide:
+                              const BorderSide(color: Colors.white, width: 0.0),
+                        ),
+                        border: OutlineInputBorder(
+                          borderSide:
+                              const BorderSide(color: Colors.white, width: 0.0),
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        //         border: InputBorder.none,
+                        hintText: "البحث",
+
+                        hintStyle: TextStyle(
+                            fontSize: 14, color: Colors.grey.shade700),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
-            Expanded(
-              child: TextFormField(
-                style: TextStyle(
-                  fontSize: 14,
-                  color: Colors.black,
-                ),
-                decoration: InputDecoration(
-                  contentPadding: EdgeInsets.only(top: 10, right: 10),
-                  filled: true,
-                  fillColor: Color(0xffEEF1FC),
-
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20),
-                    borderSide:
-                        const BorderSide(color: Colors.white, width: 0.0),
-                  ),
-                  border: OutlineInputBorder(
-                    borderSide:
-                        const BorderSide(color: Colors.white, width: 0.0),
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  //         border: InputBorder.none,
-                  hintText: "البحث",
-
-                  hintStyle:
-                      TextStyle(fontSize: 14, color: Colors.grey.shade700),
-                ),
+          ),
+          GestureDetector(
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                return NotificationScreen();
+              }));
+            },
+            child: Container(
+              margin: EdgeInsets.only(right: 5),
+              child: FaIcon(
+                FontAwesomeIcons.bell,
               ),
             ),
-          ],
-        ),
+          ),
+//           IconButton(
+//               icon: Icon(
+//
+//                 Icons.notifications_none,
+//
+//                 size: 30,
+//               ),
+// alignment: Alignment.centerLeft,
+//
+//               onPressed: () {
+//                 Navigator.of(context)
+//                     .push(MaterialPageRoute(builder: (context) {
+//                   return NotificationScreen();
+//                 }));
+//               })
+        ],
       ),
       centerTitle: true,
     );

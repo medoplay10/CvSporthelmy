@@ -110,8 +110,9 @@ class _ProfileScreenState extends State<ProfileScreen>
             width: (70 / MediaQuery.of(context).size.width) *
                 MediaQuery.of(context).size.width,
             child: CircleAvatar(
+                backgroundColor: Colors.transparent,
                 radius: 20,
-                backgroundImage: AssetImage("assets/images/messiRonaldo.jpg")),
+                backgroundImage: AssetImage("assets/images/imageprofile.png")),
           ),
           Text(
             "خالد عمر",
@@ -176,16 +177,13 @@ class _ProfileScreenState extends State<ProfileScreen>
         ? Colors.white
         : Colors.black;
     return Container(
-      padding: const EdgeInsets.only(bottom: 10, top: 10),
+      padding: const EdgeInsets.only(bottom: 5),
       margin: const EdgeInsets.only(right: 2, left: 2),
       decoration: BoxDecoration(
           color: BackgroundColor,
           borderRadius: BorderRadius.circular(20),
           border: Border.all(color: Colors.white)),
-      width: MediaQuery
-          .of(context)
-          .size
-          .width * 0.28,
+      width: MediaQuery.of(context).size.width * 0.28,
       alignment: Alignment.center,
       child: Text(
         Tital,

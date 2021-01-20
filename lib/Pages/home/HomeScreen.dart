@@ -1,3 +1,4 @@
+import 'package:cv_sports/Pages/Category/OneCategory.dart';
 import 'package:cv_sports/Pages/News/AllNewsScreen.dart';
 import 'package:cv_sports/Widgets/SizeBoxHeight.dart';
 import 'package:flutter/material.dart';
@@ -36,7 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
         iconData: "assets/images/93.png",
         UrlImage: "assets/images/slider.png"),
     Sports(
-        Tital: "اكادميات",
+        Tital: "اكاديميات",
         IconAssets: FontAwesomeIcons.warehouse,
         iconData: "assets/images/95.png",
         UrlImage: "assets/images/slider.png"),
@@ -50,22 +51,22 @@ class _HomeScreenState extends State<HomeScreen> {
   List<Players> listPlayer = [
     Players(
         UrlImage:
-            "https://imgresizer.eurosport.com/unsafe/1200x0/filters:format(jpeg):focal(1297x339:1299x337)/origin-imgresizer.eurosport.com/2020/11/03/2927687-60147708-2560-1440.jpg",
+        "https://imgresizer.eurosport.com/unsafe/1200x0/filters:format(jpeg):focal(1297x339:1299x337)/origin-imgresizer.eurosport.com/2020/11/03/2927687-60147708-2560-1440.jpg",
         name: "Messi",
         PlayerPlace: "attacker"),
     Players(
         UrlImage:
-            "https://imgresizer.eurosport.com/unsafe/1200x0/filters:format(jpeg):focal(1297x339:1299x337)/origin-imgresizer.eurosport.com/2020/11/03/2927687-60147708-2560-1440.jpg",
+        "https://imgresizer.eurosport.com/unsafe/1200x0/filters:format(jpeg):focal(1297x339:1299x337)/origin-imgresizer.eurosport.com/2020/11/03/2927687-60147708-2560-1440.jpg",
         name: "Messi",
         PlayerPlace: "attacker"),
     Players(
         UrlImage:
-            "https://imgresizer.eurosport.com/unsafe/1200x0/filters:format(jpeg):focal(1297x339:1299x337)/origin-imgresizer.eurosport.com/2020/11/03/2927687-60147708-2560-1440.jpg",
+        "https://imgresizer.eurosport.com/unsafe/1200x0/filters:format(jpeg):focal(1297x339:1299x337)/origin-imgresizer.eurosport.com/2020/11/03/2927687-60147708-2560-1440.jpg",
         name: "Messi",
         PlayerPlace: "attacker"),
     Players(
         UrlImage:
-            "https://imgresizer.eurosport.com/unsafe/1200x0/filters:format(jpeg):focal(1297x339:1299x337)/origin-imgresizer.eurosport.com/2020/11/03/2927687-60147708-2560-1440.jpg",
+        "https://imgresizer.eurosport.com/unsafe/1200x0/filters:format(jpeg):focal(1297x339:1299x337)/origin-imgresizer.eurosport.com/2020/11/03/2927687-60147708-2560-1440.jpg",
         name: "Messi",
         PlayerPlace: "attacker"),
   ];
@@ -73,22 +74,22 @@ class _HomeScreenState extends State<HomeScreen> {
     Coach(
         name: "دييغو سيميوني",
         UrlImage:
-            "https://www.skynewsarabia.com/images/v1/2019/09/14/1282832/800/450/1-1282832.jpg",
+        "https://www.skynewsarabia.com/images/v1/2019/09/14/1282832/800/450/1-1282832.jpg",
         CoachPlace: "atletico madrid"),
     Coach(
         name: "دييغو سيميوني",
         UrlImage:
-            "https://www.skynewsarabia.com/images/v1/2019/09/14/1282832/800/450/1-1282832.jpg",
+        "https://www.skynewsarabia.com/images/v1/2019/09/14/1282832/800/450/1-1282832.jpg",
         CoachPlace: "atletico madrid"),
     Coach(
         name: "دييغو سيميوني",
         UrlImage:
-            "https://www.skynewsarabia.com/images/v1/2019/09/14/1282832/800/450/1-1282832.jpg",
+        "https://www.skynewsarabia.com/images/v1/2019/09/14/1282832/800/450/1-1282832.jpg",
         CoachPlace: "atletico madrid"),
     Coach(
         name: "دييغو سيميوني",
         UrlImage:
-            "https://www.skynewsarabia.com/images/v1/2019/09/14/1282832/800/450/1-1282832.jpg",
+        "https://www.skynewsarabia.com/images/v1/2019/09/14/1282832/800/450/1-1282832.jpg",
         CoachPlace: "atletico madrid"),
   ];
 
@@ -142,13 +143,10 @@ class _HomeScreenState extends State<HomeScreen> {
               )),
 
           rowVideos(),
-          SizeBoxHeight(
-            SizeWant: 10,
-            Mediaheight: Mediaheight,
-          ),
+
           RowCardNews(context),
           SizeBoxHeight(
-            SizeWant: 10,
+            SizeWant: 5,
             Mediaheight: Mediaheight,
           ),
           cardMorePlayers(
@@ -156,24 +154,18 @@ class _HomeScreenState extends State<HomeScreen> {
               Mediawidth: Mediawidth,
               Mediaheight: Mediaheight,
               listPlayers: listPlayer),
-          SizeBoxHeight(
-            SizeWant: 10,
-            Mediaheight: Mediaheight,
-          ),
+
           // cardMoreCoach(
           //     context: context,
           //     Mediawidth: Mediawidth,
           //     Mediaheight: Mediaheight,
           //     listCoach: ListCoach),
-          SizeBoxHeight(
-            SizeWant: 10,
-            Mediaheight: Mediaheight,
-          ),
         ],
       ),
     );
   }
 
+//=============================  Row Card News ==============================
   Card RowCardNews(BuildContext context) {
     return Card(
       elevation: 5,
@@ -186,9 +178,10 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             NewsCard(
                 mainImage:
-                    "https://www.zamalektoday.com/files/pic_news/cb92bdc4e5.jpg",
-                iconClub: Icons.airplanemode_active_rounded,
-                nameClub: "Zamalek",
+                    "https://mediaaws.almasryalyoum.com/news/large/2020/02/21/1029211_0.jpg",
+                iconClub:
+                    "https://upload.wikimedia.org/wikipedia/commons/5/58/Zamalek_SC_icon.png",
+                nameClub: "الزمالك",
                 contentNews:
                     "نادي الزمالك للألعاب الرياضية ‏، أو كما يعرف اختصاراً باسم نادي الزمالك، هو نادٍ رياضي مصري احترافي يلعب في الدوري المصري",
                 titleNews: "نادى الزمالك يحصل على اللاعب ميسى"),
@@ -198,12 +191,13 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             NewsCard(
                 mainImage:
-                    "https://upload.wikimedia.org/wikipedia/ar/thumb/f/fc/Al-Nassr_FC_Logo.svg/1200px-Al-Nassr_FC_Logo.svg.png",
-                iconClub: Icons.camera,
-                nameClub: "Al Naser",
+                    "https://www.spa.gov.sa/image-resizer/h600/galupload/normal/202002/DST_1262787_1652739_202002091659179024.jpg",
+                iconClub:
+                    "https://upload.wikimedia.org/wikipedia/ar/thumb/6/6f/Hilal_logo.png/180px-Hilal_logo.png",
+                nameClub: "الهلال السعودى",
                 contentNews:
-                    "نادي النصر السعودي هو فريق كرة قدم سعودي تأسس عام 1955م الموافق 1375هـ، يُلقبْ الفريق من قبل مشجعيه بـالعالمي بسبب مشاركته وتمثيله لقارة آسيا في أول كأس العالم للأندية كرة القدم ",
-                titleNews: "نادى النصر يحصل على اللاعب رونالدو"),
+                    "نادي الهلال السعودي هو نادٍ رياضيّ، ثقافيّ، اجتماعيّ سعودي أُسس عام 1957، مقرّه في العاصمة السعودية الرياض ويعتبر الفريق الأول في السعودية من حيث عدد البطولات المحلية، وأكثر الأندية الآسيوية فوزاً بالبطولات القارية بمختلف مسمياتها، إذ تبلغ عدد بطولاته الرسمية على المستوى المحلي والإقليمي والقاري 65 بطولة، والإجمالية ...",
+                titleNews: "نادى الهلال السعودى يحصل على اللاعب رونالدو"),
             SizedBox(
               height: 15,
             ),
@@ -216,11 +210,10 @@ class _HomeScreenState extends State<HomeScreen> {
 
   //=============================== Widget Card More Coach===========================
 
-  Card cardMoreCoach(
-      {BuildContext context,
-      double Mediawidth,
-      double Mediaheight,
-      List<Coach> listCoach}) {
+  Card cardMoreCoach({BuildContext context,
+    double Mediawidth,
+    double Mediaheight,
+    List<Coach> listCoach}) {
     return Card(
       elevation: 5,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
@@ -257,7 +250,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius:
-                              BorderRadius.only(topRight: Radius.circular(20))),
+                          BorderRadius.only(topRight: Radius.circular(20))),
                     ),
                     Container(
                       padding: EdgeInsets.only(top: 5),
@@ -389,8 +382,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: RaisedButton(
                   onPressed: () {
                     Navigator.of(context)
-                        .pushReplacement(MaterialPageRoute(builder: (context) {
-                      return MainScreen();
+                        .push(MaterialPageRoute(builder: (context) {
+                      return OneCategory(
+                          isClub: false, itemSport: listSport[0]);
                     }));
                   },
                   shape: RoundedRectangleBorder(
@@ -413,11 +407,10 @@ class _HomeScreenState extends State<HomeScreen> {
 
 //=============================== Widget Card More Players ===========================
 
-  Card cardMorePlayers(
-      {BuildContext context,
-      double Mediawidth,
-      double Mediaheight,
-      List<Players> listPlayers}) {
+  Card cardMorePlayers({BuildContext context,
+    double Mediawidth,
+    double Mediaheight,
+    List<Players> listPlayers}) {
     return Card(
       elevation: 5,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
@@ -446,7 +439,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   crossAxisCount: 2,
                   children: [
                     Container(
-                      padding: EdgeInsets.only(top: 5),
+                      padding: EdgeInsets.only(top: 15),
                       child: ColumnMorePlayer(
                           Mediawidth: Mediawidth,
                           Mediaheight: Mediaheight,
@@ -457,7 +450,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               BorderRadius.only(topRight: Radius.circular(20))),
                     ),
                     Container(
-                      padding: EdgeInsets.only(top: 5),
+                      padding: EdgeInsets.only(top: 15),
                       child: ColumnMorePlayer(
                           Mediawidth: Mediawidth,
                           Mediaheight: Mediaheight,
@@ -467,7 +460,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                     Container(
-                      padding: EdgeInsets.only(top: 5),
+                      padding: EdgeInsets.only(top: 15),
                       child: ColumnMorePlayer(
                           Mediawidth: Mediawidth,
                           Mediaheight: Mediaheight,
@@ -478,7 +471,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               bottomRight: Radius.circular(20))),
                     ),
                     Container(
-                      padding: EdgeInsets.only(top: 5),
+                      padding: EdgeInsets.only(top: 15),
                       child: ColumnMorePlayer(
                           Mediawidth: Mediawidth,
                           Mediaheight: Mediaheight,
@@ -500,27 +493,19 @@ class _HomeScreenState extends State<HomeScreen> {
 
 //=============================== Widget Column More Player ===========================
 
-  Column ColumnMorePlayer(
-      {double Mediawidth, double Mediaheight, Players DataPlayer}) {
+  Column ColumnMorePlayer({double Mediawidth, double Mediaheight, Players DataPlayer}) {
     return Column(
       children: [
         Container(
-          //     padding: EdgeInsets.all(5),
-          width: MediaQuery.of(context).size.width * .19,
-          height: MediaQuery.of(context).size.height * .09,
-          child: ClipOval(
-            child: Material(
-              color: Color(0xffC7C9EA), // button color
-              child: InkWell(
-                splashColor: Colors.red, // inkwell color
-                child: Image.network(
-                  DataPlayer.UrlImage,
-                  fit: BoxFit.fill,
-                ),
-                onTap: () {},
-              ),
-            ),
-          ),
+          height: (60 / MediaQuery.of(context).size.height) *
+              MediaQuery.of(context).size.height,
+          width: (60 / MediaQuery.of(context).size.width) *
+              MediaQuery.of(context).size.width,
+          child: CircleAvatar(
+              radius: 20,
+              backgroundImage: NetworkImage(
+                DataPlayer.UrlImage,
+              )),
         ),
         SizedBox(
           height: 5,
@@ -539,8 +524,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
 //=============================== Widget Column More Player ===========================
 
-  Column columnMoreCoach(
-      {double Mediawidth, double Mediaheight, Coach coachData}) {
+  Column columnMoreCoach({double Mediawidth, double Mediaheight, Coach coachData}) {
     return Column(
       children: [
         Container(
@@ -600,10 +584,10 @@ class _HomeScreenState extends State<HomeScreen> {
               splashColor: Colors.red, // inkwell color
               child: SizedBox(
                   child: Icon(
-                Icons.person,
-                color: Color(0xff68699C),
-                size: 20,
-              )),
+                    Icons.person,
+                    color: Color(0xff68699C),
+                    size: 20,
+                  )),
               onTap: () {},
             ),
           ),
@@ -786,41 +770,60 @@ class _HomeScreenState extends State<HomeScreen> {
   SizedBox rowListIcon(double Mediawidth, double Mediaheight) {
     return SizedBox(
       width: double.infinity,
-      height: MediaQuery.of(context).size.height * .15,
+      height: MediaQuery.of(context).size.height * .125,
       child: ListView.builder(
           itemCount: listSport.length,
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index) {
-            return Container(
-              margin: EdgeInsets.only(left: 8, right: 2),
-              child: Column(
-                children: [
-                  Container(
-                    //   alignment: Alignment.center,
-                    padding: EdgeInsets.all(5),
-                    width: (70 / Mediawidth) * Mediawidth,
-                    height: (70 / Mediaheight) * Mediaheight,
-                    child: ClipOval(
-                      child: Material(
-                        color: Color(0xff2C2B53), // button color
-                        child: InkWell(
-                            splashColor: Colors.red, // inkwell color
-                            child: Center(
-                              child: Image.asset(
-                                listSport[index].iconData,
-                                scale: 3,
-                                color: Colors.white,
-                                //    size: 25,
-                              ),
-                            )),
+            return GestureDetector(
+              onTap: () {
+                if (index == 1) {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (context) {
+                    return OneCategory(
+                      isClub: true,
+                      itemSport: listSport[index],
+                    );
+                  }));
+                } else {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (context) {
+                    return OneCategory(
+                        isClub: false, itemSport: listSport[index]);
+                  }));
+                }
+              },
+              child: Container(
+                margin: EdgeInsets.only(left: 8, right: 2),
+                child: Column(
+                  children: [
+                    Container(
+                      //   alignment: Alignment.center,
+                      padding: EdgeInsets.all(5),
+                      width: (70 / Mediawidth) * Mediawidth,
+                      height: (70 / Mediaheight) * Mediaheight,
+                      child: ClipOval(
+                        child: Material(
+                          color: Color(0xff2C2B53), // button color
+                          child: InkWell(
+                              splashColor: Colors.red, // inkwell color
+                              child: Center(
+                                child: Image.asset(
+                                  listSport[index].iconData,
+                                  scale: 3,
+                                  color: Colors.white,
+                                  //    size: 25,
+                                ),
+                              )),
+                        ),
                       ),
                     ),
-                  ),
-                  Text(
-                    listSport[index].Tital,
-                    style: TextStyle(fontSize: 14),
-                  )
-                ],
+                    Text(
+                      listSport[index].Tital,
+                      style: TextStyle(fontSize: 14),
+                    )
+                  ],
+                ),
               ),
             );
           }),

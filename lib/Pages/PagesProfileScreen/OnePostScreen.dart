@@ -132,8 +132,9 @@ class OnePostScreen extends StatelessWidget {
             width: (50 / MediaQuery.of(context).size.width) *
                 MediaQuery.of(context).size.width,
             child: CircleAvatar(
+                backgroundColor: Colors.transparent,
                 radius: 20,
-                backgroundImage: AssetImage("assets/images/messiRonaldo.jpg")),
+                backgroundImage: AssetImage("assets/images/imageprofile.png")),
           ),
           Text(
             "خالد عمر",

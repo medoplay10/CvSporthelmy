@@ -7,106 +7,44 @@ import 'OneNewsScreen.dart';
 class AllNewsScreen extends StatelessWidget {
   List<News> ListNews = [
     News(
-      NameClub: "Zamalek",
-      IconClub: Icons.airplanemode_active_rounded,
+      NameClub: "الزمالك",
+      IconClub:
+          "https://upload.wikimedia.org/wikipedia/commons/5/58/Zamalek_SC_icon.png",
       contentNews:
           "نادي الزمالك للألعاب الرياضية ‏، أو كما يعرف اختصاراً باسم نادي الزمالك، هو نادٍ رياضي مصري احترافي يلعب في الدوري المصري",
       titleNews: "نادى الزمالك يحصل على اللاعب ميسى",
-      ImageUrl: "https://www.zamalektoday.com/files/pic_news/cb92bdc4e5.jpg",
-    ),
-    News(
-      NameClub: "Al Naser",
-      IconClub: Icons.camera,
-      contentNews:
-          "نادي النصر السعودي هو فريق كرة قدم سعودي تأسس عام 1955م الموافق 1375هـ، يُلقبْ الفريق من قبل مشجعيه بـالعالمي بسبب مشاركته وتمثيله لقارة آسيا في أول كأس العالم للأندية كرة القدم ",
-      titleNews: "نادى النصر يحصل على اللاعب رونالدو",
       ImageUrl:
-          "https://upload.wikimedia.org/wikipedia/ar/thumb/f/fc/Al-Nassr_FC_Logo.svg/1200px-Al-Nassr_FC_Logo.svg.png",
+          "https://mediaaws.almasryalyoum.com/news/large/2020/02/21/1029211_0.jpg",
     ),
     News(
-      NameClub: "Zamalek",
-      IconClub: Icons.airplanemode_active_rounded,
+      NameClub: "الهلال السعودى",
+      IconClub:
+          "https://upload.wikimedia.org/wikipedia/ar/thumb/6/6f/Hilal_logo.png/180px-Hilal_logo.png",
+      contentNews:
+          "نادي الهلال السعودي هو نادٍ رياضيّ، ثقافيّ، اجتماعيّ سعودي أُسس عام 1957، مقرّه في العاصمة السعودية الرياض ويعتبر الفريق الأول في السعودية من حيث عدد البطولات المحلية، وأكثر الأندية الآسيوية فوزاً بالبطولات القارية بمختلف مسمياتها، إذ تبلغ عدد بطولاته الرسمية على المستوى المحلي والإقليمي والقاري 65 بطولة، والإجمالية ...",
+      titleNews: "نادى الهلال السعودى يحصل على اللاعب رونالدو",
+      ImageUrl:
+          "https://www.spa.gov.sa/image-resizer/h600/galupload/normal/202002/DST_1262787_1652739_202002091659179024.jpg",
+    ),
+    News(
+      NameClub: "الزمالك",
+      IconClub:
+          "https://upload.wikimedia.org/wikipedia/commons/5/58/Zamalek_SC_icon.png",
       contentNews:
           "نادي الزمالك للألعاب الرياضية ‏، أو كما يعرف اختصاراً باسم نادي الزمالك، هو نادٍ رياضي مصري احترافي يلعب في الدوري المصري",
       titleNews: "نادى الزمالك يحصل على اللاعب ميسى",
-      ImageUrl: "https://www.zamalektoday.com/files/pic_news/cb92bdc4e5.jpg",
-    ),
-    News(
-      NameClub: "Al Naser",
-      IconClub: Icons.camera,
-      contentNews:
-          "نادي النصر السعودي هو فريق كرة قدم سعودي تأسس عام 1955م الموافق 1375هـ، يُلقبْ الفريق من قبل مشجعيه بـالعالمي بسبب مشاركته وتمثيله لقارة آسيا في أول كأس العالم للأندية كرة القدم ",
-      titleNews: "نادى النصر يحصل على اللاعب رونالدو",
       ImageUrl:
-          "https://upload.wikimedia.org/wikipedia/ar/thumb/f/fc/Al-Nassr_FC_Logo.svg/1200px-Al-Nassr_FC_Logo.svg.png",
+          "https://mediaaws.almasryalyoum.com/news/large/2020/02/21/1029211_0.jpg",
     ),
     News(
-      NameClub: "Zamalek",
-      IconClub: Icons.airplanemode_active_rounded,
+      NameClub: "الهلال السعودى",
+      IconClub:
+          "https://upload.wikimedia.org/wikipedia/ar/thumb/6/6f/Hilal_logo.png/180px-Hilal_logo.png",
       contentNews:
-          "نادي الزمالك للألعاب الرياضية ‏، أو كما يعرف اختصاراً باسم نادي الزمالك، هو نادٍ رياضي مصري احترافي يلعب في الدوري المصري",
-      titleNews: "نادى الزمالك يحصل على اللاعب ميسى",
-      ImageUrl: "https://www.zamalektoday.com/files/pic_news/cb92bdc4e5.jpg",
-    ),
-    News(
-      NameClub: "Al Naser",
-      IconClub: Icons.camera,
-      contentNews:
-          "نادي النصر السعودي هو فريق كرة قدم سعودي تأسس عام 1955م الموافق 1375هـ، يُلقبْ الفريق من قبل مشجعيه بـالعالمي بسبب مشاركته وتمثيله لقارة آسيا في أول كأس العالم للأندية كرة القدم ",
-      titleNews: "نادى النصر يحصل على اللاعب رونالدو",
+          "نادي الهلال السعودي هو نادٍ رياضيّ، ثقافيّ، اجتماعيّ سعودي أُسس عام 1957، مقرّه في العاصمة السعودية الرياض ويعتبر الفريق الأول في السعودية من حيث عدد البطولات المحلية، وأكثر الأندية الآسيوية فوزاً بالبطولات القارية بمختلف مسمياتها، إذ تبلغ عدد بطولاته الرسمية على المستوى المحلي والإقليمي والقاري 65 بطولة، والإجمالية ...",
+      titleNews: "نادى الهلال السعودى يحصل على اللاعب رونالدو",
       ImageUrl:
-          "https://upload.wikimedia.org/wikipedia/ar/thumb/f/fc/Al-Nassr_FC_Logo.svg/1200px-Al-Nassr_FC_Logo.svg.png",
-    ),
-    News(
-      NameClub: "Zamalek",
-      IconClub: Icons.airplanemode_active_rounded,
-      contentNews:
-          "نادي الزمالك للألعاب الرياضية ‏، أو كما يعرف اختصاراً باسم نادي الزمالك، هو نادٍ رياضي مصري احترافي يلعب في الدوري المصري",
-      titleNews: "نادى الزمالك يحصل على اللاعب ميسى",
-      ImageUrl: "https://www.zamalektoday.com/files/pic_news/cb92bdc4e5.jpg",
-    ),
-    News(
-      NameClub: "Al Naser",
-      IconClub: Icons.camera,
-      contentNews:
-          "نادي النصر السعودي هو فريق كرة قدم سعودي تأسس عام 1955م الموافق 1375هـ، يُلقبْ الفريق من قبل مشجعيه بـالعالمي بسبب مشاركته وتمثيله لقارة آسيا في أول كأس العالم للأندية كرة القدم ",
-      titleNews: "نادى النصر يحصل على اللاعب رونالدو",
-      ImageUrl:
-          "https://upload.wikimedia.org/wikipedia/ar/thumb/f/fc/Al-Nassr_FC_Logo.svg/1200px-Al-Nassr_FC_Logo.svg.png",
-    ),
-    News(
-      NameClub: "Zamalek",
-      IconClub: Icons.airplanemode_active_rounded,
-      contentNews:
-          "نادي الزمالك للألعاب الرياضية ‏، أو كما يعرف اختصاراً باسم نادي الزمالك، هو نادٍ رياضي مصري احترافي يلعب في الدوري المصري",
-      titleNews: "نادى الزمالك يحصل على اللاعب ميسى",
-      ImageUrl: "https://www.zamalektoday.com/files/pic_news/cb92bdc4e5.jpg",
-    ),
-    News(
-      NameClub: "Al Naser",
-      IconClub: Icons.camera,
-      contentNews:
-          "نادي النصر السعودي هو فريق كرة قدم سعودي تأسس عام 1955م الموافق 1375هـ، يُلقبْ الفريق من قبل مشجعيه بـالعالمي بسبب مشاركته وتمثيله لقارة آسيا في أول كأس العالم للأندية كرة القدم ",
-      titleNews: "نادى النصر يحصل على اللاعب رونالدو",
-      ImageUrl:
-          "https://upload.wikimedia.org/wikipedia/ar/thumb/f/fc/Al-Nassr_FC_Logo.svg/1200px-Al-Nassr_FC_Logo.svg.png",
-    ),
-    News(
-      NameClub: "Zamalek",
-      IconClub: Icons.airplanemode_active_rounded,
-      contentNews:
-          "نادي الزمالك للألعاب الرياضية ‏، أو كما يعرف اختصاراً باسم نادي الزمالك، هو نادٍ رياضي مصري احترافي يلعب في الدوري المصري",
-      titleNews: "نادى الزمالك يحصل على اللاعب ميسى",
-      ImageUrl: "https://www.zamalektoday.com/files/pic_news/cb92bdc4e5.jpg",
-    ),
-    News(
-      NameClub: "Al Naser",
-      IconClub: Icons.camera,
-      contentNews:
-          "نادي النصر السعودي هو فريق كرة قدم سعودي تأسس عام 1955م الموافق 1375هـ، يُلقبْ الفريق من قبل مشجعيه بـالعالمي بسبب مشاركته وتمثيله لقارة آسيا في أول كأس العالم للأندية كرة القدم ",
-      titleNews: "نادى النصر يحصل على اللاعب رونالدو",
-      ImageUrl:
-          "https://upload.wikimedia.org/wikipedia/ar/thumb/f/fc/Al-Nassr_FC_Logo.svg/1200px-Al-Nassr_FC_Logo.svg.png",
+          "https://www.spa.gov.sa/image-resizer/h600/galupload/normal/202002/DST_1262787_1652739_202002091659179024.jpg",
     ),
   ];
 

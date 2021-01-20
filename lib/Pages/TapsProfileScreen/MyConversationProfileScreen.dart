@@ -37,10 +37,10 @@ class MyConversationProfileScreen extends StatelessWidget {
                         borderRadius: BorderRadius.circular(10.0),
                         child: Image.network(
                           "https://www.zamalektoday.com/files/pic_news/cb92bdc4e5.jpg",
-                          fit: BoxFit.fill,
-                          height: (72 / MediaQuery.of(context).size.height) *
+                          fit: BoxFit.cover,
+                          height: (110 / MediaQuery.of(context).size.height) *
                               MediaQuery.of(context).size.height,
-                          width: (200 / MediaQuery.of(context).size.width) *
+                          width: (165 / MediaQuery.of(context).size.width) *
                               MediaQuery.of(context).size.width,
                         )),
                   ),
@@ -56,7 +56,7 @@ class MyConversationProfileScreen extends StatelessWidget {
                         Row(
                           children: [
                             Text(
-                              "الاهلي المصري",
+                              "الزمالك المصري",
                               style: TextStyle(fontSize: 13),
                             ),
                             Spacer(),
@@ -65,10 +65,6 @@ class MyConversationProfileScreen extends StatelessWidget {
                               style: TextStyle(fontSize: 13),
                             ),
                           ],
-                        ),
-                        SizedBox(
-                          width: (10 / MediaQuery.of(context).size.width) *
-                              MediaQuery.of(context).size.width,
                         ),
                         Row(
                           children: [

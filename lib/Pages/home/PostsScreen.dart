@@ -165,8 +165,9 @@ class _PostsScreenState extends State<PostsScreen> {
             width: (40 / MediaQuery.of(context).size.width) *
                 MediaQuery.of(context).size.width,
             child: CircleAvatar(
+                backgroundColor: Colors.transparent,
                 radius: 20,
-                backgroundImage: AssetImage("assets/images/messiRonaldo.jpg")),
+                backgroundImage: AssetImage("assets/images/imageprofile.png")),
           ),
           SizedBox(
             width: 10,

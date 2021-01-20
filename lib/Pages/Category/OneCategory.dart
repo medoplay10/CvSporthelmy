@@ -19,23 +19,23 @@ class OneCategory extends StatelessWidget {
     Sports(
         Tital: "ميسى",
         iconData: "assets/images/1.png",
-        UrlImage: "assets/images/messiRonaldo.jpg"),
+        UrlImage: "assets/images/imageprofile.png"),
     Sports(
         Tital: "رونالدو",
         iconData: "assets/images/2.png",
-        UrlImage: "assets/images/messiRonaldo.jpg"),
+        UrlImage: "assets/images/imageprofile.png"),
     Sports(
         Tital: "محمد صلاح",
         iconData: "assets/images/3.png",
-        UrlImage: "assets/images/messiRonaldo.jpg"),
+        UrlImage: "assets/images/imageprofile.png"),
     Sports(
         Tital: "محمد شريف",
         iconData: "assets/images/4.png",
-        UrlImage: "assets/images/messiRonaldo.jpg"),
+        UrlImage: "assets/images/imageprofile.png"),
     Sports(
         Tital: "نيمار",
         iconData: "assets/images/5.png",
-        UrlImage: "assets/images/messiRonaldo.jpg"),
+        UrlImage: "assets/images/imageprofile.png"),
   ];
 
   @override
@@ -212,11 +212,11 @@ class OneCategory extends StatelessWidget {
           children: [
             Container(
               // padding: EdgeInsets.all(2),
-              width: (70 / Mediawidth) * Mediawidth,
-              height: (70 / Mediaheight) * Mediaheight,
+              width: (60 / Mediawidth) * Mediawidth,
+              height: (60 / Mediaheight) * Mediaheight,
               child: ClipOval(
                 child: Material(
-                  color: Color(0xffC7C9EA), // button color
+                  color: Colors.transparent, // button color
                   child: Image.asset(
                     SportData.UrlImage,
                     fit: BoxFit.fill,

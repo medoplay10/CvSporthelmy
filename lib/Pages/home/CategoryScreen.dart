@@ -121,10 +121,6 @@ class _CategoryScreenState extends State<CategoryScreen> {
         color: Color(0xffF9FAFF),
         child: Column(
           children: [
-            SizeBoxHeight(
-              SizeWant: 10,
-              Mediaheight: Mediaheight,
-            ),
             Center(
                 // child: Container(
                 //   height: MediaQuery.of(context).size.height * 0.07,
@@ -139,15 +135,9 @@ class _CategoryScreenState extends State<CategoryScreen> {
                 //   child: rowSearch(),
                 // ),
                 ),
-            SizeBoxHeight(
-              SizeWant: 10,
-              Mediaheight: Mediaheight,
-            ),
+
             rowListIcon(Mediawidth, Mediaheight, context),
-            SizeBoxHeight(
-              SizeWant: 5,
-              Mediaheight: Mediaheight,
-            ),
+
             Expanded(
               child: Container(
                 color: Colors.transparent,
@@ -256,29 +246,25 @@ class _CategoryScreenState extends State<CategoryScreen> {
     );
   }
 
-  SizedBox rowListIcon(double Mediawidth, double Mediaheight,
-      BuildContext context) {
-    return SizedBox(
-      width: double.infinity,
-      height: (100 / MediaQuery
-          .of(context)
-          .size
-          .height) * MediaQuery
-          .of(context)
-          .size
-          .height,
+  Container rowListIcon(
+      double Mediawidth, double Mediaheight, BuildContext context) {
+    return Container(
+      alignment: Alignment.center,
+      // width: double.infinity,
+      height: (88 / MediaQuery.of(context).size.height) *
+          MediaQuery.of(context).size.height,
       child: ListView.builder(
           itemCount: listCategory.length,
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index) {
             return Container(
-              margin: EdgeInsets.only(left: 8, right: 2),
+              margin: EdgeInsets.symmetric(horizontal: 12),
               child: Column(
                 children: [
                   Container(
-                    padding: EdgeInsets.all(5),
-                    width: (70 / Mediawidth) * Mediawidth,
-                    height: (70 / Mediaheight) * Mediaheight,
+                    // padding: EdgeInsets.all(5),
+                    // width: (70 / Mediawidth) * Mediawidth,
+                    // height: (70 / Mediaheight) * Mediaheight,
                     child: ClipOval(
                       child: Material(
                         color: Color(0xffFFFFFF), // button color
@@ -286,6 +272,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                           splashColor: Colors.red, // inkwell color
                           child: Image.asset(
                             listCategory[index].iconData,
+                            scale: 2,
                             //fit: BoxFit.fill,
                           ),
                           onTap: () {},
