@@ -43,7 +43,7 @@ class _PlayerInformationState extends State<PlayerInformation>
     super.initState();
     Provider.of<ProviderConstants>(context, listen: false)
         .ChangeIndexTap(Value: 0);
-    tabController = new TabController(length: 2, vsync: this, initialIndex: 0);
+    tabController = new TabController(length: 3, vsync: this, initialIndex: 0);
     tabController.addListener(_setActiveTabIndex);
   }
 
@@ -79,6 +79,7 @@ class _PlayerInformationState extends State<PlayerInformation>
           children: [
             ShowInormationScreen(),
             MyPostsProfileScreen(),
+            MyConversationProfileScreen(),
             //     MyConversationProfileScreen(),
           ], //01019334359
         ));
@@ -146,6 +147,9 @@ class _PlayerInformationState extends State<PlayerInformation>
             Tab(
                 child: ItemTapBar(
                     context: context, Tital: "منشوراتي ", indexItem: 1)),
+            Tab(
+                child: ItemTapBar(
+                    context: context, Tital: "محادثات ", indexItem: 2))
           ],
         ),
       ),

@@ -138,7 +138,7 @@ class _ShowInormationScreenState extends State<ShowInormationScreen> {
           child: Column(
             children: [
               RowInformation(
-                  title: "تاريخ الولادة",
+                  title: "تاريخ الميلاد",
                   content: "24/10/1985",
                   iconTitle: Icons.calendar_today),
               RowInformation(
@@ -152,7 +152,7 @@ class _ShowInormationScreenState extends State<ShowInormationScreen> {
               RowInformation(
                   title: "الوزن", content: "76", iconTitle: Icons.anchor),
               RowInformation(
-                  title: "النادي",
+                  title: "النادى/الاكاديمية",
                   content: "اتحاد جدة",
                   iconTitle: Icons.person),
               RowInformation(
