@@ -1,8 +1,10 @@
+import 'package:cv_sports/ProviderAll.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'package:flutter_snake_navigationbar/flutter_snake_navigationbar.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:provider/provider.dart';
 
 import 'CategoryScreen.dart';
 import 'HomeScreen.dart';
@@ -32,11 +34,11 @@ class _MainScreenState extends State<MainScreen> {
 
   Color selectedColor = Colors.blueGrey;
   Gradient selectedGradient =
-      const LinearGradient(colors: [Colors.red, Colors.amber]);
+  const LinearGradient(colors: [Colors.red, Colors.amber]);
 
   Color unselectedColor = Colors.white;
   Gradient unselectedGradient =
-      const LinearGradient(colors: [Colors.red, Colors.blueGrey]);
+  const LinearGradient(colors: [Colors.red, Colors.blueGrey]);
 
   Color containerColor;
   List<Color> containerColors = [
@@ -74,7 +76,13 @@ class _MainScreenState extends State<MainScreen> {
         showUnselectedLabels: showUnselectedLabels,
         showSelectedLabels: showSelectedLabels,
         currentIndex: _selectedItemPosition,
-        onTap: (index) => setState(() => _selectedItemPosition = index),
+        onTap: (index) {
+          Provider.of<ProviderConstants>(context, listen: false)
+              .ChangeIndexTap(Value: 0);
+          setState(() {
+            _selectedItemPosition = index;
+          });
+        },
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
@@ -89,18 +97,18 @@ class _MainScreenState extends State<MainScreen> {
               label: 'calendar'),
           BottomNavigationBarItem(
               icon: FaIcon(
-            FontAwesomeIcons.voteYea,
-          )),
+                FontAwesomeIcons.voteYea,
+              )),
           BottomNavigationBarItem(
               icon: FaIcon(
-            FontAwesomeIcons.comment,
-          )),
+                FontAwesomeIcons.comment,
+              )),
         ],
       ),
       backgroundColor: Color(0xffF9FAFF),
       appBar: (_selectedItemPosition == 1 ||
-              _selectedItemPosition == 3 ||
-              _selectedItemPosition == 4)
+          _selectedItemPosition == 3 ||
+          _selectedItemPosition == 4)
           ? null
           : appBarMainScreen(Mediawidth, Mediaheight),
       body: ListScreen[_selectedItemPosition],
@@ -193,11 +201,11 @@ class _MainScreenState extends State<MainScreen> {
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(20),
                           borderSide:
-                              const BorderSide(color: Colors.white, width: 0.0),
+                          const BorderSide(color: Colors.white, width: 0.0),
                         ),
                         border: OutlineInputBorder(
                           borderSide:
-                              const BorderSide(color: Colors.white, width: 0.0),
+                          const BorderSide(color: Colors.white, width: 0.0),
                           borderRadius: BorderRadius.circular(20),
                         ),
                         //         border: InputBorder.none,

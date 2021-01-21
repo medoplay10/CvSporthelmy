@@ -105,12 +105,6 @@ class _CategoryScreenState extends State<CategoryScreen> {
             "https://sportstalk1260.com/wp-content/uploads/2020/03/football-history.jpg"),
   ];
 
-  @override
-  void initState() {
-    Provider.of<ProviderConstants>(context, listen: false)
-        .ChangeIndexTap(Value: 0);
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {

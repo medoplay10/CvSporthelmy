@@ -15,12 +15,6 @@ class VoteScreen extends StatefulWidget {
 class _VoteScreenState extends State<VoteScreen> {
   String sortValueFilter;
 
-  @override
-  void didChangeDependencies() {
-    Provider.of<ProviderConstants>(context, listen: false)
-        .ChangeIndexTap(Value: 0);
-    super.didChangeDependencies();
-  }
 
   @override
   Widget build(BuildContext context) {

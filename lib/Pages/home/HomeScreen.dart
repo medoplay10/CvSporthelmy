@@ -96,12 +96,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
   int _current = 0;
 
-  @override
-  void initState() {
-    Provider.of<ProviderConstants>(context, listen: false)
-        .ChangeIndexTap(Value: 0);
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -136,7 +130,7 @@ class _HomeScreenState extends State<HomeScreen> {
             SizeWant: 10,
             Mediaheight: Mediaheight,
           ),
-          Card(elevation: 5, child: carouselNews()),
+          carouselNews(),
 
           Container(
               margin: EdgeInsets.only(right: 10),
@@ -380,7 +374,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               Container(
                 width: MediaQuery.of(context).size.width * 0.20,
-                height: MediaQuery.of(context).size.height * 0.04,
+                height: MediaQuery.of(context).size.height * 0.05,
                 alignment: Alignment.center,
                 margin: EdgeInsets.only(bottom: 10),
                 child: RaisedButton(
@@ -394,13 +388,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(25)),
                   color: Color(0xff2C2B53),
-                  child: Column(
-                    children: [
-                      Text(
-                        "المزيد",
-                        style: TextStyle(color: Colors.white),
-                      ),
-                    ],
+                  child: Text(
+                    "المزيد",
+                    style: TextStyle(color: Colors.white, fontSize: 14),
                   ),
                 ),
               )
@@ -675,7 +665,7 @@ class _HomeScreenState extends State<HomeScreen> {
           child: CarouselSlider.builder(
             itemCount: listSport.length,
             options: CarouselOptions(
-                height: MediaQuery.of(context).size.height * .25,
+                height: MediaQuery.of(context).size.height * .22,
                 aspectRatio: 16 / 9,
                 viewportFraction: .95,
                 enlargeCenterPage: true,

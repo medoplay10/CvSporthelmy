@@ -174,8 +174,6 @@ class _ShowInormationScreenState extends State<ShowInormationScreen> {
     );
   }
 
-//========================== Row Information ==========================
-
   Column RowInformation({String title, var iconTitle, String content}) {
     return Column(
       children: [
@@ -191,13 +189,12 @@ class _ShowInormationScreenState extends State<ShowInormationScreen> {
                 SizedBox(
                   width: 5,
                 ),
-                Text(title, style: TextStyle(fontSize: ScreenUtil().setSp(16))),
+                Text(title, style: TextStyle(fontSize: 14)),
               ],
             ),
             Text(
               content,
-              style: TextStyle(
-                  fontSize: ScreenUtil().setSp(16), color: Color(0xff2C2B53)),
+              style: TextStyle(fontSize: 14, color: Color(0xff2C2B53)),
             ),
           ],
         ),
@@ -209,13 +206,13 @@ class _ShowInormationScreenState extends State<ShowInormationScreen> {
     );
   }
 
-//========================== Row Social Media Cards ==========================
+  //======================= Widget Row Social Media Cards ==============================
 
   Container RowSocialMediaCards(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width * 0.85,
       height: MediaQuery.of(context).size.height * 0.09,
-      margin: EdgeInsets.only(bottom: 8),
+      margin: EdgeInsets.only(bottom: 0),
       decoration: BoxDecoration(
           //    color: BackgroundColor,
           borderRadius: BorderRadius.circular(20),
@@ -263,93 +260,9 @@ class _ShowInormationScreenState extends State<ShowInormationScreen> {
     );
   }
 
-//========================== Card Awards ==========================
+  //======================= Widget Card Awards ==============================
+
   Container CardAwards(BuildContext context) {
-    return Container(
-      width: MediaQuery.of(context).size.width * 0.85,
-      height: MediaQuery.of(context).size.height * 0.18,
-      decoration: BoxDecoration(
-          //   color: BackgroundColor,
-          borderRadius: BorderRadius.circular(20),
-          border: Border.all(color: Colors.white)),
-      child: Card(
-        margin: EdgeInsets.all(0),
-        elevation: 2,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Expanded(
-              child: Container(
-                margin: EdgeInsets.symmetric(horizontal: 20, vertical: 18),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    SingleChildScrollView(
-                      child: Column(
-                        children: [
-                          Image.asset(
-                            "assets/images/trophy.png",
-                            height: MediaQuery.of(context).size.height * 0.05,
-                          ),
-                          Text(
-                            "الدوري السعودي",
-                            style: TextStyle(fontSize: ScreenUtil().setSp(14)),
-                          ),
-                          Text("8",
-                              style:
-                                  TextStyle(fontSize: ScreenUtil().setSp(14)))
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      width: (20 / MediaQuery.of(context).size.width) *
-                          MediaQuery.of(context).size.width,
-                    ),
-                    SingleChildScrollView(
-                      child: Column(
-                        children: [
-                          Image.asset(
-                            "assets/images/trophy.png",
-                            height: MediaQuery.of(context).size.height * 0.05,
-                          ),
-                          Text("الدوري السعودي",
-                              style:
-                                  TextStyle(fontSize: ScreenUtil().setSp(14))),
-                          Text("8",
-                              style:
-                                  TextStyle(fontSize: ScreenUtil().setSp(14)))
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            InkWell(
-              onTap: () => displayBottomSheet(context),
-              child: Container(
-                alignment: Alignment.center,
-                margin: EdgeInsets.symmetric(vertical: 2),
-                decoration: BoxDecoration(
-                    color: Color(0xffE7EBF8),
-                    borderRadius: BorderRadius.circular(20),
-                    border: Border.all(color: Colors.white)),
-                //         height: MediaQuery.of(context).size.height * 0.40,
-                width: MediaQuery.of(context).size.width * 0.15,
-                child: Text("+10",
-                    style: TextStyle(fontSize: ScreenUtil().setSp(14))),
-              ),
-            )
-          ],
-        ),
-      ),
-    );
-  }
-
-//========================== Card Medals ==========================
-
-  Container CardMedals(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width * 0.85,
       height: MediaQuery.of(context).size.height * 0.18,
@@ -365,44 +278,122 @@ class _ShowInormationScreenState extends State<ShowInormationScreen> {
           children: [
             Expanded(
               child: Container(
-                margin: EdgeInsets.symmetric(horizontal: 3, vertical: 18),
+                margin: EdgeInsets.symmetric(horizontal: 8, vertical: 18),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    SingleChildScrollView(
-                      child: Column(
-                        children: [
-                          Image.asset(
-                            "assets/images/medal.png",
-                            height: MediaQuery.of(context).size.height * 0.05,
-                          ),
-                          Text("افضل لاعب",
-                              style:
-                                  TextStyle(fontSize: ScreenUtil().setSp(14))),
-                          Text("8",
-                              style:
-                                  TextStyle(fontSize: ScreenUtil().setSp(14)))
-                        ],
+                    Container(
+                      width: 100,
+                      child: SingleChildScrollView(
+                        child: Column(
+                          children: [
+                            Image.asset(
+                              "assets/images/trophy.png",
+                              fit: BoxFit.fill,
+                              height: MediaQuery.of(context).size.height * 0.05,
+                            ),
+                            Text(
+                              "الدوري السعودي",
+                              style: TextStyle(fontSize: 12),
+                            ),
+                            Text("8")
+                          ],
+                        ),
                       ),
                     ),
-                    SizedBox(
-                      width: (20 / MediaQuery.of(context).size.width) *
-                          MediaQuery.of(context).size.width,
+                    SizedBox(width: 10),
+                    Container(
+                      width: 100,
+                      child: SingleChildScrollView(
+                        child: Column(
+                          children: [
+                            Image.asset(
+                              "assets/images/trophy.png",
+                              fit: BoxFit.fill,
+                              height: MediaQuery.of(context).size.height * 0.05,
+                            ),
+                            Text("الدوري السعودي",
+                                style: TextStyle(fontSize: 12)),
+                            Text("8")
+                          ],
+                        ),
+                      ),
                     ),
-                    SingleChildScrollView(
-                      child: Column(
-                        children: [
-                          Image.asset(
-                            "assets/images/medal.png",
-                            height: MediaQuery.of(context).size.height * 0.05,
-                          ),
-                          Text("افضل صانع لعب",
-                              style:
-                                  TextStyle(fontSize: ScreenUtil().setSp(14))),
-                          Text("8",
-                              style:
-                                  TextStyle(fontSize: ScreenUtil().setSp(14)))
-                        ],
+                  ],
+                ),
+              ),
+            ),
+            Container(
+              alignment: Alignment.center,
+              margin: EdgeInsets.symmetric(vertical: 2),
+              decoration: BoxDecoration(
+                  color: Color(0xffE7EBF8),
+                  borderRadius: BorderRadius.circular(20),
+                  border: Border.all(color: Colors.white)),
+              //         height: MediaQuery.of(context).size.height * 0.40,
+              width: MediaQuery.of(context).size.width * 0.15,
+              child: Text("+2"),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+
+  //======================= Widget Card Medals ==============================
+
+  Container CardMedals(BuildContext context) {
+    return Container(
+      width: MediaQuery.of(context).size.width * 0.85,
+      height: MediaQuery.of(context).size.height * 0.18,
+      decoration: BoxDecoration(
+        //     color: BackgroundColor,
+          borderRadius: BorderRadius.circular(20),
+          border: Border.all(color: Colors.white)),
+      child: Card(
+        margin: EdgeInsets.all(0),
+        elevation: 2,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        child: Row(
+          children: [
+            Expanded(
+              child: Container(
+                margin: EdgeInsets.symmetric(horizontal: 5, vertical: 18),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Container(
+                      width: 100,
+                      child: SingleChildScrollView(
+                        child: Column(
+                          children: [
+                            Image.asset(
+                              "assets/images/medal.png",
+                              fit: BoxFit.fill,
+                              height: MediaQuery.of(context).size.height * 0.05,
+                            ),
+                            Text("افضل لاعب", style: TextStyle(fontSize: 12)),
+                            Text("8")
+                          ],
+                        ),
+                      ),
+                    ),
+                    SizedBox(width: 10),
+                    Container(
+                      width: 100,
+                      child: SingleChildScrollView(
+                        child: Column(
+                          children: [
+                            Image.asset(
+                              "assets/images/medal.png",
+                              fit: BoxFit.fill,
+                              height: MediaQuery.of(context).size.height * 0.05,
+                            ),
+                            Text("افضل صانع لعب",
+                                style: TextStyle(fontSize: 12)),
+                            Text("8")
+                          ],
+                        ),
                       ),
                     ),
                   ],
