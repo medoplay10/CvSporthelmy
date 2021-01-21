@@ -243,8 +243,11 @@ class _ProfileScreenState extends State<ProfileScreen>
                     },
                     child: ListTile(
                       trailing: Icon(Icons.arrow_back_outlined),
-                      title: Text("اضافة او تعديل جوائز", style: TextStyle(
-                          fontSize: 14, color: Colors.grey.shade700),),
+                      title: Text(
+                        "اضافة او تعديل الجوائز",
+                        style: TextStyle(
+                            fontSize: 14, color: Colors.grey.shade700),
+                      ),
                       leading: Image.asset(
                         "assets/images/trophy.png", height: 26.42,
                         width: 27.55,),
@@ -260,8 +263,11 @@ class _ProfileScreenState extends State<ProfileScreen>
                     },
                     child: ListTile(
                       trailing: Icon(Icons.arrow_back_outlined),
-                      title: Text("اضافة او تعديل ميداليات", style: TextStyle(
-                          fontSize: 14, color: Colors.grey.shade700),),
+                      title: Text(
+                        "اضافة او تعديل الميداليات",
+                        style: TextStyle(
+                            fontSize: 14, color: Colors.grey.shade700),
+                      ),
                       leading: Image.asset(
                         "assets/images/medal.png", height: 26.42,
                         width: 27.55,),
@@ -302,7 +308,7 @@ class _ProfileScreenState extends State<ProfileScreen>
                     child: ListTile(
                       trailing: Icon(Icons.arrow_back_outlined),
                       title: Text(
-                        "اضافة او تعديل صور",
+                        "اضافة او تعديل الصور",
                         style: TextStyle(
                             fontSize: 14, color: Colors.grey.shade700),
                       ),
