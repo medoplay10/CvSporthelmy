@@ -40,7 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
     Sports(
         Tital: "اكاديميات",
         IconAssets: FontAwesomeIcons.warehouse,
-        iconData: "assets/images/95.png",
+        iconData: "assets/images/94.png",
         UrlImage: "assets/images/slider.png"),
     Sports(
         Tital: "المدربين",
