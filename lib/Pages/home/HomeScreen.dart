@@ -780,36 +780,34 @@ class _HomeScreenState extends State<HomeScreen> {
               },
               child: Container(
                 margin: EdgeInsets.only(left: 8, right: 2),
-                child: SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      Container(
-                        //   alignment: Alignment.center,
-                        padding: EdgeInsets.all(5),
-                        width: (70 / Mediawidth) * Mediawidth,
-                        height: (70 / Mediaheight) * Mediaheight,
-                        child: ClipOval(
-                          child: Material(
-                            color: Color(0xff2C2B53), // button color
-                            child: InkWell(
-                                splashColor: Colors.red, // inkwell color
-                                child: Center(
-                                  child: Image.asset(
-                                    listSport[index].iconData,
-                                    scale: 3,
-                                    color: Colors.white,
-                                    //    size: 25,
-                                  ),
-                                )),
-                          ),
+                child: Column(
+                  children: [
+                    Container(
+                      //   alignment: Alignment.center,
+                      padding: EdgeInsets.all(5),
+                      width: (70 / Mediawidth) * Mediawidth,
+                      height: (70 / Mediaheight) * Mediaheight,
+                      child: ClipOval(
+                        child: Material(
+                          color: Color(0xff2C2B53), // button color
+                          child: InkWell(
+                              splashColor: Colors.red, // inkwell color
+                              child: Center(
+                                child: Image.asset(
+                                  listSport[index].iconData,
+                                  scale: 3,
+                                  color: Colors.white,
+                                  //    size: 25,
+                                ),
+                              )),
                         ),
                       ),
-                      Text(
-                        listSport[index].Tital,
-                        style: TextStyle(fontSize: ScreenUtil().setSp(14)),
-                      )
-                    ],
-                  ),
+                    ),
+                    Text(
+                      listSport[index].Tital,
+                      style: TextStyle(fontSize: ScreenUtil().setSp(14)),
+                    )
+                  ],
                 ),
               ),
             );
