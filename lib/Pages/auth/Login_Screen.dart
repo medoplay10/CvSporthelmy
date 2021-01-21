@@ -28,15 +28,16 @@ class LoginScreen extends StatelessWidget {
         ),
         child: Container(
           margin:
-              EdgeInsets.only(bottom: MediaQuery.of(context).size.height * .10),
+              EdgeInsets.only(bottom: MediaQuery.of(context).size.height * .15),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Container(
                 // margin: EdgeInsets.only(
                 //     top: MediaQuery.of(context).size.height * .40),
-                alignment: Alignment.center,
+                alignment: Alignment.topCenter,
                 child: Container(
+                  height: MediaQuery.of(context).size.height * .06,
                   width: MediaQuery.of(context).size.width * 0.75,
                   child: TextFormField(
                     style: TextStyle(fontSize: 18, color: Colors.black),
@@ -59,6 +60,7 @@ class LoginScreen extends StatelessWidget {
                         borderRadius: BorderRadius.circular(20),
                       ),
                       labelText: "ادخل هاتفك",
+                      counterText: "",
                       labelStyle:
                           TextStyle(fontSize: 16, color: Colors.grey.shade700),
                     ),
@@ -66,7 +68,7 @@ class LoginScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 8,
+                height: 15,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
