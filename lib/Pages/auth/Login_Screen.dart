@@ -27,8 +27,8 @@ class LoginScreen extends StatelessWidget {
           //     shape: BoxShape.circle,
         ),
         child: Container(
-          margin:
-              EdgeInsets.only(bottom: MediaQuery.of(context).size.height * .15),
+          margin: EdgeInsets.only(
+              bottom: MediaQuery.of(context).size.height * .115),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [

@@ -755,7 +755,7 @@ class _HomeScreenState extends State<HomeScreen> {
   SizedBox rowListIcon(double Mediawidth, double Mediaheight) {
     return SizedBox(
       width: double.infinity,
-      height: MediaQuery.of(context).size.height * .13,
+      height: MediaQuery.of(context).size.height * .135,
       child: ListView.builder(
           itemCount: listSport.length,
           scrollDirection: Axis.horizontal,
