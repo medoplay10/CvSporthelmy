@@ -189,12 +189,13 @@ class _ShowInormationScreenState extends State<ShowInormationScreen> {
                 SizedBox(
                   width: 5,
                 ),
-                Text(title, style: TextStyle(fontSize: 14)),
+                Text(title, style: TextStyle(fontSize: ScreenUtil().setSp(14))),
               ],
             ),
             Text(
               content,
-              style: TextStyle(fontSize: 14, color: Color(0xff2C2B53)),
+              style: TextStyle(
+                  fontSize: ScreenUtil().setSp(14), color: Color(0xff2C2B53)),
             ),
           ],
         ),
@@ -294,7 +295,8 @@ class _ShowInormationScreenState extends State<ShowInormationScreen> {
                             ),
                             Text(
                               "الدوري السعودي",
-                              style: TextStyle(fontSize: 12),
+                              style:
+                                  TextStyle(fontSize: ScreenUtil().setSp(12)),
                             ),
                             Text("8")
                           ],
@@ -313,7 +315,8 @@ class _ShowInormationScreenState extends State<ShowInormationScreen> {
                               height: MediaQuery.of(context).size.height * 0.05,
                             ),
                             Text("الدوري السعودي",
-                                style: TextStyle(fontSize: 12)),
+                                style: TextStyle(
+                                    fontSize: ScreenUtil().setSp(12))),
                             Text("8")
                           ],
                         ),
@@ -372,7 +375,9 @@ class _ShowInormationScreenState extends State<ShowInormationScreen> {
                               fit: BoxFit.fill,
                               height: MediaQuery.of(context).size.height * 0.05,
                             ),
-                            Text("افضل لاعب", style: TextStyle(fontSize: 12)),
+                            Text("افضل لاعب",
+                                style: TextStyle(
+                                    fontSize: ScreenUtil().setSp(12))),
                             Text("8")
                           ],
                         ),
@@ -390,7 +395,8 @@ class _ShowInormationScreenState extends State<ShowInormationScreen> {
                               height: MediaQuery.of(context).size.height * 0.05,
                             ),
                             Text("افضل صانع لعب",
-                                style: TextStyle(fontSize: 12)),
+                                style: TextStyle(
+                                    fontSize: ScreenUtil().setSp(12))),
                             Text("8")
                           ],
                         ),
@@ -517,7 +523,7 @@ class _ShowInormationScreenState extends State<ShowInormationScreen> {
                 children: [
                   Text(
                     "الجوائز",
-                    style: TextStyle(fontSize: 18),
+                    style: TextStyle(fontSize: ScreenUtil().setSp(18)),
                   ),
                   InkWell(
                     onTap: () {},
@@ -533,12 +539,14 @@ class _ShowInormationScreenState extends State<ShowInormationScreen> {
                                 "توفيق حسين",
                                 // textAlign:TextAlign.left ,
                                 style: TextStyle(
-                                    fontSize: 14, color: Colors.grey.shade700),
+                                    fontSize: ScreenUtil().setSp(14),
+                                    color: Colors.grey.shade700),
                               ),
                               Text(
                                 "اعلامي",
                                 style: TextStyle(
-                                    fontSize: 12, color: Colors.grey.shade500),
+                                    fontSize: ScreenUtil().setSp(12),
+                                    color: Colors.grey.shade500),
                               ),
                             ],
                           ),
@@ -564,12 +572,14 @@ class _ShowInormationScreenState extends State<ShowInormationScreen> {
                                 "توفيق حسين",
                                 // textAlign:TextAlign.left ,
                                 style: TextStyle(
-                                    fontSize: 14, color: Colors.grey.shade700),
+                                    fontSize: ScreenUtil().setSp(14),
+                                    color: Colors.grey.shade700),
                               ),
                               Text(
                                 "اعلامي",
                                 style: TextStyle(
-                                    fontSize: 12, color: Colors.grey.shade500),
+                                    fontSize: ScreenUtil().setSp(12),
+                                    color: Colors.grey.shade500),
                               ),
                             ],
                           ),
@@ -595,12 +605,14 @@ class _ShowInormationScreenState extends State<ShowInormationScreen> {
                                 "توفيق حسين",
                                 // textAlign:TextAlign.left ,
                                 style: TextStyle(
-                                    fontSize: 14, color: Colors.grey.shade700),
+                                    fontSize: ScreenUtil().setSp(14),
+                                    color: Colors.grey.shade700),
                               ),
                               Text(
                                 "اعلامي",
                                 style: TextStyle(
-                                    fontSize: 12, color: Colors.grey.shade500),
+                                    fontSize: ScreenUtil().setSp(12),
+                                    color: Colors.grey.shade500),
                               ),
                             ],
                           ),

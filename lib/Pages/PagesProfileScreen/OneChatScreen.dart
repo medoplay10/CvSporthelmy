@@ -141,7 +141,8 @@ class OneChatScreen extends StatelessWidget {
               Expanded(
                 child: TextField(
                   maxLines: null,
-                  style: TextStyle(fontSize: 14, color: Colors.black),
+                  style: TextStyle(
+                      fontSize: ScreenUtil().setSp(14), color: Colors.black),
                   controller: textEditingController,
                   onChanged: (value) {
                     // setState(() {
@@ -150,7 +151,8 @@ class OneChatScreen extends StatelessWidget {
                   },
                   decoration: InputDecoration(
                     border: InputBorder.none,
-                    hintStyle: TextStyle(fontSize: 14, color: Colors.black),
+                    hintStyle: TextStyle(
+                        fontSize: ScreenUtil().setSp(12), color: Colors.black),
                     hintText: "اكتب رسالتك هنا",
                   ),
                 ),

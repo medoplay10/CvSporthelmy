@@ -186,7 +186,7 @@ class _SecondScreenComplateState extends State<SecondScreenComplate> {
                 fillColor: Colors.white,
                 filled: true,
                 border: InputBorder.none,
-                hintStyle: TextStyle(fontSize: 14),
+                hintStyle: TextStyle(fontSize: ScreenUtil().setSp(14)),
                 hintText: "اكتب  هنا",
               ),
             ),
@@ -308,7 +308,8 @@ class _SecondScreenComplateState extends State<SecondScreenComplate> {
                     lastDate: DateTime(2100));
               },
               format: DateFormat("yyyy-MM-dd"),
-              style: TextStyle(fontSize: 18, color: Colors.black),
+              style: TextStyle(
+                  fontSize: ScreenUtil().setSp(18), color: Colors.black),
               decoration: InputDecoration(
                 filled: true,
                 fillColor: Colors.white,
@@ -316,7 +317,8 @@ class _SecondScreenComplateState extends State<SecondScreenComplate> {
                 border: InputBorder.none,
                 hintText: title,
 
-                hintStyle: TextStyle(fontSize: 16, color: Colors.grey),
+                hintStyle: TextStyle(
+                    fontSize: ScreenUtil().setSp(16), color: Colors.grey),
                 //    labelText: "date of Birth".tr(),
                 //        labelStyle: TextStyle(fontSize: 16, color: Colors.grey.shade700),
               ),
@@ -342,7 +344,7 @@ class _SecondScreenComplateState extends State<SecondScreenComplate> {
       height: MediaQuery.of(context).size.height * 0.07,
       width: MediaQuery.of(context).size.width * 0.85,
       child: TextFormField(
-        style: TextStyle(fontSize: 18, color: Colors.black),
+        style: TextStyle(fontSize: ScreenUtil().setSp(18), color: Colors.black),
         decoration: InputDecoration(
           filled: true,
           fillColor: Colors.white,
@@ -351,7 +353,8 @@ class _SecondScreenComplateState extends State<SecondScreenComplate> {
             borderRadius: BorderRadius.circular(20),
           ),
           labelText: TextField,
-          labelStyle: TextStyle(fontSize: 16, color: Colors.grey),
+          labelStyle:
+              TextStyle(fontSize: ScreenUtil().setSp(16), color: Colors.grey),
         ),
       ),
     );

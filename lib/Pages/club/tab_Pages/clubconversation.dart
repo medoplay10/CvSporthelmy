@@ -1,6 +1,7 @@
 import 'package:cv_sports/Pages/PagesProfileScreen/OneChatScreen.dart';
 import 'package:cv_sports/Widgets/newsCards.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/screenutil.dart';
 
 class MyConversationProfileScreen extends StatelessWidget {
   @override
@@ -56,12 +57,14 @@ class MyConversationProfileScreen extends StatelessWidget {
                           children: [
                             Text(
                               "الاهلي المصري",
-                              style: TextStyle(fontSize: 13),
+                              style:
+                                  TextStyle(fontSize: ScreenUtil().setSp(13)),
                             ),
                             Spacer(),
                             Text(
                               "04:22AM",
-                              style: TextStyle(fontSize: 13),
+                              style:
+                                  TextStyle(fontSize: ScreenUtil().setSp(13)),
                             ),
                           ],
                         ),
@@ -75,7 +78,8 @@ class MyConversationProfileScreen extends StatelessWidget {
                             Text(
                               "نادي",
                               style: TextStyle(
-                                  fontSize: 10, fontWeight: FontWeight.bold),
+                                  fontSize: ScreenUtil().setSp(10),
+                                  fontWeight: FontWeight.bold),
                               overflow: TextOverflow.ellipsis,
                             ),
                           ],
@@ -87,7 +91,7 @@ class MyConversationProfileScreen extends StatelessWidget {
                         Text(
                           "نود التحدث مع وكيل اعمالك للتعاقد معك",
                           textAlign: TextAlign.right,
-                          style: TextStyle(fontSize: 12),
+                          style: TextStyle(fontSize: ScreenUtil().setSp(12)),
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
                         )

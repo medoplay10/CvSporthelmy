@@ -1,6 +1,7 @@
 import 'package:cv_sports/ProviderAll.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/screenutil.dart';
 
 import 'package:flutter_snake_navigationbar/flutter_snake_navigationbar.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -190,7 +191,7 @@ class _MainScreenState extends State<MainScreen> {
                   Expanded(
                     child: TextFormField(
                       style: TextStyle(
-                        fontSize: 14,
+                        fontSize: ScreenUtil().setSp(14),
                         color: Colors.black,
                       ),
                       decoration: InputDecoration(

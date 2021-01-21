@@ -52,7 +52,7 @@ class AddPrize extends StatelessWidget {
                 textAlign: TextAlign.start,
                 maxLines: 1,
                 style: TextStyle(
-                  fontSize: 14,
+                  fontSize: ScreenUtil().setSp(14),
                   color: Colors.black,
                 ),
                 decoration: InputDecoration(
@@ -60,7 +60,7 @@ class AddPrize extends StatelessWidget {
                   fillColor: Colors.white,
                   filled: true,
                   border: InputBorder.none,
-                  hintStyle: TextStyle(fontSize: 14),
+                  hintStyle: TextStyle(fontSize: ScreenUtil().setSp(12)),
                   hintText: "اسم الجائزة",
                 ),
               ),

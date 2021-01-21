@@ -425,7 +425,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   //      color: Color(0xffF4F7FF),
                 ),
                 child: GridView.count(
-                  childAspectRatio: .81,
+                  childAspectRatio: .88,
                   primary: false,
                   shrinkWrap: true,
                   crossAxisSpacing: 2,
@@ -491,8 +491,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Column(
       children: [
         Container(
-          height: (60 / MediaQuery.of(context).size.height) *
-              MediaQuery.of(context).size.height,
+          height: MediaQuery.of(context).size.height * 0.07,
           width: (60 / MediaQuery.of(context).size.width) *
               MediaQuery.of(context).size.width,
           child: CircleAvatar(
@@ -665,7 +664,7 @@ class _HomeScreenState extends State<HomeScreen> {
           child: CarouselSlider.builder(
             itemCount: listSport.length,
             options: CarouselOptions(
-                height: MediaQuery.of(context).size.height * .22,
+                height: MediaQuery.of(context).size.height * .26,
                 aspectRatio: 16 / 9,
                 viewportFraction: .95,
                 enlargeCenterPage: true,
@@ -676,22 +675,14 @@ class _HomeScreenState extends State<HomeScreen> {
                   });
                 }),
             itemBuilder: (ctx, index) {
-              return Container(
-                child: SingleChildScrollView(
-                  child: ClipRRect(
-                      borderRadius: BorderRadius.circular(10.0),
-                      child: Column(
-                        children: [
-                          Image.asset(
-                            listSport[index].UrlImage,
-                            fit: BoxFit.fill,
-                            height: MediaQuery.of(context).size.height * .24,
-                            width: MediaQuery.of(context).size.width,
-                          ),
-                        ],
-                      )),
-                ),
-              );
+              return ClipRRect(
+                  borderRadius: BorderRadius.circular(10.0),
+                  child: Image.asset(
+                    listSport[index].UrlImage,
+                    fit: BoxFit.fill,
+                    //  height: MediaQuery.of(context).size.height * .30,
+                    // width: MediaQuery.of(context).size.width,
+                  ));
             },
           ),
         ),
@@ -702,7 +693,7 @@ class _HomeScreenState extends State<HomeScreen> {
             return Container(
               width: 8.0,
               height: 8.0,
-              margin: EdgeInsets.only(bottom: 25.0, right: 5),
+              margin: EdgeInsets.only(bottom: 35, right: 5),
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 color: _current == index
@@ -764,7 +755,7 @@ class _HomeScreenState extends State<HomeScreen> {
   SizedBox rowListIcon(double Mediawidth, double Mediaheight) {
     return SizedBox(
       width: double.infinity,
-      height: MediaQuery.of(context).size.height * .14,
+      height: MediaQuery.of(context).size.height * .13,
       child: ListView.builder(
           itemCount: listSport.length,
           scrollDirection: Axis.horizontal,
@@ -789,34 +780,36 @@ class _HomeScreenState extends State<HomeScreen> {
               },
               child: Container(
                 margin: EdgeInsets.only(left: 8, right: 2),
-                child: Column(
-                  children: [
-                    Container(
-                      //   alignment: Alignment.center,
-                      padding: EdgeInsets.all(5),
-                      width: (70 / Mediawidth) * Mediawidth,
-                      height: (70 / Mediaheight) * Mediaheight,
-                      child: ClipOval(
-                        child: Material(
-                          color: Color(0xff2C2B53), // button color
-                          child: InkWell(
-                              splashColor: Colors.red, // inkwell color
-                              child: Center(
-                                child: Image.asset(
-                                  listSport[index].iconData,
-                                  scale: 3,
-                                  color: Colors.white,
-                                  //    size: 25,
-                                ),
-                              )),
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      Container(
+                        //   alignment: Alignment.center,
+                        padding: EdgeInsets.all(5),
+                        width: (70 / Mediawidth) * Mediawidth,
+                        height: (70 / Mediaheight) * Mediaheight,
+                        child: ClipOval(
+                          child: Material(
+                            color: Color(0xff2C2B53), // button color
+                            child: InkWell(
+                                splashColor: Colors.red, // inkwell color
+                                child: Center(
+                                  child: Image.asset(
+                                    listSport[index].iconData,
+                                    scale: 3,
+                                    color: Colors.white,
+                                    //    size: 25,
+                                  ),
+                                )),
+                          ),
                         ),
                       ),
-                    ),
-                    Text(
-                      listSport[index].Tital,
-                      style: TextStyle(fontSize: 14),
-                    )
-                  ],
+                      Text(
+                        listSport[index].Tital,
+                        style: TextStyle(fontSize: ScreenUtil().setSp(14)),
+                      )
+                    ],
+                  ),
                 ),
               ),
             );

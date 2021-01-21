@@ -81,7 +81,7 @@ class MakeNewClubScreen extends StatelessWidget {
                 textAlign: TextAlign.start,
                 maxLines: 2,
                 style: TextStyle(
-                  fontSize: 14,
+                  fontSize: ScreenUtil().setSp(14),
                   color: Colors.black,
                 ),
                 decoration: InputDecoration(
@@ -89,7 +89,7 @@ class MakeNewClubScreen extends StatelessWidget {
                   fillColor: Colors.white,
                   filled: true,
                   border: InputBorder.none,
-                  hintStyle: TextStyle(fontSize: 12),
+                  hintStyle: TextStyle(fontSize: ScreenUtil().setSp(12)),
                   hintText: "اضف الرابط",
                 ),
               ),
@@ -135,7 +135,7 @@ class MakeNewClubScreen extends StatelessWidget {
                 textAlign: TextAlign.start,
                 maxLines: 2,
                 style: TextStyle(
-                  fontSize: 12,
+                  fontSize: ScreenUtil().setSp(12),
                   color: Colors.black,
                 ),
                 decoration: InputDecoration(
@@ -143,7 +143,7 @@ class MakeNewClubScreen extends StatelessWidget {
                   fillColor: Colors.white,
                   filled: true,
                   border: InputBorder.none,
-                  hintStyle: TextStyle(fontSize: 14),
+                  hintStyle: TextStyle(fontSize: ScreenUtil().setSp(14)),
                   hintText: "اضف الرابط",
                 ),
               ),
@@ -189,7 +189,7 @@ class MakeNewClubScreen extends StatelessWidget {
                 textAlign: TextAlign.start,
                 maxLines: 2,
                 style: TextStyle(
-                  fontSize: 12,
+                  fontSize: ScreenUtil().setSp(12),
                   color: Colors.black,
                 ),
                 decoration: InputDecoration(
@@ -197,7 +197,7 @@ class MakeNewClubScreen extends StatelessWidget {
                   fillColor: Colors.white,
                   filled: true,
                   border: InputBorder.none,
-                  hintStyle: TextStyle(fontSize: 14),
+                  hintStyle: TextStyle(fontSize: ScreenUtil().setSp(14)),
                   hintText: "اضف الرابط",
                 ),
               ),
@@ -243,7 +243,7 @@ class MakeNewClubScreen extends StatelessWidget {
                 textAlign: TextAlign.start,
                 maxLines: 2,
                 style: TextStyle(
-                  fontSize: 12,
+                  fontSize: ScreenUtil().setSp(12),
                   color: Colors.black,
                 ),
                 decoration: InputDecoration(
@@ -251,7 +251,7 @@ class MakeNewClubScreen extends StatelessWidget {
                   fillColor: Colors.white,
                   filled: true,
                   border: InputBorder.none,
-                  hintStyle: TextStyle(fontSize: 14),
+                  hintStyle: TextStyle(fontSize: ScreenUtil().setSp(14)),
                   hintText: "اضف الرابط",
                 ),
               ),
@@ -319,14 +319,17 @@ class MakeNewClubScreen extends StatelessWidget {
           Flexible(
             // flex: 3,
             child: InternationalPhoneNumberInput(
-              textStyle: TextStyle(fontSize: 18, color: Colors.black),
+              textStyle: TextStyle(
+                  fontSize: ScreenUtil().setSp(18), color: Colors.black),
               onInputChanged: (PhoneNumber number) {
                 print(number.phoneNumber);
               },
               maxLength: 10,
               inputDecoration: InputDecoration(
                 hintText: "ادخل هاتفك",
-                hintStyle: TextStyle(fontSize: 16, color: Colors.grey.shade700),
+                hintStyle: TextStyle(
+                    fontSize: ScreenUtil().setSp(16),
+                    color: Colors.grey.shade700),
                 border: InputBorder.none,
                 errorBorder: InputBorder.none,
                 focusedBorder: InputBorder.none,
@@ -359,7 +362,7 @@ class MakeNewClubScreen extends StatelessWidget {
       margin: EdgeInsets.only(top: 10),
       width: MediaQuery.of(context).size.width * 0.85,
       child: TextFormField(
-        style: TextStyle(fontSize: 18, color: Colors.black),
+        style: TextStyle(fontSize: ScreenUtil().setSp(18), color: Colors.black),
         decoration: InputDecoration(
           filled: true,
           fillColor: Colors.white,
@@ -371,7 +374,8 @@ class MakeNewClubScreen extends StatelessWidget {
             borderRadius: BorderRadius.circular(20),
           ),
           labelText: TextField,
-          labelStyle: TextStyle(fontSize: 16, color: Colors.grey.shade700),
+          labelStyle: TextStyle(
+              fontSize: ScreenUtil().setSp(16), color: Colors.grey.shade700),
         ),
       ),
     );

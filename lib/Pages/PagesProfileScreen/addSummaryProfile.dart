@@ -42,7 +42,7 @@ class _addSummaryProfileState extends State<addSummaryProfile> {
               maxLines: null,
               maxLength: maxLengthStart,
               style: TextStyle(
-                fontSize: 14,
+                fontSize: ScreenUtil().setSp(14),
                 height: 1.5,
                 color: Colors.black,
               ),
@@ -57,7 +57,7 @@ class _addSummaryProfileState extends State<addSummaryProfile> {
                 fillColor: Colors.white,
                 filled: true,
                 border: InputBorder.none,
-                hintStyle: TextStyle(fontSize: 14),
+                hintStyle: TextStyle(fontSize: ScreenUtil().setSp(14)),
                 hintText: "اكتب  هنا",
               ),
             ),

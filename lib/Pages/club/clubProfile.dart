@@ -5,6 +5,7 @@ import 'package:cv_sports/Pages/PagesProfileScreen/AddPrizes.dart';
 import 'package:cv_sports/Pages/PagesProfileScreen/AddSocialMedia.dart';
 import 'package:cv_sports/Pages/PagesProfileScreen/editImageProfile.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/screenutil.dart';
 import 'package:provider/provider.dart';
 import '../club/tab_Pages/clubconversation.dart';
 import '../club/tab_Pages/clubData.dart';
@@ -99,11 +100,12 @@ class _ClubProfileState extends State<ClubProfile>
           ),
           Text(
             "خالد عمر",
-            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            style: TextStyle(
+                fontSize: ScreenUtil().setSp(16), fontWeight: FontWeight.bold),
           ),
           Text(
             "مهاجم",
-            style: TextStyle(fontSize: 12),
+            style: TextStyle(fontSize: ScreenUtil().setSp(12)),
           )
         ],
       ),

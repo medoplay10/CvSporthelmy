@@ -72,7 +72,7 @@ class AddSocialMedia extends StatelessWidget {
                 textAlign: TextAlign.start,
                 maxLines: 2,
                 style: TextStyle(
-                  fontSize: 14,
+                  fontSize: ScreenUtil().setSp(14),
                   color: Colors.black,
                 ),
                 decoration: InputDecoration(
@@ -80,7 +80,7 @@ class AddSocialMedia extends StatelessWidget {
                   fillColor: Colors.white,
                   filled: true,
                   border: InputBorder.none,
-                  hintStyle: TextStyle(fontSize: 12),
+                  hintStyle: TextStyle(fontSize: ScreenUtil().setSp(12)),
                   hintText: "اضف الرابط",
                 ),
               ),
@@ -126,7 +126,7 @@ class AddSocialMedia extends StatelessWidget {
                 textAlign: TextAlign.start,
                 maxLines: 2,
                 style: TextStyle(
-                  fontSize: 12,
+                  fontSize: ScreenUtil().setSp(12),
                   color: Colors.black,
                 ),
                 decoration: InputDecoration(
@@ -134,7 +134,7 @@ class AddSocialMedia extends StatelessWidget {
                   fillColor: Colors.white,
                   filled: true,
                   border: InputBorder.none,
-                  hintStyle: TextStyle(fontSize: 14),
+                  hintStyle: TextStyle(fontSize: ScreenUtil().setSp(14)),
                   hintText: "اضف الرابط",
                 ),
               ),
@@ -180,7 +180,7 @@ class AddSocialMedia extends StatelessWidget {
                 textAlign: TextAlign.start,
                 maxLines: 2,
                 style: TextStyle(
-                  fontSize: 12,
+                  fontSize: ScreenUtil().setSp(12),
                   color: Colors.black,
                 ),
                 decoration: InputDecoration(
@@ -188,7 +188,7 @@ class AddSocialMedia extends StatelessWidget {
                   fillColor: Colors.white,
                   filled: true,
                   border: InputBorder.none,
-                  hintStyle: TextStyle(fontSize: 14),
+                  hintStyle: TextStyle(fontSize: ScreenUtil().setSp(12)),
                   hintText: "اضف الرابط",
                 ),
               ),
@@ -234,7 +234,7 @@ class AddSocialMedia extends StatelessWidget {
                 textAlign: TextAlign.start,
                 maxLines: 2,
                 style: TextStyle(
-                  fontSize: 12,
+                  fontSize: ScreenUtil().setSp(12),
                   color: Colors.black,
                 ),
                 decoration: InputDecoration(
@@ -242,7 +242,7 @@ class AddSocialMedia extends StatelessWidget {
                   fillColor: Colors.white,
                   filled: true,
                   border: InputBorder.none,
-                  hintStyle: TextStyle(fontSize: 14),
+                  hintStyle: TextStyle(fontSize: ScreenUtil().setSp(14)),
                   hintText: "اضف الرابط",
                 ),
               ),
