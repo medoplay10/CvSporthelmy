@@ -60,57 +60,62 @@ class OneCategory extends StatelessWidget {
         ),
         child: Column(
           children: [
+            SizedBox(
+              height: 40,
+            ),
+            Container(
+              // margin: EdgeInsets.symmetric(horizontal: 5),
 
-            SizedBox(height: 40,),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                GestureDetector(
-                  onTap: () {
-                    if (isClub == false) {
-                      Navigator.of(context)
-                          .push(MaterialPageRoute(builder: (context) {
-                        return AddNewItemInCategoryScreen();
-                      }));
-                    } else {
-                      //MakeNewClubScreen
-                      Navigator.of(context)
-                          .push(MaterialPageRoute(builder: (context) {
-                        return MakeNewClubScreen();
-                      }));
-                    }
-                  },
-                  child: Icon(
-                    Icons.add_circle,
-                    color: Color(0xff5E5D8F),
-                    size: 30,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      if (isClub == false) {
+                        Navigator.of(context)
+                            .push(MaterialPageRoute(builder: (context) {
+                          return AddNewItemInCategoryScreen();
+                        }));
+                      } else {
+                        //MakeNewClubScreen
+                        Navigator.of(context)
+                            .push(MaterialPageRoute(builder: (context) {
+                          return MakeNewClubScreen();
+                        }));
+                      }
+                    },
+                    child: Icon(
+                      Icons.add_circle,
+                      color: Color(0xff5E5D8F),
+                      size: 30,
+                    ),
                   ),
-                ),
-                Container(
-                  alignment: Alignment.center,
-                  child: Column(
-                    children: [
-                      Text(
-                        "كرة القدم",
-                        style: TextStyle(fontSize: ScreenUtil().setSp(16)),
-                      ),
-                      Text(itemSport.Tital,
-                          style: TextStyle(fontSize: ScreenUtil().setSp(14))),
-                    ],
+                  Container(
+                    alignment: Alignment.center,
+                    child: Column(
+                      children: [
+                        Text(
+                          "كرة القدم",
+                          style: TextStyle(fontSize: ScreenUtil().setSp(16)),
+                        ),
+                        Text(itemSport.Tital,
+                            style: TextStyle(fontSize: ScreenUtil().setSp(14))),
+                      ],
+                    ),
+                    width: (300 / MediaQuery.of(context).size.width) *
+                        MediaQuery.of(context).size.width,
                   ),
-                  width: (300 / MediaQuery.of(context).size
-                      .width) * MediaQuery
-                      .of(context)
-                      .size
-                      .width,
-
-                ),
-                IconButton(
-                  icon: Icon(Icons.arrow_back_outlined), onPressed: () {
-                  Navigator.pop(context);
-                }, iconSize: 30,)
-              ],),
+                  IconButton(
+                    icon: Icon(Icons.arrow_back_outlined),
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    iconSize: 30,
+                  )
+                ],
+              ),
+            ),
             Container(
               height: MediaQuery.of(context).size.height * 0.04,
               width: MediaQuery.of(context).size.width * 0.82,

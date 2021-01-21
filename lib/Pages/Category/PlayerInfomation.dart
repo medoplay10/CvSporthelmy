@@ -56,12 +56,12 @@ class _PlayerInformationState extends State<PlayerInformation>
         //   backgroundColor: Colors.transparent,
         backgroundColor: Color(0xffF9FAFF),
         appBar: AppBar(
-          flexibleSpace: Image(
-            //  color:  Colors.transparent,
-
-            image: AssetImage("assets/images/informationProfile.png"),
-            //   fit: BoxFit.fill,
-          ),
+          // flexibleSpace: Image(
+          //   //  color:  Colors.transparent,
+          //
+          //   image: AssetImage("assets/images/informationProfile.png"),
+          //   //   fit: BoxFit.fill,
+          // ),
           bottom: PreferredSize(
             preferredSize: Size.fromHeight(185.0),
             child: Column(
