@@ -55,7 +55,7 @@ flutter_icons:
   android: true
   ios: true
 
-  image_path: "assets/images/logoNew.png"
+  image_path: "assets/images/logoNew.jpg"
 
 
 # For information on the generic Dart part of this file, see the
