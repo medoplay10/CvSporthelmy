@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:cv_sports/Pages/home/MainScreen.dart';
 import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter_screenutil/screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class FirstScreenComplate extends StatefulWidget {
@@ -69,10 +70,9 @@ class _FirstScreenComplateState extends State<FirstScreenComplate> {
               child: DropdownButton<String>(
                 isExpanded: true,
                 value: dropdownValueNational,
-                hint: Text(
-                  'الجنسية',
-                  style: TextStyle(fontSize: 16, color: Colors.grey),
-                ),
+                hint: Text('الجنسية',
+                    style: TextStyle(
+                        fontSize: ScreenUtil().setSp(16), color: Colors.grey)),
                 icon: Icon(
                   Icons.arrow_drop_down_rounded,
                   size: 40,
@@ -89,11 +89,11 @@ class _FirstScreenComplateState extends State<FirstScreenComplate> {
                 },
                 items: <String>['Egypt', 'Sa'].map((value) {
                   return DropdownMenuItem<String>(
-                    value: value,
-                    child: Text(value,
-                        style: TextStyle(
-                            fontSize: 18, color: Colors.grey.shade700)),
-                  );
+                      value: value,
+                      child: Text(value,
+                          style: TextStyle(
+                              fontSize: ScreenUtil().setSp(18),
+                              color: Colors.grey.shade700)));
                 }).toList(),
               ),
             ),
@@ -170,17 +170,18 @@ class _FirstScreenComplateState extends State<FirstScreenComplate> {
         onPressed: () {
           Navigator.of(context)
               .pushReplacement(MaterialPageRoute(builder: (context) {
-            return MainScreen();
-          }));
-        },
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-        color: Color(0xff2C2B53),
-        child: Text(
-          "تحديث",
-          style: TextStyle(color: Colors.white),
-        ),
-      ),
-    );
+              return MainScreen();
+            }));
+          },
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+          color: Color(0xff2C2B53),
+          child: Text(
+            "تحديث",
+            style: TextStyle(
+                fontSize: ScreenUtil().setSp(14), color: Colors.white),
+          ),
+        ));
   }
 
 //========================= Widget Input Weight ================================
@@ -227,12 +228,13 @@ class _FirstScreenComplateState extends State<FirstScreenComplate> {
                 items: <String>['KG', 'Pound']
                     .map<DropdownMenuItem<String>>((String value) {
                   return DropdownMenuItem<String>(
-                    value: value,
-                    child: Text(
-                      value,
-                      style: TextStyle(fontSize: 16, color: Colors.grey),
-                    ),
-                  );
+                      value: value,
+                      child: Text(
+                        value,
+                        style: TextStyle(
+                            fontSize: ScreenUtil().setSp(16),
+                            color: Colors.grey),
+                      ));
                 }).toList(),
               ),
             ),
@@ -263,7 +265,7 @@ class _FirstScreenComplateState extends State<FirstScreenComplate> {
                     Text(
                       "Male".tr(),
                       style: TextStyle(
-                          fontSize: 22,
+                          fontSize: ScreenUtil().setSp(22),
                           color: (SeclectBtn == true)
                               ? Colors.white
                               : Colors.black),
@@ -301,7 +303,7 @@ class _FirstScreenComplateState extends State<FirstScreenComplate> {
                     Text(
                       "Female".tr(),
                       style: TextStyle(
-                          fontSize: 22,
+                          fontSize: ScreenUtil().setSp(22),
                           color: (SeclectBtn == false)
                               ? Colors.white
                               : Colors.black),

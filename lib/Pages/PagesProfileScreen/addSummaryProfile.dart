@@ -1,5 +1,6 @@
 import 'package:cv_sports/Widgets/SentDataButtom.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/screenutil.dart';
 
 class addSummaryProfile extends StatefulWidget {
   @override
@@ -23,7 +24,7 @@ class _addSummaryProfileState extends State<addSummaryProfile> {
         centerTitle: true,
         title: Text(
           "اضافة او تعديل السيرة الذاتية",
-          style: TextStyle(fontSize: 16),
+          style: TextStyle(fontSize: ScreenUtil().setSp(16)),
         ),
       ),
       body: Column(
@@ -64,7 +65,8 @@ class _addSummaryProfileState extends State<addSummaryProfile> {
           Container(
             alignment: Alignment.centerLeft,
             margin: EdgeInsets.symmetric(horizontal: 20, vertical: 2),
-            child: Text(maxLengthEnd.toString()),
+            child: Text(maxLengthEnd.toString(),
+                style: TextStyle(fontSize: ScreenUtil().setSp(16))),
           ),
           Spacer(),
           SentDataButtom()

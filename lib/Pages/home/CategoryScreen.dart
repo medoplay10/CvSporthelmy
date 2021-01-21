@@ -85,22 +85,22 @@ class _CategoryScreenState extends State<CategoryScreen> {
             "https://sportstalk1260.com/wp-content/uploads/2020/03/football-history.jpg"),
     Sports(
         Tital: "تنس",
-        iconData: "assets/images/2.png",
+        iconData: "assets/images/5.png",
         UrlImage:
             "https://1440sportz.com/wp-content/uploads/2020/07/Nike-Football-3.jpg"),
     Sports(
         Tital: "كرة سلة",
-        iconData: "assets/images/1.png",
+        iconData: "assets/images/4.png",
         UrlImage:
             "https://sportstalk1260.com/wp-content/uploads/2020/03/football-history.jpg"),
     Sports(
         Tital: "بيسبول",
-        iconData: "assets/images/4.png",
+        iconData: "assets/images/2.png",
         UrlImage:
             "https://1440sportz.com/wp-content/uploads/2020/07/Nike-Football-3.jpg"),
     Sports(
         Tital: "كرة يد",
-        iconData: "assets/images/5.png",
+        iconData: "assets/images/1.png",
         UrlImage:
             "https://sportstalk1260.com/wp-content/uploads/2020/03/football-history.jpg"),
   ];

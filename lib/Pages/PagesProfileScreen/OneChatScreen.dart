@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class OneChatScreen extends StatelessWidget {
@@ -42,12 +43,14 @@ class OneChatScreen extends StatelessWidget {
                                 "توفيق حسين",
                                 // textAlign:TextAlign.left ,
                                 style: TextStyle(
-                                    fontSize: 14, color: Colors.grey.shade700),
+                                    fontSize: ScreenUtil().setSp(14),
+                                    color: Colors.grey.shade700),
                               ),
                               Text(
                                 "اعلامي",
                                 style: TextStyle(
-                                    fontSize: 12, color: Colors.grey.shade500),
+                                    fontSize: ScreenUtil().setSp(12),
+                                    color: Colors.grey.shade500),
                               ),
                             ],
                           ),
@@ -97,7 +100,8 @@ class OneChatScreen extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
               child: Text(
                 "اهلا خالد اود ان اعمل معك لقاء صحفى تبرز فية موهبتك وانجازاتك مع نادي النصر",
-                style: TextStyle(color: Color(0xff303030)),
+                style: TextStyle(
+                    color: Color(0xff303030), fontSize: ScreenUtil().setSp(14)),
               ),
               decoration: BoxDecoration(
                   //E9EBF2
@@ -108,7 +112,8 @@ class OneChatScreen extends StatelessWidget {
               alignment: Alignment.centerLeft,
               child: Text(
                 "02:21PM",
-                style: TextStyle(color: Color(0xff767676)),
+                style: TextStyle(
+                    color: Color(0xff767676), fontSize: ScreenUtil().setSp(14)),
               ))
         ],
       ),

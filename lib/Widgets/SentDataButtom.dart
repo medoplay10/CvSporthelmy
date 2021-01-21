@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/screenutil.dart';
 
 class SentDataButtom extends StatelessWidget {
   @override
@@ -19,7 +20,8 @@ class SentDataButtom extends StatelessWidget {
         color: Color(0xff2C2B53),
         child: Text(
           "ارسال",
-          style: TextStyle(color: Colors.white),
+          style:
+              TextStyle(color: Colors.white, fontSize: ScreenUtil().setSp(14)),
         ),
       ),
     );

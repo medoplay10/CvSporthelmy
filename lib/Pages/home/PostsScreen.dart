@@ -1,6 +1,7 @@
 import 'package:cv_sports/Pages/PagesProfileScreen/OnePostScreen.dart';
 import 'package:cv_sports/Pages/auth/Login_Screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 
@@ -33,7 +34,7 @@ class _PostsScreenState extends State<PostsScreen> {
         elevation: 0,
         title: Text(
           "المنشورات",
-          style: TextStyle(fontSize: 18),
+          style: TextStyle(fontSize: ScreenUtil().setSp(18)),
         ),
         centerTitle: true,
       ),
@@ -78,7 +79,8 @@ class _PostsScreenState extends State<PostsScreen> {
                       Icons.circle,
                       color: Color(0xffC1C0D3),
                     ),
-                    Text("19 Oct 2020")
+                    Text("19 Oct 2020",
+                        style: TextStyle(fontSize: ScreenUtil().setSp(18)))
                   ],
                 ),
                 Container(
@@ -88,7 +90,7 @@ class _PostsScreenState extends State<PostsScreen> {
                   child: Text(
                     testContext,
                     textAlign: TextAlign.right,
-                    style: TextStyle(fontSize: 12),
+                    style: TextStyle(fontSize: ScreenUtil().setSp(12)),
                     maxLines: null,
                   ),
                 ),
@@ -106,7 +108,10 @@ class _PostsScreenState extends State<PostsScreen> {
                         SizedBox(
                           width: 5,
                         ),
-                        Text("33")
+                        Text(
+                          "33",
+                          style: TextStyle(fontSize: ScreenUtil().setSp(14)),
+                        )
                       ],
                     ),
                     Spacer(),
@@ -133,7 +138,8 @@ class _PostsScreenState extends State<PostsScreen> {
                     // ),
                     Row(
                       children: [
-                        Text("33"),
+                        Text("33",
+                            style: TextStyle(fontSize: ScreenUtil().setSp(14))),
                         SizedBox(
                           width: 5,
                         ),
@@ -174,7 +180,8 @@ class _PostsScreenState extends State<PostsScreen> {
           ),
           Text(
             "خالد عمر",
-            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            style: TextStyle(
+                fontSize: ScreenUtil().setSp(16), fontWeight: FontWeight.bold),
           ),
         ],
       ),

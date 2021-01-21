@@ -8,6 +8,7 @@ import 'package:cv_sports/Pages/TapsProfileScreen/MyConversationProfileScreen.da
 import 'package:cv_sports/Pages/TapsProfileScreen/MyDataProfileScreen.dart';
 import 'package:cv_sports/Pages/TapsProfileScreen/MyPostsProfileScreen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 
@@ -100,11 +101,14 @@ class _PlayerInformationState extends State<PlayerInformation>
           ),
           Text(
             "خالد عمر",
-            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            style: TextStyle(
+                fontSize: ScreenUtil().setSp(16), fontWeight: FontWeight.bold),
           ),
           Text(
             "مهاجم",
-            style: TextStyle(fontSize: 12),
+            style: TextStyle(
+              fontSize: ScreenUtil().setSp(12),
+            ),
           )
         ],
       ),
@@ -170,7 +174,10 @@ class _PlayerInformationState extends State<PlayerInformation>
       child: Text(
         Tital,
         style: TextStyle(
-            fontWeight: FontWeight.bold, color: TextColor, fontSize: 14),
+          fontWeight: FontWeight.bold,
+          color: TextColor,
+          fontSize: ScreenUtil().setSp(14),
+        ),
       ),
     );
   }
@@ -205,7 +212,8 @@ class _PlayerInformationState extends State<PlayerInformation>
                       title: Text(
                         "اضافة او تعديل السيرة الذاتية",
                         style: TextStyle(
-                            fontSize: 14, color: Colors.grey.shade700),
+                            fontSize: ScreenUtil().setSp(14),
+                            color: Colors.grey.shade700),
                       ),
                       leading: Image.asset(
                         "assets/images/profile.png",
@@ -229,7 +237,8 @@ class _PlayerInformationState extends State<PlayerInformation>
                       title: Text(
                         "اضافة او تعديل جوائز",
                         style: TextStyle(
-                            fontSize: 14, color: Colors.grey.shade700),
+                            fontSize: ScreenUtil().setSp(14),
+                            color: Colors.grey.shade700),
                       ),
                       leading: Image.asset(
                         "assets/images/trophy.png",
@@ -254,7 +263,8 @@ class _PlayerInformationState extends State<PlayerInformation>
                       title: Text(
                         "اضافة او تعديل ميداليات",
                         style: TextStyle(
-                            fontSize: 14, color: Colors.grey.shade700),
+                            fontSize: ScreenUtil().setSp(14),
+                            color: Colors.grey.shade700),
                       ),
                       leading: Image.asset(
                         "assets/images/medal.png",
@@ -278,7 +288,8 @@ class _PlayerInformationState extends State<PlayerInformation>
                       title: Text(
                         "اضافة او تعديل وسائل التواصل",
                         style: TextStyle(
-                            fontSize: 14, color: Colors.grey.shade700),
+                            fontSize: ScreenUtil().setSp(14),
+                            color: Colors.grey.shade700),
                       ),
                       leading: Image.asset(
                         "assets/images/slack.png",
@@ -302,7 +313,8 @@ class _PlayerInformationState extends State<PlayerInformation>
                       title: Text(
                         "اضافة او تعديل صور",
                         style: TextStyle(
-                            fontSize: 14, color: Colors.grey.shade700),
+                            fontSize: ScreenUtil().setSp(14),
+                            color: Colors.grey.shade700),
                       ),
                       leading: Image.asset(
                         "assets/images/image.png",
@@ -326,7 +338,8 @@ class _PlayerInformationState extends State<PlayerInformation>
                       title: Text(
                         "اضافة منشور",
                         style: TextStyle(
-                            fontSize: 14, color: Colors.grey.shade700),
+                            fontSize: ScreenUtil().setSp(14),
+                            color: Colors.grey.shade700),
                       ),
                       leading: Image.asset(
                         "assets/images/chat.png",

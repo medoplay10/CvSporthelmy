@@ -1,5 +1,6 @@
 import 'package:cv_sports/Model/Sports.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class MyImagesDataProfile extends StatelessWidget {
@@ -45,11 +46,11 @@ class MyImagesDataProfile extends StatelessWidget {
           children: [
             Text(
               "معرض الصور",
-              style: TextStyle(fontSize: 15),
+              style: TextStyle(fontSize: ScreenUtil().setSp(15)),
             ),
             Text(
               "خالد عمرو",
-              style: TextStyle(fontSize: 14),
+              style: TextStyle(fontSize: ScreenUtil().setSp(14)),
             )
           ],
         ),

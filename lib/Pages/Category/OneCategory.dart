@@ -2,6 +2,7 @@ import 'package:cv_sports/Model/Sports.dart';
 import 'package:cv_sports/Pages/home/NotificationScreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'AddNewItemInCategoryScreen.dart';
@@ -92,9 +93,10 @@ class OneCategory extends StatelessWidget {
                     children: [
                       Text(
                         "كرة القدم",
-                        style: TextStyle(fontSize: 16),
+                        style: TextStyle(fontSize: ScreenUtil().setSp(16)),
                       ),
-                      Text(itemSport.Tital),
+                      Text(itemSport.Tital,
+                          style: TextStyle(fontSize: ScreenUtil().setSp(14))),
                     ],
                   ),
                   width: (300 / MediaQuery.of(context).size
@@ -110,7 +112,7 @@ class OneCategory extends StatelessWidget {
                 }, iconSize: 30,)
               ],),
             Container(
-              height: MediaQuery.of(context).size.height * 0.07,
+              height: MediaQuery.of(context).size.height * 0.04,
               width: MediaQuery.of(context).size.width * 0.82,
               decoration: BoxDecoration(
                 color: Colors.white,
@@ -119,7 +121,7 @@ class OneCategory extends StatelessWidget {
                 ),
                 borderRadius: BorderRadius.circular(25),
               ),
-              child: rowSearch(),
+              child: rowSearch(context),
             ),
 
             Expanded(
@@ -163,34 +165,56 @@ class OneCategory extends StatelessWidget {
 
   //=============================== Widget Row Search ===========================
 
-  Row rowSearch() {
-    return Row(
-      //   mainAxisAlignment:MainAxisAlignment.center ,
-      crossAxisAlignment: CrossAxisAlignment.center,
-
-      children: [
-        Padding(
-          padding: const EdgeInsets.only(right: 8),
-          child: Icon(Icons.search),
-        ),
-        Expanded(
-          child: TextFormField(
-            style: TextStyle(fontSize: 16, color: Colors.black),
-            decoration: InputDecoration(
-              filled: true,
-              fillColor: Colors.white,
-              border: InputBorder.none,
-              hintText: "البحث",
-              hintStyle: TextStyle(fontSize: 16, color: Colors.grey.shade700),
+  Container rowSearch(BuildContext context) {
+    return Container(
+      height: MediaQuery.of(context).size.height * 0.04,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(25),
+        color: Color(0xffEEF1FC),
+      ),
+      child: Row(
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(25),
+              color: Color(0xffEEF1FC),
+            ),
+            //    color: Color(0xffE7EBF8),
+            child: Padding(
+              padding: const EdgeInsets.only(right: 8),
+              child: Icon(
+                Icons.search,
+              ),
             ),
           ),
-        ),
-        IconButton(
-            icon: FaIcon(
-              FontAwesomeIcons.slidersH,
+          Expanded(
+            child: TextFormField(
+              style: TextStyle(
+                fontSize: 14,
+                color: Colors.black,
+              ),
+              decoration: InputDecoration(
+                contentPadding: EdgeInsets.only(top: 0, right: 10),
+                filled: true,
+                fillColor: Color(0xffEEF1FC),
+
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20),
+                  borderSide: const BorderSide(color: Colors.white, width: 0.0),
+                ),
+                border: OutlineInputBorder(
+                  borderSide: const BorderSide(color: Colors.white, width: 0.0),
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                //         border: InputBorder.none,
+                hintText: "البحث",
+
+                hintStyle: TextStyle(fontSize: 14, color: Colors.grey.shade700),
+              ),
             ),
-            onPressed: () {})
-      ],
+          ),
+        ],
+      ),
     );
   }
 
@@ -230,11 +254,11 @@ class OneCategory extends StatelessWidget {
             ),
             Text(
               SportData.Tital,
-              style: TextStyle(fontSize: 11),
+              style: TextStyle(fontSize: ScreenUtil().setSp(11)),
             ),
             Text(
               "مهاجم",
-              style: TextStyle(fontSize: 12),
+              style: TextStyle(fontSize: ScreenUtil().setSp(12)),
             ),
           ],
         ),

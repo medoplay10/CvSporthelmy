@@ -1,5 +1,6 @@
 import 'package:cv_sports/Pages/SubScreen/MyImagesDataProfile.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:sphere_bottom_navigation_bar/sphere_bottom_navigation_bar.dart';
 import '../../ProviderAll.dart';
@@ -51,7 +52,10 @@ class _ShowInormationScreenState extends State<ShowInormationScreen> {
                       SizedBox(
                         width: 8,
                       ),
-                      Text("محادثة اللاعب")
+                      Text(
+                        "محادثة اللاعب",
+                        style: TextStyle(fontSize: ScreenUtil().setSp(14)),
+                      )
                     ],
                   ),
                 ),
@@ -66,7 +70,8 @@ class _ShowInormationScreenState extends State<ShowInormationScreen> {
                       SizedBox(
                         width: 8,
                       ),
-                      Text("وضع بالمفضلة")
+                      Text("وضع بالمفضلة",
+                          style: TextStyle(fontSize: ScreenUtil().setSp(14)))
                     ],
                   ),
                 ),
@@ -82,22 +87,28 @@ class _ShowInormationScreenState extends State<ShowInormationScreen> {
             Container(
                 margin: EdgeInsets.only(right: 20, top: 20),
                 alignment: Alignment.centerRight,
-                child: Text("الجوائز")),
+                child: Text(
+                  "الجوائز",
+                  style: TextStyle(fontSize: ScreenUtil().setSp(14)),
+                )),
             CardAwards(context),
             Container(
                 margin: EdgeInsets.only(right: 20, top: 20),
                 alignment: Alignment.centerRight,
-                child: Text("الميداليات")),
+                child: Text("الميداليات",
+                    style: TextStyle(fontSize: ScreenUtil().setSp(14)))),
             CardMedals(context),
             Container(
                 margin: EdgeInsets.only(right: 20, top: 20),
                 alignment: Alignment.centerRight,
-                child: Text("وسائل التواصل")),
+                child: Text("وسائل التواصل",
+                    style: TextStyle(fontSize: ScreenUtil().setSp(14)))),
             RowSocialMediaCards(context),
             Container(
                 margin: EdgeInsets.only(right: 20, top: 10),
                 alignment: Alignment.centerRight,
-                child: Text("صورى")),
+                child: Text("صورى",
+                    style: TextStyle(fontSize: ScreenUtil().setSp(14)))),
             CardMyImages(context),
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.12,
@@ -180,12 +191,13 @@ class _ShowInormationScreenState extends State<ShowInormationScreen> {
                 SizedBox(
                   width: 5,
                 ),
-                Text(title, style: TextStyle(fontSize: 16)),
+                Text(title, style: TextStyle(fontSize: ScreenUtil().setSp(16))),
               ],
             ),
             Text(
               content,
-              style: TextStyle(fontSize: 16, color: Color(0xff2C2B53)),
+              style: TextStyle(
+                  fontSize: ScreenUtil().setSp(16), color: Color(0xff2C2B53)),
             ),
           ],
         ),
@@ -280,8 +292,13 @@ class _ShowInormationScreenState extends State<ShowInormationScreen> {
                             "assets/images/trophy.png",
                             height: MediaQuery.of(context).size.height * 0.05,
                           ),
-                          Text("الدوري السعودي"),
-                          Text("8")
+                          Text(
+                            "الدوري السعودي",
+                            style: TextStyle(fontSize: ScreenUtil().setSp(14)),
+                          ),
+                          Text("8",
+                              style:
+                                  TextStyle(fontSize: ScreenUtil().setSp(14)))
                         ],
                       ),
                     ),
@@ -296,8 +313,12 @@ class _ShowInormationScreenState extends State<ShowInormationScreen> {
                             "assets/images/trophy.png",
                             height: MediaQuery.of(context).size.height * 0.05,
                           ),
-                          Text("الدوري السعودي"),
-                          Text("8")
+                          Text("الدوري السعودي",
+                              style:
+                                  TextStyle(fontSize: ScreenUtil().setSp(14))),
+                          Text("8",
+                              style:
+                                  TextStyle(fontSize: ScreenUtil().setSp(14)))
                         ],
                       ),
                     ),
@@ -316,7 +337,8 @@ class _ShowInormationScreenState extends State<ShowInormationScreen> {
                     border: Border.all(color: Colors.white)),
                 //         height: MediaQuery.of(context).size.height * 0.40,
                 width: MediaQuery.of(context).size.width * 0.15,
-                child: Text("+10"),
+                child: Text("+10",
+                    style: TextStyle(fontSize: ScreenUtil().setSp(14))),
               ),
             )
           ],
@@ -354,8 +376,12 @@ class _ShowInormationScreenState extends State<ShowInormationScreen> {
                             "assets/images/medal.png",
                             height: MediaQuery.of(context).size.height * 0.05,
                           ),
-                          Text("افضل لاعب"),
-                          Text("8")
+                          Text("افضل لاعب",
+                              style:
+                                  TextStyle(fontSize: ScreenUtil().setSp(14))),
+                          Text("8",
+                              style:
+                                  TextStyle(fontSize: ScreenUtil().setSp(14)))
                         ],
                       ),
                     ),
@@ -370,8 +396,12 @@ class _ShowInormationScreenState extends State<ShowInormationScreen> {
                             "assets/images/medal.png",
                             height: MediaQuery.of(context).size.height * 0.05,
                           ),
-                          Text("افضل صانع لعب"),
-                          Text("8")
+                          Text("افضل صانع لعب",
+                              style:
+                                  TextStyle(fontSize: ScreenUtil().setSp(14))),
+                          Text("8",
+                              style:
+                                  TextStyle(fontSize: ScreenUtil().setSp(14)))
                         ],
                       ),
                     ),

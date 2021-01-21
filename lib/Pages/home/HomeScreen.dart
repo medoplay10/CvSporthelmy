@@ -7,6 +7,7 @@ import 'package:cv_sports/Model/Players.dart';
 import 'package:cv_sports/Model/Sports.dart';
 import 'package:cv_sports/Widgets/newsCards.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter_screenutil/screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:provider/provider.dart';
@@ -131,7 +132,10 @@ class _HomeScreenState extends State<HomeScreen> {
             Mediaheight: Mediaheight,
           ),
           rowListIcon(Mediawidth, Mediaheight),
-
+          SizeBoxHeight(
+            SizeWant: 10,
+            Mediaheight: Mediaheight,
+          ),
           Card(elevation: 5, child: carouselNews()),
 
           Container(
@@ -139,7 +143,7 @@ class _HomeScreenState extends State<HomeScreen> {
               alignment: Alignment.centerRight,
               child: Text(
                 "شاهد",
-                style: TextStyle(fontSize: 18),
+                style: TextStyle(fontSize: ScreenUtil().setSp(18)),
               )),
 
           rowVideos(),
@@ -770,7 +774,7 @@ class _HomeScreenState extends State<HomeScreen> {
   SizedBox rowListIcon(double Mediawidth, double Mediaheight) {
     return SizedBox(
       width: double.infinity,
-      height: MediaQuery.of(context).size.height * .125,
+      height: MediaQuery.of(context).size.height * .14,
       child: ListView.builder(
           itemCount: listSport.length,
           scrollDirection: Axis.horizontal,

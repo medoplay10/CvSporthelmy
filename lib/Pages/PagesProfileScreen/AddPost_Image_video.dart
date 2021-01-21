@@ -1,5 +1,6 @@
 import 'package:cv_sports/Widgets/SentDataButtom.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/screenutil.dart';
 
 class AddPost_Image_video extends StatefulWidget {
   @override
@@ -23,7 +24,7 @@ class _AddPost_Image_videoState extends State<AddPost_Image_video> {
         centerTitle: true,
         title: Text(
           "اضافة منشور",
-          style: TextStyle(fontSize: 16),
+          style: TextStyle(fontSize: ScreenUtil().setSp(16)),
         ),
       ),
       body: SingleChildScrollView(
@@ -81,7 +82,10 @@ class _AddPost_Image_videoState extends State<AddPost_Image_video> {
         Container(
           alignment: Alignment.centerLeft,
           margin: EdgeInsets.symmetric(horizontal: 20, vertical: 2),
-          child: Text(maxLengthEnd.toString()),
+          child: Text(
+            maxLengthEnd.toString(),
+            style: TextStyle(fontSize: ScreenUtil().setSp(14)),
+          ),
         ),
         // Spacer(),
         // SentDataButtom()

@@ -43,6 +43,8 @@ dependencies:
   flutter_snake_navigationbar: ^0.4.2
   fa_stepper: ^0.0.2
   sphere_bottom_navigation_bar: ^1.0.0
+  auto_size_text: ^2.1.0
+  flutter_screenutil: ^4.0.2+5
 dev_dependencies:
   flutter_test:
     sdk: flutter

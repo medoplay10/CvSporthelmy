@@ -1,6 +1,7 @@
 import 'package:cv_sports/Widgets/SentDataButtom.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_number_picker/flutter_number_picker.dart';
+import 'package:flutter_screenutil/screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class AddPrize extends StatelessWidget {
@@ -18,7 +19,7 @@ class AddPrize extends StatelessWidget {
         centerTitle: true,
         title: Text(
           "اضافة او تعديل جوائز",
-          style: TextStyle(fontSize: 16),
+          style: TextStyle(fontSize: ScreenUtil().setSp(16)),
         ),
       ),
       body: Column(

@@ -1,6 +1,7 @@
 import 'package:cv_sports/Widgets/SentDataButtom.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_number_picker/flutter_number_picker.dart';
+import 'package:flutter_screenutil/screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class AddSocialMedia extends StatelessWidget {
@@ -18,7 +19,7 @@ class AddSocialMedia extends StatelessWidget {
         centerTitle: true,
         title: Text(
           "اضافة او تعديل جوائز",
-          style: TextStyle(fontSize: 16),
+          style: TextStyle(fontSize: ScreenUtil().setSp(16)),
         ),
       ),
       body: SingleChildScrollView(
@@ -53,7 +54,8 @@ class AddSocialMedia extends StatelessWidget {
                 SizedBox(
                   width: 5,
                 ),
-                Text("تويتر")
+                Text("تويتر",
+                    style: TextStyle(fontSize: ScreenUtil().setSp(14)))
               ],
             ),
           ),
@@ -106,7 +108,8 @@ class AddSocialMedia extends StatelessWidget {
                 SizedBox(
                   width: 5,
                 ),
-                Text("انستجرام")
+                Text("انستجرام",
+                    style: TextStyle(fontSize: ScreenUtil().setSp(14)))
               ],
             ),
           ),
@@ -159,7 +162,8 @@ class AddSocialMedia extends StatelessWidget {
                 SizedBox(
                   width: 5,
                 ),
-                Text("فيس بوك")
+                Text("فيس بوك",
+                    style: TextStyle(fontSize: ScreenUtil().setSp(14)))
               ],
             ),
           ),
@@ -212,7 +216,8 @@ class AddSocialMedia extends StatelessWidget {
                 SizedBox(
                   width: 5,
                 ),
-                Text("سناب شات")
+                Text("سناب شات",
+                    style: TextStyle(fontSize: ScreenUtil().setSp(14)))
               ],
             ),
           ),

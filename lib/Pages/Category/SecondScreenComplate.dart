@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:cv_sports/Pages/home/MainScreen.dart';
 import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter_screenutil/screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SecondScreenComplate extends StatefulWidget {
@@ -60,7 +61,9 @@ class _SecondScreenComplateState extends State<SecondScreenComplate> {
                       hint: Text(
                         "اللعبة",
                         // 'الجنسية',
-                        style: TextStyle(fontSize: 16, color: Colors.grey),
+                        style: TextStyle(
+                            fontSize: ScreenUtil().setSp(14),
+                            color: Colors.grey),
                       ),
                       icon: Icon(
                         Icons.arrow_drop_down_rounded,
@@ -82,7 +85,8 @@ class _SecondScreenComplateState extends State<SecondScreenComplate> {
                           value: value,
                           child: Text(value,
                               style: TextStyle(
-                                  fontSize: 18, color: Colors.grey.shade700)),
+                                  fontSize: ScreenUtil().setSp(18),
+                                  color: Colors.grey.shade700)),
                         );
                       }).toList(),
                     ),
@@ -118,7 +122,9 @@ class _SecondScreenComplateState extends State<SecondScreenComplate> {
                       hint: Text(
                         "ممارس اللعبة",
                         // 'الجنسية',
-                        style: TextStyle(fontSize: 16, color: Colors.grey),
+                        style: TextStyle(
+                            fontSize: ScreenUtil().setSp(16),
+                            color: Colors.grey),
                       ),
                       icon: Icon(
                         Icons.arrow_drop_down_rounded,
@@ -140,7 +146,8 @@ class _SecondScreenComplateState extends State<SecondScreenComplate> {
                           value: value,
                           child: Text(value,
                               style: TextStyle(
-                                  fontSize: 18, color: Colors.grey.shade700)),
+                                  fontSize: ScreenUtil().setSp(18),
+                                  color: Colors.grey.shade700)),
                         );
                       }).toList(),
                     ),
@@ -187,7 +194,12 @@ class _SecondScreenComplateState extends State<SecondScreenComplate> {
           Container(
             alignment: Alignment.centerLeft,
             margin: EdgeInsets.symmetric(horizontal: 20, vertical: 2),
-            child: Text(maxLengthEnd.toString()),
+            child: Text(
+              maxLengthEnd.toString(),
+              style: TextStyle(
+                fontSize: ScreenUtil().setSp(14),
+              ),
+            ),
           ),
           SizedBox(
             height: 10,
@@ -232,7 +244,8 @@ class _SecondScreenComplateState extends State<SecondScreenComplate> {
                 hint: Text(
                   title,
                   // 'الجنسية',
-                  style: TextStyle(fontSize: 16, color: Colors.grey),
+                  style: TextStyle(
+                      fontSize: ScreenUtil().setSp(16), color: Colors.grey),
                 ),
                 icon: Icon(
                   Icons.arrow_drop_down_rounded,
@@ -254,7 +267,8 @@ class _SecondScreenComplateState extends State<SecondScreenComplate> {
                     value: value,
                     child: Text(value,
                         style: TextStyle(
-                            fontSize: 18, color: Colors.grey.shade700)),
+                            fontSize: ScreenUtil().setSp(18),
+                            color: Colors.grey.shade700)),
                   );
                 }).toList(),
               ),

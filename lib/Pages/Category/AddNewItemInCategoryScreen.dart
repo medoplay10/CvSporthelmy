@@ -2,6 +2,7 @@ import 'package:fa_stepper/fa_stepper.dart';
 import 'package:flutter/material.dart';
 import 'package:cv_sports/Pages/home/MainScreen.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter_screenutil/screenutil.dart';
 
 import 'FirstScreenComplate.dart';
 import 'SecondScreenComplate.dart';
@@ -23,14 +24,14 @@ class _AddNewItemInCategoryScreenState
     FAStep(
         title: Text(
           "بيانات شخصية",
-          style: TextStyle(fontSize: 16),
+          style: TextStyle(fontSize: ScreenUtil().setSp(16)),
         ),
         content: FirstScreenComplate(),
         isActive: true),
     FAStep(
         title: Text(
           "بيانات اللاعب",
-          style: TextStyle(fontSize: 16),
+          style: TextStyle(fontSize: ScreenUtil().setSp(16)),
         ),
         content: SecondScreenComplate(),
         isActive: true),
@@ -45,7 +46,7 @@ class _AddNewItemInCategoryScreenState
                   borderRadius: BorderRadius.circular(20)),
               title: new Text(
                 "الانتهاء من التسجيل",
-                style: TextStyle(),
+                style: TextStyle(fontSize: ScreenUtil().setSp(14)),
                 textAlign: TextAlign.center,
               ),
               content: Column(
@@ -53,7 +54,9 @@ class _AddNewItemInCategoryScreenState
                 children: [
                   new Text(
                     "سوف يتم التسجيل , هل متاكد من ادخال بيانتك ؟",
-                    style: TextStyle(color: Color(0xff8E93A2), fontSize: 16),
+                    style: TextStyle(
+                        color: Color(0xff8E93A2),
+                        fontSize: ScreenUtil().setSp(16)),
                     textAlign: TextAlign.center,
                   ),
                   SizedBox(
@@ -83,7 +86,7 @@ class _AddNewItemInCategoryScreenState
                             style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 color: Colors.white,
-                                fontSize: 14),
+                                fontSize: ScreenUtil().setSp(14)),
                           ),
                         ),
                       ),
@@ -105,7 +108,7 @@ class _AddNewItemInCategoryScreenState
                             style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 color: Colors.grey,
-                                fontSize: 14),
+                                fontSize: ScreenUtil().setSp(14)),
                           ),
                         ),
                       ),
@@ -130,7 +133,8 @@ class _AddNewItemInCategoryScreenState
         color: Color(0xff2C2B53),
         child: Text(
           "التالى",
-          style: TextStyle(color: Colors.white),
+          style:
+              TextStyle(color: Colors.white, fontSize: ScreenUtil().setSp(14)),
         ),
       ),
     );
@@ -144,7 +148,7 @@ class _AddNewItemInCategoryScreenState
         elevation: 0,
         title: Text(
           "ComplateProfile".tr(),
-          style: TextStyle(fontSize: 18),
+          style: TextStyle(fontSize: ScreenUtil().setSp(18)),
         ),
         centerTitle: true,
       ),

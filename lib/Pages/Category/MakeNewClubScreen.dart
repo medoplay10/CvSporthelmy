@@ -1,5 +1,6 @@
 import 'package:cv_sports/Widgets/SentDataButtom.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 import 'package:easy_localization/easy_localization.dart' as easy;
@@ -19,7 +20,7 @@ class MakeNewClubScreen extends StatelessWidget {
         centerTitle: true,
         title: Text(
           "اكمل بيانات النادي",
-          style: TextStyle(fontSize: 16),
+          style: TextStyle(fontSize: ScreenUtil().setSp(16)),
         ),
       ),
       body: SingleChildScrollView(
@@ -62,7 +63,8 @@ class MakeNewClubScreen extends StatelessWidget {
                 SizedBox(
                   width: 5,
                 ),
-                Text("تويتر")
+                Text("تويتر",
+                    style: TextStyle(fontSize: ScreenUtil().setSp(14)))
               ],
             ),
           ),
@@ -115,7 +117,8 @@ class MakeNewClubScreen extends StatelessWidget {
                 SizedBox(
                   width: 5,
                 ),
-                Text("انستجرام")
+                Text("انستجرام",
+                    style: TextStyle(fontSize: ScreenUtil().setSp(14)))
               ],
             ),
           ),
@@ -168,7 +171,8 @@ class MakeNewClubScreen extends StatelessWidget {
                 SizedBox(
                   width: 5,
                 ),
-                Text("فيس بوك")
+                Text("فيس بوك",
+                    style: TextStyle(fontSize: ScreenUtil().setSp(14)))
               ],
             ),
           ),
@@ -221,7 +225,8 @@ class MakeNewClubScreen extends StatelessWidget {
                 SizedBox(
                   width: 5,
                 ),
-                Text("سناب شات")
+                Text("سناب شات",
+                    style: TextStyle(fontSize: ScreenUtil().setSp(14)))
               ],
             ),
           ),

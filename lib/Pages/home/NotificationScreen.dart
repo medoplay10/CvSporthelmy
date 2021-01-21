@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class NotificationScreen extends StatelessWidget {
@@ -37,7 +38,7 @@ class NotificationScreen extends StatelessWidget {
       elevation: 0,
       title: Text(
         "الاشعارات",
-        style: TextStyle(fontSize: 18),
+        style: TextStyle(fontSize: ScreenUtil().setSp(18)),
       ),
       centerTitle: true,
     );
@@ -81,7 +82,7 @@ class NotificationScreen extends StatelessWidget {
                     Container(
                       child: Text(
                         "محادثة جديدة",
-                        style: TextStyle(fontSize: 16),
+                        style: TextStyle(fontSize: ScreenUtil().setSp(16)),
                       ),
                       alignment: Alignment.centerRight,
                     ),
@@ -91,14 +92,16 @@ class NotificationScreen extends StatelessWidget {
                             maxLines: 2,
                             textAlign: TextAlign.right,
                             style: TextStyle(
-                              fontSize: 12,
+                              fontSize: ScreenUtil().setSp(12),
                             ))),
                     Container(
                         alignment: Alignment.centerRight,
                         child: Text(
                           "July 20.2020 (08:00 pm)",
                           textAlign: TextAlign.right,
-                          style: TextStyle(color: Colors.grey.shade500),
+                          style: TextStyle(
+                              color: Colors.grey.shade500,
+                              fontSize: ScreenUtil().setSp(14)),
                         )),
                   ],
                 ),

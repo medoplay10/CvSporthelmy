@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:cv_sports/Model/Sports.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class OneNewsScreen extends StatefulWidget {
@@ -47,7 +48,8 @@ class _OneNewsScreenState extends State<OneNewsScreen> {
         backgroundColor: Color(0xffFAFBFF),
         centerTitle: true,
         elevation: 0,
-        title: Text("تفاصيل الخبر"),
+        title: Text("تفاصيل الخبر",
+            style: TextStyle(fontSize: ScreenUtil().setSp(14))),
       ),
       body: Container(
         margin: EdgeInsets.only(top: 15),
@@ -65,7 +67,8 @@ class _OneNewsScreenState extends State<OneNewsScreen> {
                         SizedBox(
                           width: 5,
                         ),
-                        Text("الاهلي المصري")
+                        Text("الاهلي المصري",
+                            style: TextStyle(fontSize: ScreenUtil().setSp(14)))
                       ],
                     ),
                     Container(
@@ -75,7 +78,8 @@ class _OneNewsScreenState extends State<OneNewsScreen> {
                           "الحديث عن الدرع ما زال مبكرًا",
                           textAlign: TextAlign.right,
                           style: TextStyle(
-                              color: Colors.grey.shade600, fontSize: 16),
+                              color: Colors.grey.shade600,
+                              fontSize: ScreenUtil().setSp(16)),
                         )),
                     SizedBox(
                       height: (20 / MediaQuery.of(context).size.height) *
@@ -88,7 +92,9 @@ class _OneNewsScreenState extends State<OneNewsScreen> {
                           "كورونا تضرب الأهلى والزمالك قبل قمة 28 ديسمبر فى الدورى.. طارق حامد ومحمود علاء أحدث الضحايا.. مخاوف من عدم لحاق السولية وربيعة وقفشة بالمباراة.. موسيمانى يواصل العزل الصحى.. والجبلاية تؤكد لا تأجيل للقطبين",
                           textAlign: TextAlign.right,
                           maxLines: null,
-                          style: TextStyle(color: Colors.grey.shade600),
+                          style: TextStyle(
+                              color: Colors.grey.shade600,
+                              fontSize: ScreenUtil().setSp(14)),
                         )),
                   ],
                 ),

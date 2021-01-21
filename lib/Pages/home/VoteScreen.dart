@@ -1,5 +1,6 @@
 import 'package:cv_sports/Pages/auth/Login_Screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 
@@ -31,7 +32,7 @@ class _VoteScreenState extends State<VoteScreen> {
         elevation: 0,
         title: Text(
           "التصويتات",
-          style: TextStyle(fontSize: 18),
+          style: TextStyle(fontSize: ScreenUtil().setSp(18)),
         ),
         centerTitle: true,
       ),
@@ -60,7 +61,7 @@ class _VoteScreenState extends State<VoteScreen> {
           children: [
             Text(
               " هل تؤيد اعطاء نادى القرن الاروبى الى ريال مدريد ؟",
-              style: TextStyle(fontSize: 14),
+              style: TextStyle(fontSize: ScreenUtil().setSp(14)),
               textAlign: TextAlign.center,
             ),
             Column_Sort(context),
@@ -71,7 +72,9 @@ class _VoteScreenState extends State<VoteScreen> {
                     onPressed: () {},
                     child: Text(
                       "التصويت",
-                      style: TextStyle(fontSize: 14, color: Colors.white),
+                      style: TextStyle(
+                          fontSize: ScreenUtil().setSp(14),
+                          color: Colors.white),
                       textAlign: TextAlign.center,
                     ),
                     color: Colors.red),
@@ -79,7 +82,8 @@ class _VoteScreenState extends State<VoteScreen> {
                   onPressed: () {},
                   child: Text(
                     "النتائج",
-                    style: TextStyle(fontSize: 14, color: Colors.white),
+                    style: TextStyle(
+                        fontSize: ScreenUtil().setSp(14), color: Colors.white),
                     textAlign: TextAlign.center,
                   ),
                   color: Colors.green,
@@ -127,8 +131,7 @@ class _VoteScreenState extends State<VoteScreen> {
       activeColor: Colors.green,
       title: Text(
         title,
-        style:
-            Theme.of(context).textTheme.headline5.copyWith(color: Colors.black),
+        style: TextStyle(fontSize: ScreenUtil().setSp(14)),
       ),
     );
   }

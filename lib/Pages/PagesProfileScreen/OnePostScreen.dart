@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class OnePostScreen extends StatelessWidget {
@@ -77,7 +78,7 @@ class OnePostScreen extends StatelessWidget {
                     ),
                     child: Text(
                       "باسم على",
-                      style: TextStyle(fontSize: 15),
+                      style: TextStyle(fontSize: ScreenUtil().setSp(15)),
                     ),
                     alignment: Alignment.centerRight,
                   ),
@@ -93,7 +94,10 @@ class OnePostScreen extends StatelessWidget {
                           Icons.circle,
                           color: Color(0xffC1C0D3),
                         ),
-                        Text("19 Oct 2020")
+                        Text(
+                          "19 Oct 2020",
+                          style: TextStyle(fontSize: ScreenUtil().setSp(14)),
+                        )
                       ],
                     ),
                     Container(
@@ -103,7 +107,7 @@ class OnePostScreen extends StatelessWidget {
                       child: Text(
                         testContext,
                         textAlign: TextAlign.right,
-                        style: TextStyle(fontSize: 12),
+                        style: TextStyle(fontSize: ScreenUtil().setSp(12)),
                         maxLines: null,
                       ),
                     ),
@@ -138,7 +142,8 @@ class OnePostScreen extends StatelessWidget {
           ),
           Text(
             "خالد عمر",
-            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            style: TextStyle(
+                fontSize: ScreenUtil().setSp(16), fontWeight: FontWeight.bold),
           ),
         ],
       ),
@@ -169,7 +174,10 @@ class OnePostScreen extends StatelessWidget {
                       Icons.circle,
                       color: Color(0xffC1C0D3),
                     ),
-                    Text("19 Oct 2020")
+                    Text(
+                      "19 Oct 2020",
+                      style: TextStyle(fontSize: ScreenUtil().setSp(14)),
+                    )
                   ],
                 ),
                 Container(
@@ -179,7 +187,7 @@ class OnePostScreen extends StatelessWidget {
                   child: Text(
                     testContext,
                     textAlign: TextAlign.right,
-                    style: TextStyle(fontSize: 12),
+                    style: TextStyle(fontSize: ScreenUtil().setSp(12)),
                     maxLines: null,
                   ),
                 ),
@@ -197,7 +205,8 @@ class OnePostScreen extends StatelessWidget {
                         SizedBox(
                           width: 5,
                         ),
-                        Text("33")
+                        Text("33",
+                            style: TextStyle(fontSize: ScreenUtil().setSp(14)))
                       ],
                     ),
                     // Spacer(),
@@ -307,7 +316,8 @@ class OnePostScreen extends StatelessWidget {
                       title: Text(
                         "غلق التعليقات",
                         style: TextStyle(
-                            fontSize: 14, color: Colors.grey.shade700),
+                            fontSize: ScreenUtil().setSp(14),
+                            color: Colors.grey.shade700),
                       ),
                       leading: FaIcon(
                         FontAwesomeIcons.checkSquare,
@@ -325,7 +335,8 @@ class OnePostScreen extends StatelessWidget {
                       title: Text(
                         "تعديل المنشور",
                         style: TextStyle(
-                            fontSize: 14, color: Colors.grey.shade700),
+                            fontSize: ScreenUtil().setSp(14),
+                            color: Colors.grey.shade700),
                       ),
                       leading: FaIcon(
                         FontAwesomeIcons.edit,
@@ -343,7 +354,8 @@ class OnePostScreen extends StatelessWidget {
                       title: Text(
                         "حذف المنشور",
                         style: TextStyle(
-                            fontSize: 14, color: Colors.grey.shade700),
+                            fontSize: ScreenUtil().setSp(14),
+                            color: Colors.grey.shade700),
                       ),
                       leading: FaIcon(
                         FontAwesomeIcons.trashAlt,
