@@ -24,7 +24,11 @@ class _SecondScreenComplateState extends State<SecondScreenComplate> {
 
   int maxLengthStart = 255;
 
-  List<String> ListGamePractitioner = ["سمسار", "مدرب", "لاعب"];
+  List<String> ListGamePractitioner = [
+    "القدم اليمنى",
+    "القدم اليسرى",
+    "كلتا القدمين"
+  ];
   List<String> ListGameSelect = ["كرة قدم", "كرة طائرة", "مصارعة"];
 
   @override
@@ -120,7 +124,7 @@ class _SecondScreenComplateState extends State<SecondScreenComplate> {
                       isExpanded: true,
                       value: dropdownValueGamePractitioner,
                       hint: Text(
-                        "ممارس اللعبة",
+                        "ممارسة اللعبة",
                         // 'الجنسية',
                         style: TextStyle(
                             fontSize: ScreenUtil().setSp(16),

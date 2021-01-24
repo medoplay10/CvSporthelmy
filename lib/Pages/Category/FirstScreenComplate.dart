@@ -232,7 +232,7 @@ class _FirstScreenComplateState extends State<FirstScreenComplate> {
                       child: Text(
                         value,
                         style: TextStyle(
-                            fontSize: ScreenUtil().setSp(16),
+                            fontSize: ScreenUtil().setSp(12),
                             color: Colors.grey),
                       ));
                 }).toList(),
@@ -248,7 +248,6 @@ class _FirstScreenComplateState extends State<FirstScreenComplate> {
 
   Container CardSelected() {
     return Container(
-      margin: EdgeInsets.only(top: 10),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [

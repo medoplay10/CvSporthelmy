@@ -166,6 +166,9 @@ class _MainScreenState extends State<MainScreen> {
                   fit: BoxFit.fill,
                 )),
           ),
+          SizedBox(
+            width: 5,
+          ),
           Expanded(
             child: Container(
               height: MediaQuery.of(context).size.height * 0.04,
@@ -220,6 +223,9 @@ class _MainScreenState extends State<MainScreen> {
                 ],
               ),
             ),
+          ),
+          SizedBox(
+            width: 5,
           ),
           GestureDetector(
             onTap: () {

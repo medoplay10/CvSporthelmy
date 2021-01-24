@@ -17,12 +17,6 @@ class _PostsScreenState extends State<PostsScreen> {
   String testContext =
       "أدى بطل الدوري مساء اليوم الأربعاء مرانه الرئيس؛ استعدادًا لمواجهة مضيفه الوحدة.أدى بطل الدوري مساء اليوم الأربعاء مرانه الرئيس؛ استعدادًا لمواجهة مضيفه الوحدة….أدى بطل الدوري مساء اليوم الأربعاء مرانه الرئيس؛ استعدادًا لمواجهة مضيفه الوحدة”….";
 
-  @override
-  void initState() {
-    Provider.of<ProviderConstants>(context, listen: false)
-        .ChangeIndexTap(Value: 0);
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +33,7 @@ class _PostsScreenState extends State<PostsScreen> {
         centerTitle: true,
       ),
       body: ListView.builder(
-        itemCount: 3,
+        itemCount: 1,
         padding: EdgeInsets.only(top: 10),
         itemBuilder: (context, index) {
           return InkWell(
@@ -49,9 +43,15 @@ class _PostsScreenState extends State<PostsScreen> {
                   return OnePostScreen();
                 }));
               },
-              child: Container(
-                  margin: EdgeInsets.only(top: 20),
-                  child: RowPostsCards(context)));
+              child: Column(
+                children: [
+                  Container(
+                      margin: EdgeInsets.only(top: 20),
+                      child: RowPostsCards(context)),
+                  RowImagesCards(context),
+                  RowVideosCards(context)
+                ],
+              ));
         },
       ),
     );
@@ -80,7 +80,7 @@ class _PostsScreenState extends State<PostsScreen> {
                       color: Color(0xffC1C0D3),
                     ),
                     Text("19 Oct 2020",
-                        style: TextStyle(fontSize: ScreenUtil().setSp(18)))
+                        style: TextStyle(fontSize: ScreenUtil().setSp(14)))
                   ],
                 ),
                 Container(
@@ -185,6 +185,204 @@ class _PostsScreenState extends State<PostsScreen> {
           ),
         ],
       ),
+    );
+  }
+
+  //=============================== Widget Row Images Cards===========================
+
+  Column RowImagesCards(BuildContext context) {
+    return Column(
+      children: [
+        SizedBox(
+          height: 5,
+        ),
+        ImageAndTextProfile(),
+        Card(
+          elevation: 5,
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+          child: Container(
+            width: MediaQuery.of(context).size.width * 0.85,
+            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+            alignment: Alignment.center,
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    Icon(
+                      Icons.circle,
+                      color: Color(0xffC1C0D3),
+                    ),
+                    Text("19 Oct 2020")
+                  ],
+                ),
+                Column(
+                  children: [
+                    Container(
+                      alignment: Alignment.centerRight,
+                      margin: const EdgeInsets.only(
+                        right: 20,
+                      ),
+                      child: Text(
+                        "صوري من مبارة امس مع فريق الوحدة",
+                        textAlign: TextAlign.right,
+                        style: TextStyle(fontSize: 12),
+                        maxLines: 12,
+                      ),
+                    ),
+                    Container(
+                      height: 130, //
+                      child: Container(
+                        margin: EdgeInsets.only(left: 10),
+                        child: ClipRRect(
+                            borderRadius: BorderRadius.circular(10.0),
+                            child: Image.network(
+                              "https://arabic.sport360.com/wp-content/uploads/2020/10/%D8%A7%D9%84%D8%B2%D9%85%D8%A7%D9%84%D9%83.jpg",
+                              fit: BoxFit.fill,
+                              // height: 72,
+                              width: (160 / MediaQuery.of(context).size.width) *
+                                  MediaQuery.of(context).size.width,
+                            )),
+                      ),
+                    )
+                  ],
+                ),
+                Divider(
+                  thickness: 2,
+                ),
+                Row(
+                  children: [
+                    Row(
+                      children: [
+                        FaIcon(
+                          FontAwesomeIcons.solidComment,
+                          color: Color(0xffC1C0D3),
+                        ),
+                        SizedBox(
+                          width: 5,
+                        ),
+                        Text("33")
+                      ],
+                    ),
+                    Spacer(),
+                    Row(
+                      children: [
+                        Text("33"),
+                        SizedBox(
+                          width: 5,
+                        ),
+                        FaIcon(
+                          FontAwesomeIcons.solidHeart,
+                          color: Color(0xffC1C0D3),
+                        ),
+                      ],
+                    )
+                  ],
+                )
+              ],
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  //=============================== Widget Row Videos Cards===========================
+
+  Column RowVideosCards(BuildContext context) {
+    return Column(
+      children: [
+        SizedBox(
+          height: 5,
+        ),
+        ImageAndTextProfile(),
+        Card(
+          elevation: 5,
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+          child: Container(
+            width: MediaQuery.of(context).size.width * 0.85,
+            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+            alignment: Alignment.center,
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    Icon(
+                      Icons.circle,
+                      color: Color(0xffC1C0D3),
+                    ),
+                    Text("19 Oct 2020")
+                  ],
+                ),
+                Column(
+                  children: [
+                    Container(
+                      alignment: Alignment.centerRight,
+                      margin: const EdgeInsets.only(
+                        right: 20,
+                      ),
+                      child: Text(
+                        "هدف اللقاء",
+                        textAlign: TextAlign.right,
+                        style: TextStyle(fontSize: 12),
+                        maxLines: 12,
+                      ),
+                    ),
+                    Container(
+                      height: 130,
+                      child: Container(
+                        margin: EdgeInsets.only(left: 10),
+                        child: ClipRRect(
+                            borderRadius: BorderRadius.circular(10.0),
+                            child: Image.network(
+                              "https://korabest.com/wp-content/uploads/2020/02/pizap.com15811498361372.jpg",
+                              fit: BoxFit.fill,
+                              // height: 72,
+                              width: (160 / MediaQuery.of(context).size.width) *
+                                  MediaQuery.of(context).size.width,
+                            )),
+                      ),
+                    )
+                  ],
+                ),
+                Divider(
+                  thickness: 2,
+                ),
+                Row(
+                  children: [
+                    Row(
+                      children: [
+                        FaIcon(
+                          FontAwesomeIcons.solidComment,
+                          color: Color(0xffC1C0D3),
+                        ),
+                        SizedBox(
+                          width: 5,
+                        ),
+                        Text("33")
+                      ],
+                    ),
+                    Spacer(),
+                    Row(
+                      children: [
+                        Text("33"),
+                        SizedBox(
+                          width: 5,
+                        ),
+                        FaIcon(
+                          FontAwesomeIcons.solidHeart,
+                          color: Color(0xffC1C0D3),
+                        ),
+                      ],
+                    )
+                  ],
+                )
+              ],
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

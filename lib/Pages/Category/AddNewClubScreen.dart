@@ -5,7 +5,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 import 'package:easy_localization/easy_localization.dart' as easy;
 
-class MakeNewClubScreen extends StatelessWidget {
+class AddNewClubScreen extends StatelessWidget {
   String CountryCode = "+20";
   PhoneNumber number = PhoneNumber(isoCode: 'EG');
   final TextEditingController controller = TextEditingController();
@@ -69,7 +69,7 @@ class MakeNewClubScreen extends StatelessWidget {
             ),
           ),
           Expanded(
-            flex: 5,
+            flex: 4,
             child: Container(
               margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
               padding: EdgeInsets.all(2),
@@ -123,7 +123,7 @@ class MakeNewClubScreen extends StatelessWidget {
             ),
           ),
           Expanded(
-            flex: 5,
+            flex: 4,
             child: Container(
               margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
               padding: EdgeInsets.all(2),
@@ -177,7 +177,7 @@ class MakeNewClubScreen extends StatelessWidget {
             ),
           ),
           Expanded(
-            flex: 5,
+            flex: 4,
             child: Container(
               margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
               padding: EdgeInsets.all(2),
@@ -231,7 +231,7 @@ class MakeNewClubScreen extends StatelessWidget {
             ),
           ),
           Expanded(
-            flex: 5,
+            flex: 4,
             child: Container(
               margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
               padding: EdgeInsets.all(2),

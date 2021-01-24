@@ -4,17 +4,21 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:provider/provider.dart';
 
-import 'AddNewItemInCategoryScreen.dart';
-import 'MakeNewClubScreen.dart';
+import '../../ProviderAll.dart';
+import 'AddNewPlayerScreen.dart';
+import 'AddNewClubScreen.dart';
+import 'AddnewUserScreen.dart';
 import 'PlayerInfomation.dart';
 
 class OneCategory extends StatelessWidget {
   bool isClub;
-
+  bool isPlayer;
   Sports itemSport;
 
-  OneCategory({this.isClub = false, @required this.itemSport});
+  OneCategory(
+      {this.isClub = false, this.isPlayer = false, @required this.itemSport});
 
   List<Sports> listSport = [
     Sports(
@@ -44,127 +48,187 @@ class OneCategory extends StatelessWidget {
     var Mediaheight = MediaQuery.of(context).size.height;
     var Mediawidth = MediaQuery.of(context).size.width;
     return Scaffold(
-      backgroundColor: Colors.white,
-      body: Container(
-        //     padding:EdgeInsets.only(left: 100) ,
-        // alignment: Alignment.topLeft,
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            alignment: Alignment.topLeft, fit: BoxFit.fitWidth,
-            image: AssetImage(
-              "assets/images/design2edit.png",
-            ),
-            //fit: BoxFit.fitWidth,
+      backgroundColor: Color(0xffF9FAFF),
+      appBar: AppbarOneCategory(context),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                "كرة القدم" + " - ",
+                style: TextStyle(fontSize: ScreenUtil().setSp(16)),
+              ),
+              Text(itemSport.Tital,
+                  style: TextStyle(fontSize: ScreenUtil().setSp(14))),
+            ],
           ),
-          //     shape: BoxShape.circle,
-        ),
-        child: Column(
-          children: [
-            SizedBox(
-              height: 40,
+          SizedBox(
+            height: 5,
+          ),
+          Expanded(
+            child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 10),
+              child: GridView.builder(
+                itemCount: listSport.length,
+                shrinkWrap: true,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 3,
+                    crossAxisSpacing: 15.0,
+                    childAspectRatio: 0.82,
+                    mainAxisSpacing: 15.0),
+                itemBuilder: (context, index) {
+                  return Card(
+                    elevation: 5,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20.0),
+                    ),
+                    child: Container(
+                        padding: EdgeInsets.symmetric(vertical: 5),
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            border: Border.all(width: 0, color: Colors.white),
+                            borderRadius: BorderRadius.circular(20)),
+                        child: columnMoreData(
+                            context: context,
+                            Mediaheight: Mediaheight,
+                            Mediawidth: Mediawidth,
+                            SportData: listSport[index])),
+                  );
+                },
+              ),
             ),
-            Container(
-              // margin: EdgeInsets.symmetric(horizontal: 5),
+          )
+        ],
+      ),
+    );
+  }
 
+//======================== Appbar OneCategory =========================
+  AppBar AppbarOneCategory(BuildContext context) {
+    return AppBar(
+      backgroundColor: Color(0xffF9FAFF),
+      elevation: 0,
+      automaticallyImplyLeading: false,
+      title: Row(
+        children: [
+          GestureDetector(
+            onTap: () {
+              if (isPlayer == true) {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) {
+                  return AddNewPlayerScreen();
+                }));
+              } else if (isClub == true) {
+                //MakeNewClubScreen
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) {
+                  return AddNewClubScreen();
+                }));
+              } else {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) {
+                  return AddnewUserScreen();
+                }));
+              }
+            },
+            child: Icon(
+              Icons.add_circle,
+              color: Color(0xff5E5D8F),
+              size: 30,
+            ),
+          ),
+          SizedBox(
+            width: 5,
+          ),
+          Expanded(
+            child: Container(
+              height: MediaQuery.of(context).size.height * 0.04,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(25),
+                color: Color(0xffEEF1FC),
+              ),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  GestureDetector(
-                    onTap: () {
-                      if (isClub == false) {
-                        Navigator.of(context)
-                            .push(MaterialPageRoute(builder: (context) {
-                          return AddNewItemInCategoryScreen();
-                        }));
-                      } else {
-                        //MakeNewClubScreen
-                        Navigator.of(context)
-                            .push(MaterialPageRoute(builder: (context) {
-                          return MakeNewClubScreen();
-                        }));
-                      }
-                    },
-                    child: Icon(
-                      Icons.add_circle,
-                      color: Color(0xff5E5D8F),
-                      size: 30,
-                    ),
-                  ),
                   Container(
-                    alignment: Alignment.center,
-                    child: Column(
-                      children: [
-                        Text(
-                          "كرة القدم",
-                          style: TextStyle(fontSize: ScreenUtil().setSp(16)),
-                        ),
-                        Text(itemSport.Tital,
-                            style: TextStyle(fontSize: ScreenUtil().setSp(14))),
-                      ],
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(25),
+                      color: Color(0xffEEF1FC),
                     ),
-                    width: (300 / MediaQuery.of(context).size.width) *
-                        MediaQuery.of(context).size.width,
+                    //    color: Color(0xffE7EBF8),
+                    child: Padding(
+                      padding: const EdgeInsets.only(right: 8),
+                      child: Icon(
+                        Icons.search,
+                      ),
+                    ),
                   ),
-                  IconButton(
-                    icon: Icon(Icons.arrow_back_outlined),
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    iconSize: 30,
-                  )
+                  Expanded(
+                    child: TextFormField(
+                      style: TextStyle(
+                        fontSize: ScreenUtil().setSp(14),
+                        color: Colors.black,
+                      ),
+                      decoration: InputDecoration(
+                        contentPadding: EdgeInsets.only(top: 0, right: 10),
+                        filled: true,
+                        fillColor: Color(0xffEEF1FC),
+
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20),
+                          borderSide:
+                              const BorderSide(color: Colors.white, width: 0.0),
+                        ),
+                        border: OutlineInputBorder(
+                          borderSide:
+                              const BorderSide(color: Colors.white, width: 0.0),
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        //         border: InputBorder.none,
+                        hintText: "البحث",
+
+                        hintStyle: TextStyle(
+                            fontSize: 14, color: Colors.grey.shade700),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
-            Container(
-              height: MediaQuery.of(context).size.height * 0.04,
-              width: MediaQuery.of(context).size.width * 0.82,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                border: Border.all(
-                  color: Colors.grey.shade300,
-                ),
-                borderRadius: BorderRadius.circular(25),
+          ),
+          SizedBox(
+            width: 5,
+          ),
+          GestureDetector(
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: Container(
+              margin: EdgeInsets.only(right: 5),
+              child: FaIcon(
+                FontAwesomeIcons.arrowLeft,
               ),
-              child: rowSearch(context),
             ),
-
-            Expanded(
-              child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 10),
-                child: GridView.builder(
-                  itemCount: listSport.length,
-                  shrinkWrap: true,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 3,
-                      crossAxisSpacing: 15.0,
-                      childAspectRatio: 0.82,
-                      mainAxisSpacing: 15.0),
-                  itemBuilder: (context, index) {
-                    return Card(
-                      elevation: 5,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20.0),
-                      ),
-                      child: Container(
-                          padding: EdgeInsets.symmetric(vertical: 5),
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              border: Border.all(width: 0, color: Colors.white),
-                              borderRadius: BorderRadius.circular(20)),
-                          child: columnMoreData(
-                              context: context,
-                              Mediaheight: Mediaheight,
-                              Mediawidth: Mediawidth,
-                              SportData: listSport[index])),
-                    );
-                  },
-                ),
-              ),
-            )
-          ],
-        ),
+          ),
+//           IconButton(
+//               icon: Icon(
+//
+//                 Icons.notifications_none,
+//
+//                 size: 30,
+//               ),
+// alignment: Alignment.centerLeft,
+//
+//               onPressed: () {
+//                 Navigator.of(context)
+//                     .push(MaterialPageRoute(builder: (context) {
+//                   return NotificationScreen();
+//                 }));
+//               })
+        ],
       ),
+      centerTitle: true,
     );
   }
 
@@ -232,6 +296,8 @@ class OneCategory extends StatelessWidget {
       BuildContext context}) {
     return GestureDetector(
       onTap: () {
+        Provider.of<ProviderConstants>(context, listen: false)
+            .ChangeIndexTap(Value: 0);
         Navigator.of(context).push(MaterialPageRoute(builder: (context) {
           return PlayerInformation();
         }));
@@ -241,8 +307,8 @@ class OneCategory extends StatelessWidget {
           children: [
             Container(
               // padding: EdgeInsets.all(2),
-              width: (60 / Mediawidth) * Mediawidth,
-              height: (60 / Mediaheight) * Mediaheight,
+              width: .16 * Mediawidth,
+              height: .075 * Mediaheight,
               child: ClipOval(
                 child: Material(
                   color: Colors.transparent, // button color
@@ -254,8 +320,7 @@ class OneCategory extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: (5 / MediaQuery.of(context).size.height) *
-                  MediaQuery.of(context).size.height,
+              height: 5,
             ),
             Text(
               SportData.Tital,

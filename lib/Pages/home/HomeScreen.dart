@@ -43,9 +43,14 @@ class _HomeScreenState extends State<HomeScreen> {
         iconData: "assets/images/94.png",
         UrlImage: "assets/images/slider.png"),
     Sports(
-        Tital: "المدربين",
+        Tital: "المدربين", //"assets/images/994.png"
         IconAssets: FontAwesomeIcons.userTie,
         iconData: "assets/images/96.png",
+        UrlImage: "assets/images/slider.png"),
+    Sports(
+        Tital: "جماهير", //"assets/images/994.png"
+        IconAssets: FontAwesomeIcons.userTie,
+        iconData: "assets/images/994.png",
         UrlImage: "assets/images/slider.png"),
   ];
 
@@ -101,6 +106,10 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     var Mediaheight = MediaQuery.of(context).size.height;
     var Mediawidth = MediaQuery.of(context).size.width;
+
+    print("Mediaheight = " + Mediaheight.toString());
+    print("Mediawidth = " + Mediawidth.toString());
+
     return SingleChildScrollView(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -122,12 +131,12 @@ class _HomeScreenState extends State<HomeScreen> {
           //   child: rowSearch(),
           // ),
           SizeBoxHeight(
-            SizeWant: 10,
+            SizeWant: 2,
             Mediaheight: Mediaheight,
           ),
           rowListIcon(Mediawidth, Mediaheight),
           SizeBoxHeight(
-            SizeWant: 10,
+            SizeWant: 2,
             Mediaheight: Mediaheight,
           ),
           carouselNews(),
@@ -660,11 +669,11 @@ class _HomeScreenState extends State<HomeScreen> {
       alignment: AlignmentDirectional.bottomCenter,
       children: [
         Container(
-          margin: EdgeInsets.only(top: 8.0, right: 5),
+          margin: EdgeInsets.only(top: 2.0, right: 5),
           child: CarouselSlider.builder(
             itemCount: listSport.length,
             options: CarouselOptions(
-                height: MediaQuery.of(context).size.height * .26,
+                height: MediaQuery.of(context).size.height * .23,
                 aspectRatio: 16 / 9,
                 viewportFraction: .95,
                 enlargeCenterPage: true,
@@ -693,7 +702,7 @@ class _HomeScreenState extends State<HomeScreen> {
             return Container(
               width: 8.0,
               height: 8.0,
-              margin: EdgeInsets.only(bottom: 35, right: 5),
+              margin: EdgeInsets.only(bottom: 8, right: 5),
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 color: _current == index
@@ -702,7 +711,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             );
           }).toList(),
-        )
+        ),
       ],
     );
   }
@@ -785,8 +794,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     Container(
                       //   alignment: Alignment.center,
                       padding: EdgeInsets.all(5),
-                      width: (70 / Mediawidth) * Mediawidth,
-                      height: (70 / Mediaheight) * Mediaheight,
+                      width: Mediawidth * .18,
+                      height: Mediaheight * .09,
                       child: ClipOval(
                         child: Material(
                           color: Color(0xff2C2B53), // button color

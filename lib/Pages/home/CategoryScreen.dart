@@ -16,12 +16,12 @@ class CategoryScreen extends StatefulWidget {
 class _CategoryScreenState extends State<CategoryScreen> {
   List<Sports> listSport = [
     Sports(
-        Tital: "اللاعبين",
+        Tital: "لاعبين",
         IconAssets: FontAwesomeIcons.running,
         iconData: "assets/images/1.png",
         UrlImage: "assets/images/91.png"),
     Sports(
-        Tital: "اندية",
+        Tital: "أندية",
         IconAssets: FontAwesomeIcons.shieldAlt,
         iconData: "assets/images/2.png",
         UrlImage: "assets/images/92.png"),
@@ -31,12 +31,12 @@ class _CategoryScreenState extends State<CategoryScreen> {
         iconData: "assets/images/3.png",
         UrlImage: "assets/images/93.png"),
     Sports(
-        Tital: "اكادميات",
+        Tital: "أكاديميات",
         IconAssets: FontAwesomeIcons.warehouse,
         iconData: "assets/images/4.png",
         UrlImage: "assets/images/94.png"),
     Sports(
-        Tital: "المدربين",
+        Tital: "مدربين",
         IconAssets: FontAwesomeIcons.userTie,
         iconData: "assets/images/5.png",
         UrlImage: "assets/images/95.png"),
@@ -51,7 +51,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
         iconData: "assets/images/3.png",
         UrlImage: "assets/images/97.png"),
     Sports(
-        Tital: "اعلامين",
+        Tital: "إعلاميين",
         IconAssets: FontAwesomeIcons.photoVideo,
         iconData: "assets/images/4.png",
         UrlImage: "assets/images/98.png"),
@@ -66,7 +66,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
         iconData: "assets/images/4.png",
         UrlImage: "assets/images/991.png"),
     Sports(
-        Tital: "أطباء",
+        Tital: "أطباء رياضيين",
         IconAssets: FontAwesomeIcons.stethoscope,
         iconData: "assets/images/4.png",
         UrlImage: "assets/images/992.png"),
@@ -75,6 +75,11 @@ class _CategoryScreenState extends State<CategoryScreen> {
         IconAssets: FontAwesomeIcons.userTag,
         iconData: "assets/images/4.png",
         UrlImage: "assets/images/993.png"),
+    Sports(
+        Tital: "جماهير",
+        IconAssets: FontAwesomeIcons.peopleCarry,
+        iconData: "assets/images/4.png",
+        UrlImage: "assets/images/994.png"),
   ];
 
   List<Sports> listCategory = [
@@ -158,11 +163,16 @@ class _CategoryScreenState extends State<CategoryScreen> {
                               itemSport: listSport[index],
                             );
                           }));
-                        } else {
+                        } else if (index == 0) {
                           Navigator.of(context)
                               .push(MaterialPageRoute(builder: (context) {
                             return OneCategory(
-                                isClub: false, itemSport: listSport[index]);
+                                isPlayer: true, itemSport: listSport[index]);
+                          }));
+                        } else {
+                          Navigator.of(context)
+                              .push(MaterialPageRoute(builder: (context) {
+                            return OneCategory(itemSport: listSport[index]);
                           }));
                         }
                       },

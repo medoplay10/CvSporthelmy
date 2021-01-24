@@ -7,14 +7,12 @@ import 'package:flutter_screenutil/screenutil.dart';
 import 'FirstScreenComplate.dart';
 import 'SecondScreenComplate.dart';
 
-class AddNewItemInCategoryScreen extends StatefulWidget {
+class AddNewPlayerScreen extends StatefulWidget {
   @override
-  _AddNewItemInCategoryScreenState createState() =>
-      _AddNewItemInCategoryScreenState();
+  _AddNewPlayerScreenState createState() => _AddNewPlayerScreenState();
 }
 
-class _AddNewItemInCategoryScreenState
-    extends State<AddNewItemInCategoryScreen> {
+class _AddNewPlayerScreenState extends State<AddNewPlayerScreen> {
   bool SeclectBtn = true;
   String dropdownValue = 'KG';
   int currentStep = 0;
@@ -177,7 +175,7 @@ class _AddNewItemInCategoryScreenState
       //     }
       //   });
       // },
-      titleHeight: 80,
+      titleHeight: MediaQuery.of(context).size.height * .10,
       steps: listStepper,
 
       type: FAStepperType.horizontal,

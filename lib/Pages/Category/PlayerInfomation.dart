@@ -41,8 +41,7 @@ class _PlayerInformationState extends State<PlayerInformation>
   @override
   void initState() {
     super.initState();
-    Provider.of<ProviderConstants>(context, listen: false)
-        .ChangeIndexTap(Value: 0);
+
     tabController = new TabController(length: 3, vsync: this, initialIndex: 0);
     tabController.addListener(_setActiveTabIndex);
   }
