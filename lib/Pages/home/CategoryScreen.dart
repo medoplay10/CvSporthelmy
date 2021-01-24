@@ -169,7 +169,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                             return OneCategory(
                                 isPlayer: true, itemSport: listSport[index]);
                           }));
-                        } else if (index == 10) {
+                        } else if (index == 12) {
                         } else {
                           Navigator.of(context)
                               .push(MaterialPageRoute(builder: (context) {
