@@ -175,7 +175,7 @@ class _AddNewPlayerScreenState extends State<AddNewPlayerScreen> {
       //     }
       //   });
       // },
-      titleHeight: MediaQuery.of(context).size.height * .10,
+      titleHeight: MediaQuery.of(context).size.height * .11,
       steps: listStepper,
 
       type: FAStepperType.horizontal,

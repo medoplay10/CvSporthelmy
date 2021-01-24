@@ -231,7 +231,7 @@ class _PostsScreenState extends State<PostsScreen> {
                       ),
                     ),
                     Container(
-                      height: 130, //
+                      height: .22 * MediaQuery.of(context).size.height, //
                       child: Container(
                         margin: EdgeInsets.only(left: 10),
                         child: ClipRRect(
@@ -240,8 +240,7 @@ class _PostsScreenState extends State<PostsScreen> {
                               "https://arabic.sport360.com/wp-content/uploads/2020/10/%D8%A7%D9%84%D8%B2%D9%85%D8%A7%D9%84%D9%83.jpg",
                               fit: BoxFit.fill,
                               // height: 72,
-                              width: (160 / MediaQuery.of(context).size.width) *
-                                  MediaQuery.of(context).size.width,
+                              width: .7 * MediaQuery.of(context).size.width,
                             )),
                       ),
                     )
@@ -330,18 +329,15 @@ class _PostsScreenState extends State<PostsScreen> {
                       ),
                     ),
                     Container(
-                      height: 130,
+                      height: .22 * MediaQuery.of(context).size.height,
                       child: Container(
                         margin: EdgeInsets.only(left: 10),
                         child: ClipRRect(
                             borderRadius: BorderRadius.circular(10.0),
                             child: Image.network(
-                              "https://korabest.com/wp-content/uploads/2020/02/pizap.com15811498361372.jpg",
-                              fit: BoxFit.fill,
-                              // height: 72,
-                              width: (160 / MediaQuery.of(context).size.width) *
-                                  MediaQuery.of(context).size.width,
-                            )),
+                                "https://korabest.com/wp-content/uploads/2020/02/pizap.com15811498361372.jpg",
+                                fit: BoxFit.fill,
+                                width: .7 * MediaQuery.of(context).size.width)),
                       ),
                     )
                   ],

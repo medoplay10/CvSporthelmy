@@ -23,12 +23,12 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   List<Sports> listSport = [
     Sports(
-        Tital: "اللاعبين",
+        Tital: "لاعبين",
         IconAssets: FontAwesomeIcons.running,
         iconData: "assets/images/91.png",
         UrlImage: "assets/images/slider.png"),
     Sports(
-        Tital: "اندية",
+        Tital: "أندية",
         IconAssets: FontAwesomeIcons.shieldAlt,
         iconData: "assets/images/92.png",
         UrlImage: "assets/images/slider.png"),
@@ -38,17 +38,17 @@ class _HomeScreenState extends State<HomeScreen> {
         iconData: "assets/images/93.png",
         UrlImage: "assets/images/slider.png"),
     Sports(
-        Tital: "اكاديميات",
+        Tital: "أكاديميات",
         IconAssets: FontAwesomeIcons.warehouse,
         iconData: "assets/images/94.png",
         UrlImage: "assets/images/slider.png"),
     Sports(
-        Tital: "المدربين", //"assets/images/994.png"
+        Tital: "مدربين", //"assets/images/994.png"
         IconAssets: FontAwesomeIcons.userTie,
         iconData: "assets/images/96.png",
         UrlImage: "assets/images/slider.png"),
     Sports(
-        Tital: "جماهير", //"assets/images/994.png"
+        Tital: "جمهور", //"assets/images/994.png"
         IconAssets: FontAwesomeIcons.userTie,
         iconData: "assets/images/994.png",
         UrlImage: "assets/images/slider.png"),
@@ -364,7 +364,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Expanded(
       flex: 3,
       child: Container(
-          height: MediaQuery.of(context).size.height * 0.32,
+          height: MediaQuery.of(context).size.height * 0.42,
           padding: EdgeInsets.symmetric(vertical: 20),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.only(
@@ -372,6 +372,7 @@ class _HomeScreenState extends State<HomeScreen> {
             color: Color(0xffE3E7F1),
           ),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text("اللاعبين"),
               Image.asset(
@@ -419,7 +420,7 @@ class _HomeScreenState extends State<HomeScreen> {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       child: Container(
         width: MediaQuery.of(context).size.width * 0.85,
-        height: MediaQuery.of(context).size.height * 0.32,
+        height: MediaQuery.of(context).size.height * 0.42,
         alignment: Alignment.center,
         child: Row(
           children: [
@@ -434,15 +435,14 @@ class _HomeScreenState extends State<HomeScreen> {
                   //      color: Color(0xffF4F7FF),
                 ),
                 child: GridView.count(
-                  childAspectRatio: .88,
-                  primary: false,
+                  childAspectRatio: .65,
                   shrinkWrap: true,
                   crossAxisSpacing: 2,
                   mainAxisSpacing: 2,
                   crossAxisCount: 2,
                   children: [
                     Container(
-                      padding: EdgeInsets.only(top: 15),
+                      padding: EdgeInsets.only(top: 10),
                       child: ColumnMorePlayer(
                           Mediawidth: Mediawidth,
                           Mediaheight: Mediaheight,
@@ -453,7 +453,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               BorderRadius.only(topRight: Radius.circular(20))),
                     ),
                     Container(
-                      padding: EdgeInsets.only(top: 15),
+                      padding: EdgeInsets.only(top: 10),
                       child: ColumnMorePlayer(
                           Mediawidth: Mediawidth,
                           Mediaheight: Mediaheight,
@@ -463,7 +463,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                     Container(
-                      padding: EdgeInsets.only(top: 15),
+                      padding: EdgeInsets.only(top: 10),
                       child: ColumnMorePlayer(
                           Mediawidth: Mediawidth,
                           Mediaheight: Mediaheight,
@@ -474,7 +474,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               bottomRight: Radius.circular(20))),
                     ),
                     Container(
-                      padding: EdgeInsets.only(top: 15),
+                      padding: EdgeInsets.only(top: 10),
                       child: ColumnMorePlayer(
                           Mediawidth: Mediawidth,
                           Mediaheight: Mediaheight,
@@ -498,11 +498,11 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Column ColumnMorePlayer({double Mediawidth, double Mediaheight, Players DataPlayer}) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Container(
           height: MediaQuery.of(context).size.height * 0.07,
-          width: (60 / MediaQuery.of(context).size.width) *
-              MediaQuery.of(context).size.width,
+          width: 0.18 * MediaQuery.of(context).size.width,
           child: CircleAvatar(
               radius: 20,
               backgroundImage: NetworkImage(
@@ -514,11 +514,11 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         Text(
           DataPlayer.name,
-          style: TextStyle(fontSize: 11),
+          style: TextStyle(fontSize: 14),
         ),
         Text(
           DataPlayer.PlayerPlace,
-          style: TextStyle(fontSize: 11),
+          style: TextStyle(fontSize: 12),
         ),
       ],
     );
@@ -689,7 +689,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Image.asset(
                     listSport[index].UrlImage,
                     fit: BoxFit.fill,
-                    //  height: MediaQuery.of(context).size.height * .30,
+
+                    // height: MediaQuery.of(context).size.height * .30,
                     // width: MediaQuery.of(context).size.width,
                   ));
             },
@@ -804,7 +805,9 @@ class _HomeScreenState extends State<HomeScreen> {
                               child: Center(
                                 child: Image.asset(
                                   listSport[index].iconData,
-                                  scale: 3,
+                                  // scale: 3,
+                                  height:
+                                      MediaQuery.of(context).size.height * .05,
                                   color: Colors.white,
                                   //    size: 25,
                                 ),

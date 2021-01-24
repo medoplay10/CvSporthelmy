@@ -76,7 +76,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
         iconData: "assets/images/4.png",
         UrlImage: "assets/images/993.png"),
     Sports(
-        Tital: "جماهير",
+        Tital: "جمهور",
         IconAssets: FontAwesomeIcons.peopleCarry,
         iconData: "assets/images/4.png",
         UrlImage: "assets/images/994.png"),
@@ -155,7 +155,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                   itemBuilder: (context, index) {
                     return InkWell(
                       onTap: () {
-                        if (index == 1) {
+                        if (index == 1 || index == 2 || index == 3) {
                           Navigator.of(context)
                               .push(MaterialPageRoute(builder: (context) {
                             return OneCategory(
@@ -169,6 +169,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                             return OneCategory(
                                 isPlayer: true, itemSport: listSport[index]);
                           }));
+                        } else if (index == 10) {
                         } else {
                           Navigator.of(context)
                               .push(MaterialPageRoute(builder: (context) {
@@ -255,8 +256,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
     return Container(
       alignment: Alignment.center,
       // width: double.infinity,
-      height: (88 / MediaQuery.of(context).size.height) *
-          MediaQuery.of(context).size.height,
+      height: .12 * MediaQuery.of(context).size.height,
       child: ListView.builder(
           itemCount: listCategory.length,
           scrollDirection: Axis.horizontal,
