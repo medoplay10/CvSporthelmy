@@ -70,7 +70,7 @@ class _ShowInormationScreenState extends State<ShowInormationScreen> {
                       SizedBox(
                         width: 8,
                       ),
-                      Text("وضع بالمفضلة",
+                      Text("متابعة اللاعب",
                           style: TextStyle(fontSize: ScreenUtil().setSp(14)))
                     ],
                   ),

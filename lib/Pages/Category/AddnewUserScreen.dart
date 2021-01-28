@@ -113,67 +113,67 @@ class _AddnewUserScreenState extends State<AddnewUserScreen> {
                 ],
               ),
             ),
-            Container(
-              margin: EdgeInsets.only(top: 10),
-              padding: EdgeInsets.all(10),
-              height: MediaQuery.of(context).size.height * 0.08,
-              width: MediaQuery.of(context).size.width * 0.85,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  border: Border.all(color: Colors.grey.shade300)),
-              child: Row(
-                children: [
-                  Icon(
-                    Icons.sports,
-                    //   Icons.flag_outlined,
-                    color: Color(0xff68699C),
-                    size: 28,
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Expanded(
-                    child: DropdownButtonHideUnderline(
-                      child: DropdownButton<String>(
-                        isExpanded: true,
-                        value: dropdownValueGameKindSelect,
-                        hint: Text(
-                          "ممارسة اللعبة",
-                          // 'الجنسية',
-                          style: TextStyle(
-                              fontSize: ScreenUtil().setSp(16),
-                              color: Colors.black),
-                        ),
-                        icon: Icon(
-                          Icons.arrow_drop_down_rounded,
-                          size: 40,
-                          color: Color(0xff68699C),
-                        ),
-                        iconSize: 24,
-                        elevation: 16,
-                        style: TextStyle(color: Colors.deepPurple),
-                        onChanged: (String newValue) {
-                          setState(() {
-                            dropdownValueGameKindSelect = newValue;
-                            print(newValue);
-                            print("dropValueId" + dropdownValueGameKindSelect);
-                          });
-                        },
-                        items: ListGameKindSelect.map((value) {
-                          return DropdownMenuItem<String>(
-                            value: value,
-                            child: Text(value,
-                                style: TextStyle(
-                                    fontSize: ScreenUtil().setSp(14),
-                                    color: Colors.black)),
-                          );
-                        }).toList(),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
+            // Container(
+            //   margin: EdgeInsets.only(top: 10),
+            //   padding: EdgeInsets.all(10),
+            //   height: MediaQuery.of(context).size.height * 0.08,
+            //   width: MediaQuery.of(context).size.width * 0.85,
+            //   decoration: BoxDecoration(
+            //       borderRadius: BorderRadius.circular(20),
+            //       border: Border.all(color: Colors.grey.shade300)),
+            //   child: Row(
+            //     children: [
+            //       Icon(
+            //         Icons.sports,
+            //         //   Icons.flag_outlined,
+            //         color: Color(0xff68699C),
+            //         size: 28,
+            //       ),
+            //       SizedBox(
+            //         width: 10,
+            //       ),
+            //       Expanded(
+            //         child: DropdownButtonHideUnderline(
+            //           child: DropdownButton<String>(
+            //             isExpanded: true,
+            //             value: dropdownValueGameKindSelect,
+            //             hint: Text(
+            //               "ممارسة اللعبة",
+            //               // 'الجنسية',
+            //               style: TextStyle(
+            //                   fontSize: ScreenUtil().setSp(16),
+            //                   color: Colors.black),
+            //             ),
+            //             icon: Icon(
+            //               Icons.arrow_drop_down_rounded,
+            //               size: 40,
+            //               color: Color(0xff68699C),
+            //             ),
+            //             iconSize: 24,
+            //             elevation: 16,
+            //             style: TextStyle(color: Colors.deepPurple),
+            //             onChanged: (String newValue) {
+            //               setState(() {
+            //                 dropdownValueGameKindSelect = newValue;
+            //                 print(newValue);
+            //                 print("dropValueId" + dropdownValueGameKindSelect);
+            //               });
+            //             },
+            //             items: ListGameKindSelect.map((value) {
+            //               return DropdownMenuItem<String>(
+            //                 value: value,
+            //                 child: Text(value,
+            //                     style: TextStyle(
+            //                         fontSize: ScreenUtil().setSp(14),
+            //                         color: Colors.black)),
+            //               );
+            //             }).toList(),
+            //           ),
+            //         ),
+            //       ),
+            //     ],
+            //   ),
+            // ),
             Container(
               margin: EdgeInsets.only(top: 10),
               padding: EdgeInsets.all(10),
