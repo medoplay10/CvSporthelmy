@@ -1,129 +1,147 @@
 import 'package:cv_sports/Pages/home/MainScreen.dart';
+import 'package:cv_sports/Widgets/Globle/BottomApp.dart';
+import 'package:cv_sports/Widgets/Globle/InputFieldMake.dart';
+import 'package:cv_sports/Widgets/Globle/InputPhoneByCountry.dart';
+import 'package:cv_sports/Widgets/Auth/NoHaveAccount.dart';
 import 'package:cv_sports/Widgets/SizeBoxHeight.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 
 import 'SignUp_Screen.dart';
 
 class LoginScreen extends StatelessWidget {
+
+
+
+  FocusNode touchFocusPassword = new FocusNode();
+  FocusNode touchFocusText = new FocusNode();
+
+  final  controllerInputPassword = TextEditingController();
+  final nameUserController = TextEditingController();
+  void unFocus() {
+    touchFocusText.unfocus();
+    touchFocusPassword.unfocus();
+  }
   @override
   Widget build(BuildContext context) {
-    // SystemChrome.setSystemUIOverlayStyle(
-    //     SystemUiOverlayStyle(statusBarColor: Color(0xffF4F7FF)));
-    var Mediaheight = MediaQuery.of(context).size.height;
-    var Mediawidth = MediaQuery.of(context).size.width;
-    print(Mediaheight.toString());
-    return Scaffold(
-      body: Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            alignment: Alignment.topRight,
-            image: AssetImage(
-              "assets/images/login.png",
+
+    return GestureDetector(
+      onTap: ()=> unFocus(),
+      child: Scaffold(
+        body: Container(
+          decoration: BoxDecoration(
+
+            image: DecorationImage(
+              alignment: Alignment.topRight,
+              scale: 1.4,
+              image: AssetImage(
+
+                "assets/images/login.png",
+
+              ),
+              //fit: BoxFit.fitWidth,
             ),
-            //fit: BoxFit.fitWidth,
+            //     shape: BoxShape.circle,
           ),
-          //     shape: BoxShape.circle,
-        ),
-        child: Container(
-          margin: EdgeInsets.only(
-              bottom: MediaQuery.of(context).size.height * .115),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              Container(
-                // margin: EdgeInsets.only(
-                //     top: MediaQuery.of(context).size.height * .40),
-                alignment: Alignment.topCenter,
-                child: Container(
-                  height: MediaQuery.of(context).size.height * .06,
-                  width: MediaQuery.of(context).size.width * 0.75,
-                  child: TextFormField(
-                    style: TextStyle(fontSize: 18, color: Colors.black),
-                    keyboardType: TextInputType.phone,
-                    validator: (input) {
-                      if (input.trim().length == 0) {
-                        return "من فضلك ضع رقمك";
-                      } else if (input.trim().length < 9) {
-                        return "من فضلك ضع 9 ارقام";
-                      }
-                      return null;
-                    },
-                    maxLength: 9,
-                    decoration: InputDecoration(
-                      filled: true,
-                      fillColor: Colors.white,
-                      prefixIcon:
-                          Icon(Icons.phone_android, color: Color(0xff68699C)),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      labelText: "ادخل هاتفك",
-                      counterText: "",
-                      labelStyle:
-                          TextStyle(fontSize: 16, color: Colors.grey.shade700),
-                    ),
-                  ),
+          child: Container(
+            margin: EdgeInsets.only(
+                bottom: MediaQuery.of(context).size.height * .115),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                InputFieldMake(
+                  title: "البريد الالكترونى",
+
+                  inputController: nameUserController,
+                  touchFocus: touchFocusText,
+                  iconInput: Icons.email,
+                  validatorInput: (input) {
+                    if (input.trim().length <= 0) {
+                      return "من فضلك ضع بريدك";
+                    } else if (input.trim().length <= 5) {
+                      return "بريدك لا يجب ان يقل عن 5 حروف";
+                    }
+                    return null;
+                  },
                 ),
-              ),
-              SizedBox(
-                height: 15,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    width: MediaQuery.of(context).size.width * 0.75,
-                    height: (50 / MediaQuery.of(context).size.height) *
-                        MediaQuery.of(context).size.height,
-                    margin: EdgeInsets.only(bottom: 10),
-                    child: RaisedButton(
-                      onPressed: () {
-                        Navigator.of(context).pushReplacement(
-                            MaterialPageRoute(builder: (context) {
+                SizedBox(
+                  height: 10,
+                ),
+                InputFieldMake(
+                  title: "رقم السرى",
+                   hideText: true,
+                  inputController: controllerInputPassword,
+                  touchFocus: touchFocusPassword,
+                  iconInput: Icons.lock,
+                  validatorInput: (input) {
+                    if (input.trim().length <= 0) {
+                      return "من فضلك ضع رقم السرى";
+                    } else if (input.trim().length <= 6) {
+                      return "رقم السرى لا يجب ان يقل عن 6 حروف";
+                    }
+                    return null;
+                  },
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+
+                BottomApp(
+                  title: "signin".tr(),
+                  functionButton:(){
+                    Navigator.of(context).pushReplacement(
+                        MaterialPageRoute(builder: (context) {
                           return MainScreen();
                         }));
-                      },
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10)),
-                      color: Color(0xff2C2B53),
-                      child: Text(
-                        "signin".tr(),
-                        style: TextStyle(color: Colors.white),
+                  },
+                  setWidth: .8,
+                  oneColor: Color(0xff2C2B53),
+                  twoColor: Color(0xff2C2B53),
+                  colorTitle: Colors.white,
+                ),
+
+
+                SizedBox(
+                  height: 8,
+                ),
+                NoHaveAccount(),
+                SizedBox(
+                  height: 12,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    IconButton(
+                      icon: FaIcon(
+                        FontAwesomeIcons.facebook,
+                        color: Color(0xff3b5998),
                       ),
+                      onPressed: () {},
+                      iconSize: 30,
                     ),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 8,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text("noAccount".tr()),
-                  SizedBox(
-                    width: 5,
-                  ),
-                  InkWell(
-                      onTap: () {
-                        Navigator.of(context)
-                            .push(MaterialPageRoute(builder: (context) {
-                          return SignUpScreen();
-                        }));
-                      },
-                      child: Text(
-                        "signUpHere".tr(),
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16,
-                          decoration: TextDecoration.underline,
+                    IconButton(
+                        icon: FaIcon(
+                          FontAwesomeIcons.google,
+                          color: Color(0xffcf2d48),
                         ),
-                      ))
-                ],
-              ),
-            ],
+                        onPressed: () {},
+                        iconSize: 30),
+                    IconButton(
+                        icon: FaIcon(
+                          FontAwesomeIcons.apple,
+                          color: Color(0xff37474f),
+                        ),
+                        //37474f
+                        onPressed: () {},
+                        iconSize: 30),
+
+                  ],
+                )
+              ],
+            ),
           ),
         ),
       ),

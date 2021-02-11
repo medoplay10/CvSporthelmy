@@ -1,4 +1,6 @@
+import 'package:cv_sports/Widgets/Globle/InputFieldMake.dart';
 import 'package:cv_sports/Widgets/SentDataButtom.dart';
+import 'package:cv_sports/Widgets/Globle/seclectData.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -9,6 +11,13 @@ class AddNewClubScreen extends StatelessWidget {
   String CountryCode = "+20";
   PhoneNumber number = PhoneNumber(isoCode: 'EG');
   final TextEditingController controller = TextEditingController();
+  TextEditingController controllerDateTime= TextEditingController();
+
+  TextEditingController controllerName = TextEditingController();
+  FocusNode focusName = new FocusNode();
+
+  TextEditingController controllerPlace = TextEditingController();
+  FocusNode focusPlace = new FocusNode();
 
   @override
   Widget build(BuildContext context) {
@@ -28,12 +37,39 @@ class AddNewClubScreen extends StatelessWidget {
           children: [
             InputImage(),
             //  SizeBoxHeight(Mediaheight: Mediaheight, SizeWant: 15),
-            TextFieldLocal(
-                context: context,
-                TextField: "name".tr(),
-                iconSelect: Icons.person),
-            //    SizeBoxHeight(Mediaheight: Mediaheight, SizeWant: 10),
+            InputFieldMake(
+              title: "اسم النادى",
+              isNumber: true,
+              inputController: controllerName,
+              touchFocus: focusName,
+              iconInput: Icons.person,
+              validatorInput: (input) {
+                if (input.trim().length <= 0) {
+                  return "من فضلك ضع الاسم";
+                } else if (input.trim().length <= 5) {
+                  return "الاسم لا يجب ان يقل عن 5 حروف";
+                }
+                return null;
+              },
+            ),
+
+            InputFieldMake(
+              title: "مقر النادى",
+
+              inputController: controllerPlace,
+              touchFocus: focusPlace,
+              iconInput: Icons.location_on,
+              validatorInput: (input) {
+                if (input.trim().length <= 0) {
+                  return "من فضلك ضع الاسم";
+                } else if (input.trim().length <= 5) {
+                  return "الاسم لا يجب ان يقل عن 5 حروف";
+                }
+                return null;
+              },
+            ),
             InputPhone(context),
+            seclectDateTime(inputController: controllerDateTime,textHint: "تاريخ التاسيس",),
             RowAddTwitter(context),
             RowAddInstagram(context),
             RowAddFacebook(context),
@@ -295,6 +331,7 @@ class AddNewClubScreen extends StatelessWidget {
     return Container(
       margin: EdgeInsets.only(top: 10),
       width: MediaQuery.of(context).size.width * 0.85,
+      padding: EdgeInsets.only(left: 10),
       height: (60 / MediaQuery.of(context).size.height) *
           MediaQuery.of(context).size.height,
       decoration: BoxDecoration(
@@ -302,7 +339,7 @@ class AddNewClubScreen extends StatelessWidget {
         border: Border.all(
           color: Colors.grey.shade300,
         ),
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(10),
       ),
       child: Row(
         children: [
@@ -329,7 +366,7 @@ class AddNewClubScreen extends StatelessWidget {
                 hintText: "ادخل هاتفك",
                 hintStyle: TextStyle(
                     fontSize: ScreenUtil().setSp(16),
-                    color: Colors.grey.shade700),
+                    color: Colors.grey),
                 border: InputBorder.none,
                 errorBorder: InputBorder.none,
                 focusedBorder: InputBorder.none,
@@ -357,7 +394,7 @@ class AddNewClubScreen extends StatelessWidget {
 
   //============================Widget - TextFieldLocal ==================================
   Container TextFieldLocal(
-      {BuildContext context, String TextField, var iconSelect}) {
+      {BuildContext context, String title, var iconSelect}) {
     return Container(
       margin: EdgeInsets.only(top: 10),
       width: MediaQuery.of(context).size.width * 0.85,
@@ -373,7 +410,7 @@ class AddNewClubScreen extends StatelessWidget {
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(20),
           ),
-          labelText: TextField,
+          labelText: title,
           labelStyle: TextStyle(
               fontSize: ScreenUtil().setSp(16), color: Colors.grey.shade700),
         ),

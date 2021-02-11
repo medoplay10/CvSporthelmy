@@ -1,4 +1,9 @@
+import 'package:cv_sports/Pages/home/MainScreen.dart';
+import 'package:cv_sports/Widgets/Globle/BottomApp.dart';
+import 'package:cv_sports/Widgets/Globle/InputDropMenu.dart';
+
 import 'package:cv_sports/Widgets/SentDataButtom.dart';
+import 'package:cv_sports/Widgets/Globle/seclectData.dart';
 import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -29,7 +34,9 @@ class _AddnewUserScreenState extends State<AddnewUserScreen> {
 
   String dropdownValueNationalSelect;
   List<String> ListNationalSelect = ["القاهرة", "مكة المكرمة", "الرياض"];
-
+  TextEditingController controllerDateTime1= TextEditingController();
+  TextEditingController controllerDateTime2= TextEditingController();
+  String dropdownValueCity;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,201 +55,32 @@ class _AddnewUserScreenState extends State<AddnewUserScreen> {
           children: [
             //    InputImage(),
             //  SizeBoxHeight(Mediaheight: Mediaheight, SizeWant: 15),
-            TextFieldLocal(
-                context: context,
-                TextField: "الاسم كامل",
-                iconSelect: Icons.person),
-            Container(
-              margin: EdgeInsets.only(top: 10),
-              padding: EdgeInsets.all(10),
-              height: MediaQuery.of(context).size.height * 0.08,
-              width: MediaQuery.of(context).size.width * 0.85,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  border: Border.all(color: Colors.grey.shade300)),
-              child: Row(
-                children: [
-                  Icon(
-                    Icons.sports_volleyball,
-                    //   Icons.flag_outlined,
-                    color: Color(0xff68699C),
-                    size: 28,
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Expanded(
-                    child: DropdownButtonHideUnderline(
-                      child: DropdownButton<String>(
-                        isExpanded: true,
-                        value: dropdownValueGameSelect,
-                        hint: Text(
-                          "اللعبة",
-                          // 'الجنسية',
-                          style: TextStyle(
-                              fontSize: ScreenUtil().setSp(16),
-                              color: Colors.black),
-                        ),
-                        icon: Icon(
-                          Icons.arrow_drop_down_rounded,
-                          size: 40,
-                          color: Color(0xff68699C),
-                        ),
-                        iconSize: 24,
-                        elevation: 16,
-                        style: TextStyle(color: Colors.deepPurple),
-                        onChanged: (String newValue) {
-                          setState(() {
-                            dropdownValueGameSelect = newValue;
-                            print(newValue);
-                            print("dropValueId" + dropdownValueGameSelect);
-                          });
-                        },
-                        items: ListGameSelect.map((value) {
-                          return DropdownMenuItem<String>(
-                            value: value,
-                            child: Text(value,
-                                style: TextStyle(
-                                    fontSize: ScreenUtil().setSp(14),
-                                    color: Colors.black)),
-                          );
-                        }).toList(),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+
+            InputDropMenu(
+              iconSelect: Icons.sports_volleyball,
+              dropdownValue: dropdownValueGameSelect,
+              listMenu: [ "سباحة", "كرة سلة", "قدم "],
+              textHint: "اللعبة",
+              setWidth: .85,
             ),
-            // Container(
-            //   margin: EdgeInsets.only(top: 10),
-            //   padding: EdgeInsets.all(10),
-            //   height: MediaQuery.of(context).size.height * 0.08,
-            //   width: MediaQuery.of(context).size.width * 0.85,
-            //   decoration: BoxDecoration(
-            //       borderRadius: BorderRadius.circular(20),
-            //       border: Border.all(color: Colors.grey.shade300)),
-            //   child: Row(
-            //     children: [
-            //       Icon(
-            //         Icons.sports,
-            //         //   Icons.flag_outlined,
-            //         color: Color(0xff68699C),
-            //         size: 28,
-            //       ),
-            //       SizedBox(
-            //         width: 10,
-            //       ),
-            //       Expanded(
-            //         child: DropdownButtonHideUnderline(
-            //           child: DropdownButton<String>(
-            //             isExpanded: true,
-            //             value: dropdownValueGameKindSelect,
-            //             hint: Text(
-            //               "ممارسة اللعبة",
-            //               // 'الجنسية',
-            //               style: TextStyle(
-            //                   fontSize: ScreenUtil().setSp(16),
-            //                   color: Colors.black),
-            //             ),
-            //             icon: Icon(
-            //               Icons.arrow_drop_down_rounded,
-            //               size: 40,
-            //               color: Color(0xff68699C),
-            //             ),
-            //             iconSize: 24,
-            //             elevation: 16,
-            //             style: TextStyle(color: Colors.deepPurple),
-            //             onChanged: (String newValue) {
-            //               setState(() {
-            //                 dropdownValueGameKindSelect = newValue;
-            //                 print(newValue);
-            //                 print("dropValueId" + dropdownValueGameKindSelect);
-            //               });
-            //             },
-            //             items: ListGameKindSelect.map((value) {
-            //               return DropdownMenuItem<String>(
-            //                 value: value,
-            //                 child: Text(value,
-            //                     style: TextStyle(
-            //                         fontSize: ScreenUtil().setSp(14),
-            //                         color: Colors.black)),
-            //               );
-            //             }).toList(),
-            //           ),
-            //         ),
-            //       ),
-            //     ],
-            //   ),
-            // ),
-            Container(
-              margin: EdgeInsets.only(top: 10),
-              padding: EdgeInsets.all(10),
-              height: MediaQuery.of(context).size.height * 0.08,
-              width: MediaQuery.of(context).size.width * 0.85,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  border: Border.all(color: Colors.grey.shade300)),
-              child: Row(
-                children: [
-                  Icon(
-                    Icons.location_on_rounded,
-                    //   Icons.flag_outlined,
-                    color: Color(0xff68699C),
-                    size: 28,
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Expanded(
-                    child: DropdownButtonHideUnderline(
-                      child: DropdownButton<String>(
-                        isExpanded: true,
-                        value: dropdownValueNationalSelect,
-                        hint: Text(
-                          "مكان العمل",
-                          // 'الجنسية',
-                          style: TextStyle(
-                              fontSize: ScreenUtil().setSp(16),
-                              color: Colors.black),
-                        ),
-                        icon: Icon(
-                          Icons.arrow_drop_down_rounded,
-                          size: 40,
-                          color: Color(0xff68699C),
-                        ),
-                        iconSize: 24,
-                        elevation: 16,
-                        style: TextStyle(color: Colors.deepPurple),
-                        onChanged: (String newValue) {
-                          setState(() {
-                            dropdownValueNationalSelect = newValue;
-                            print(newValue);
-                            print("dropValueId" + dropdownValueNationalSelect);
-                          });
-                        },
-                        items: ListNationalSelect.map((value) {
-                          return DropdownMenuItem<String>(
-                            value: value,
-                            child: Text(value,
-                                style: TextStyle(
-                                    fontSize: ScreenUtil().setSp(14),
-                                    color: Colors.black)),
-                          );
-                        }).toList(),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+
+            InputDropMenu(
+              iconSelect: Icons.location_on,
+              dropdownValue: dropdownValueCity,
+              listMenu: [ "الاسكندرية", "دبى", "القاهرة"],
+              textHint: "مكان العمل",
+              setWidth: .85,
             ),
-            // TextFieldLocal(
-            //     context: context,
-            //     TextField: "مكان العمل",
-            //     iconSelect: Icons.location_on_rounded),
-            SeclectNational(context),
-            SeclectDate(context: context, title: "تاريخ الميلاد"),
-            SeclectDate(context: context, title: "بداية العقد"),
-            SeclectDate(context: context, title: "نهاية العقد"),
+
+            InputDropMenu(
+              iconSelect: Icons.flag_outlined,
+              dropdownValue: dropdownValueNational,
+              listMenu: [ "البحرين", "السعودية", "مصر "],
+              textHint: "الجنسية",
+              setWidth: .85,
+            ),
+            seclectDateTime(inputController: controllerDateTime1,textHint: "بداية العقد"),
+            seclectDateTime(inputController: controllerDateTime2,textHint: "نهاية العقد"),
             SizedBox(
               height: 10,
             ),
@@ -252,129 +90,27 @@ class _AddnewUserScreenState extends State<AddnewUserScreen> {
             RowAddFacebook(context),
             RowAddSnapchatGhost(context),
             //   Spacer(),
-            SentDataButtom()
+            BottomApp(
+              title:   "التالى",
+              setCircular: 10,
+              functionButton:(){
+                Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(builder: (context) {
+                      return MainScreen();
+                    }));
+              },
+              setWidth: .8,
+              oneColor: Color(0xff2C2B53),
+              twoColor: Color(0xff2C2B53),
+              colorTitle: Colors.white,
+            ),
+
           ],
         ),
       ),
     );
   }
 
-//============================= Seclect National =======================
-  Container SeclectNational(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(top: 10),
-      padding: EdgeInsets.all(10),
-      height: MediaQuery.of(context).size.height * 0.08,
-      width: MediaQuery.of(context).size.width * 0.85,
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20),
-          border: Border.all(color: Colors.grey.shade300)),
-      child: Row(
-        children: [
-          Icon(
-            Icons.flag_outlined,
-            color: Color(0xff68699C),
-            size: 28,
-          ),
-          SizedBox(
-            width: 10,
-          ),
-          Expanded(
-            child: DropdownButtonHideUnderline(
-              child: DropdownButton<String>(
-                isExpanded: true,
-                value: dropdownValueNational,
-                hint: Text('الجنسية',
-                    style: TextStyle(
-                        fontSize: ScreenUtil().setSp(16), color: Colors.black)),
-                icon: Icon(
-                  Icons.arrow_drop_down_rounded,
-                  size: 40,
-                  color: Color(0xff68699C),
-                ),
-                iconSize: 24,
-                elevation: 16,
-                style: TextStyle(color: Colors.deepPurple),
-                onChanged: (String newValue) {
-                  setState(() {
-                    dropdownValueNational = newValue;
-                    print("dropdownValueCategory = " + dropdownValueNational);
-                  });
-                },
-                items: <String>['مصرى', 'سعودى'].map((value) {
-                  return DropdownMenuItem<String>(
-                      value: value,
-                      child: Text(value,
-                          style: TextStyle(
-                              fontSize: ScreenUtil().setSp(14),
-                              color: Colors.black)));
-                }).toList(),
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-//========================= Widget Seclect Date ================================
-  Container SeclectDate({BuildContext context, String title}) {
-    return Container(
-      margin: EdgeInsets.only(top: 10),
-      height: MediaQuery.of(context).size.height * 0.09,
-      width: MediaQuery.of(context).size.width * 0.85,
-      padding: EdgeInsets.symmetric(vertical: 8, horizontal: 3),
-      decoration: BoxDecoration(
-        border: Border.all(
-          color: Colors.grey.shade300,
-        ),
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: Row(
-        children: [
-          Expanded(
-            child: DateTimeField(
-              onChanged: (date) {
-                print("date is = " + date.toString());
-              },
-              validator: (date) => date == null ? 'التاريخ لو سمحت' : null,
-              onShowPicker: (context, currentValue) {
-                return showDatePicker(
-                    context: context,
-                    firstDate: DateTime(1940),
-                    initialDate: currentValue ?? DateTime.now(),
-                    lastDate: DateTime(2100));
-              },
-              format: DateFormat("yyyy-MM-dd"),
-              style: TextStyle(
-                  fontSize: ScreenUtil().setSp(16), color: Colors.black),
-              decoration: InputDecoration(
-                filled: true,
-                fillColor: Color(0xffF9FAFF),
-                prefixIcon: Icon(Icons.date_range, color: Color(0xff68699C)),
-                border: InputBorder.none,
-                hintText: title,
-
-                hintStyle: TextStyle(
-                    fontSize: ScreenUtil().setSp(14),
-                    color: Colors.grey.shade700),
-                //    labelText: "date of Birth".tr(),
-                //        labelStyle: TextStyle(fontSize: 16, color: Colors.grey.shade700),
-              ),
-            ),
-          ),
-          Icon(
-            Icons.arrow_drop_down_rounded,
-            size: 40,
-            color: Color(0xff2C2B53),
-          ),
-          SizedBox(
-            width: 8,
-          )
-        ],
-      ),
-    );
-  }
 
 //============================= Row AddT witter =======================
 
@@ -600,136 +336,7 @@ class _AddnewUserScreenState extends State<AddnewUserScreen> {
     );
   }
 
-//============================= Input Image =======================
 
-  Row InputImage() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Container(
-          width: 100,
-          height: 100,
-          child: ClipOval(
-            child: Material(
-              color: Color(0xffC7C9EA), // button color
-              child: InkWell(
-                splashColor: Colors.red, // inkwell color
-                child: SizedBox(
-                    child: Icon(
-                  Icons.shield,
-                  color: Color(0xff68699C),
-                  size: 50,
-                )),
-                onTap: () {},
-              ),
-            ),
-          ),
-        ),
-      ],
-    );
-  }
 
-//============================= Input Phone =======================
 
-  Container InputPhone(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(top: 10),
-      width: MediaQuery.of(context).size.width * 0.85,
-      height: (60 / MediaQuery.of(context).size.height) *
-          MediaQuery.of(context).size.height,
-      decoration: BoxDecoration(
-        color: Colors.white,
-        border: Border.all(
-          color: Colors.grey.shade300,
-        ),
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: Row(
-        children: [
-          SizedBox(
-            width: 10,
-          ),
-          Icon(
-            Icons.phone,
-            color: Color(0xff68699C),
-          ),
-          SizedBox(
-            width: 15,
-          ),
-          Flexible(
-            // flex: 3,
-            child: InternationalPhoneNumberInput(
-              textStyle: TextStyle(
-                  fontSize: ScreenUtil().setSp(18), color: Colors.black),
-              onInputChanged: (PhoneNumber number) {
-                print(number.phoneNumber);
-              },
-              maxLength: 10,
-              inputDecoration: InputDecoration(
-                hintText: "ادخل هاتفك",
-                hintStyle: TextStyle(
-                    fontSize: ScreenUtil().setSp(16),
-                    color: Colors.grey.shade700),
-                border: InputBorder.none,
-                errorBorder: InputBorder.none,
-                focusedBorder: InputBorder.none,
-                disabledBorder: InputBorder.none,
-              ),
-              onInputValidated: (bool value) {
-                print(value);
-              },
-              selectorConfig: SelectorConfig(
-                selectorType: PhoneInputSelectorType.DROPDOWN,
-                backgroundColor: Colors.white,
-              ),
-              ignoreBlank: false,
-              autoValidateMode: AutovalidateMode.disabled,
-              selectorTextStyle: TextStyle(color: Colors.black),
-              initialValue: number,
-              textFieldController: controller,
-              inputBorder: OutlineInputBorder(),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-//============================= Text Field Local  =======================
-
-  Container TextFieldLocal(
-      {BuildContext context, String TextField, var iconSelect}) {
-    return Container(
-      margin: EdgeInsets.only(top: 10),
-      width: MediaQuery.of(context).size.width * 0.85,
-      child: TextFormField(
-        controller: controller,
-        style: TextStyle(fontSize: ScreenUtil().setSp(16), color: Colors.black),
-        decoration: InputDecoration(
-          filled: true,
-          fillColor: Color(0xffF9FAFF),
-          suffixIcon: IconButton(
-            icon: Icon(
-              Icons.clear,
-              color: Color(0xff68699C),
-            ),
-            onPressed: () {
-              controller.clear();
-            },
-            padding: EdgeInsets.only(left: 12),
-          ),
-          prefixIcon: Icon(
-            iconSelect,
-            color: Color(0xff68699C),
-          ),
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(20),
-          ),
-          labelText: TextField,
-          labelStyle: TextStyle(
-              fontSize: ScreenUtil().setSp(14), color: Colors.grey.shade700),
-        ),
-      ),
-    );
-  }
 }

@@ -75,9 +75,9 @@ class OneCategory extends StatelessWidget {
                 shrinkWrap: true,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 3,
-                    crossAxisSpacing: 15.0,
-                    childAspectRatio: 0.82,
-                    mainAxisSpacing: 15.0),
+                    childAspectRatio: 0.85,
+                    crossAxisSpacing: 8.0,
+                    mainAxisSpacing: 8.0),
                 itemBuilder: (context, index) {
                   return Card(
                     elevation: 5,
@@ -86,6 +86,7 @@ class OneCategory extends StatelessWidget {
                     ),
                     child: Container(
                         padding: EdgeInsets.symmetric(vertical: 5),
+                        alignment: Alignment.center,
                         decoration: BoxDecoration(
                             color: Colors.white,
                             border: Border.all(width: 0, color: Colors.white),
@@ -307,14 +308,13 @@ class OneCategory extends StatelessWidget {
           children: [
             Container(
               // padding: EdgeInsets.all(2),
-              width: .16 * Mediawidth,
-              height: .075 * Mediaheight,
+              width: MediaQuery.of(context).size.width * .17,
+              height: MediaQuery.of(context).size.height * .07,
               child: ClipOval(
                 child: Material(
                   color: Colors.transparent, // button color
                   child: Image.asset(
                     SportData.UrlImage,
-                    fit: BoxFit.fill,
                   ),
                 ),
               ),
@@ -324,7 +324,7 @@ class OneCategory extends StatelessWidget {
             ),
             Text(
               SportData.Tital,
-              style: TextStyle(fontSize: ScreenUtil().setSp(11)),
+              style: TextStyle(fontSize: ScreenUtil().setSp(14)),
             ),
             Text(
               "مهاجم",

@@ -7,6 +7,8 @@ import 'package:cv_sports/Pages/PagesProfileScreen/editImageProfile.dart';
 import 'package:cv_sports/Pages/TapsProfileScreen/MyConversationProfileScreen.dart';
 import 'package:cv_sports/Pages/TapsProfileScreen/MyDataProfileScreen.dart';
 import 'package:cv_sports/Pages/TapsProfileScreen/MyPostsProfileScreen.dart';
+import 'package:cv_sports/Widgets/ProfileScreenWidget/ImageAndTextProfile.dart';
+import 'package:cv_sports/Widgets/ProfileScreenWidget/TabsBarProfile.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
@@ -48,11 +50,12 @@ class _ProfileScreenState extends State<ProfileScreen>
         appBar: AppBar(
           automaticallyImplyLeading: false,
           bottom: PreferredSize(
-            preferredSize: Size.fromHeight(185.0),
+            preferredSize: Size.fromHeight( MediaQuery.of(context).size.height * .23),
             child: Column(
               children: [
                 ImageAndTextProfile(),
-                TabsBarCard(context),
+
+                TabsBarProfile(tabController: tabController,)
               ],
             ),
           ),
@@ -99,99 +102,6 @@ class _ProfileScreenState extends State<ProfileScreen>
         ));
   }
 
-  //======================= Widget Image And Text Profile ==============================
-  Center ImageAndTextProfile() {
-    return Center(
-      child: Column(
-        children: [
-          Container(
-            height: (70 / MediaQuery.of(context).size.height) *
-                MediaQuery.of(context).size.height,
-            width: (70 / MediaQuery.of(context).size.width) *
-                MediaQuery.of(context).size.width,
-            child: CircleAvatar(
-                backgroundColor: Colors.transparent,
-                radius: 20,
-                backgroundImage: AssetImage("assets/images/imageprofile.png")),
-          ),
-          Text(
-            "خالد عمر",
-            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-          ),
-          Text(
-            "مهاجم",
-            style: TextStyle(fontSize: 12),
-          )
-        ],
-      ),
-    );
-  }
-
-  //======================= Widget Tabs Bar Card ==============================
-
-  Card TabsBarCard(BuildContext context) {
-    return Card(
-      elevation: 2,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-      child: Container(
-        decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(20),
-            border: Border.all(color: Colors.white)),
-        child: TabBar(
-          controller: tabController,
-          labelPadding: EdgeInsets.all(0),
-          labelColor: Colors.red,
-          indicatorWeight: 0.1,
-          unselectedLabelColor: Colors.black,
-          isScrollable: true,
-
-          onTap: (int i) {
-            Provider.of<ProviderConstants>(context, listen: false)
-                .ChangeIndexTap(Value: i);
-
-            print("Index = " + i.toString());
-          },
-
-          tabs: [
-            Tab(child: ItemTapBar(
-                context: context, Tital: "بياناتي ", indexItem: 0)),
-            Tab(child: ItemTapBar(
-                context: context, Tital: "منشوراتي ", indexItem: 1)),
-            Tab(child: ItemTapBar(
-                context: context, Tital: "محادثات ", indexItem: 2)),
-          ],
-        ),
-      ),
-    );
-  }
-
-  //======================= Widget Item Tap Bar ==============================
-
-  Container ItemTapBar({BuildContext context, String Tital, int indexItem}) {
-    BackgroundColor =
-    indexItem == Provider.of<ProviderConstants>(context).IndexTap
-            ? Color(0xff2C2B53)
-            : Colors.white;
-    TextColor = indexItem == Provider.of<ProviderConstants>(context).IndexTap
-        ? Colors.white
-        : Colors.black;
-    return Container(
-      padding: const EdgeInsets.only(bottom: 5),
-      margin: const EdgeInsets.only(right: 2, left: 2),
-      decoration: BoxDecoration(
-          color: BackgroundColor,
-          borderRadius: BorderRadius.circular(20),
-          border: Border.all(color: Colors.white)),
-      width: MediaQuery.of(context).size.width * 0.28,
-      alignment: Alignment.center,
-      child: Text(
-        Tital,
-        style: TextStyle(
-            fontWeight: FontWeight.bold, color: TextColor, fontSize: 14),
-      ),
-    );
-  }
 
   //============================Widget - displayBottomSheet ==================================
 

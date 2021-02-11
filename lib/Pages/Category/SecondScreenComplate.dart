@@ -1,3 +1,6 @@
+import 'package:cv_sports/Widgets/Globle/InputDropMenu.dart';
+import 'package:cv_sports/Widgets/Globle/InputFieldMake.dart';
+import 'package:cv_sports/Widgets/Globle/seclectData.dart';
 import 'package:flutter/material.dart';
 import 'package:cv_sports/Pages/home/MainScreen.dart';
 import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
@@ -23,147 +26,53 @@ class _SecondScreenComplateState extends State<SecondScreenComplate> {
   int maxLengthEnd = 255;
 
   int maxLengthStart = 255;
+  TextEditingController controllerDateTime1= TextEditingController();
+  TextEditingController controllerDateTime2= TextEditingController();
 
-  List<String> ListGamePractitioner = [
-    "القدم اليمنى",
-    "القدم اليسرى",
-    "كلتا القدمين"
-  ];
-  List<String> ListGameSelect = ["كرة قدم", "كرة طائرة", "مصارعة"];
+  TextEditingController controllerPhone1 = TextEditingController();
+  FocusNode focusPhone1 = new FocusNode();
 
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Column(
         children: [
-          TextFieldLocal(
-              context: context, TextField: "النادى", iconSelect: Icons.person),
-          Container(
-            margin: EdgeInsets.only(top: 10),
-            padding: EdgeInsets.all(10),
-            height: MediaQuery.of(context).size.height * 0.08,
-            width: MediaQuery.of(context).size.width * 0.85,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                border: Border.all(color: Colors.grey.shade300)),
-            child: Row(
-              children: [
-                Icon(
-                  Icons.sports_volleyball,
-                  //   Icons.flag_outlined,
-                  color: Color(0xff2C2B53),
-                  size: 28,
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-                Expanded(
-                  child: DropdownButtonHideUnderline(
-                    child: DropdownButton<String>(
-                      isExpanded: true,
-                      value: dropdownValueGameSelect,
-                      hint: Text(
-                        "اللعبة",
-                        // 'الجنسية',
-                        style: TextStyle(
-                            fontSize: ScreenUtil().setSp(14),
-                            color: Colors.grey),
-                      ),
-                      icon: Icon(
-                        Icons.arrow_drop_down_rounded,
-                        size: 40,
-                        color: Color(0xff2C2B53),
-                      ),
-                      iconSize: 24,
-                      elevation: 16,
-                      style: TextStyle(color: Colors.deepPurple),
-                      onChanged: (String newValue) {
-                        setState(() {
-                          dropdownValueGameSelect = newValue;
-                          print(newValue);
-                          print("dropValueId" + dropdownValueGameSelect);
-                        });
-                      },
-                      items: ListGameSelect.map((value) {
-                        return DropdownMenuItem<String>(
-                          value: value,
-                          child: Text(value,
-                              style: TextStyle(
-                                  fontSize: ScreenUtil().setSp(18),
-                                  color: Colors.grey.shade700)),
-                        );
-                      }).toList(),
-                    ),
-                  ),
-                ),
-              ],
-            ),
+          InputFieldMake(
+            title: "النادى / الاكادمية",
+            isNumber: true,
+            inputController: controllerPhone1,
+            touchFocus: focusPhone1,
+            iconInput: Icons.person,
+            validatorInput: (input) {
+              if (input.trim().length <= 0) {
+                return "من فضلك ضع اسم";
+              } else if (input.trim().length <= 5) {
+                return "الاسم لا يجب ان يقل عن 5 حروف";
+              }
+              return null;
+            },
           ),
-          Container(
-            margin: EdgeInsets.only(top: 10),
-            padding: EdgeInsets.all(10),
-            height: MediaQuery.of(context).size.height * 0.08,
-            width: MediaQuery.of(context).size.width * 0.85,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                border: Border.all(color: Colors.grey.shade300)),
-            child: Row(
-              children: [
-                Icon(
-                  Icons.sports,
-                  //   Icons.flag_outlined,
-                  color: Color(0xff2C2B53),
-                  size: 28,
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-                Expanded(
-                  child: DropdownButtonHideUnderline(
-                    child: DropdownButton<String>(
-                      isExpanded: true,
-                      value: dropdownValueGamePractitioner,
-                      hint: Text(
-                        "ممارسة اللعبة",
-                        // 'الجنسية',
-                        style: TextStyle(
-                            fontSize: ScreenUtil().setSp(16),
-                            color: Colors.grey),
-                      ),
-                      icon: Icon(
-                        Icons.arrow_drop_down_rounded,
-                        size: 40,
-                        color: Color(0xff68699C),
-                      ),
-                      iconSize: 24,
-                      elevation: 16,
-                      style: TextStyle(color: Colors.deepPurple),
-                      onChanged: (String newValue) {
-                        setState(() {
-                          dropdownValueGamePractitioner = newValue;
-                          print(newValue);
-                          print("dropValueId" + dropdownValueGamePractitioner);
-                        });
-                      },
-                      items: ListGamePractitioner.map((value) {
-                        return DropdownMenuItem<String>(
-                          value: value,
-                          child: Text(value,
-                              style: TextStyle(
-                                  fontSize: ScreenUtil().setSp(18),
-                                  color: Colors.grey.shade700)),
-                        );
-                      }).toList(),
-                    ),
-                  ),
-                ),
-              ],
-            ),
+
+          InputDropMenu(
+            iconSelect: Icons.sports_volleyball,
+            dropdownValue: dropdownValueGameSelect,
+            listMenu: [ "سباحة", "كرة سلة", "قدم "],
+            textHint: "اللعبة",
+            setWidth: .85,
           ),
-          SeclectDate(context: context, title: "بداية العقد"),
-          SeclectDate(context: context, title: "نهاية العقد"),
+
+          InputDropMenu(
+            iconSelect: Icons.sports,
+            dropdownValue: dropdownValueGamePractitioner,
+            listMenu: ["يمين", "يسار", "كلا الجهتين"],
+            textHint: "ممارسة اللعبة",
+            setWidth: .85,
+          ),
+          seclectDateTime(inputController: controllerDateTime1,textHint: "بداية العقد"),
+          seclectDateTime(inputController: controllerDateTime2,textHint: "نهاية العقد"),
+
           Container(
-            height: 115,
+            height: MediaQuery.of(context).size.height * .16,
             margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             padding: EdgeInsets.all(2),
             decoration: BoxDecoration(
@@ -191,7 +100,7 @@ class _SecondScreenComplateState extends State<SecondScreenComplate> {
                 filled: true,
                 border: InputBorder.none,
                 hintStyle: TextStyle(fontSize: ScreenUtil().setSp(14)),
-                hintText: "اكتب  هنا",
+                hintText: "السيرة الذاتية",
               ),
             ),
           ),
@@ -213,75 +122,6 @@ class _SecondScreenComplateState extends State<SecondScreenComplate> {
     );
   }
 
-  //========================= Widget Select Date ================================
-
-  Container MakeCustomDropMenu(
-      {BuildContext context,
-      var iconSelect,
-      String title,
-      List<String> dropMenu,
-      String dropValueId}) {
-    return Container(
-      margin: EdgeInsets.only(top: 10),
-      padding: EdgeInsets.all(10),
-      height: MediaQuery.of(context).size.height * 0.08,
-      width: MediaQuery.of(context).size.width * 0.85,
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20),
-          border: Border.all(color: Colors.grey.shade300)),
-      child: Row(
-        children: [
-          Icon(
-            iconSelect,
-            //   Icons.flag_outlined,
-            color: Color(0xff2C2B53),
-            size: 28,
-          ),
-          SizedBox(
-            width: 10,
-          ),
-          Expanded(
-            child: DropdownButtonHideUnderline(
-              child: DropdownButton<String>(
-                isExpanded: true,
-                value: dropValueId,
-                hint: Text(
-                  title,
-                  // 'الجنسية',
-                  style: TextStyle(
-                      fontSize: ScreenUtil().setSp(16), color: Colors.grey),
-                ),
-                icon: Icon(
-                  Icons.arrow_drop_down_rounded,
-                  size: 40,
-                  color: Colors.orange,
-                ),
-                iconSize: 24,
-                elevation: 16,
-                style: TextStyle(color: Colors.deepPurple),
-                onChanged: (String newValue) {
-                  setState(() {
-                    dropValueId = newValue;
-                    print(newValue);
-                    print("dropValueId" + dropValueId);
-                  });
-                },
-                items: dropMenu.map((value) {
-                  return DropdownMenuItem<String>(
-                    value: value,
-                    child: Text(value,
-                        style: TextStyle(
-                            fontSize: ScreenUtil().setSp(18),
-                            color: Colors.grey.shade700)),
-                  );
-                }).toList(),
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
 
 //========================= Widget Seclect Date ================================
   Container SeclectDate({BuildContext context, String title}) {
@@ -289,12 +129,12 @@ class _SecondScreenComplateState extends State<SecondScreenComplate> {
       margin: EdgeInsets.only(top: 10),
       height: MediaQuery.of(context).size.height * 0.09,
       width: MediaQuery.of(context).size.width * 0.85,
-      padding: EdgeInsets.symmetric(vertical: 8, horizontal: 3),
+      padding: EdgeInsets.symmetric(vertical: 8, horizontal: 0),
       decoration: BoxDecoration(
         border: Border.all(
           color: Colors.grey.shade300,
         ),
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(10),
       ),
       child: Row(
         children: [
@@ -330,7 +170,7 @@ class _SecondScreenComplateState extends State<SecondScreenComplate> {
           ),
           Icon(
             Icons.arrow_drop_down_rounded,
-            size: 40,
+            size: 30,
             color: Color(0xff2C2B53),
           ),
           SizedBox(
@@ -341,26 +181,5 @@ class _SecondScreenComplateState extends State<SecondScreenComplate> {
     );
   }
 
-//============================Widget - TextFieldLocal ==================================
-  Container TextFieldLocal(
-      {BuildContext context, String TextField, var iconSelect}) {
-    return Container(
-      height: MediaQuery.of(context).size.height * 0.07,
-      width: MediaQuery.of(context).size.width * 0.85,
-      child: TextFormField(
-        style: TextStyle(fontSize: ScreenUtil().setSp(18), color: Colors.black),
-        decoration: InputDecoration(
-          filled: true,
-          fillColor: Colors.white,
-          prefixIcon: Icon(iconSelect, color: Color(0xff2C2B53)),
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(20),
-          ),
-          labelText: TextField,
-          labelStyle:
-              TextStyle(fontSize: ScreenUtil().setSp(16), color: Colors.grey),
-        ),
-      ),
-    );
-  }
+
 }

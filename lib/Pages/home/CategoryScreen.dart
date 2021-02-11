@@ -120,20 +120,6 @@ class _CategoryScreenState extends State<CategoryScreen> {
         color: Color(0xffF9FAFF),
         child: Column(
           children: [
-            Center(
-                // child: Container(
-                //   height: MediaQuery.of(context).size.height * 0.07,
-                //   width: MediaQuery.of(context).size.width * 0.82,
-                //   decoration: BoxDecoration(
-                //     color: Colors.white,
-                //     border: Border.all(
-                //       color: Colors.grey.shade300,
-                //     ),
-                //     borderRadius: BorderRadius.circular(25),
-                //   ),
-                //   child: rowSearch(),
-                // ),
-                ),
 
             rowListIcon(Mediawidth, Mediaheight, context),
 
@@ -178,12 +164,14 @@ class _CategoryScreenState extends State<CategoryScreen> {
                         }
                       },
                       child: Card(
+
                         elevation: 5,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20.0),
                         ),
                         child: Container(
-                            padding: EdgeInsets.only(top: 15),
+                          alignment: Alignment.center,
+
                             decoration: BoxDecoration(
                                 color: Colors.white,
                                 border:
@@ -208,7 +196,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
       ),
     );
   }
-
+//=============================== row Search ==============================
   Container rowSearch() {
     return Container(
       decoration: BoxDecoration(
@@ -250,7 +238,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
       ),
     );
   }
-
+//=============================== row List Icon ==============================
   Container rowListIcon(
       double Mediawidth, double Mediaheight, BuildContext context) {
     return Container(
@@ -294,7 +282,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
           }),
     );
   }
-
+//=============================== column More Data ==============================
   SingleChildScrollView columnMoreData(
       {double Mediawidth,
       double Mediaheight,

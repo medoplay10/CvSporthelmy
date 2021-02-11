@@ -1,4 +1,8 @@
 import 'package:cv_sports/Pages/SubScreen/MyImagesDataProfile.dart';
+import 'package:cv_sports/Widgets/ProfileScreenWidget/CardInformation.dart';
+import 'package:cv_sports/Widgets/ProfileScreenWidget/CardMyImages.dart';
+import 'package:cv_sports/Widgets/ProfileScreenWidget/RowSocialMediaCards.dart';
+import 'package:cv_sports/Widgets/ProfileScreenWidget/cardPrize.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -10,410 +14,39 @@ class MyDataProfileScreen extends StatelessWidget {
     return SingleChildScrollView(
       child: Column(
         children: [
-          CardInformation(context),
+          CardInformation(),
           Container(
-              margin: EdgeInsets.only(right: 20, top: 5),
+              margin: EdgeInsets.only(right: 20, top: 10),
               alignment: Alignment.centerRight,
               child: Text("الجوائز")),
-          CardAwards(context),
+          //CardAwards(context),
+          CardPrize(imagePrize: "assets/images/trophy.png", namePrize: "الدورى المصرى",numPrize: 5,totalPrize: 10,),
           Container(
-              margin: EdgeInsets.only(right: 20, top: 5),
+              margin: EdgeInsets.only(right: 20, top: 10),
               alignment: Alignment.centerRight,
               child: Text("الميداليات")),
-          CardMedals(context),
+          CardPrize(imagePrize: "assets/images/medal.png", namePrize: "افضل لاعب فى العالم",numPrize: 5,totalPrize: 10,),
           Container(
-              margin: EdgeInsets.only(right: 20, top: 0),
+              margin: EdgeInsets.only(right: 20, top: 10),
               alignment: Alignment.centerRight,
               child: Text("وسائل التواصل")),
-          RowSocialMediaCards(context),
+          RowSocialMediaCards(),
           Container(
-              margin: EdgeInsets.only(right: 20, top: 5),
+              margin: EdgeInsets.only(right: 20, top: 10),
               alignment: Alignment.centerRight,
               child: Text("صورى")),
-          CardMyImages(context),
-          SizedBox(
-            height: (10 / MediaQuery.of(context).size.height) *
-                MediaQuery.of(context).size.height,
-          )
+          CardMyImages(),
+
         ],
       ),
     );
   }
 
-  Container CardInformation(BuildContext context) {
-    return Container(
-      width: MediaQuery.of(context).size.width * 0.85,
-      // height: MediaQuery.of(context).size.height * 0.18,
-      decoration: BoxDecoration(
-          //   color: BackgroundColor,
-          borderRadius: BorderRadius.circular(20),
-          border: Border.all(color: Colors.white)),
-      child: Card(
-        margin: EdgeInsets.only(top: 10),
-        elevation: 2,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-        child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 15, vertical: 15),
-          child: Column(
-            children: [
-              RowInformation(
-                  title: "تاريخ الميلاد",
-                  content: "24/10/1985",
-                  iconTitle: Icons.calendar_today),
-              RowInformation(
-                  title: "الجنسية", content: "سعودي", iconTitle: Icons.flag),
-              RowInformation(
-                  title: "المدينة",
-                  content: "الرياض",
-                  iconTitle: Icons.location_on_rounded),
-              RowInformation(
-                  title: "الطول", content: "184", iconTitle: Icons.height),
-              RowInformation(
-                  title: "الوزن", content: "76", iconTitle: Icons.anchor),
-              RowInformation(
-                  title: "النادى/الاكاديمية",
-                  content: "اتحاد جدة",
-                  iconTitle: Icons.person),
-              RowInformation(
-                  title: "ممارسة اللعبة",
-                  content: "يمين",
-                  iconTitle: Icons.sports),
-              RowInformation(
-                  title: "بداية العقد",
-                  content: "24/10/1985",
-                  iconTitle: Icons.calendar_today),
-              RowInformation(
-                  title: "نهاية العقد",
-                  content: "24/10/1985",
-                  iconTitle: Icons.calendar_today),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
 
-  Column RowInformation({String title, var iconTitle, String content}) {
-    return Column(
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Row(
-              children: [
-                Icon(
-                  iconTitle,
-                  color: Color(0xff68699C),
-                ),
-                SizedBox(
-                  width: 5,
-                ),
-                Text(title, style: TextStyle(fontSize: 14)),
-              ],
-            ),
-            Text(
-              content,
-              style: TextStyle(fontSize: 14, color: Color(0xff2C2B53)),
-            ),
-          ],
-        ),
-        Divider(
-          height: 10,
-          color: Colors.grey,
-        )
-      ],
-    );
-  }
 
-  //======================= Widget Row Social Media Cards ==============================
 
-  Container RowSocialMediaCards(BuildContext context) {
-    return Container(
-      width: MediaQuery.of(context).size.width * 0.85,
-      height: MediaQuery.of(context).size.height * 0.09,
-      margin: EdgeInsets.only(bottom: 0),
-      decoration: BoxDecoration(
-          //    color: BackgroundColor,
-          borderRadius: BorderRadius.circular(20),
-          border: Border.all(color: Colors.white)),
-      child: Card(
-        margin: EdgeInsets.all(0),
-        elevation: 2,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            IconButton(
-              icon: FaIcon(
-                FontAwesomeIcons.twitter,
-                color: Color(0xff21A9F4),
-              ),
-              onPressed: () {},
-              iconSize: 30,
-            ),
-            IconButton(
-                icon: FaIcon(
-                  FontAwesomeIcons.instagram,
-                  color: Color(0xffFFDD55),
-                ),
-                onPressed: () {},
-                iconSize: 30),
-            IconButton(
-                icon: FaIcon(
-                  FontAwesomeIcons.facebook,
-                  color: Color(0xff1977F2),
-                ),
-                //FFEB3B
-                onPressed: () {},
-                iconSize: 30),
-            IconButton(
-                icon: FaIcon(
-                  FontAwesomeIcons.snapchatGhost,
-                  color: Color(0xffFFEB3B),
-                ),
-                onPressed: () {},
-                iconSize: 30),
-          ],
-        ),
-      ),
-    );
-  }
 
-  //======================= Widget Card Awards ==============================
 
-  Container CardAwards(BuildContext context) {
-    return Container(
-      width: MediaQuery.of(context).size.width * 0.85,
-      height: MediaQuery.of(context).size.height * 0.18,
-      decoration: BoxDecoration(
-        //     color: BackgroundColor,
-          borderRadius: BorderRadius.circular(20),
-          border: Border.all(color: Colors.white)),
-      child: Card(
-        margin: EdgeInsets.all(0),
-        elevation: 2,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-        child: Row(
-          children: [
-            Expanded(
-              child: Container(
-                margin: EdgeInsets.symmetric(horizontal: 8, vertical: 18),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Container(
-                      width: 100,
-                      child: SingleChildScrollView(
-                        child: Column(
-                          children: [
-                            Image.asset(
-                              "assets/images/trophy.png",
-                              fit: BoxFit.fill,
-                              height: MediaQuery.of(context).size.height * 0.05,
-                            ),
-                            Text(
-                              "الدوري السعودي",
-                              style: TextStyle(fontSize: 12),
-                            ),
-                            Text("8")
-                          ],
-                        ),
-                      ),
-                    ),
-                    SizedBox(width: 10),
-                    Container(
-                      width: 100,
-                      child: SingleChildScrollView(
-                        child: Column(
-                          children: [
-                            Image.asset(
-                              "assets/images/trophy.png",
-                              fit: BoxFit.fill,
-                              height: MediaQuery.of(context).size.height * 0.05,
-                            ),
-                            Text("الدوري السعودي",
-                                style: TextStyle(fontSize: 12)),
-                            Text("8")
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            Container(
-              alignment: Alignment.center,
-              margin: EdgeInsets.symmetric(vertical: 2),
-              decoration: BoxDecoration(
-                  color: Color(0xffE7EBF8),
-                  borderRadius: BorderRadius.circular(20),
-                  border: Border.all(color: Colors.white)),
-              //         height: MediaQuery.of(context).size.height * 0.40,
-              width: MediaQuery.of(context).size.width * 0.15,
-              child: Text("+2"),
-            )
-          ],
-        ),
-      ),
-    );
-  }
-
-  //======================= Widget Card Medals ==============================
-
-  Container CardMedals(BuildContext context) {
-    return Container(
-      width: MediaQuery.of(context).size.width * 0.85,
-      height: MediaQuery.of(context).size.height * 0.18,
-      decoration: BoxDecoration(
-        //     color: BackgroundColor,
-          borderRadius: BorderRadius.circular(20),
-          border: Border.all(color: Colors.white)),
-      child: Card(
-        margin: EdgeInsets.all(0),
-        elevation: 2,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-        child: Row(
-          children: [
-            Expanded(
-              child: Container(
-                margin: EdgeInsets.symmetric(horizontal: 5, vertical: 18),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Container(
-                      width: 100,
-                      child: SingleChildScrollView(
-                        child: Column(
-                          children: [
-                            Image.asset(
-                              "assets/images/medal.png",
-                              fit: BoxFit.fill,
-                              height: MediaQuery.of(context).size.height * 0.05,
-                            ),
-                            Text("افضل لاعب", style: TextStyle(fontSize: 12)),
-                            Text("8")
-                          ],
-                        ),
-                      ),
-                    ),
-                    SizedBox(width: 10),
-                    Container(
-                      width: 100,
-                      child: SingleChildScrollView(
-                        child: Column(
-                          children: [
-                            Image.asset(
-                              "assets/images/medal.png",
-                              fit: BoxFit.fill,
-                              height: MediaQuery.of(context).size.height * 0.05,
-                            ),
-                            Text("افضل صانع لعب",
-                                style: TextStyle(fontSize: 12)),
-                            Text("8")
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            Container(
-              alignment: Alignment.center,
-              margin: EdgeInsets.symmetric(vertical: 2),
-              decoration: BoxDecoration(
-                  color: Color(0xffE7EBF8),
-                  borderRadius: BorderRadius.circular(20),
-                  border: Border.all(color: Colors.white)),
-              //         height: MediaQuery.of(context).size.height * 0.40,
-              width: MediaQuery.of(context).size.width * 0.15,
-              child: Text("+2"),
-            )
-          ],
-        ),
-      ),
-    );
-  }
-
-  //======================= Widget Card MyImages ==============================
-
-  Container CardMyImages(BuildContext context) {
-    return Container(
-      width: MediaQuery.of(context).size.width * 0.85,
-      height: MediaQuery.of(context).size.height * 0.18,
-      decoration: BoxDecoration(
-        //    color: BackgroundColor,
-          borderRadius: BorderRadius.circular(20),
-          border: Border.all(color: Colors.white)),
-      child: Card(
-        margin: EdgeInsets.all(0),
-        elevation: 2,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-        child: Row(
-          children: [
-            Expanded(
-              child: Container(
-                margin: EdgeInsets.symmetric(horizontal: 10, vertical: 15),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Flexible(
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(12.0),
-                        child: Image.network(
-                          "https://ronaldo.com/wp-content/uploads/2020/03/GettyImages-1201273079-1208205794-1209769370.jpg",
-                          height: (200 / MediaQuery.of(context).size.height) *
-                              MediaQuery.of(context).size.height,
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      width: (20 / MediaQuery.of(context).size.width) *
-                          MediaQuery.of(context).size.width,
-                    ),
-                    Flexible(
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(12.0),
-                        child: Image.network(
-                          "https://ronaldo.com/wp-content/uploads/2020/03/GettyImages-1201273079-1208205794-1209769370.jpg",
-                          height: (200 / MediaQuery.of(context).size.height) *
-                              MediaQuery.of(context).size.height,
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            InkWell(
-              onTap: () {
-                Navigator.of(context)
-                    .push(MaterialPageRoute(builder: (context) {
-                  return MyImagesDataProfile();
-                }));
-              },
-              child: Container(
-                alignment: Alignment.center,
-                margin: EdgeInsets.symmetric(vertical: 2),
-                decoration: BoxDecoration(
-                    color: Color(0xffE7EBF8),
-                    borderRadius: BorderRadius.circular(20),
-                    border: Border.all(color: Colors.white)),
-                //         height: MediaQuery.of(context).size.height * 0.40,
-                width: MediaQuery.of(context).size.width * 0.15,
-                child: Text("+2"),
-              ),
-            )
-          ],
-        ),
-      ),
-    );
-  }
-
-  //============================Widget - displayBottomSheet ==================================
 
   void displayBottomSheet(BuildContext context) {
     showModalBottomSheet(

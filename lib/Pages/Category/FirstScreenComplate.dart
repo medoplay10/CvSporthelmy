@@ -1,3 +1,5 @@
+import 'package:cv_sports/Widgets/Globle/InputDropMenu.dart';
+import 'package:cv_sports/Widgets/Globle/InputFieldMake.dart';
 import 'package:flutter/material.dart';
 
 import 'package:cv_sports/Pages/home/MainScreen.dart';
@@ -16,6 +18,12 @@ class _FirstScreenComplateState extends State<FirstScreenComplate> {
   String dropdownValue = 'KG';
   int currentStep = 0;
   String dropdownValueNational;
+  String dropdownValueCity;
+
+  String dropdownValuePerson;
+
+  TextEditingController controllerHight = TextEditingController();
+  FocusNode focusHight= new FocusNode();
 
   @override
   Widget build(BuildContext context) {
@@ -27,16 +35,38 @@ class _FirstScreenComplateState extends State<FirstScreenComplate> {
         //   maxLines: 2,
         // ),
         CardSelected(),
-        SeclectNational(context),
+        InputDropMenu(
+          iconSelect: Icons.flag_outlined,
+          dropdownValue: dropdownValueNational,
+          listMenu: [ "البحرين", "السعودية", "مصر "],
+          textHint: "الجنسية",
+          setWidth: .85,
+        ),
         SeclectDate(context),
-        TextFieldLocal(
-            context: context,
-            TextField: "المدينة",
-            iconSelect: Icons.location_on_rounded),
-        TextFieldLocal(
-            context: context,
-            TextField: "Length".tr(),
-            iconSelect: Icons.height),
+        InputDropMenu(
+          iconSelect: Icons.location_on,
+          dropdownValue: dropdownValueCity,
+          listMenu: [ "الاسكندرية", "دبى", "القاهرة"],
+          textHint: "المدينة",
+          setWidth: .85,
+        ),
+        SizedBox(height: 10,),
+        InputFieldMake(
+          title: "Length".tr(),
+          isNumber: true,
+          inputController: controllerHight,
+          touchFocus: focusHight,
+          iconInput: Icons.height,
+          validatorInput: (input) {
+            if (input.trim().length <= 0) {
+              return "من فضلك ضع اسم";
+            } else if (input.trim().length <= 5) {
+              return "الاسم لا يجب ان يقل عن 5 حروف";
+            }
+            return null;
+          },
+        ),
+
         InputWeight(context),
         // SizeBox_Space(Mediaheight: Mediaheight, SizeWant: 40),
         //   BtnGoMainScreen(context),
@@ -44,64 +74,6 @@ class _FirstScreenComplateState extends State<FirstScreenComplate> {
     );
   }
 
-  //========================= Widget Select Date ================================
-
-  Container SeclectNational(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(top: 10),
-      padding: EdgeInsets.all(10),
-      height: MediaQuery.of(context).size.height * 0.08,
-      width: MediaQuery.of(context).size.width * 0.85,
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20),
-          border: Border.all(color: Colors.grey.shade300)),
-      child: Row(
-        children: [
-          Icon(
-            Icons.flag_outlined,
-            color: Color(0xff2C2B53),
-            size: 28,
-          ),
-          SizedBox(
-            width: 10,
-          ),
-          Expanded(
-            child: DropdownButtonHideUnderline(
-              child: DropdownButton<String>(
-                isExpanded: true,
-                value: dropdownValueNational,
-                hint: Text('الجنسية',
-                    style: TextStyle(
-                        fontSize: ScreenUtil().setSp(16), color: Colors.grey)),
-                icon: Icon(
-                  Icons.arrow_drop_down_rounded,
-                  size: 40,
-                  color: Color(0xff2C2B53),
-                ),
-                iconSize: 24,
-                elevation: 16,
-                style: TextStyle(color: Colors.deepPurple),
-                onChanged: (String newValue) {
-                  setState(() {
-                    dropdownValueNational = newValue;
-                    print("dropdownValueCategory = " + dropdownValueNational);
-                  });
-                },
-                items: <String>['Egypt', 'Sa'].map((value) {
-                  return DropdownMenuItem<String>(
-                      value: value,
-                      child: Text(value,
-                          style: TextStyle(
-                              fontSize: ScreenUtil().setSp(18),
-                              color: Colors.grey.shade700)));
-                }).toList(),
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
 
 //========================= Widget Seclect Date ================================
   Container SeclectDate(BuildContext context) {
@@ -109,12 +81,12 @@ class _FirstScreenComplateState extends State<FirstScreenComplate> {
       margin: EdgeInsets.only(top: 10),
       height: MediaQuery.of(context).size.height * 0.09,
       width: MediaQuery.of(context).size.width * 0.85,
-      padding: EdgeInsets.symmetric(vertical: 8, horizontal: 3),
+      padding: EdgeInsets.symmetric(vertical: 8, horizontal: 0),
       decoration: BoxDecoration(
         border: Border.all(
           color: Colors.grey.shade300,
         ),
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(10),
       ),
       child: Row(
         children: [
@@ -145,10 +117,11 @@ class _FirstScreenComplateState extends State<FirstScreenComplate> {
               ),
             ),
           ),
+          SizedBox(height: 10,),
           Icon(
             Icons.arrow_drop_down_rounded,
-            size: 40,
-            color: Color(0xff2C2B53),
+            size: 30,
+            color:Color(0xff2C2B53),
           ),
           SizedBox(
             width: 8,
@@ -158,85 +131,70 @@ class _FirstScreenComplateState extends State<FirstScreenComplate> {
     );
   }
 
-//========================= Widget Btn Go Main Screen ================================
-
-  Container BtnGoMainScreen(BuildContext context) {
-    return Container(
-      width: MediaQuery.of(context).size.width * 0.80,
-      height: (50 / MediaQuery.of(context).size.height) *
-          MediaQuery.of(context).size.height,
-      margin: EdgeInsets.only(bottom: 10),
-      child: RaisedButton(
-        onPressed: () {
-          Navigator.of(context)
-              .pushReplacement(MaterialPageRoute(builder: (context) {
-              return MainScreen();
-            }));
-          },
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-          color: Color(0xff2C2B53),
-          child: Text(
-            "تحديث",
-            style: TextStyle(
-                fontSize: ScreenUtil().setSp(14), color: Colors.white),
-          ),
-        ));
-  }
 
 //========================= Widget Input Weight ================================
 
   Container InputWeight(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: 10, bottom: 10),
+      margin: EdgeInsets.only( bottom: 10,top: 10),
       padding: EdgeInsets.symmetric(horizontal: 8),
       child: Row(
         children: [
-          Flexible(
-              flex: 4,
-              child: TextFieldLocal(
-                  context: context,
-                  TextField: "weight".tr(),
-                  iconSelect: Icons.anchor)),
+
+          InputFieldMake(
+            title: "weight".tr(),
+            setWidth: .55,
+            isNumber: true,
+            inputController: controllerHight,
+            touchFocus: focusHight,
+            iconInput: Icons.anchor,
+            validatorInput: (input) {
+              if (input.trim().length <= 0) {
+                return "من فضلك ضع وزن";
+              } else if (input.trim().length <= 5) {
+                return "وزن لا يجب ان يقل عن 5 حروف";
+              }
+              return null;
+            },
+          ),
+
+
           SizedBox(
             width: 10,
           ),
-          Flexible(
-            flex: 2,
-            child: Container(
-              alignment: Alignment.center,
-              padding: EdgeInsets.all(10),
-              width: MediaQuery.of(context).size.width * 0.85,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  border: Border.all(color: Colors.grey.shade300)),
-              child: DropdownButton(
-                value: dropdownValue,
-                icon: Icon(Icons.arrow_drop_down, color: Color(0xff2C2B53)),
-                iconSize: 24,
-                elevation: 16,
-                //      style: TextStyle(color: Colors.deepPurple),
-                underline: Container(
-                  height: 2,
-                  //         color: Colors.deepPurpleAccent,
-                ),
-                onChanged: (String newValue) {
-                  setState(() {
-                    dropdownValue = newValue;
-                  });
-                },
-                items: <String>['KG', 'Pound']
-                    .map<DropdownMenuItem<String>>((String value) {
-                  return DropdownMenuItem<String>(
-                      value: value,
-                      child: Text(
-                        value,
-                        style: TextStyle(
-                            fontSize: ScreenUtil().setSp(12),
-                            color: Colors.grey),
-                      ));
-                }).toList(),
+          Container(
+            alignment: Alignment.center,
+            padding: EdgeInsets.all(10),
+            width: MediaQuery.of(context).size.width * 0.25,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                border: Border.all(color: Colors.grey.shade300)),
+            child: DropdownButton(
+              value: dropdownValue,
+              icon: Icon(Icons.arrow_drop_down, color: Color(0xff2C2B53)),
+              iconSize: 24,
+              elevation: 16,
+              //      style: TextStyle(color: Colors.deepPurple),
+              underline: Container(
+                height: 2,
+                //         color: Colors.deepPurpleAccent,
               ),
+              onChanged: (String newValue) {
+                setState(() {
+                  dropdownValue = newValue;
+                });
+              },
+              items: <String>['KG', 'Pound']
+                  .map<DropdownMenuItem<String>>((String value) {
+                return DropdownMenuItem<String>(
+                    value: value,
+                    child: Text(
+                      value,
+                      style: TextStyle(
+                          fontSize: ScreenUtil().setSp(12),
+                          color: Colors.grey),
+                    ));
+              }).toList(),
             ),
           ),
         ],
@@ -332,26 +290,5 @@ class _FirstScreenComplateState extends State<FirstScreenComplate> {
     );
   }
 
-//============================Widget - TextFieldLocal ==================================
-  Container TextFieldLocal(
-      {BuildContext context, String TextField, var iconSelect}) {
-    return Container(
-      margin: EdgeInsets.only(top: 10),
-      height: MediaQuery.of(context).size.height * 0.07,
-      width: MediaQuery.of(context).size.width * 0.85,
-      child: TextFormField(
-        style: TextStyle(fontSize: 18, color: Colors.black),
-        decoration: InputDecoration(
-          filled: true,
-          fillColor: Colors.white,
-          prefixIcon: Icon(iconSelect, color: Color(0xff2C2B53)),
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(20),
-          ),
-          labelText: TextField,
-          labelStyle: TextStyle(fontSize: 16, color: Colors.grey),
-        ),
-      ),
-    );
-  }
+
 }

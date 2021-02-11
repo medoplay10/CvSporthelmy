@@ -1,3 +1,4 @@
+import 'package:cv_sports/Widgets/Globle/BottomApp.dart';
 import 'package:fa_stepper/fa_stepper.dart';
 import 'package:flutter/material.dart';
 import 'package:cv_sports/Pages/home/MainScreen.dart';
@@ -160,7 +161,17 @@ class _AddNewPlayerScreenState extends State<AddNewPlayerScreen> {
       // List the steps you would like to have
       controlsBuilder: (BuildContext context,
           {VoidCallback onStepContinue, VoidCallback onStepCancel}) {
-        return BtnGoMainScreen(context);
+        return BottomApp(
+          title:   "التالى",
+          setCircular: 10,
+          functionButton:(){
+            StepContinue();
+          },
+          setWidth: .8,
+          oneColor: Color(0xff2C2B53),
+          twoColor: Color(0xff2C2B53),
+          colorTitle: Colors.white,
+        );
       },
 
       onStepContinue: () {

@@ -1,5 +1,6 @@
 import 'package:cv_sports/splash_screen.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -37,7 +38,8 @@ class MyApp extends StatelessWidget {
           localizationsDelegates: [
             GlobalMaterialLocalizations.delegate,
             GlobalWidgetsLocalizations.delegate,
-            EasyLocalization.of(context).delegate
+            GlobalCupertinoLocalizations.delegate,
+            DefaultCupertinoLocalizations.delegate
           ],
           supportedLocales: EasyLocalization.of(context).supportedLocales,
           locale: EasyLocalization.of(context).locale,
