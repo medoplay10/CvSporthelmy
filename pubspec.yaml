@@ -46,9 +46,12 @@ dependencies:
   auto_size_text: ^2.1.0
   flutter_screenutil: ^4.0.2+5
   sign_in_with_apple: ^2.5.4
-  flutter_facebook_login: ^3.0.0
-  google_sign_in: ^4.5.9
 
+  google_sign_in: ^4.5.9
+  firebase_core: ^0.7.0
+  sign_button: ^1.0.2
+  firebase_auth: ^0.20.0+1
+  bot_toast: ^3.0.5
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -6,10 +6,15 @@ import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/screenutil_init.dart';
 import 'package:provider/provider.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:bot_toast/bot_toast.dart';
 
 import 'ProviderAll.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  Firebase.initializeApp();
+
   runApp(EasyLocalization(
     child: MyApp(),
     supportedLocales: [Locale('en'), Locale('ar')],
@@ -23,7 +28,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-        statusBarColor: Colors.transparent,
+        systemNavigationBarIconBrightness: Brightness.dark,
+        statusBarBrightness: Brightness.dark,
         //or set color with: Color(0xFF0000FF)
         systemNavigationBarColor: Colors.black,
         statusBarIconBrightness: Brightness.dark,
@@ -33,6 +39,9 @@ class MyApp extends StatelessWidget {
       create: (_) => ProviderConstants(),
       child: ScreenUtilInit(
         child: MaterialApp(
+          builder: BotToastInit(),
+          //1. call BotToastInit
+          navigatorObservers: [BotToastNavigatorObserver()],
           title: 'Cv.Sport',
           debugShowCheckedModeBanner: false,
           localizationsDelegates: [
@@ -43,6 +52,7 @@ class MyApp extends StatelessWidget {
           ],
           supportedLocales: EasyLocalization.of(context).supportedLocales,
           locale: EasyLocalization.of(context).locale,
+
           theme: ThemeData(
             textTheme: TextTheme(
               button: TextStyle(
@@ -105,7 +115,7 @@ class MyApp extends StatelessWidget {
                   fontFamily: 'Tajawal'),
             ),
             hintColor: Color(0xFFE0E3EC),
-            primaryColor: Color(0xFFFD8C44),
+            primaryColor: Colors.white,
             //Color(0xFFFD8C44)
             accentColor: Color(0xFFFFFFFF),
             focusColor: Color(0xFF8C98A8),

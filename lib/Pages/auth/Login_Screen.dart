@@ -1,21 +1,13 @@
-import 'package:cv_sports/Pages/home/MainScreen.dart';
-import 'package:cv_sports/Widgets/Globle/BottomApp.dart';
-import 'package:cv_sports/Widgets/Globle/InputFieldMake.dart';
-import 'package:cv_sports/Widgets/Globle/InputPhoneByCountry.dart';
-import 'package:cv_sports/Widgets/Auth/NoHaveAccount.dart';
-import 'package:cv_sports/Widgets/SizeBoxHeight.dart';
-import 'package:easy_localization/easy_localization.dart';
+import 'package:cv_sports/AuthFuntions/GoogleSignInProvider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:intl_phone_number_input/intl_phone_number_input.dart';
+import 'package:sign_button/create_button.dart';
+import 'package:sign_button/sign_button.dart';
 
-import 'SignUp_Screen.dart';
+import 'package:bot_toast/bot_toast.dart';
+
+
 
 class LoginScreen extends StatelessWidget {
-
-
-
   FocusNode touchFocusPassword = new FocusNode();
   FocusNode touchFocusText = new FocusNode();
 
@@ -27,123 +19,59 @@ class LoginScreen extends StatelessWidget {
   }
   @override
   Widget build(BuildContext context) {
-
-    return GestureDetector(
-      onTap: ()=> unFocus(),
-      child: Scaffold(
-        body: Container(
-          decoration: BoxDecoration(
-
-            image: DecorationImage(
-              alignment: Alignment.topRight,
-              scale: 1.4,
-              image: AssetImage(
-
-                "assets/images/login.png",
-
-              ),
-              //fit: BoxFit.fitWidth,
-            ),
-            //     shape: BoxShape.circle,
+// "assets/images/login.png",
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: Stack(
+        fit: StackFit.expand,
+        alignment: AlignmentDirectional.center,
+        children: [
+          Image.asset(
+            "assets/images/login.png",
+            alignment: Alignment.topRight,
+            scale: 1.2,
           ),
-          child: Container(
-            margin: EdgeInsets.only(
-                bottom: MediaQuery.of(context).size.height * .115),
+          Positioned(
+            bottom: MediaQuery.of(context).size.height *.18,
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                InputFieldMake(
-                  title: "البريد الالكترونى",
-
-                  inputController: nameUserController,
-                  touchFocus: touchFocusText,
-                  iconInput: Icons.email,
-                  validatorInput: (input) {
-                    if (input.trim().length <= 0) {
-                      return "من فضلك ضع بريدك";
-                    } else if (input.trim().length <= 5) {
-                      return "بريدك لا يجب ان يقل عن 5 حروف";
-                    }
-                    return null;
-                  },
-                ),
+                SignInButton(
+                    buttonType: ButtonType.google,
+                    width: MediaQuery.of(context).size.width * .6,
+                    onPressed: () {
+                      GoogleSignInProvider().signGoogleFun(context: context);
+                    }),
                 SizedBox(
                   height: 10,
                 ),
-                InputFieldMake(
-                  title: "رقم السرى",
-                   hideText: true,
-                  inputController: controllerInputPassword,
-                  touchFocus: touchFocusPassword,
-                  iconInput: Icons.lock,
-                  validatorInput: (input) {
-                    if (input.trim().length <= 0) {
-                      return "من فضلك ضع رقم السرى";
-                    } else if (input.trim().length <= 6) {
-                      return "رقم السرى لا يجب ان يقل عن 6 حروف";
-                    }
-                    return null;
-                  },
-                ),
+                SignInButton(
+                    buttonType: ButtonType.apple,
+                    width: MediaQuery.of(context).size.width * .6,
+                    onPressed: () {
+                      BotToast.showText(
+                        text: "جارى التطوير",
+                        contentColor: Colors.blue,
+                      );
+                    }),
                 SizedBox(
-                  height: 15,
+                  height: 10,
                 ),
-
-                BottomApp(
-                  title: "signin".tr(),
-                  functionButton:(){
-                    Navigator.of(context).pushReplacement(
-                        MaterialPageRoute(builder: (context) {
-                          return MainScreen();
-                        }));
-                  },
-                  setWidth: .8,
-                  oneColor: Color(0xff2C2B53),
-                  twoColor: Color(0xff2C2B53),
-                  colorTitle: Colors.white,
-                ),
-
-
+                SignInButton(
+                    buttonType: ButtonType.facebook,
+                    width: MediaQuery.of(context).size.width * .6,
+                    onPressed: () {
+                      BotToast.showText(
+                        text: "جارى التطوير",
+                        contentColor: Colors.blue,
+                      );
+                    }),
                 SizedBox(
-                  height: 8,
+                  height: 10,
                 ),
-                NoHaveAccount(),
-                SizedBox(
-                  height: 12,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    IconButton(
-                      icon: FaIcon(
-                        FontAwesomeIcons.facebook,
-                        color: Color(0xff3b5998),
-                      ),
-                      onPressed: () {},
-                      iconSize: 30,
-                    ),
-                    IconButton(
-                        icon: FaIcon(
-                          FontAwesomeIcons.google,
-                          color: Color(0xffcf2d48),
-                        ),
-                        onPressed: () {},
-                        iconSize: 30),
-                    IconButton(
-                        icon: FaIcon(
-                          FontAwesomeIcons.apple,
-                          color: Color(0xff37474f),
-                        ),
-                        //37474f
-                        onPressed: () {},
-                        iconSize: 30),
-
-                  ],
-                )
               ],
             ),
-          ),
-        ),
+          )
+        ],
       ),
     );
   }

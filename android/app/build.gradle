@@ -41,6 +41,7 @@ android {
         applicationId "com.alexapps.cv_sports"
         minSdkVersion 16
         targetSdkVersion 29
+
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
     }
@@ -60,6 +61,5 @@ flutter {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'com.facebook.android:facebook-login:[8.1)'
-
 }
+apply plugin: 'com.google.gms.google-services'
